@@ -1,0 +1,16 @@
+.codex
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local environment noise
+.DS_Store
+
+# OMX runtime state and logs
+.omx/logs/
+.omx/state/
+.omx/metrics.json
+
+# Matplotlib cache
+.mplconfig/

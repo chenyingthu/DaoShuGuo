@@ -1,0 +1,5 @@
+{
+  "skills_registry": "skills/registry.json",
+  "cognition_registry": "cognition/registry.json",
+  "cognition_asset": "cognition/failed/ieee33_reactive_opt_runtime_failure_0006.yaml"
+}

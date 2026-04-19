@@ -1,0 +1,44 @@
+schema_version: "0.1.0"
+object_type: "run"
+object_id: "run.power.ieee33_reactive_opt.0002"
+object_version: "0.1.0"
+created_at: "2026-04-19T13:00:00Z"
+updated_at: "2026-04-19T13:18:00Z"
+status: "archived"
+metadata: {}
+title: "IEEE33第二次运行失败样例"
+task_ref: "task.power.ieee33_reactive_opt"
+evaluator_ref: "evaluator.power.ieee33_reactive_opt.default"
+run_status: "failed_experiment"
+started_at: "2026-04-19T13:00:00Z"
+ended_at: "2026-04-19T13:18:00Z"
+attempt_index: 2
+parent_run_ref: "run.power.ieee33_reactive_opt.0001"
+trigger_reason: "尝试替代求解策略"
+input_snapshot:
+  task:
+    object_id: "task.power.ieee33_reactive_opt"
+    object_version: "0.1.0"
+  evaluator:
+    object_id: "evaluator.power.ieee33_reactive_opt.default"
+    object_version: "0.1.0"
+skill_refs:
+  used:
+    - object_id: "skill.power.baseline_solver"
+      object_version: "0.1.0"
+  produced:
+    - object_id: "skill.power.reactive_optimizer_candidate"
+      object_version: "0.2.0"
+result_summary:
+  metrics:
+    loss: 140.8
+    voltage_deviation: 0.051
+    constraint_violation: 2
+  baseline_comparison: "worse"
+failure_summary: "候选策略导致约束违反增加，未形成有效改进。"
+artifact_refs:
+  - kind: "log"
+    path: "runs/task001/run_0002.log"
+log_refs:
+  - kind: "stdout"
+    path: "runs/task001/run_0002_stdout.log"

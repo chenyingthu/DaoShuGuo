@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: taste_assessment
+object_id: taste.power.ieee33_reactive_opt.0005
+object_version: 0.1.0
+created_at: '2026-04-19T05:21:40Z'
+updated_at: '2026-04-19T05:21:40Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+run_refs:
+- run.power.ieee33_reactive_opt.0005
+grade: huimo
+grade_reasoning: 当前demo运行未达到评估要求，只适合作为失败讨论材料。
+claim_ceiling: 只能报告当前demo失败，不得包装成有效成果。
+recommended_report_type: discussion_memo
+evidence_refs:
+- evidence.power.ieee33_reactive_opt.0005
+review_status: reviewed

@@ -1,0 +1,44 @@
+schema_version: 0.1.0
+object_type: run
+object_id: run.power.ieee33_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-19T05:16:51Z'
+updated_at: '2026-04-19T05:16:51Z'
+status: archived
+metadata: {}
+title: task001 demo run 0002
+task_ref: task.power.ieee33_reactive_opt
+evaluator_ref: evaluator.power.ieee33_reactive_opt.default
+run_status: failed_experiment
+started_at: '2026-04-19T05:16:51Z'
+ended_at: '2026-04-19T05:16:51Z'
+attempt_index: 2
+trigger_reason: demo_failure
+input_snapshot:
+  task:
+    object_id: task.power.ieee33_reactive_opt
+    object_version: 0.1.0
+  evaluator:
+    object_id: evaluator.power.ieee33_reactive_opt.default
+    object_version: 0.1.0
+skill_refs:
+  used:
+  - object_id: skill.power.baseline_solver
+    object_version: 0.1.0
+  produced:
+  - object_id: skill.power.reactive_optimizer_candidate
+    object_version: 0.2.0
+result_summary:
+  metrics:
+    loss: 140.8
+    voltage_deviation: 0.051
+    constraint_violation: 2
+  baseline_comparison: worse
+  notes: candidate did not meet evaluator criteria
+artifact_refs:
+- kind: metrics
+  path: runs/task001/run_0002/metrics.json
+failure_summary: demo candidate did not satisfy evaluator pass criteria
+agent_trace_refs:
+- kind: trace
+  object_id: agent_trace.power.ieee33_reactive_opt.0002

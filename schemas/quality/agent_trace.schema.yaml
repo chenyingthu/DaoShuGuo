@@ -1,0 +1,89 @@
+schema_id: "agent_trace.schema"
+schema_version: "0.1.0"
+object_type: "agent_trace"
+title: "Agent Trace Schema"
+description: "Agent 行为轨迹对象。用于记录一次运行中的关键决策、阶段推进和可观察行为模式。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - run_ref
+  - agent_role
+  - trace_summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["agent_trace"]
+  object_id:
+    type: string
+    pattern_hint: "agent_trace.<domain>.<problem_name>.<serial>"
+    example: "agent_trace.power.ieee33_reactive_opt.0001"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "archived"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  task_ref:
+    type: string
+  run_ref:
+    type: string
+  agent_role:
+    type: enum
+    allowed: ["task_framing", "skill_builder", "cognition_analyst", "report_writer", "orchestrator"]
+  trace_summary:
+    type: string
+  event_count:
+    type: integer
+    required: false
+  prompt_observation_refs:
+    type: array[string]
+    required: false
+  notable_behaviors:
+    type: array[string]
+    required: false
+  risk_flags:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "agent-trace-run-required"
+    description: "没有 run_ref 的 agent_trace 不成立。"
+  - rule_id: "agent-trace-summary-required"
+    description: "trace_summary 不能为空。"
+
+authoring_notes:
+  - "Agent Trace 用于研究 Agent 行为，不用于替代运行结果。"
+  - "它是观察对象，不是成果对象。"

@@ -1,0 +1,41 @@
+{
+  "candidate_metrics": {
+    "loss": 140.8,
+    "voltage_deviation": 0.051,
+    "constraint_violation": 2
+  },
+  "baseline_metrics": {
+    "loss": 135.0,
+    "voltage_deviation": 0.04,
+    "constraint_violation": 0
+  },
+  "evaluation": {
+    "passed": false,
+    "key_metrics_pass": false,
+    "constraints_pass": false,
+    "comparisons": {
+      "loss": {
+        "candidate": 140.8,
+        "baseline": 135.0,
+        "direction": "lower_is_better",
+        "improved": false,
+        "delta": 5.800000000000011
+      },
+      "voltage_deviation": {
+        "candidate": 0.051,
+        "baseline": 0.04,
+        "direction": "lower_is_better",
+        "improved": false,
+        "delta": 0.010999999999999996
+      },
+      "constraint_violation": {
+        "candidate": 2,
+        "baseline": 0,
+        "direction": "constraint_only",
+        "improved": false,
+        "delta": 2
+      }
+    },
+    "summary": "candidate did not meet evaluator criteria"
+  }
+}

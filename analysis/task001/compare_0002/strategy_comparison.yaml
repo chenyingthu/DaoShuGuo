@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+object_type: strategy_comparison
+object_id: comparison.power.ieee33_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-19T08:46:05Z'
+updated_at: '2026-04-19T08:46:05Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+left_run_ref: run.power.ieee33_reactive_opt.0009
+right_run_ref: run.power.ieee33_reactive_opt.0011
+left_strategy: real_success
+right_strategy: real_weak-shunt_success
+metric_comparisons:
+  loss:
+    left: 185.19927861016066
+    right: 187.25647574368074
+    direction: lower_is_better
+    winner: left
+    delta_right_minus_left: 2.057197133520077
+  voltage_deviation:
+    left: 0.027799589352261404
+    right: 0.03833430911734404
+    direction: lower_is_better
+    winner: left
+    delta_right_minus_left: 0.010534719765082638
+  constraint_violation:
+    left: 0
+    right: 7
+    direction: constraint_only
+    winner: left
+    delta_right_minus_left: 7
+objective_scores:
+  left: 212.99886796242205
+  right: 70225.59078486102
+winner_run_ref: run.power.ieee33_reactive_opt.0009
+summary: 在当前任务下，real_success 与 real_weak-shunt_success 的对照完成，winner=left。
+report_refs:
+- report.power.ieee33_reactive_opt.note_0009
+- report.power.ieee33_reactive_opt.note_0011
+cognition_refs:
+- cognition.power.strategy_comparison_0002

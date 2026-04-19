@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: evidence_bundle
+object_id: evidence.power.ieee33_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-19T05:16:51Z'
+updated_at: '2026-04-19T05:16:51Z'
+status: active
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+evaluator_ref: evaluator.power.ieee33_reactive_opt.default
+run_refs:
+- run.power.ieee33_reactive_opt.0001
+artifact_refs:
+- kind: run
+  path: runs/task001/run_0001/run.yaml
+- kind: metrics
+  path: runs/task001/run_0001/metrics.json
+claim_scope:
+  supported_claims:
+  - 当前demo任务设定下的阶段性结论
+skill_refs:
+- skill.power.reactive_optimizer
+cognition_refs:
+- cognition.power.ieee33_reactive_opt_runtime_0001
+gaps:
+- 未覆盖真实仿真链条
+- 未覆盖多工况比较
+taste_assessment_ref: taste.power.ieee33_reactive_opt.0001
+report_refs:
+- report.power.ieee33_reactive_opt.note_0001

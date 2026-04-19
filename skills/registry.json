@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "registry_type": "skill_registry",
+  "generated_at": "2026-04-19T08:27:35Z",
+  "skills": [
+    {
+      "object_id": "skill.power.baseline_solver",
+      "object_version": "0.1.0",
+      "path": "schemas/samples/skill.baseline.sample.yaml",
+      "status": "active",
+      "last_seen_run_ref": "run.power.ieee33_reactive_opt.0011",
+      "last_seen_at": "2026-04-19T08:27:35Z",
+      "last_used_run_ref": "run.power.ieee33_reactive_opt.0011",
+      "last_used_at": "2026-04-19T08:27:35Z"
+    },
+    {
+      "object_id": "skill.power.reactive_optimizer",
+      "object_version": "0.1.0",
+      "path": "schemas/samples/skill.sample.yaml",
+      "status": "active",
+      "last_seen_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "last_seen_at": "2026-04-19T06:44:22Z",
+      "last_produced_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "last_produced_at": "2026-04-19T06:44:22Z"
+    },
+    {
+      "object_id": "skill.power.reactive_optimizer_candidate",
+      "object_version": "0.2.0",
+      "path": "schemas/samples/skill.candidate.sample.yaml",
+      "status": "draft",
+      "last_seen_run_ref": "run.power.ieee33_reactive_opt.0008",
+      "last_seen_at": "2026-04-19T06:44:22Z",
+      "last_produced_run_ref": "run.power.ieee33_reactive_opt.0008",
+      "last_produced_at": "2026-04-19T06:44:22Z"
+    },
+    {
+      "object_id": "skill.power.weak_bus_shunt_optimizer",
+      "object_version": "0.1.0",
+      "path": "schemas/samples/skill.weak_shunt.sample.yaml",
+      "status": "draft",
+      "last_seen_run_ref": "run.power.ieee33_reactive_opt.0011",
+      "last_seen_at": "2026-04-19T08:27:35Z",
+      "last_produced_run_ref": "run.power.ieee33_reactive_opt.0011",
+      "last_produced_at": "2026-04-19T08:27:35Z"
+    }
+  ]
+}

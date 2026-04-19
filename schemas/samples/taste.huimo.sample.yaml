@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "taste_assessment"
+object_id: "taste.power.ieee33_reactive_opt.0002"
+object_version: "0.1.0"
+created_at: "2026-04-19T14:25:00Z"
+updated_at: "2026-04-19T14:25:00Z"
+status: "reviewed"
+metadata: {}
+task_ref: "task.power.ieee33_reactive_opt"
+run_refs:
+  - "run.power.ieee33_reactive_opt.0002"
+grade: "huimo"
+grade_reasoning: "本轮结果比基线更差，且没有形成可支撑正向主张的材料，最多只能作为失败讨论材料。"
+claim_ceiling: "只能说明替代方案在当前设定下失败，不得包装成有效成果。"
+forbidden_claims:
+  - "提出了新的高质量优化方法"
+recommended_report_type: "discussion_memo"
+review_status: "reviewed"

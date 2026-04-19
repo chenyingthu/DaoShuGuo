@@ -1,0 +1,23 @@
+schema_version: 0.1.0
+object_type: report
+object_id: report.power.ieee33_reactive_opt.memo_0005
+object_version: 0.1.0
+created_at: '2026-04-19T05:21:40Z'
+updated_at: '2026-04-19T05:21:40Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+report_type: discussion_memo
+title: task001 demo report 0005
+summary: demo 失败运行未达到评估要求，应作为失败材料归档。
+evidence_bundle_refs:
+- evidence.power.ieee33_reactive_opt.0005
+taste_assessment_ref: taste.power.ieee33_reactive_opt.0005
+audience: internal_team
+boundary_statement: 本报告仅对应当前demo骨架运行，不构成真实科研结果。
+failure_summary: demo candidate did not satisfy evaluator pass criteria
+next_steps:
+- 接入真实仿真输出
+- 将 demo 闭环替换为真实任务执行
+claim_summary:
+- 只能报告当前demo失败，不得包装成有效成果。

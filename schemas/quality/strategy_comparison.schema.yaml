@@ -1,0 +1,77 @@
+schema_id: "strategy_comparison.schema"
+schema_version: "0.1.0"
+object_type: "strategy_comparison"
+title: "Strategy Comparison Schema"
+description: "两次运行或两类策略之间的结构化对照分析对象。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - left_run_ref
+  - right_run_ref
+  - metric_comparisons
+  - winner_run_ref
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["strategy_comparison"]
+  object_id:
+    type: string
+    pattern_hint: "comparison.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  left_run_ref:
+    type: string
+  right_run_ref:
+    type: string
+  left_strategy:
+    type: string
+    required: false
+  right_strategy:
+    type: string
+    required: false
+  metric_comparisons:
+    type: object
+  objective_scores:
+    type: object
+    required: false
+  winner_run_ref:
+    type: string
+  summary:
+    type: string
+  cognition_refs:
+    type: array[string]
+    required: false
+  report_refs:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "strategy-comparison-run-refs-required"
+    description: "比较对象必须明确左右运行引用。"
+  - rule_id: "strategy-comparison-summary-required"
+    description: "summary 不得为空。"

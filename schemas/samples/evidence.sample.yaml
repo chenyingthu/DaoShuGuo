@@ -1,0 +1,29 @@
+schema_version: "0.1.0"
+object_type: "evidence_bundle"
+object_id: "evidence.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-19T14:30:00Z"
+updated_at: "2026-04-19T14:30:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.ieee33_reactive_opt"
+evaluator_ref: "evaluator.power.ieee33_reactive_opt.default"
+run_refs:
+  - "run.power.ieee33_reactive_opt.0001"
+artifact_refs:
+  - kind: "task"
+    path: "schemas/samples/task.sample.yaml"
+  - kind: "evaluator"
+    path: "schemas/samples/evaluator.sample.yaml"
+  - kind: "run_metrics"
+    path: "runs/task001/run_0001/metrics.json"
+claim_scope:
+  supported_claims:
+    - "当前任务设定下相对基线存在阶段性改进"
+skill_refs:
+  - "skill.power.reactive_optimizer"
+cognition_refs:
+  - "cognition.power.loss_voltage_tradeoff_candidate"
+taste_assessment_ref: "taste.power.ieee33_reactive_opt.0001"
+gaps:
+  - "缺少跨工况验证"

@@ -1,0 +1,100 @@
+schema_id: "evidence_bundle.schema"
+schema_version: "0.1.0"
+object_type: "evidence_bundle"
+title: "Evidence Bundle Schema"
+description: "证据组织对象。用于绑定高层结论与底层事实对象之间的回链关系。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - evaluator_ref
+  - run_refs
+  - artifact_refs
+  - claim_scope
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["evidence_bundle"]
+  object_id:
+    type: string
+    pattern_hint: "evidence.<domain>.<problem_name>.<serial>"
+    example: "evidence.power.ieee33_reactive_opt.0001"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "archived"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  task_ref:
+    type: string
+  evaluator_ref:
+    type: string
+  run_refs:
+    type: array[string]
+  artifact_refs:
+    type: array[object]
+  claim_scope:
+    type: object
+  skill_refs:
+    type: array[string]
+    required: false
+  cognition_refs:
+    type: array[string]
+    required: false
+  taste_assessment_ref:
+    type: string
+    required: false
+  report_refs:
+    type: array[string]
+    required: false
+  evidence_notes:
+    type: string
+    required: false
+  gaps:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "evidence-run-required"
+    description: "没有 run_refs 的证据包不能支撑运行级结论。"
+  - rule_id: "evidence-artifact-required"
+    description: "没有 artifact_refs 的证据包不可审计。"
+  - rule_id: "evidence-claim-scope-required"
+    description: "没有 claim_scope 的证据包容易被滥用，应视为不完整。"
+
+authoring_notes:
+  - "Evidence Bundle 不是附件目录，而是结论与事实之间的绑定层。"
+  - "它可以暴露 gaps，这些空缺本身也是重要信息。"
+  - "Evidence Bundle 可以支持多个报告，但不能被报告重新定义。"

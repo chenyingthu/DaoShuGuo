@@ -1,0 +1,20 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.ieee33_reactive_opt.default"
+object_version: "0.1.0"
+created_at: "2026-04-19T11:50:00Z"
+updated_at: "2026-04-19T11:50:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.ieee33_reactive_opt"
+baseline_kind: "default_method"
+method_summary: "使用默认求解流程作为任务比较基线。"
+artifact_ref:
+  kind: "python_module"
+  path: "skills/validated/baseline_solver.py"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee33_reactive_opt"
+limitations:
+  - "仅覆盖当前默认工况"

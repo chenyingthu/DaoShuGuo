@@ -1,0 +1,164 @@
+schema_id: "run.schema"
+schema_version: "0.1.0"
+object_type: "run"
+title: "Run Schema"
+description: "单次真实执行尝试对象。用于记录事实层运行。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - evaluator_ref
+  - run_status
+  - started_at
+  - input_snapshot
+  - skill_refs
+  - result_summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["run"]
+  object_id:
+    type: string
+    pattern_hint: "run.<domain>.<problem_name>.<serial>"
+    example: "run.power.ieee33_reactive_opt.0001"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "archived"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  task_ref:
+    type: string
+    reference_hint: "Task.object_id"
+  evaluator_ref:
+    type: string
+    reference_hint: "Evaluator.object_id"
+  run_status:
+    type: enum
+    allowed:
+      - queued
+      - running
+      - completed
+      - blocked
+      - failed_experiment
+      - insufficient_evidence
+      - cancelled
+  started_at:
+    type: datetime
+  ended_at:
+    type: datetime
+    required: false
+  attempt_index:
+    type: integer
+    required: false
+  parent_run_ref:
+    type: string
+    required: false
+  trigger_reason:
+    type: string
+    required: false
+  input_snapshot:
+    type: object
+    description: "运行开始时关键对象版本与参数快照。"
+  skill_refs:
+    type: object
+    description: "记录本次运行使用和生成的技能引用。"
+  result_summary:
+    type: object
+    description: "事实性结果摘要，不包含高层研究判断。"
+  artifact_refs:
+    type: array[object]
+    required: false
+  failure_summary:
+    type: string
+    required: false
+  log_refs:
+    type: array[object]
+    required: false
+  environment_summary:
+    type: object
+    required: false
+  agent_trace_refs:
+    type: array[object]
+    required: false
+
+substructures:
+  input_snapshot:
+    required_fields:
+      - task
+      - evaluator
+    field_specs:
+      task:
+        type: object
+        required_fields: [object_id, object_version]
+      evaluator:
+        type: object
+        required_fields: [object_id, object_version]
+  skill_refs:
+    required_fields:
+      - used
+      - produced
+    field_specs:
+      used:
+        type: array[object]
+      produced:
+        type: array[object]
+  result_summary:
+    required_fields:
+      - metrics
+    field_specs:
+      metrics:
+        type: object
+      baseline_comparison:
+        type: string
+        required: false
+      notes:
+        type: string
+        required: false
+
+validation_rules:
+  - rule_id: "run-task-evaluator-required"
+    description: "没有 task_ref 或 evaluator_ref 的 run 不成立。"
+  - rule_id: "run-status-must-be-controlled"
+    description: "run_status 必须使用受控枚举。"
+  - rule_id: "run-result-summary-factual-only"
+    description: "result_summary 只能写事实摘要，不能写重大创新等高层判断。"
+  - rule_id: "run-completed-needs-results"
+    description: "若 run_status 为完成态，必须存在结果摘要。"
+
+authoring_notes:
+  - "Run 是事实记录，不是认知对象。"
+  - "Run 可以说指标变了多少，不能说因此发现了规律。"
+  - "Run 的完成不等于研究成功，只等于本次执行结束。"

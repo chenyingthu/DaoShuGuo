@@ -1,0 +1,71 @@
+{
+  "baseline_solution": {
+    "control_settings": {
+      "ext_grid_vm_pu": 1.0
+    },
+    "metrics": {
+      "loss": 202.67711266923214,
+      "voltage_deviation": 0.051543768676472757,
+      "constraint_violation": 21
+    }
+  },
+  "candidate_solution": {
+    "control_settings": {
+      "ext_grid_vm_pu": 0.99
+    },
+    "metrics": {
+      "loss": 207.45542921099639,
+      "voltage_deviation": 0.062150400079717366,
+      "constraint_violation": 21
+    }
+  },
+  "evaluation": {
+    "passed": false,
+    "key_metrics_pass": false,
+    "constraints_pass": true,
+    "comparisons": {
+      "loss": {
+        "candidate": 207.45542921099639,
+        "baseline": 202.67711266923214,
+        "direction": "lower_is_better",
+        "improved": false,
+        "delta": 4.778316541764241
+      },
+      "voltage_deviation": {
+        "candidate": 0.062150400079717366,
+        "baseline": 0.051543768676472757,
+        "direction": "lower_is_better",
+        "improved": false,
+        "delta": 0.01060663140324461
+      },
+      "constraint_violation": {
+        "candidate": 21,
+        "baseline": 21,
+        "direction": "constraint_only",
+        "improved": true,
+        "delta": 0
+      }
+    },
+    "summary": "candidate did not meet evaluator criteria",
+    "baseline_solution": {
+      "control_settings": {
+        "ext_grid_vm_pu": 1.0
+      },
+      "metrics": {
+        "loss": 202.67711266923214,
+        "voltage_deviation": 0.051543768676472757,
+        "constraint_violation": 21
+      }
+    },
+    "candidate_solution": {
+      "control_settings": {
+        "ext_grid_vm_pu": 0.99
+      },
+      "metrics": {
+        "loss": 207.45542921099639,
+        "voltage_deviation": 0.062150400079717366,
+        "constraint_violation": 21
+      }
+    }
+  }
+}

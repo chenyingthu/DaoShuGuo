@@ -1,0 +1,106 @@
+schema_id: "cognition.schema"
+schema_version: "0.1.0"
+object_type: "cognition"
+title: "Cognition Schema"
+description: "结构化认知对象。用于表达一条由证据支持的理解、边界或失败结论。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - cognition_type
+  - statement
+  - evidence_refs
+  - scope_boundary
+  - confidence_level
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["cognition"]
+  object_id:
+    type: string
+    pattern_hint: "cognition.<domain>.<statement_key>"
+    example: "cognition.power.weak_grid_voltage_support_rule"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "deprecated", "retired"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  cognition_type:
+    type: enum
+    allowed: ["candidate", "stable", "failure", "conflict"]
+  statement:
+    type: string
+  evidence_refs:
+    type: array[string]
+  scope_boundary:
+    type: object
+  confidence_level:
+    type: enum
+    allowed: ["low", "medium", "high"]
+  related_concept_refs:
+    type: array[string]
+    required: false
+  supporting_refs:
+    type: array[string]
+    required: false
+  conflict_refs:
+    type: array[string]
+    required: false
+  derived_from_run_refs:
+    type: array[string]
+    required: false
+  uncertainty_notes:
+    type: string
+    required: false
+  promotion_status:
+    type: enum
+    allowed: ["proposed", "under_review", "accepted", "rejected"]
+    required: false
+  human_review_notes:
+    type: string
+    required: false
+
+validation_rules:
+  - rule_id: "cognition-evidence-required-for-stable"
+    description: "没有 evidence_refs 的认知不得进入稳定态。"
+  - rule_id: "cognition-boundary-required"
+    description: "没有 scope_boundary 的认知不得写成普遍规律。"
+  - rule_id: "cognition-conflict-must-be-explicit"
+    description: "冲突认知必须显式保留冲突关系。"
+
+authoring_notes:
+  - "Cognition 是结构化理解，不是随笔。"
+  - "Cognition 必须和证据链分开表达，但必须能回链证据。"
+  - "Cognition 的可信度不等于成果等级。"

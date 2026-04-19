@@ -1,0 +1,107 @@
+schema_id: "skill.schema"
+schema_version: "0.1.0"
+object_type: "skill"
+title: "Skill Schema"
+description: "可复用执行能力资产对象。用于表达一个技能是什么、如何调用、在何种边界下有效。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - name
+  - capability_statement
+  - input_contract
+  - output_contract
+  - applicability
+  - implementation_ref
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["skill"]
+  object_id:
+    type: string
+    pattern_hint: "skill.<domain>.<capability_name>"
+    example: "skill.power.reactive_optimizer"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "deprecated", "retired"]
+  metadata:
+    type: object
+    required: true
+  name:
+    type: string
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  capability_statement:
+    type: string
+  input_contract:
+    type: object
+  output_contract:
+    type: object
+  applicability:
+    type: object
+  implementation_ref:
+    type: object
+  dependency_refs:
+    type: array[object]
+    required: false
+  replacement_refs:
+    type: array[object]
+    required: false
+  origin_run_refs:
+    type: array[string]
+    required: false
+  validation_refs:
+    type: array[string]
+    required: false
+  failure_conditions:
+    type: array[string]
+    required: false
+  maturity_level:
+    type: enum
+    allowed: ["candidate", "validated", "stable"]
+    required: false
+  usage_notes:
+    type: string
+    required: false
+
+validation_rules:
+  - rule_id: "skill-input-output-required"
+    description: "没有输入输出契约的技能不能注册为稳定技能。"
+  - rule_id: "skill-validation-required-for-validated"
+    description: "没有 validation_refs 的技能不能视为已验证技能。"
+  - rule_id: "skill-applicability-required"
+    description: "没有 applicability 的技能不得被广泛复用。"
+
+authoring_notes:
+  - "Skill 是能力资产，不是研究报告。"
+  - "Skill 应表达如何用，而不是为什么它伟大。"
+  - "Skill 可以来源于某次 run，但不应把 run 事实抄成长篇总结。"

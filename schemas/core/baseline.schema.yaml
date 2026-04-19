@@ -1,0 +1,87 @@
+schema_id: "baseline.schema"
+schema_version: "0.1.0"
+object_type: "baseline"
+title: "Baseline Schema"
+description: "基线对象。用于表达任务比较时所依赖的默认方法、默认配置或既有参考解。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - baseline_kind
+  - method_summary
+  - artifact_ref
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["baseline"]
+  object_id:
+    type: string
+    pattern_hint: "baseline.<domain>.<problem_name>.<variant>"
+    example: "baseline.power.ieee33_reactive_opt.default"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "deprecated", "retired"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  task_ref:
+    type: string
+    reference_hint: "Task.object_id"
+  baseline_kind:
+    type: enum
+    allowed: ["default_method", "literature_method", "historical_result", "human_reference"]
+  method_summary:
+    type: string
+  artifact_ref:
+    type: object
+  applicability:
+    type: object
+    required: false
+  metric_expectations:
+    type: object
+    required: false
+  limitations:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "baseline-task-required"
+    description: "没有 task_ref 的 baseline 无效。"
+  - rule_id: "baseline-artifact-required"
+    description: "没有 artifact_ref 的 baseline 不可审计。"
+
+authoring_notes:
+  - "Baseline 是比较对象，不是成果对象。"
+  - "同一任务可以有多个 baseline，但每个 baseline 都必须说清楚来源。"

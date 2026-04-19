@@ -1,0 +1,132 @@
+schema_id: "evaluator.schema"
+schema_version: "0.1.0"
+object_type: "evaluator"
+title: "Evaluator Schema"
+description: "成效评价对象。用于表达如何判断是否进步。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - evaluation_goal
+  - metric_definitions
+  - baseline_strategy
+  - pass_criteria
+  - execution_entry
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["evaluator"]
+  object_id:
+    type: string
+    pattern_hint: "evaluator.<domain>.<problem_name>.<variant>"
+    example: "evaluator.power.ieee33_reactive_opt.default"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "deprecated", "invalid"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  task_ref:
+    type: string
+    reference_hint: "Task.object_id"
+  evaluation_goal:
+    type: string
+  metric_definitions:
+    type: array[object]
+    description: "每个指标对象至少包含 metric_id、direction。"
+  baseline_strategy:
+    type: object
+    description: "如何获取比较基线。"
+  pass_criteria:
+    type: object
+    description: "什么条件下可视为本轮结果有效。"
+  execution_entry:
+    type: object
+    description: "执行入口，例如脚本、模块或命令。"
+  preconditions:
+    type: array[string]
+    required: false
+  postconditions:
+    type: array[string]
+    required: false
+  failure_modes:
+    type: array[string]
+    required: false
+  comparison_mode:
+    type: enum
+    allowed: ["baseline_only", "baseline_and_constraint", "multi_baseline"]
+    required: false
+  stability_checks:
+    type: array[string]
+    required: false
+  blind_spots:
+    type: array[string]
+    required: false
+  evidence_outputs:
+    type: array[string]
+    required: false
+
+substructures:
+  metric_definition:
+    required_fields:
+      - metric_id
+      - direction
+    field_specs:
+      metric_id:
+        type: string
+      direction:
+        type: enum
+        allowed: ["higher_is_better", "lower_is_better", "target_is_best", "constraint_only"]
+      unit:
+        type: string
+        required: false
+      description:
+        type: string
+        required: false
+
+validation_rules:
+  - rule_id: "evaluator-task-ref-required"
+    description: "没有 task_ref 的 evaluator 无效。"
+  - rule_id: "evaluator-metric-required"
+    description: "没有 metric_definitions 的 evaluator 无法比较。"
+  - rule_id: "evaluator-baseline-required"
+    description: "没有 baseline_strategy 的 evaluator 不得声称进步。"
+  - rule_id: "evaluator-pass-criteria-must-be-explicit"
+    description: "pass_criteria 不能只写成效果更好。"
+
+authoring_notes:
+  - "Evaluator 独立于具体技能实现。"
+  - "Evaluator 可以暴露盲区，但不能越权解释机理。"
+  - "Evaluator 的目标是产生可信比较，不是产生漂亮结论。"

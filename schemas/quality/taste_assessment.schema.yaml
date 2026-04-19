@@ -1,0 +1,100 @@
+schema_id: "taste_assessment.schema"
+schema_version: "0.1.0"
+object_type: "taste_assessment"
+title: "Taste Assessment Schema"
+description: "成果分级对象。用于表达一轮产出的玉石木墨等级及可接受主张上限。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - run_refs
+  - grade
+  - grade_reasoning
+  - claim_ceiling
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["taste_assessment"]
+  object_id:
+    type: string
+    pattern_hint: "taste.<domain>.<problem_name>.<serial>"
+    example: "taste.power.ieee33_reactive_opt.0001"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "locked"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+    required: false
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  task_ref:
+    type: string
+  run_refs:
+    type: array[string]
+  grade:
+    type: enum
+    allowed: ["tuoyu", "zhuoshi", "diaomu", "huimo"]
+  grade_reasoning:
+    type: string
+  claim_ceiling:
+    type: string
+  risk_notes:
+    type: array[string]
+    required: false
+  forbidden_claims:
+    type: array[string]
+    required: false
+  recommended_report_type:
+    type: enum
+    allowed: ["paper_draft", "technical_note", "experiment_record", "discussion_memo"]
+    required: false
+  evidence_refs:
+    type: array[string]
+    required: false
+  review_status:
+    type: enum
+    allowed: ["draft", "reviewed", "locked"]
+    required: false
+
+validation_rules:
+  - rule_id: "taste-grade-must-be-controlled"
+    description: "grade 必须来自受控枚举。"
+  - rule_id: "taste-reasoning-required"
+    description: "grade_reasoning 不得只写空泛褒贬词。"
+  - rule_id: "taste-run-refs-required"
+    description: "没有 run_refs 的分级不成立。"
+
+authoring_notes:
+  - "Taste Assessment 是派生判断，不是原始事实。"
+  - "分级必须基于证据和边界，不基于文风。"
+  - "claim_ceiling 用于限制表达，不用于制造更高等级。"

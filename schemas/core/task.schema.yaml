@@ -1,0 +1,120 @@
+schema_id: "task.schema"
+schema_version: "0.1.0"
+object_type: "task"
+title: "Task Schema"
+description: "研究任务定义对象。用于表达研究什么、边界是什么、目标方向是什么。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - title
+  - research_object
+  - problem_statement
+  - scenario_boundary
+  - success_intent
+  - baseline_refs
+  - constraint_summary
+
+field_specs:
+  schema_version:
+    type: string
+    description: "当前对象所遵循的 schema 版本。"
+  object_type:
+    type: enum
+    allowed: ["task"]
+  object_id:
+    type: string
+    pattern_hint: "task.<domain>.<problem_name>"
+    example: "task.power.ieee33_reactive_opt"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+    example: "0.1.0"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "blocked", "archived", "invalid"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  research_object:
+    type: string
+    description: "研究对象本体。"
+  problem_statement:
+    type: string
+    description: "当前任务要解决的核心问题。"
+  scenario_boundary:
+    type: object
+    description: "任务的工况、场景和边界条件。"
+  success_intent:
+    type: object
+    description: "目标方向，不是最终研究结论。"
+  baseline_refs:
+    type: array[string]
+    description: "基线对象或基线定义引用。"
+  constraint_summary:
+    type: object
+    description: "物理、工程、数据、计算等约束摘要。"
+  motivation:
+    type: string
+    required: false
+  importance_level:
+    type: enum
+    allowed: ["low", "medium", "high"]
+    required: false
+  domain_context:
+    type: object
+    required: false
+  input_artifacts:
+    type: array[object]
+    required: false
+  target_metrics:
+    type: array[string]
+    required: false
+  risk_hypotheses:
+    type: array[string]
+    required: false
+  assumptions:
+    type: array[string]
+    required: false
+  owner_notes:
+    type: string
+    required: false
+
+validation_rules:
+  - rule_id: "task-research-object-required"
+    description: "没有 research_object 的任务无效。"
+  - rule_id: "task-scenario-boundary-required"
+    description: "没有 scenario_boundary 的任务不得进入 evaluator 编译。"
+  - rule_id: "task-baseline-required"
+    description: "没有 baseline_refs 的任务不得进入正式成效比较。"
+  - rule_id: "task-success-intent-not-claim"
+    description: "success_intent 只能表达目标方向，不能直接写成研究结论。"
+
+authoring_notes:
+  - "Task 是定义对象，不是报告对象。"
+  - "Task 中不得写入本轮已经证明了什么。"
+  - "Task 可以表达价值判断，但不能替代 evaluator。"

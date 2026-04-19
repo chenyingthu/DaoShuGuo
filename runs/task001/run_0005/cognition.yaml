@@ -1,0 +1,19 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.ieee33_reactive_opt_runtime_failure_0005
+object_version: 0.1.0
+created_at: '2026-04-19T05:21:40Z'
+updated_at: '2026-04-19T05:21:40Z'
+status: active
+metadata: {}
+cognition_type: failure
+statement: 当前demo失败运行表明，替代候选技能在该任务设定下不能稳定满足约束。
+evidence_refs:
+- run.power.ieee33_reactive_opt.0005
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+  mode: demo_failure
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee33_reactive_opt.0005
+promotion_status: proposed

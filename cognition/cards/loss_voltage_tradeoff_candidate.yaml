@@ -1,0 +1,21 @@
+schema_version: "0.1.0"
+object_type: "cognition"
+object_id: "cognition.power.loss_voltage_tradeoff_candidate"
+object_version: "0.1.0"
+created_at: "2026-04-19T14:10:00Z"
+updated_at: "2026-04-19T14:10:00Z"
+status: "active"
+metadata: {}
+cognition_type: "candidate"
+statement: "在当前IEEE33工况下，降低网损的策略同时可能改善电压偏差，但该关系尚未证明可泛化。"
+evidence_refs:
+  - "run.power.ieee33_reactive_opt.0001"
+scope_boundary:
+  task: "task.power.ieee33_reactive_opt"
+  operating_conditions:
+    - "normal_load"
+confidence_level: "medium"
+derived_from_run_refs:
+  - "run.power.ieee33_reactive_opt.0001"
+promotion_status: "proposed"
+uncertainty_notes: "仅基于单任务单工况观察。"

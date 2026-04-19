@@ -1,0 +1,30 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.weak_bus_shunt_optimizer"
+object_version: "0.1.0"
+created_at: "2026-04-19T15:30:00Z"
+updated_at: "2026-04-19T15:30:00Z"
+status: "draft"
+metadata: {}
+name: "Weak Bus Shunt Optimizer"
+title: "弱节点无功补偿搜索技能"
+capability_statement: "识别低电压弱节点并搜索 shunt 补偿容量以改善配电网运行指标。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee33_reactive_opt"
+  limits:
+    - "当前仅验证单工况"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/weak_bus_shunt_optimizer.py"
+maturity_level: "candidate"

@@ -1,0 +1,102 @@
+schema_id: "report.schema"
+schema_version: "0.1.0"
+object_type: "report"
+title: "Report Schema"
+description: "面向人类阅读的表达对象。用于诚实讲述一次任务，而不是重新定义事实。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - report_type
+  - title
+  - summary
+  - evidence_bundle_refs
+  - taste_assessment_ref
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["report"]
+  object_id:
+    type: string
+    pattern_hint: "report.<domain>.<problem_name>.<report_kind>_<serial>"
+    example: "report.power.ieee33_reactive_opt.note_0001"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+  description:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  extensions:
+    type: object
+    required: false
+  experimental:
+    type: object
+    required: false
+  task_ref:
+    type: string
+  report_type:
+    type: enum
+    allowed: ["paper_draft", "technical_note", "experiment_record", "discussion_memo"]
+  summary:
+    type: string
+  evidence_bundle_refs:
+    type: array[string]
+  taste_assessment_ref:
+    type: string
+  audience:
+    type: enum
+    allowed: ["internal_team", "advisor", "research_archive", "external_academic"]
+    required: false
+  boundary_statement:
+    type: string
+    required: false
+  failure_summary:
+    type: string
+    required: false
+  next_steps:
+    type: array[string]
+    required: false
+  claim_summary:
+    type: array[string]
+    required: false
+  appendix_refs:
+    type: array[object]
+    required: false
+
+validation_rules:
+  - rule_id: "report-evidence-required"
+    description: "没有 evidence_bundle_refs 的报告不应进入正式沉淀。"
+  - rule_id: "report-taste-required"
+    description: "没有 taste_assessment_ref 的报告不得发表强结论。"
+  - rule_id: "report-type-must-match-grade"
+    description: "report_type 必须与成果等级相容。"
+
+authoring_notes:
+  - "Report 是表达对象，不是事实对象。"
+  - "Report 可以讲述，但不能替代证据链。"
+  - "Report 的修辞能力不得抬高成果等级。"

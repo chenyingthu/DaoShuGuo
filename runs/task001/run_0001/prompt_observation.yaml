@@ -1,0 +1,14 @@
+schema_version: 0.1.0
+object_type: prompt_observation
+object_id: prompt_observation.power.ieee33_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-19T05:16:51Z'
+updated_at: '2026-04-19T05:16:51Z'
+status: active
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+run_ref: run.power.ieee33_reactive_opt.0001
+observation_kind: quality_improvement
+statement: 基线优先与分级约束在demo成功场景中抑制了过度表述。
+severity: medium
+suggested_action: 继续保留基线比较与成果分级为默认 harness 规则。

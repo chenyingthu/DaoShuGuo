@@ -1,0 +1,23 @@
+schema_version: 0.1.0
+object_type: report
+object_id: report.power.ieee33_reactive_opt.note_0007
+object_version: 0.1.0
+created_at: '2026-04-19T06:42:50Z'
+updated_at: '2026-04-19T06:42:50Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+report_type: technical_note
+title: task001 real_success report 0007
+summary: 真实运行相对基线获得阶段性改进。
+evidence_bundle_refs:
+- evidence.power.ieee33_reactive_opt.0007
+taste_assessment_ref: taste.power.ieee33_reactive_opt.0007
+audience: internal_team
+boundary_statement: 本报告仅对应当前 case33bw 单工况任务，不构成普适结论。
+failure_summary: null
+next_steps:
+- 增加多工况复现
+- 评估更强 candidate 技能
+claim_summary:
+- 可报告为当前真实任务设定下的阶段性有效方法，不可上升为普遍规律。

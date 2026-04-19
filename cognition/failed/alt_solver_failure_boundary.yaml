@@ -1,0 +1,19 @@
+schema_version: "0.1.0"
+object_type: "cognition"
+object_id: "cognition.power.alt_solver_failure_boundary"
+object_version: "0.1.0"
+created_at: "2026-04-19T14:15:00Z"
+updated_at: "2026-04-19T14:15:00Z"
+status: "active"
+metadata: {}
+cognition_type: "failure"
+statement: "当前替代求解策略在该IEEE33任务设定下容易引入额外约束违反，因此不适合作为默认优化器。"
+evidence_refs:
+  - "run.power.ieee33_reactive_opt.0002"
+scope_boundary:
+  task: "task.power.ieee33_reactive_opt"
+  evaluator: "evaluator.power.ieee33_reactive_opt.default"
+confidence_level: "medium"
+derived_from_run_refs:
+  - "run.power.ieee33_reactive_opt.0002"
+promotion_status: "proposed"

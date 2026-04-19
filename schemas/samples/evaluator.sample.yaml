@@ -1,0 +1,41 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.ieee33_reactive_opt.default"
+object_version: "0.1.0"
+created_at: "2026-04-19T12:10:00Z"
+updated_at: "2026-04-19T12:10:00Z"
+status: "ready"
+metadata: {}
+title: "IEEE33默认评估器"
+task_ref: "task.power.ieee33_reactive_opt"
+evaluation_goal: "验证候选方法是否相对基线改进网损与电压偏差。"
+metric_definitions:
+  - metric_id: "loss"
+    direction: "lower_is_better"
+    unit: "kW"
+    description: "网络有功损耗"
+  - metric_id: "voltage_deviation"
+    direction: "lower_is_better"
+    unit: "p.u."
+    description: "节点电压偏差"
+  - metric_id: "constraint_violation"
+    direction: "constraint_only"
+    description: "约束违反数量"
+baseline_strategy:
+  type: "named_baseline"
+  refs:
+    - "baseline.power.ieee33_reactive_opt.default"
+pass_criteria:
+  rule: "关键指标优于基线且无新增约束违反，并可至少重复一次"
+execution_entry:
+  type: "python_script"
+  path: "evaluators/task001_evaluator.py"
+comparison_mode: "baseline_and_constraint"
+stability_checks:
+  - "重复运行一致性检查"
+blind_spots:
+  - "未覆盖多时段工况"
+  - "暂未覆盖鲁棒性评估"
+evidence_outputs:
+  - "metrics_json"
+  - "comparison_summary"

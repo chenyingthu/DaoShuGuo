@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "report"
+object_id: "report.power.ieee33_reactive_opt.note_0001"
+object_version: "0.1.0"
+created_at: "2026-04-19T14:40:00Z"
+updated_at: "2026-04-19T14:40:00Z"
+status: "reviewed"
+metadata: {}
+task_ref: "task.power.ieee33_reactive_opt"
+report_type: "technical_note"
+title: "IEEE33无功优化阶段性技术记录"
+summary: "本轮在当前任务设定下相对基线获得阶段性改进，同时提炼出一条候选认知。"
+evidence_bundle_refs:
+  - "evidence.power.ieee33_reactive_opt.0001"
+taste_assessment_ref: "taste.power.ieee33_reactive_opt.0001"
+audience: "internal_team"
+boundary_statement: "结论仅限当前IEEE33正常负荷工况，不应外推到更广场景。"
+failure_summary: "替代策略样例表现更差，已作为失败材料保留。"
+next_steps:
+  - "增加多工况复现"
+  - "验证候选认知是否成立"
+claim_summary:
+  - "当前任务设定下存在阶段性有效方法"

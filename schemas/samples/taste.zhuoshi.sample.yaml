@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+object_type: "taste_assessment"
+object_id: "taste.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-19T14:20:00Z"
+updated_at: "2026-04-19T14:20:00Z"
+status: "reviewed"
+metadata: {}
+task_ref: "task.power.ieee33_reactive_opt"
+run_refs:
+  - "run.power.ieee33_reactive_opt.0001"
+grade: "zhuoshi"
+grade_reasoning: "结果相对基线有明确改进，但证据范围仍局限于单任务单工况，需要结构化论证才能显出价值。"
+claim_ceiling: "可声称在当前任务设定下获得阶段性有效方法，不可上升为普遍规律。"
+risk_notes:
+  - "缺少多工况复现"
+forbidden_claims:
+  - "获得普适电力系统控制规律"
+recommended_report_type: "technical_note"
+evidence_refs:
+  - "evidence.power.ieee33_reactive_opt.0001"
+review_status: "reviewed"

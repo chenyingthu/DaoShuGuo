@@ -1,0 +1,45 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.ieee33_reactive_opt"
+object_version: "0.1.0"
+created_at: "2026-04-19T12:00:00Z"
+updated_at: "2026-04-19T12:00:00Z"
+status: "active"
+metadata: {}
+title: "IEEE33无功优化最小闭环验证"
+description: "用于验证自主科研Agent在 pandapower case33bw 上的最小真实闭环能力。"
+tags:
+  - "power"
+  - "mvp"
+  - "ieee33"
+research_object: "IEEE 33节点配电网无功优化问题"
+problem_statement: "在给定工况下，通过可验证方法降低网损并改善电压偏差。"
+scenario_boundary:
+  grid_model: "ieee33"
+  operating_conditions:
+    - "normal_load"
+  simulator: "pandapower"
+  case_name: "case33bw"
+success_intent:
+  goal: "相对基线获得可重复的性能改进"
+  non_goal:
+    - "直接宣称获得普适理论"
+baseline_refs:
+  - "baseline.power.ieee33_reactive_opt.default"
+constraint_summary:
+  physical:
+    - "电压约束"
+    - "无功补偿边界"
+  engineering:
+    - "使用可编程仿真环境"
+  research:
+    - "必须保留基线比较"
+motivation: "用最小问题先验证技能、认知和成效的闭环。"
+importance_level: "high"
+risk_hypotheses:
+  - "优化结果可能不稳定复现"
+  - "Evaluator可能不足以区分局部改进和真实改进"
+assumptions:
+  - "pandapower 环境可用"
+  - "case33bw 可稳定运行潮流计算"
+owner_notes: "本任务已经从 demo 骨架升级为第一轮真实仿真接入任务。"

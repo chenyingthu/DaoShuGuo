@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: taste_assessment
+object_id: taste.power.ieee33_reactive_opt.0011
+object_version: 0.1.0
+created_at: '2026-04-19T08:27:35Z'
+updated_at: '2026-04-19T08:27:35Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+run_refs:
+- run.power.ieee33_reactive_opt.0011
+grade: zhuoshi
+grade_reasoning: 真实运行相对基线获得阶段性改进，但证据范围仍受限于单任务单工况。
+claim_ceiling: 可报告为当前真实任务设定下的阶段性有效方法，不可上升为普遍规律。
+recommended_report_type: technical_note
+evidence_refs:
+- evidence.power.ieee33_reactive_opt.0011
+review_status: reviewed
