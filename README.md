@@ -110,3 +110,5 @@
   `python orchestrator/main.py ingest-seed-literature`
 - 验证 task001 完整纵向闭环：
   `python orchestrator/main.py verify-task001-pipeline`
+- 运行当前集成测试：
+  `python scripts/run_integration_checks.py`
