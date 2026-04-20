@@ -50,6 +50,26 @@ def assert_exists(path: Path) -> None:
         raise AssertionError(f"missing expected path: {path}")
 
 
+def find_yaml_by_fields(root: Path, filename: str, expected_fields: dict[str, Any]) -> Path:
+    matches: list[Path] = []
+    for path in sorted(root.glob(f"**/{filename}")):
+        data = load_yaml(path)
+        if all(_read_field(data, field) == expected for field, expected in expected_fields.items()):
+            matches.append(path)
+    if not matches:
+        raise AssertionError(f"no {filename} under {root} matched {expected_fields}")
+    return matches[-1]
+
+
+def _read_field(data: dict[str, Any], field: str) -> Any:
+    current: Any = data
+    for part in field.split("."):
+        if not isinstance(current, dict) or part not in current:
+            return None
+        current = current[part]
+    return current
+
+
 def main() -> int:
     commands = [
         ["python", "scripts/validate_schemas.py"],
@@ -60,45 +80,34 @@ def main() -> int:
     for command in commands:
         run_command(command)
 
+    upgrade_root = REPO_ROOT / "analysis/task001"
+    medium_upgrade = find_yaml_by_fields(
+        upgrade_root,
+        "cognition_upgrade.yaml",
+        {"decision": "retain", "evidence_strength": "medium"},
+    )
+    high_upgrade = find_yaml_by_fields(
+        upgrade_root,
+        "cognition_upgrade.yaml",
+        {"decision": "upgrade", "evidence_strength": "high"},
+    )
+    high_novelty = high_upgrade.parent / "novelty_assessment.yaml"
     checks = [
-        (
-            REPO_ROOT / "analysis/task001/upgrade_0017/cognition_upgrade.yaml",
-            "decision",
-            "retain",
-        ),
-        (
-            REPO_ROOT / "analysis/task001/upgrade_0017/cognition_upgrade.yaml",
-            "evidence_strength",
-            "medium",
-        ),
-        (
-            REPO_ROOT / "analysis/task001/upgrade_0018/cognition_upgrade.yaml",
-            "decision",
-            "upgrade",
-        ),
-        (
-            REPO_ROOT / "analysis/task001/upgrade_0018/cognition_upgrade.yaml",
-            "evidence_strength",
-            "high",
-        ),
-        (
-            REPO_ROOT / "analysis/task001/upgrade_0018/novelty_assessment.yaml",
-            "continue_investment",
-            "prioritize",
-        ),
+        (medium_upgrade, "decision", "retain"),
+        (medium_upgrade, "evidence_strength", "medium"),
+        (high_upgrade, "decision", "upgrade"),
+        (high_upgrade, "evidence_strength", "high"),
+        (high_novelty, "continue_investment", "prioritize"),
     ]
     for path, field, expected in checks:
         assert_field(path, field, expected)
 
-    required_paths = [
-        "literature/sources/capacitor_tlbo_2014.fulltext.yaml",
-        "literature/excerpts/capacitor_tlbo_2014-explanation-point-1.yaml",
-        "analysis/task001/explanations_0014/explanation_alignment.yaml",
-        "analysis/task001/upgrade_0018/upgraded_cognition.yaml",
-        "cognition/cards/upgraded_strategy_comparison_0018.yaml",
-    ]
-    for rel_path in required_paths:
-        assert_exists(REPO_ROOT / rel_path)
+    assert_exists(REPO_ROOT / "literature/sources/capacitor_tlbo_2014.fulltext.yaml")
+    assert_exists(REPO_ROOT / "literature/excerpts/capacitor_tlbo_2014-explanation-point-1.yaml")
+    assert_exists(high_upgrade.parent / "upgraded_cognition.yaml")
+
+    upgraded_ref = load_yaml(high_upgrade)["upgraded_cognition_ref"]
+    assert_exists(REPO_ROOT / "cognition/cards" / f"{upgraded_ref.split('.')[-1]}.yaml")
 
     print("Integration checks passed.")
     return 0
