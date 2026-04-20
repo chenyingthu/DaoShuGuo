@@ -1,0 +1,74 @@
+schema_id: "explanation_alignment.schema"
+schema_version: "0.1.0"
+object_type: "explanation_alignment"
+title: "Explanation Alignment Schema"
+description: "用于表达本地认知与文献解释卡片之间的支持、补充或冲突关系。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - assessed_cognition_ref
+  - explanation_card_refs
+  - relation_summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["explanation_alignment"]
+  object_id:
+    type: string
+    pattern_hint: "explanation_alignment.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  assessed_cognition_ref:
+    type: string
+  explanation_card_refs:
+    type: array[string]
+  per_card_relations:
+    type: object
+    required: false
+  evidence_excerpt_refs:
+    type: array[string]
+    required: false
+  evidence_strength:
+    type: enum
+    allowed: ["low", "medium", "high"]
+    required: false
+  relation_summary:
+    type: string
+  overall_relation:
+    type: enum
+    allowed: ["supports", "supplements", "similar", "mixed", "conflicts", "unclear"]
+    required: false
+  notes:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "explanation-alignment-cognition-required"
+    description: "必须明确被对齐的本地认知。"
+  - rule_id: "explanation-alignment-cards-required"
+    description: "必须至少指向一张 explanation_card。"
+  - rule_id: "explanation-alignment-summary-required"
+    description: "relation_summary 不得为空。"

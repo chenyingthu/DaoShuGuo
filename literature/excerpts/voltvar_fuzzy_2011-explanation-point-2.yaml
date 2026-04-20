@@ -1,0 +1,17 @@
+schema_version: 0.1.0
+object_type: paper_excerpt
+object_id: paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_2
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata: {}
+paper_ref: paper_record.power.voltvar_fuzzy_2011
+source_ref: literature_source.power.voltvar_fuzzy_2011.fulltext
+source_kind: fulltext_excerpt
+excerpt_kind: explanation
+granularity: point
+content: 性能改进来源于协调控制，而不是节点补偿选址定容。
+notes:
+- 当前由 literature_source.power.voltvar_fuzzy_2011.fulltext 的 explanation_point_notes
+  驱动的细粒度解释片段。

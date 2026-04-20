@@ -1,0 +1,35 @@
+schema_version: 0.1.0
+object_type: literature_alignment
+object_id: literature_alignment.power.ieee33_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-19T13:16:45Z'
+updated_at: '2026-04-19T13:16:45Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+assessed_object_refs:
+- skill.power.reactive_optimizer
+- skill.power.weak_bus_shunt_optimizer
+literature_refs:
+- paper.voltvar_fuzzy_2011
+- paper.voltvar_prosumer_2020
+- paper.robust_vvc_2017
+- paper.capacitor_tlbo_2014
+- paper.capacitor_nsga_2022
+method_mappings:
+  skill.power.reactive_optimizer:
+  - paper.voltvar_fuzzy_2011
+  - paper.voltvar_prosumer_2020
+  - paper.robust_vvc_2017
+  skill.power.weak_bus_shunt_optimizer:
+  - paper.capacitor_tlbo_2014
+  - paper.capacitor_nsga_2022
+theory_mappings:
+  ext_grid_vm_search: volt_var_control
+  weak_bus_shunt_search: capacitor_placement_optimization
+novelty_position: variant
+alignment_summary: 当前对齐表明，ext-grid 路线更接近 Volt/Var control 家族，而 weak-shunt 路线更接近 capacitor
+  placement / reactive compensation 家族。
+notes:
+- 当前只基于种子文献做方法家族级对齐
+- 尚未进行片段级解释对齐

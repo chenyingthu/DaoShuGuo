@@ -50,6 +50,15 @@
 - [schemas/quality/agent_trace.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/agent_trace.schema.yaml)
 - [schemas/quality/prompt_observation.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/prompt_observation.schema.yaml)
 - [schemas/quality/strategy_comparison.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/strategy_comparison.schema.yaml)
+- [schemas/quality/strategy_semantic_comparison.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/strategy_semantic_comparison.schema.yaml)
+- [schemas/quality/novelty_assessment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/novelty_assessment.schema.yaml)
+- [schemas/quality/cognition_upgrade.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/cognition_upgrade.schema.yaml)
+- [schemas/quality/literature_alignment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/literature_alignment.schema.yaml)
+- [schemas/quality/paper_record.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/paper_record.schema.yaml)
+- [schemas/quality/paper_excerpt.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/paper_excerpt.schema.yaml)
+- [schemas/quality/method_card.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/method_card.schema.yaml)
+- [schemas/quality/explanation_card.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/explanation_card.schema.yaml)
+- [schemas/quality/explanation_alignment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/explanation_alignment.schema.yaml)
 - [schemas/quality/taste_assessment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/taste_assessment.schema.yaml)
 - [schemas/quality/evidence_bundle.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/evidence_bundle.schema.yaml)
 - [schemas/reporting/report.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/reporting/report.schema.yaml)
@@ -87,3 +96,17 @@
   `python orchestrator/main.py real-run --strategy weak-shunt`
 - 生成两次运行的结构化对照分析：
   `python orchestrator/main.py compare-runs --left-run-id <run_id> --right-run-id <run_id>`
+- 生成两次运行的语义比较：
+  `python orchestrator/main.py compare-semantics --left-run-id <run_id> --right-run-id <run_id>`
+- 基于比较结果升级认知：
+  `python orchestrator/main.py upgrade-cognition --comparison-dir <dir> --semantic-dir <dir>`
+- 生成文献对齐对象：
+  `python orchestrator/main.py align-literature --comparison-dir <dir> --semantic-dir <dir>`
+- 从种子文献生成文献对象卡片：
+  `python orchestrator/main.py build-literature-cards`
+- 生成本地认知与文献解释的对齐结果：
+  `python orchestrator/main.py align-explanations --cognition-ref <cognition_ref> --literature-dir <dir>`
+- 从原始片段输入生成文献 source：
+  `python orchestrator/main.py ingest-seed-literature`
+- 验证 task001 完整纵向闭环：
+  `python orchestrator/main.py verify-task001-pipeline`

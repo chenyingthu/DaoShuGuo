@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+object_type: novelty_assessment
+object_id: novelty.power.ieee33_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-19T12:23:07Z'
+updated_at: '2026-04-19T12:23:07Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+assessed_object_ref: skill.power.weak_bus_shunt_optimizer
+supporting_refs:
+- comparison.power.ieee33_reactive_opt.0002
+- semantic_comparison.power.ieee33_reactive_opt.0001
+novelty_level: medium
+research_value_level: high
+continue_investment: continue
+summary: 当前 weak-shunt 路线虽然在本地结果上弱于 ext-grid，但在问题贴合度和研究语义上更值得继续演化。
+reasons:
+- 控制对象更接近无功补偿问题本体
+- 方法语义更接近可复用研究技能
+- 当前比较仍局限于单工况

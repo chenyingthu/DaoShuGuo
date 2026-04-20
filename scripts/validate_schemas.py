@@ -34,6 +34,16 @@ OBJECT_TYPE_TO_PREFIX = {
     "taste_assessment": "taste",
     "evidence_bundle": "evidence",
     "strategy_comparison": "comparison",
+    "strategy_semantic_comparison": "semantic_comparison",
+    "novelty_assessment": "novelty",
+    "cognition_upgrade": "cognition_upgrade",
+    "literature_alignment": "literature_alignment",
+    "paper_record": "paper_record",
+    "paper_excerpt": "paper_excerpt",
+    "method_card": "method_card",
+    "explanation_card": "explanation_card",
+    "explanation_alignment": "explanation_alignment",
+    "literature_source": "literature_source",
     "report": "report",
 }
 
@@ -44,6 +54,42 @@ GRADE_TO_ALLOWED_REPORT_TYPES = {
     "zhuoshi": {"paper_draft", "technical_note"},
     "diaomu": {"technical_note", "experiment_record"},
     "huimo": {"discussion_memo"},
+}
+
+ARTIFACT_SETS = {
+    "literature-alignment-plan": {
+        "target_globs": [
+            "literature/sources/*.yaml",
+            "literature/papers/*.yaml",
+            "literature/excerpts/*.yaml",
+            "literature/cards/methods/*.yaml",
+            "literature/cards/explanations/*.yaml",
+            "analysis/task001/compare_*/strategy_comparison.yaml",
+            "analysis/task001/compare_*/cognition.yaml",
+            "analysis/task001/semantic_*/strategy_semantic_comparison.yaml",
+            "analysis/task001/literature_*/literature_alignment.yaml",
+            "analysis/task001/explanations_*/explanation_alignment.yaml",
+            "analysis/task001/upgrade_*/novelty_assessment.yaml",
+            "analysis/task001/upgrade_*/cognition_upgrade.yaml",
+            "analysis/task001/upgrade_*/upgraded_cognition.yaml",
+            "cognition/cards/upgraded_strategy_comparison_*.yaml",
+        ],
+        "support_globs": [
+            "tasks/task001/*.yaml",
+            "evaluators/*.yaml",
+            "runs/task001/run_*/run.yaml",
+            "runs/task001/run_*/agent_trace.yaml",
+            "runs/task001/run_*/prompt_observation.yaml",
+            "runs/task001/run_*/taste_assessment.yaml",
+            "runs/task001/run_*/evidence_bundle.yaml",
+            "runs/task001/run_*/report.yaml",
+            "runs/task001/run_*/cognition.yaml",
+            "cognition/cards/strategy_comparison_*.yaml",
+            "cognition/cards/ieee33_reactive_opt_runtime_*.yaml",
+            "cognition/failed/*.yaml",
+            "schemas/samples/*.yaml",
+        ],
+    }
 }
 
 
@@ -73,6 +119,17 @@ def collect_sample_files(schema_root: Path) -> list[Path]:
     return sorted((schema_root / "samples").glob("*.yaml"))
 
 
+def collect_globbed_files(root: Path, patterns: list[str]) -> list[Path]:
+    files: list[Path] = []
+    seen: set[Path] = set()
+    for pattern in patterns:
+        for path in sorted(root.glob(pattern)):
+            if path.is_file() and path not in seen:
+                seen.add(path)
+                files.append(path)
+    return files
+
+
 def schema_map(schema_files: list[Path]) -> dict[str, dict[str, Any]]:
     by_object_type: dict[str, dict[str, Any]] = {}
     for path in schema_files:
@@ -93,6 +150,41 @@ def object_map(sample_files: list[Path]) -> dict[str, dict[str, Any]]:
             raise ValueError(f"{path} missing object_id")
         objects[object_id] = obj
     return objects
+
+
+def object_map_from_paths(paths: list[Path]) -> dict[str, dict[str, Any]]:
+    objects: dict[str, dict[str, Any]] = {}
+    for path in paths:
+        obj = load_yaml(path)
+        object_type = obj.get("object_type")
+        object_id = obj.get("object_id")
+        if not isinstance(object_type, str) or not isinstance(object_id, str):
+            continue
+        objects[object_id] = obj
+    return objects
+
+
+def build_object_index(
+    paths: list[Path], *, require_object: bool
+) -> tuple[dict[str, dict[str, Any]], list[ValidationError]]:
+    objects: dict[str, dict[str, Any]] = {}
+    errors: list[ValidationError] = []
+    for path in paths:
+        try:
+            obj = load_yaml(path)
+        except Exception as exc:
+            errors.append(ValidationError(str(path), f"failed to load yaml: {exc}"))
+            continue
+        object_type = obj.get("object_type")
+        object_id = obj.get("object_id")
+        if not isinstance(object_type, str) or not isinstance(object_id, str):
+            if require_object:
+                errors.append(
+                    ValidationError(str(path), "expected structured object with object_type and object_id")
+                )
+            continue
+        objects[object_id] = obj
+    return objects, errors
 
 
 def validate_required_fields(data: dict[str, Any], required_fields: list[str], source: str):
@@ -144,6 +236,8 @@ def validate_value_against_spec(
     field_name: str,
 ) -> list[ValidationError]:
     errors: list[ValidationError] = []
+    if value is None and spec.get("required", True) is False:
+        return errors
     spec_type = spec.get("type")
     if spec_type and not type_matches(spec_type, value):
         errors.append(
@@ -315,6 +409,48 @@ def validate_semantics(objects_by_id: dict[str, dict[str, Any]]) -> list[Validat
                     ValidationError(object_id, "stable cognition must include non-empty evidence_refs")
                 )
 
+        if object_type == "literature_alignment":
+            for idx, paper_ref in enumerate(obj.get("literature_refs", [])):
+                if not isinstance(paper_ref, str) or "." not in paper_ref:
+                    errors.append(
+                        ValidationError(
+                            object_id,
+                            f"literature_refs[{idx}] must use `paper.<name>` format",
+                        )
+                    )
+                    continue
+                paper_record_ref = f"paper_record.power.{paper_ref.split('.', 1)[1]}"
+                if paper_record_ref not in objects_by_id:
+                    errors.append(
+                        ValidationError(
+                            object_id,
+                            f"literature_refs[{idx}] `{paper_ref}` does not resolve to `{paper_record_ref}`",
+                        )
+                    )
+
+            method_mappings = obj.get("method_mappings", {})
+            if isinstance(method_mappings, dict):
+                for skill_ref, paper_refs in method_mappings.items():
+                    if not isinstance(paper_refs, list):
+                        continue
+                    for idx, paper_ref in enumerate(paper_refs):
+                        if not isinstance(paper_ref, str) or "." not in paper_ref:
+                            errors.append(
+                                ValidationError(
+                                    object_id,
+                                    f"method_mappings[{skill_ref}][{idx}] must use `paper.<name>` format",
+                                )
+                            )
+                            continue
+                        paper_record_ref = f"paper_record.power.{paper_ref.split('.', 1)[1]}"
+                        if paper_record_ref not in objects_by_id:
+                            errors.append(
+                                ValidationError(
+                                    object_id,
+                                    f"method_mappings[{skill_ref}][{idx}] `{paper_ref}` does not resolve to `{paper_record_ref}`",
+                                )
+                            )
+
     return errors
 
 
@@ -341,6 +477,44 @@ def validate_samples(schema_root: Path) -> list[ValidationError]:
     return errors
 
 
+def validate_artifact_set(
+    *,
+    repo_root: Path,
+    schema_root: Path,
+    artifact_set: str,
+) -> list[ValidationError]:
+    schema_files = collect_schema_files(schema_root)
+    schemas = schema_map(schema_files)
+    config = ARTIFACT_SETS[artifact_set]
+    target_files = collect_globbed_files(repo_root, config["target_globs"])
+    support_files = collect_globbed_files(repo_root, config["support_globs"])
+    target_objects, errors = build_object_index(target_files, require_object=True)
+    support_objects, support_errors = build_object_index(
+        support_files + target_files,
+        require_object=False,
+    )
+    objects = {**support_objects, **target_objects}
+    errors.extend(support_errors)
+
+    for artifact_path in target_files:
+        data = load_yaml(artifact_path)
+        object_type = data.get("object_type")
+        object_id = data.get("object_id")
+        if not isinstance(object_type, str) or not isinstance(object_id, str):
+            continue
+        if object_type not in schemas:
+            errors.append(
+                ValidationError(str(artifact_path), f"no schema found for object_type `{object_type}`")
+            )
+            continue
+        schema = schemas[object_type]
+        errors.extend(validate_object(data, schema, str(artifact_path)))
+        errors.extend(validate_references(data, objects, str(artifact_path)))
+
+    errors.extend(validate_semantics(objects))
+    return errors
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate local schema samples.")
     parser.add_argument(
@@ -348,10 +522,31 @@ def main() -> int:
         default="schemas",
         help="Root directory containing schema specs and samples.",
     )
+    parser.add_argument(
+        "--repo-root",
+        default=".",
+        help="Repository root used for artifact validation.",
+    )
+    parser.add_argument(
+        "--artifacts",
+        choices=sorted(ARTIFACT_SETS),
+        nargs="*",
+        default=[],
+        help="Optional named artifact sets to validate in addition to schema samples.",
+    )
     args = parser.parse_args()
 
     schema_root = Path(args.schema_root)
+    repo_root = Path(args.repo_root)
     errors = validate_samples(schema_root)
+    for artifact_set in args.artifacts:
+        errors.extend(
+            validate_artifact_set(
+                repo_root=repo_root,
+                schema_root=schema_root,
+                artifact_set=artifact_set,
+            )
+        )
 
     if errors:
         print("Schema validation failed:\n")
@@ -359,7 +554,10 @@ def main() -> int:
             print(f"- {err.source}: {err.message}")
         return 1
 
-    print("Schema validation passed.")
+    if args.artifacts:
+        print(f"Schema validation passed. Artifact validation passed for: {', '.join(args.artifacts)}.")
+    else:
+        print("Schema validation passed.")
     return 0
 
 

@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1.0",
   "registry_type": "cognition_registry",
-  "generated_at": "2026-04-19T08:46:05Z",
+  "generated_at": "2026-04-20T04:13:18Z",
   "cognition": [
     {
       "object_id": "cognition.power.loss_voltage_tradeoff_candidate",
@@ -86,6 +86,110 @@
       "status": "active",
       "source_run_ref": "run.power.ieee33_reactive_opt.0009",
       "written_at": "2026-04-19T08:46:05Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T12:23:07Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T13:18:07Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0003",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0003.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T13:37:13Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0004",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0004.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T13:59:41Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0005",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0005.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T14:32:54Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0006",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0006.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T14:34:45Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0007",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0007.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T14:41:29Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0008",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0008.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T14:41:41Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0009",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0009.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-19T14:42:21Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0012",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0012.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-20T03:21:27Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0014",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0014.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-20T03:48:13Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0016",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0016.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-20T03:55:00Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_0018",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_0018.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
+      "written_at": "2026-04-20T04:13:18Z"
     }
   ]
 }

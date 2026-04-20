@@ -1,0 +1,14 @@
+schema_version: "0.1.0"
+paper_ref_id: "paper.capacitor_tlbo_2014"
+source_key: "fulltext_curated"
+source_kind: "fulltext_excerpt"
+method_notes:
+  - "全文摘录层强调该方法以电容器配置为决策对象，直接处理径向配电系统中的无功补偿位置与容量优化。"
+explanation_notes:
+  - "全文摘录层将系统性能改善归因于无功补偿配置改变潮流分布、降低线路损耗并改善电压运行状态。"
+explanation_point_notes:
+  - "决策变量是补偿设备的位置与容量，而不是外部边界电压。"
+  - "机制解释直接关联无功补偿、潮流分布、线路损耗和电压运行状态。"
+  - "该解释对 weak-shunt 技能的研究语义构成高强度支持。"
+provenance_notes:
+  - "人工整理的全文级片段输入，用于验证 fulltext_excerpt 输入路径。"

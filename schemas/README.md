@@ -29,6 +29,15 @@ schemas/
 │   ├── agent_trace.schema.yaml
 │   ├── prompt_observation.schema.yaml
 │   ├── strategy_comparison.schema.yaml
+│   ├── strategy_semantic_comparison.schema.yaml
+│   ├── novelty_assessment.schema.yaml
+│   ├── cognition_upgrade.schema.yaml
+│   ├── literature_alignment.schema.yaml
+│   ├── paper_record.schema.yaml
+│   ├── paper_excerpt.schema.yaml
+│   ├── method_card.schema.yaml
+│   ├── explanation_card.schema.yaml
+│   ├── explanation_alignment.schema.yaml
 │   ├── taste_assessment.schema.yaml
 │   └── evidence_bundle.schema.yaml
 ├── reporting/

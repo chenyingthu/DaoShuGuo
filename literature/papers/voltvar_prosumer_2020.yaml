@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: paper_record
+object_id: paper_record.power.voltvar_prosumer_2020
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata: {}
+title: Optimal Volt/VAR control in distribution systems with prosumer DERs
+year: 2020
+method_family: volt_var_control
+tags:
+- volt/var control
+- distribution systems
+- optimization
+relevance_notes: 代表更现代的 Volt/Var control 语义，对齐 ext-grid 型电压调节思路。
+doi: 10.1016/j.epsr.2020.106520
+url: https://www.sciencedirect.com/science/article/pii/S0378779620303242

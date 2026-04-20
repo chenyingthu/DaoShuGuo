@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: explanation_card
+object_id: explanation_card.power.robust_vvc_2017
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.robust_vvc_2017
+  source_kind: manual_summary
+paper_ref: paper_record.power.robust_vvc_2017
+explanation_summary: 核心解释是：通过鲁棒控制设计提升闭环稳定性和扰动抑制能力，从而维持期望电压性能。
+explanation_points:
+- 重点在不确定负荷和 DER 扰动下维持稳定的 Volt/Var 控制。
+- 核心收益是扰动抑制和电压性能保持。
+- 该语义更接近控制理论上的鲁棒调压，而不是补偿设备选址定容。
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+concept_tags:
+- volt/var control
+- voltage regulation
+- distribution control
+- distributed control
+- robust control
+excerpt_refs:
+- paper_excerpt.power.robust_vvc_2017.explanation
+- paper_excerpt.power.robust_vvc_2017.explanation_point_1
+- paper_excerpt.power.robust_vvc_2017.explanation_point_2
+- paper_excerpt.power.robust_vvc_2017.explanation_point_3
+notes:
+- 当前优先由 literature_source.power.robust_vvc_2017 驱动解释卡片生成，不是原文全文抽取。

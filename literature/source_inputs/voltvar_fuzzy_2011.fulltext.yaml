@@ -1,0 +1,14 @@
+schema_version: "0.1.0"
+paper_ref_id: "paper.voltvar_fuzzy_2011"
+source_key: "fulltext_curated"
+source_kind: "fulltext_excerpt"
+method_notes:
+  - "全文摘录层强调该方法通过模糊优化协调 ULTC 分接头与投切电容器，以处理负荷和风速不确定性下的 Volt/Var 控制问题。"
+explanation_notes:
+  - "全文摘录层将性能改善归因于调压设备与无功设备的协调动作，而不是单一补偿节点或容量配置。"
+explanation_point_notes:
+  - "决策变量包括调压设备与无功设备的协同动作。"
+  - "机制解释集中在不确定环境下的电压控制与损耗优化。"
+  - "该解释对 ext-grid/Volt-Var 路线构成高强度参照，对 weak-shunt 路线主要提供边界性补充。"
+provenance_notes:
+  - "人工整理的全文级片段输入，用于验证 fulltext_excerpt 输入路径。"

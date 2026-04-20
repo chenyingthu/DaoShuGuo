@@ -1,0 +1,85 @@
+schema_id: "literature_source.schema"
+schema_version: "0.1.0"
+object_type: "literature_source"
+title: "Literature Source Schema"
+description: "文献源对象。用于表达某篇文献在本项目中的原始输入材料与来源说明。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - paper_ref_id
+  - title
+  - source_kind
+  - method_family
+  - method_notes
+  - explanation_notes
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["literature_source"]
+  object_id:
+    type: string
+    pattern_hint: "literature_source.<domain>.<paper_key>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  paper_ref_id:
+    type: string
+  title:
+    type: string
+  source_kind:
+    type: enum
+    allowed: ["seed_curated", "manual_summary", "abstract_excerpt", "fulltext_excerpt"]
+  method_family:
+    type: string
+  year:
+    type: integer
+    required: false
+  doi:
+    type: string
+    required: false
+  url:
+    type: string
+    required: false
+  tags:
+    type: array[string]
+    required: false
+  relevance_notes:
+    type: string
+    required: false
+  method_notes:
+    type: array[string]
+  explanation_notes:
+    type: array[string]
+  explanation_point_notes:
+    type: array[string]
+    required: false
+  provenance_notes:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "literature-source-title-required"
+    description: "title 不得为空。"
+  - rule_id: "literature-source-kind-usage"
+    description: "seed_curated 用于任务种子整理，manual_summary 用于人工摘要，abstract_excerpt 用于摘要层片段，fulltext_excerpt 用于正文片段。"
+  - rule_id: "literature-source-notes-required"
+    description: "method_notes 与 explanation_notes 不能同时为空。"

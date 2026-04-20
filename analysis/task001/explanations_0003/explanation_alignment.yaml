@@ -1,0 +1,107 @@
+schema_version: 0.1.0
+object_type: explanation_alignment
+object_id: explanation_alignment.power.ieee33_reactive_opt.0003
+object_version: 0.1.0
+created_at: '2026-04-19T13:59:06Z'
+updated_at: '2026-04-19T13:59:06Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+assessed_cognition_ref: cognition.power.upgraded_strategy_comparison_0003
+explanation_card_refs:
+- explanation_card.power.voltvar_fuzzy_2011
+- explanation_card.power.voltvar_prosumer_2020
+- explanation_card.power.robust_vvc_2017
+- explanation_card.power.capacitor_tlbo_2014
+- explanation_card.power.capacitor_nsga_2022
+per_card_relations:
+  explanation_card.power.voltvar_fuzzy_2011:
+    paper_ref: paper_record.power.voltvar_fuzzy_2011
+    relation: supplements
+    reason: 解释点更适合作为 ext-grid 路线的对照性参照，不直接反驳本地认知。
+    explanation_points:
+    - 控制对象更偏向电压边界、调压设备或协调控制器
+    - 目标同样可能包括损耗、电压质量和约束满足
+    - 方法语义更接近 Volt/Var control 控制问题，而非直接补偿配置问题
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation
+      content: 核心解释是：通过协调调压设备与无功设备的离散动作，可以在不确定环境下维持电压并降低损耗。
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_1
+      content: 控制对象更偏向电压边界、调压设备或协调控制器
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_2
+      content: 目标同样可能包括损耗、电压质量和约束满足
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_3
+      content: 方法语义更接近 Volt/Var control 控制问题，而非直接补偿配置问题
+  explanation_card.power.voltvar_prosumer_2020:
+    paper_ref: paper_record.power.voltvar_prosumer_2020
+    relation: supplements
+    reason: 解释点更适合作为 ext-grid 路线的对照性参照，不直接反驳本地认知。
+    explanation_points:
+    - 控制对象更偏向电压边界、调压设备或协调控制器
+    - 目标同样可能包括损耗、电压质量和约束满足
+    - 方法语义更接近 Volt/Var control 控制问题，而非直接补偿配置问题
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation
+      content: 核心解释是：通过多类电压控制资产的协调调度，可以降低损耗并控制调节成本。
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation_point_1
+      content: 控制对象更偏向电压边界、调压设备或协调控制器
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation_point_2
+      content: 目标同样可能包括损耗、电压质量和约束满足
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation_point_3
+      content: 方法语义更接近 Volt/Var control 控制问题，而非直接补偿配置问题
+  explanation_card.power.robust_vvc_2017:
+    paper_ref: paper_record.power.robust_vvc_2017
+    relation: supplements
+    reason: 解释点更适合作为 ext-grid 路线的对照性参照，不直接反驳本地认知。
+    explanation_points:
+    - 控制对象更偏向电压边界、调压设备或协调控制器
+    - 目标同样可能包括损耗、电压质量和约束满足
+    - 方法语义更接近 Volt/Var control 控制问题，而非直接补偿配置问题
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation
+      content: 核心解释是：通过鲁棒控制设计提升闭环稳定性和扰动抑制能力，从而维持期望电压性能。
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation_point_1
+      content: 控制对象更偏向电压边界、调压设备或协调控制器
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation_point_2
+      content: 目标同样可能包括损耗、电压质量和约束满足
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation_point_3
+      content: 方法语义更接近 Volt/Var control 控制问题，而非直接补偿配置问题
+  explanation_card.power.capacitor_tlbo_2014:
+    paper_ref: paper_record.power.capacitor_tlbo_2014
+    relation: supports
+    reason: 解释点强调直接补偿配置，与本地认知中 weak-shunt 更贴近问题本体的判断一致。
+    explanation_points:
+    - 控制对象直接作用于无功补偿设备或电容器配置
+    - 典型目标包括降低网损、改善电压偏差和约束满足
+    - 方法语义更接近配电网无功补偿问题本体
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation
+      content: 核心解释是：通过选择合适的补偿位置和容量，可以同时改善损耗与运行经济性。
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+      content: 控制对象直接作用于无功补偿设备或电容器配置
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+      content: 典型目标包括降低网损、改善电压偏差和约束满足
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+      content: 方法语义更接近配电网无功补偿问题本体
+  explanation_card.power.capacitor_nsga_2022:
+    paper_ref: paper_record.power.capacitor_nsga_2022
+    relation: supports
+    reason: 解释点强调直接补偿配置，与本地认知中 weak-shunt 更贴近问题本体的判断一致。
+    explanation_points:
+    - 控制对象直接作用于无功补偿设备或电容器配置
+    - 典型目标包括降低网损、改善电压偏差和约束满足
+    - 方法语义更接近配电网无功补偿问题本体
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation
+      content: 核心解释是：先缩小候选节点，再做多目标补偿配置，有助于同时改善电压稳定性、损耗与经济性。
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation_point_1
+      content: 控制对象直接作用于无功补偿设备或电容器配置
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation_point_2
+      content: 典型目标包括降低网损、改善电压偏差和约束满足
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation_point_3
+      content: 方法语义更接近配电网无功补偿问题本体
+relation_summary: 当前本地认知与 capacitor placement 解释更一致，与 volt/var control 解释形成对照性补充关系。
+overall_relation: supports
+notes:
+- 当前为解释卡片级对齐
+- 尚未进行原文片段级语义匹配

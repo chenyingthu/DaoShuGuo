@@ -1,0 +1,16 @@
+schema_version: 0.1.0
+object_type: paper_excerpt
+object_id: paper_excerpt.power.capacitor_nsga_2022.explanation_point_3
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata: {}
+paper_ref: paper_record.power.capacitor_nsga_2022
+source_ref: literature_source.power.capacitor_nsga_2022
+source_kind: manual_summary
+excerpt_kind: explanation
+granularity: point
+content: 文献语义仍围绕补偿设备配置，而不是统一 Volt/Var 协调调度。
+notes:
+- 当前由 literature_source.power.capacitor_nsga_2022 的 explanation_point_notes 驱动的细粒度解释片段。

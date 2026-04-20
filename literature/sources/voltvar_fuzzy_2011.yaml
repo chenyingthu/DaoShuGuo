@@ -1,0 +1,32 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.voltvar_fuzzy_2011
+object_version: 0.1.0
+created_at: '2026-04-20T03:55:00Z'
+updated_at: '2026-04-20T03:55:00Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.voltvar_fuzzy_2011
+title: Volt/Var control in a distribution system by a fuzzy optimization approach
+source_kind: abstract_excerpt
+method_family: volt_var_control
+tags:
+- volt/var control
+- fuzzy optimization
+- transformer tap
+- switched capacitor
+relevance_notes: 代表性 Volt/Var control 路线，适合对齐 ext-grid / 边界调压式策略。
+method_notes:
+- 通过模糊优化协调 ULTC 分接头与投切电容器状态，在不确定负荷和风速条件下优化电压与损耗。
+explanation_notes:
+- 核心解释是：通过协调调压设备与无功设备的离散动作，可以在不确定环境下维持电压并降低损耗。
+explanation_point_notes:
+- 控制动作覆盖 ULTC 分接头和投切电容器的协调切换。
+- 文献同样追求损耗降低和电压质量改善，但着力点是设备协同调节。
+- 该路线更像 Volt/Var 控制框架，而非直接补偿配置问题。
+provenance_notes:
+- 由 task001-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=abstract_excerpt
+year: 2011
+doi: 10.1016/j.ijepes.2010.08.023
+url: https://www.sciencedirect.com/science/article/abs/pii/S0142061510001596

@@ -1,0 +1,62 @@
+schema_id: "paper_record.schema"
+schema_version: "0.1.0"
+object_type: "paper_record"
+title: "Paper Record Schema"
+description: "论文基础记录对象，用于表达任务相关文献的元信息和定位信息。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - title
+  - year
+  - method_family
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["paper_record"]
+  object_id:
+    type: string
+    pattern_hint: "paper_record.<domain>.<paper_key>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  title:
+    type: string
+  year:
+    type: integer
+  doi:
+    type: string
+    required: false
+  url:
+    type: string
+    required: false
+  method_family:
+    type: string
+  tags:
+    type: array[string]
+    required: false
+  relevance_notes:
+    type: string
+    required: false
+
+validation_rules:
+  - rule_id: "paper-record-title-required"
+    description: "title 不得为空。"

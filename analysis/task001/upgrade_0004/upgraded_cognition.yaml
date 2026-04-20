@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.upgraded_strategy_comparison_0004
+object_version: 0.1.0
+created_at: '2026-04-19T13:59:41Z'
+updated_at: '2026-04-19T13:59:41Z'
+status: active
+metadata: {}
+cognition_type: candidate
+statement: 当前单工况对照表明，ext-grid 路线在指标上更优，但 weak-shunt 路线在无功优化语义上更贴近问题本体，因此更适合作为后续技能演化对象。
+evidence_refs:
+- comparison.power.ieee33_reactive_opt.0002
+- semantic_comparison.power.ieee33_reactive_opt.0001
+- novelty.power.ieee33_reactive_opt.0004
+- literature_alignment.power.ieee33_reactive_opt.0001
+- explanation_alignment.power.ieee33_reactive_opt.0003
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+  mode: comparative_cognition_upgrade
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee33_reactive_opt.0009
+- run.power.ieee33_reactive_opt.0011
+promotion_status: proposed
+uncertainty_notes: 该认知当前已结合种子文献对齐，解释对齐关系=supports，novelty_position=variant。

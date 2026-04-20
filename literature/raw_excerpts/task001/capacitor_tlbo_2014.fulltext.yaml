@@ -1,0 +1,13 @@
+schema_version: "0.1.0"
+paper_ref_id: "paper.capacitor_tlbo_2014"
+source_kind: "fulltext_excerpt"
+source_key: "raw_fulltext"
+method_fragments:
+  - "The method treats capacitor placement and sizing as the main optimization variables in a radial distribution system."
+  - "Teaching-learning based optimization is used to search candidate capacitor configurations."
+explanation_fragments:
+  - "Reactive compensation changes power-flow distribution and can reduce line losses."
+  - "Capacitor location and size jointly affect voltage profile and economic performance."
+  - "The mechanism is direct compensation placement, not boundary voltage tuning."
+provenance_notes:
+  - "Curated raw fulltext-style fragments used to exercise the import path."

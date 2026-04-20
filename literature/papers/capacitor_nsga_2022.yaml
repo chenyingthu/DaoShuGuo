@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: paper_record
+object_id: paper_record.power.capacitor_nsga_2022
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata: {}
+title: Solving the capacitor placement problem in radial distribution networks
+year: 2022
+method_family: capacitor_placement_optimization
+tags:
+- capacitor placement
+- fuzzy logic
+- NSGA-II
+relevance_notes: 强调候选节点选择与电容容量配置，对齐弱节点 + shunt 搜索思路。
+doi: 10.1016/j.rineng.2022.100870
+url: https://www.sciencedirect.com/science/article/pii/S2590123022005400

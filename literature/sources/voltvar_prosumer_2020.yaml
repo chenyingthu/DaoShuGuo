@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.voltvar_prosumer_2020
+object_version: 0.1.0
+created_at: '2026-04-20T03:55:00Z'
+updated_at: '2026-04-20T03:55:00Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.voltvar_prosumer_2020
+title: Optimal Volt/VAR control in distribution systems with prosumer DERs
+source_kind: manual_summary
+method_family: volt_var_control
+tags:
+- volt/var control
+- distribution systems
+- optimization
+relevance_notes: 代表更现代的 Volt/Var control 语义，对齐 ext-grid 型电压调节思路。
+method_notes:
+- 构建多目标 Volt/Var control，协调电容器、OLTC、调压器和 prosumer DER 有功/无功设定点。
+explanation_notes:
+- 核心解释是：通过多类电压控制资产的协调调度，可以降低损耗并控制调节成本。
+explanation_point_notes:
+- 文献显式协调电容器、OLTC、调压器和 prosumer DER 设定点。
+- 目标函数同时兼顾损耗和调节成本。
+- 问题表述侧重多资产 Volt/Var 协调，而不是候选补偿节点搜索。
+provenance_notes:
+- 由 task001-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2020
+doi: 10.1016/j.epsr.2020.106520
+url: https://www.sciencedirect.com/science/article/pii/S0378779620303242

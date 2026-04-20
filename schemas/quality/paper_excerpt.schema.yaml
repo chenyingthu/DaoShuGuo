@@ -1,0 +1,65 @@
+schema_id: "paper_excerpt.schema"
+schema_version: "0.1.0"
+object_type: "paper_excerpt"
+title: "Paper Excerpt Schema"
+description: "论文片段对象，用于表达被框架引用的局部文本或结构化摘录。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - paper_ref
+  - source_ref
+  - source_kind
+  - excerpt_kind
+  - granularity
+  - content
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["paper_excerpt"]
+  object_id:
+    type: string
+    pattern_hint: "paper_excerpt.<domain>.<paper_key>.<serial>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  paper_ref:
+    type: string
+  source_ref:
+    type: string
+  source_kind:
+    type: enum
+    allowed: ["seed_curated", "manual_summary", "abstract_excerpt", "fulltext_excerpt"]
+  excerpt_kind:
+    type: enum
+    allowed: ["method", "explanation", "scope", "claim"]
+  granularity:
+    type: enum
+    allowed: ["summary", "point"]
+  content:
+    type: string
+  notes:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "paper-excerpt-content-required"
+    description: "content 不得为空。"

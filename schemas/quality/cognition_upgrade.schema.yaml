@@ -1,0 +1,82 @@
+schema_id: "cognition_upgrade.schema"
+schema_version: "0.1.0"
+object_type: "cognition_upgrade"
+title: "Cognition Upgrade Schema"
+description: "用于表达某条认知在比较与审视后应升级、保持还是降级。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - source_cognition_ref
+  - decision
+  - rationale
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["cognition_upgrade"]
+  object_id:
+    type: string
+    pattern_hint: "cognition_upgrade.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  source_cognition_ref:
+    type: string
+  semantic_comparison_ref:
+    type: string
+    required: false
+  novelty_assessment_ref:
+    type: string
+    required: false
+  literature_alignment_ref:
+    type: string
+    required: false
+  explanation_alignment_ref:
+    type: string
+    required: false
+  explanation_excerpt_refs:
+    type: array[string]
+    required: false
+  evidence_strength:
+    type: enum
+    allowed: ["low", "medium", "high"]
+    required: false
+  upgraded_cognition_ref:
+    type: string
+    required: false
+  decision:
+    type: enum
+    allowed: ["upgrade", "retain", "downgrade", "freeze"]
+  rationale:
+    type: string
+  claim_adjustment:
+    type: string
+    required: false
+
+validation_rules:
+  - rule_id: "cognition-upgrade-source-required"
+    description: "必须明确源认知对象。"
+  - rule_id: "cognition-upgrade-rationale-required"
+    description: "rationale 不得为空。"

@@ -1,0 +1,19 @@
+schema_version: 0.1.0
+object_type: paper_record
+object_id: paper_record.power.voltvar_fuzzy_2011
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata: {}
+title: Volt/Var control in a distribution system by a fuzzy optimization approach
+year: 2011
+method_family: volt_var_control
+tags:
+- volt/var control
+- fuzzy optimization
+- transformer tap
+- switched capacitor
+relevance_notes: 代表性 Volt/Var control 路线，适合对齐 ext-grid / 边界调压式策略。
+doi: 10.1016/j.ijepes.2010.08.023
+url: https://www.sciencedirect.com/science/article/abs/pii/S0142061510001596

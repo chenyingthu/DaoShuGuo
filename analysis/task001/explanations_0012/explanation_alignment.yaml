@@ -1,0 +1,300 @@
+schema_version: 0.1.0
+object_type: explanation_alignment
+object_id: explanation_alignment.power.ieee33_reactive_opt.0012
+object_version: 0.1.0
+created_at: '2026-04-20T03:55:00Z'
+updated_at: '2026-04-20T03:55:00Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+assessed_cognition_ref: cognition.power.upgraded_strategy_comparison_0014
+explanation_card_refs:
+- explanation_card.power.voltvar_fuzzy_2011
+- explanation_card.power.voltvar_prosumer_2020
+- explanation_card.power.robust_vvc_2017
+- explanation_card.power.capacitor_tlbo_2014
+- explanation_card.power.capacitor_nsga_2022
+per_card_relations:
+  explanation_card.power.voltvar_fuzzy_2011:
+    paper_ref: paper_record.power.voltvar_fuzzy_2011
+    relation: supplements
+    reason: 当前片段主要提供对照性补充参照，而不是直接支持。
+    explanation_points:
+    - 正文层将调压设备和无功设备的协同动作作为核心机制。
+    - 性能改进来源于协调控制，而不是节点补偿选址定容。
+    - 该解释更适合作为 ext-grid/volt-var 路线的高强度参照。
+    relation_counts:
+      supports: 0
+      supplements: 4
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation
+      granularity: summary
+      source_ref: literature_source.power.voltvar_fuzzy_2011.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: 正文层解释更明确地把性能提升归因于调压设备与无功设备的协调控制，而不是补偿配置本体。
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.voltvar_fuzzy_2011.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supplements
+      reason: 片段文本主要在界定 Volt/Var/调压类边界，可作为补充参照。
+      evidence_basis: excerpt_content
+      content: 正文层将调压设备和无功设备的协同动作作为核心机制。
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.voltvar_fuzzy_2011.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: 性能改进来源于协调控制，而不是节点补偿选址定容。
+    - excerpt_ref: paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.voltvar_fuzzy_2011.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supplements
+      reason: 当前只从卡片标签推知其属于 Volt/Var 家族，但 excerpt 文本证据不足。
+      evidence_basis: card_tag_fallback
+      content: 该解释更适合作为 ext-grid/volt-var 路线的高强度参照。
+  explanation_card.power.voltvar_prosumer_2020:
+    paper_ref: paper_record.power.voltvar_prosumer_2020
+    relation: supplements
+    reason: 当前片段主要提供对照性补充参照，而不是直接支持。
+    explanation_points:
+    - 文献显式协调电容器、OLTC、调压器和 prosumer DER 设定点。
+    - 目标函数同时兼顾损耗和调节成本。
+    - 问题表述侧重多资产 Volt/Var 协调，而不是候选补偿节点搜索。
+    relation_counts:
+      supports: 0
+      supplements: 2
+      similar: 2
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation
+      granularity: summary
+      source_ref: literature_source.power.voltvar_prosumer_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: similar
+      reason: 片段文本只体现目标层面的相似性，尚不足以形成直接支持。
+      evidence_basis: excerpt_content
+      content: 核心解释是：通过多类电压控制资产的协调调度，可以降低损耗并控制调节成本。
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.voltvar_prosumer_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: 文献显式协调电容器、OLTC、调压器和 prosumer DER 设定点。
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.voltvar_prosumer_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: similar
+      reason: 片段文本只体现目标层面的相似性，尚不足以形成直接支持。
+      evidence_basis: excerpt_content
+      content: 目标函数同时兼顾损耗和调节成本。
+    - excerpt_ref: paper_excerpt.power.voltvar_prosumer_2020.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.voltvar_prosumer_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supplements
+      reason: 片段文本主要在界定 Volt/Var/调压类边界，可作为补充参照。
+      evidence_basis: excerpt_content
+      content: 问题表述侧重多资产 Volt/Var 协调，而不是候选补偿节点搜索。
+  explanation_card.power.robust_vvc_2017:
+    paper_ref: paper_record.power.robust_vvc_2017
+    relation: supplements
+    reason: 当前片段主要提供对照性补充参照，而不是直接支持。
+    explanation_points:
+    - 重点在不确定负荷和 DER 扰动下维持稳定的 Volt/Var 控制。
+    - 核心收益是扰动抑制和电压性能保持。
+    - 该语义更接近控制理论上的鲁棒调压，而不是补偿设备选址定容。
+    relation_counts:
+      supports: 0
+      supplements: 2
+      similar: 2
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation
+      granularity: summary
+      source_ref: literature_source.power.robust_vvc_2017
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: similar
+      reason: 片段文本只体现目标层面的相似性，尚不足以形成直接支持。
+      evidence_basis: excerpt_content
+      content: 核心解释是：通过鲁棒控制设计提升闭环稳定性和扰动抑制能力，从而维持期望电压性能。
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.robust_vvc_2017
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supplements
+      reason: 片段文本主要在界定 Volt/Var/调压类边界，可作为补充参照。
+      evidence_basis: excerpt_content
+      content: 重点在不确定负荷和 DER 扰动下维持稳定的 Volt/Var 控制。
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.robust_vvc_2017
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: similar
+      reason: 片段文本只体现目标层面的相似性，尚不足以形成直接支持。
+      evidence_basis: excerpt_content
+      content: 核心收益是扰动抑制和电压性能保持。
+    - excerpt_ref: paper_excerpt.power.robust_vvc_2017.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.robust_vvc_2017
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: 该语义更接近控制理论上的鲁棒调压，而不是补偿设备选址定容。
+  explanation_card.power.capacitor_tlbo_2014:
+    paper_ref: paper_record.power.capacitor_tlbo_2014
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - 正文层把电容器位置与容量作为主要决策变量。
+    - 正文层说明改进机制来自补偿配置对潮流和损耗分布的直接影响。
+    - 这类解释与 weak-shunt 路线的研究语义高度一致。
+    relation_counts:
+      supports: 3
+      supplements: 1
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation
+      granularity: summary
+      source_ref: literature_source.power.capacitor_tlbo_2014.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: 正文层解释更明确地指出：性能改善来自补偿配置改变网络潮流分布，而不是经由边界调压间接实现。
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.capacitor_tlbo_2014.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 正文层把电容器位置与容量作为主要决策变量。
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.capacitor_tlbo_2014.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 正文层说明改进机制来自补偿配置对潮流和损耗分布的直接影响。
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.capacitor_tlbo_2014.fulltext
+      source_kind: fulltext_excerpt
+      evidence_strength: high
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 这类解释与 weak-shunt 路线的研究语义高度一致。
+  explanation_card.power.capacitor_nsga_2022:
+    paper_ref: paper_record.power.capacitor_nsga_2022
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - 先用启发式规则缩小候选节点，再进入补偿配置优化。
+    - 多目标优化同时关注电压稳定性、损耗与经济性。
+    - 文献语义仍围绕补偿设备配置，而不是统一 Volt/Var 协调调度。
+    relation_counts:
+      supports: 2
+      supplements: 1
+      similar: 1
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation
+      granularity: summary
+      source_ref: literature_source.power.capacitor_nsga_2022
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 核心解释是：先缩小候选节点，再做多目标补偿配置，有助于同时改善电压稳定性、损耗与经济性。
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.capacitor_nsga_2022
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 先用启发式规则缩小候选节点，再进入补偿配置优化。
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.capacitor_nsga_2022
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: similar
+      reason: 片段文本只体现目标层面的相似性，尚不足以形成直接支持。
+      evidence_basis: excerpt_content
+      content: 多目标优化同时关注电压稳定性、损耗与经济性。
+    - excerpt_ref: paper_excerpt.power.capacitor_nsga_2022.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.capacitor_nsga_2022
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: 文献语义仍围绕补偿设备配置，而不是统一 Volt/Var 协调调度。
+evidence_excerpt_refs:
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_1
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_2
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_3
+- paper_excerpt.power.voltvar_prosumer_2020.explanation
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_1
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_2
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_3
+- paper_excerpt.power.robust_vvc_2017.explanation
+- paper_excerpt.power.robust_vvc_2017.explanation_point_1
+- paper_excerpt.power.robust_vvc_2017.explanation_point_2
+- paper_excerpt.power.robust_vvc_2017.explanation_point_3
+- paper_excerpt.power.capacitor_tlbo_2014.explanation
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+- paper_excerpt.power.capacitor_nsga_2022.explanation
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_1
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_2
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_3
+evidence_strength: high
+relation_summary: 2 张 explanation card 含 excerpt 级直接支持（5 条 excerpt）；3 张 card 主要提供边界性补充（10
+  条 excerpt）。
+overall_relation: mixed
+notes:
+- 当前 relation judgment 以 excerpt 文本证据为主，card 标签仅作兜底提示
+- 支持与仅相似已显式区分，但仍未进行原文全文语义匹配

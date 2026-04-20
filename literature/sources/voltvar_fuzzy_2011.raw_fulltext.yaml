@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.voltvar_fuzzy_2011.raw_fulltext
+object_version: 0.1.0
+created_at: '2026-04-20T03:55:00Z'
+updated_at: '2026-04-20T03:55:00Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.voltvar_fuzzy_2011
+title: Volt/Var control in a distribution system by a fuzzy optimization approach
+source_kind: fulltext_excerpt
+method_family: volt_var_control
+tags:
+- volt/var control
+- fuzzy optimization
+- transformer tap
+- switched capacitor
+relevance_notes: 代表性 Volt/Var control 路线，适合对齐 ext-grid / 边界调压式策略。
+method_notes:
+- The method coordinates ULTC tap positions and switched capacitor states through
+  fuzzy optimization.
+- The control formulation targets Volt/Var operation under uncertain load and wind
+  conditions.
+explanation_notes: &id001
+- Performance gains are attributed to coordinated actions of voltage-regulating and
+  reactive power devices.
+- The mechanism is coordinated Volt/Var control rather than capacitor placement as
+  the primary problem object.
+- The approach provides a boundary/control-family contrast to direct compensation
+  placement methods.
+explanation_point_notes: *id001
+provenance_notes:
+- Curated raw fulltext-style fragments used to exercise the import path.
+year: 2011
+doi: 10.1016/j.ijepes.2010.08.023
+url: https://www.sciencedirect.com/science/article/abs/pii/S0142061510001596

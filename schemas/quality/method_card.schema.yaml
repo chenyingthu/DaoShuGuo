@@ -1,0 +1,62 @@
+schema_id: "method_card.schema"
+schema_version: "0.1.0"
+object_type: "method_card"
+title: "Method Card Schema"
+description: "论文方法卡片对象，用于表达文献中的方法、控制变量和方法家族。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - paper_ref
+  - method_family
+  - method_summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["method_card"]
+  object_id:
+    type: string
+    pattern_hint: "method_card.<domain>.<paper_key>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  paper_ref:
+    type: string
+  method_family:
+    type: string
+  method_summary:
+    type: string
+  control_signature:
+    type: string
+    required: false
+  optimization_style:
+    type: string
+    required: false
+  excerpt_refs:
+    type: array[string]
+    required: false
+  notes:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "method-card-summary-required"
+    description: "method_summary 不得为空。"

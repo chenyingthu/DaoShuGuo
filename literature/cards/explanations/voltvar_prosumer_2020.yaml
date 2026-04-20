@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: explanation_card
+object_id: explanation_card.power.voltvar_prosumer_2020
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.voltvar_prosumer_2020
+  source_kind: manual_summary
+paper_ref: paper_record.power.voltvar_prosumer_2020
+explanation_summary: 核心解释是：通过多类电压控制资产的协调调度，可以降低损耗并控制调节成本。
+explanation_points:
+- 文献显式协调电容器、OLTC、调压器和 prosumer DER 设定点。
+- 目标函数同时兼顾损耗和调节成本。
+- 问题表述侧重多资产 Volt/Var 协调，而不是候选补偿节点搜索。
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+concept_tags:
+- volt/var control
+- voltage regulation
+- distribution control
+- distribution systems
+- optimization
+excerpt_refs:
+- paper_excerpt.power.voltvar_prosumer_2020.explanation
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_1
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_2
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_3
+notes:
+- 当前优先由 literature_source.power.voltvar_prosumer_2020 驱动解释卡片生成，不是原文全文抽取。

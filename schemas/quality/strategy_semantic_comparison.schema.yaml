@@ -1,0 +1,71 @@
+schema_id: "strategy_semantic_comparison.schema"
+schema_version: "0.1.0"
+object_type: "strategy_semantic_comparison"
+title: "Strategy Semantic Comparison Schema"
+description: "用于比较两条策略在控制变量、问题贴合度、方法范式和复用潜力上的语义差异。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - left_run_ref
+  - right_run_ref
+  - semantic_dimensions
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["strategy_semantic_comparison"]
+  object_id:
+    type: string
+    pattern_hint: "semantic_comparison.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  left_run_ref:
+    type: string
+  right_run_ref:
+    type: string
+  left_skill_ref:
+    type: string
+    required: false
+  right_skill_ref:
+    type: string
+    required: false
+  semantic_dimensions:
+    type: object
+  summary:
+    type: string
+  preferred_for_research_ref:
+    type: string
+    required: false
+  notes:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "semantic-comparison-run-refs-required"
+    description: "必须明确左右运行引用。"
+  - rule_id: "semantic-comparison-summary-required"
+    description: "summary 不得为空。"

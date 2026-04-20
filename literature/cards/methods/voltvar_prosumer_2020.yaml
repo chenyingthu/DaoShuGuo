@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+object_type: method_card
+object_id: method_card.power.voltvar_prosumer_2020
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.voltvar_prosumer_2020
+  source_kind: manual_summary
+paper_ref: paper_record.power.voltvar_prosumer_2020
+method_family: volt_var_control
+method_summary: 构建多目标 Volt/Var control，协调电容器、OLTC、调压器和 prosumer DER 有功/无功设定点。
+control_signature: boundary_voltage_tuning
+optimization_style: volt_var_control
+excerpt_refs:
+- paper_excerpt.power.voltvar_prosumer_2020.method
+notes:
+- 代表更现代的 Volt/Var control 语义，对齐 ext-grid 型电压调节思路。
+- selected_source_kind=manual_summary

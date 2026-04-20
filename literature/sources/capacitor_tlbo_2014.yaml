@@ -1,0 +1,32 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.capacitor_tlbo_2014
+object_version: 0.1.0
+created_at: '2026-04-20T03:55:00Z'
+updated_at: '2026-04-20T03:55:00Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.capacitor_tlbo_2014
+title: Optimal capacitor placement in radial distribution systems using teaching learning
+  based optimization
+source_kind: manual_summary
+method_family: capacitor_placement_optimization
+tags:
+- capacitor placement
+- radial distribution system
+- optimization
+relevance_notes: 代表性电容器配置/补偿优化工作，适合对齐 weak-shunt 路线。
+method_notes:
+- 采用 teaching-learning based optimization，在径向配电系统中优化电容器配置，以降低损耗和能量成本。
+explanation_notes:
+- 核心解释是：通过选择合适的补偿位置和容量，可以同时改善损耗与运行经济性。
+explanation_point_notes:
+- 控制对象直接作用于电容器位置与容量配置。
+- 优化目标聚焦于降低损耗、改善电压并兼顾运行经济性。
+- 该路线把无功补偿配置视为问题本体，而不是外部边界调压。
+provenance_notes:
+- 由 task001-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2014
+doi: 10.1016/j.ijepes.2013.07.011
+url: https://www.sciencedirect.com/science/article/pii/S0142061513003086

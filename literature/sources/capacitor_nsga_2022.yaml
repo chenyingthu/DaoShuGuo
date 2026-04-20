@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.capacitor_nsga_2022
+object_version: 0.1.0
+created_at: '2026-04-20T03:55:00Z'
+updated_at: '2026-04-20T03:55:00Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.capacitor_nsga_2022
+title: Solving the capacitor placement problem in radial distribution networks
+source_kind: manual_summary
+method_family: capacitor_placement_optimization
+tags:
+- capacitor placement
+- fuzzy logic
+- NSGA-II
+relevance_notes: 强调候选节点选择与电容容量配置，对齐弱节点 + shunt 搜索思路。
+method_notes:
+- 采用模糊逻辑筛选候选母线，再用 NSGA-II 优化固定和投切电容器的位置与容量。
+explanation_notes:
+- 核心解释是：先缩小候选节点，再做多目标补偿配置，有助于同时改善电压稳定性、损耗与经济性。
+explanation_point_notes:
+- 先用启发式规则缩小候选节点，再进入补偿配置优化。
+- 多目标优化同时关注电压稳定性、损耗与经济性。
+- 文献语义仍围绕补偿设备配置，而不是统一 Volt/Var 协调调度。
+provenance_notes:
+- 由 task001-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2022
+doi: 10.1016/j.rineng.2022.100870
+url: https://www.sciencedirect.com/science/article/pii/S2590123022005400

@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+object_type: method_card
+object_id: method_card.power.robust_vvc_2017
+object_version: 0.1.0
+created_at: '2026-04-20T04:13:17Z'
+updated_at: '2026-04-20T04:13:17Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.robust_vvc_2017
+  source_kind: manual_summary
+paper_ref: paper_record.power.robust_vvc_2017
+method_family: volt_var_control
+method_summary: 提出面向不确定负荷和 DER 扰动的鲁棒分布式 Volt/Var 控制框架。
+control_signature: boundary_voltage_tuning
+optimization_style: volt_var_control
+excerpt_refs:
+- paper_excerpt.power.robust_vvc_2017.method
+notes:
+- 提供更偏控制理论语义的 Volt/Var 路线参照。
+- selected_source_kind=manual_summary

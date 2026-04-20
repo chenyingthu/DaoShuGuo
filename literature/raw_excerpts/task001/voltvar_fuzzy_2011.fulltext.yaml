@@ -1,0 +1,13 @@
+schema_version: "0.1.0"
+paper_ref_id: "paper.voltvar_fuzzy_2011"
+source_kind: "fulltext_excerpt"
+source_key: "raw_fulltext"
+method_fragments:
+  - "The method coordinates ULTC tap positions and switched capacitor states through fuzzy optimization."
+  - "The control formulation targets Volt/Var operation under uncertain load and wind conditions."
+explanation_fragments:
+  - "Performance gains are attributed to coordinated actions of voltage-regulating and reactive power devices."
+  - "The mechanism is coordinated Volt/Var control rather than capacitor placement as the primary problem object."
+  - "The approach provides a boundary/control-family contrast to direct compensation placement methods."
+provenance_notes:
+  - "Curated raw fulltext-style fragments used to exercise the import path."

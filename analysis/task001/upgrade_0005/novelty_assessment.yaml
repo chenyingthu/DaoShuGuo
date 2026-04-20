@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+object_type: novelty_assessment
+object_id: novelty.power.ieee33_reactive_opt.0005
+object_version: 0.1.0
+created_at: '2026-04-19T14:32:54Z'
+updated_at: '2026-04-19T14:32:54Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+assessed_object_ref: skill.power.weak_bus_shunt_optimizer
+supporting_refs:
+- comparison.power.ieee33_reactive_opt.0002
+- semantic_comparison.power.ieee33_reactive_opt.0001
+- literature_alignment.power.ieee33_reactive_opt.0001
+- explanation_alignment.power.ieee33_reactive_opt.0004
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_1
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_2
+- paper_excerpt.power.voltvar_prosumer_2020.explanation
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_1
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_2
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_3
+- paper_excerpt.power.robust_vvc_2017.explanation
+- paper_excerpt.power.robust_vvc_2017.explanation_point_1
+- paper_excerpt.power.robust_vvc_2017.explanation_point_2
+- paper_excerpt.power.robust_vvc_2017.explanation_point_3
+- paper_excerpt.power.capacitor_tlbo_2014.explanation
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+- paper_excerpt.power.capacitor_nsga_2022.explanation
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_1
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_2
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_3
+novelty_level: medium
+research_value_level: high
+continue_investment: continue
+summary: 当前 weak-shunt 路线虽然在本地结果上弱于 ext-grid，但在问题贴合度和研究语义上更值得继续演化。
+reasons:
+- 控制对象更接近无功补偿问题本体
+- 方法语义更接近可复用研究技能
+- 当前比较仍局限于单工况
+- 文献对齐位置=variant
+- 解释对齐关系=mixed
+- 解释片段证据数=19

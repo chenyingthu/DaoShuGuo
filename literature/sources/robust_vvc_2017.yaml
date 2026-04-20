@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.robust_vvc_2017
+object_version: 0.1.0
+created_at: '2026-04-20T03:55:00Z'
+updated_at: '2026-04-20T03:55:00Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.robust_vvc_2017
+title: Robust distributed volt/var control of distribution systems
+source_kind: manual_summary
+method_family: volt_var_control
+tags:
+- distributed control
+- volt/var control
+- robust control
+relevance_notes: 提供更偏控制理论语义的 Volt/Var 路线参照。
+method_notes:
+- 提出面向不确定负荷和 DER 扰动的鲁棒分布式 Volt/Var 控制框架。
+explanation_notes:
+- 核心解释是：通过鲁棒控制设计提升闭环稳定性和扰动抑制能力，从而维持期望电压性能。
+explanation_point_notes:
+- 重点在不确定负荷和 DER 扰动下维持稳定的 Volt/Var 控制。
+- 核心收益是扰动抑制和电压性能保持。
+- 该语义更接近控制理论上的鲁棒调压，而不是补偿设备选址定容。
+provenance_notes:
+- 由 task001-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2017
+url: https://impact.ornl.gov/en/publications/robust-distributed-voltvar-control-of-distribution-systems/

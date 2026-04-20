@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-04-19T12:23:07Z",
+  "left_run_ref": "run.power.ieee33_reactive_opt.0009",
+  "right_run_ref": "run.power.ieee33_reactive_opt.0011",
+  "left_skill_ref": "skill.power.reactive_optimizer",
+  "right_skill_ref": "skill.power.weak_bus_shunt_optimizer",
+  "preferred_for_research_ref": "run.power.ieee33_reactive_opt.0011",
+  "summary": "语义比较完成：skill.power.reactive_optimizer 与 skill.power.weak_bus_shunt_optimizer 在研究语义层面存在显著差异。"
+}

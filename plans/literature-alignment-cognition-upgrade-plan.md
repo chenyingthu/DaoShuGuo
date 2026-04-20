@@ -29,40 +29,51 @@
 - 文献方法映射
 - 文献解释对齐
 
+当前状态：
+
+- 已完成种子文献驱动的方法家族级对齐
+- 已将 literature_alignment 接入 novelty_assessment 与 cognition_upgrade
+- 已完成解释卡片级对齐
+- 已完成人工整理 `fulltext_excerpt` 驱动的片段级解释对齐
+- 尚未完成自动 PDF/HTML 全文抽取
+
 ## 3. 验收标准
 
 ### 3.1 第一阶段
 
-- [ ] 新增比较认知升级相关 schema
-- [ ] orchestrator 新增对应入口
-- [ ] 能基于两次 run 生成语义比较结果
-- [ ] 能生成升级后的认知对象
-- [ ] 能对 claim 上限做重新判断
+- [x] 新增比较认知升级相关 schema
+- [x] orchestrator 新增对应入口
+- [x] 能基于两次 run 生成语义比较结果
+- [x] 能生成升级后的认知对象
+- [x] 能对 claim 上限做重新判断
 
 ### 3.2 第二阶段
 
-- [ ] 新增 literature_alignment schema
-- [ ] 能记录文献方法与本地策略的关系
-- [ ] 能记录文献解释与本地认知的关系
-- [ ] 能输出新颖性判断
+- [x] 新增 literature_alignment schema
+- [x] 能记录文献方法与本地策略的关系
+- [x] 能记录文献解释与本地认知的关系
+- [x] 能输出新颖性判断
+- [x] 能生成基础文献对象层（paper/method/explanation cards）
+- [x] 能进行原文片段级解释对齐
+- [ ] 能进行自动 PDF/HTML 全文抽取
 
 ## 4. 第一步实施内容
 
 ### Step 1: schema 层扩展
 
-- [ ] `strategy_semantic_comparison.schema`
-- [ ] `novelty_assessment.schema`
-- [ ] `cognition_upgrade.schema`
+- [x] `strategy_semantic_comparison.schema`
+- [x] `novelty_assessment.schema`
+- [x] `cognition_upgrade.schema`
 
 ### Step 2: orchestrator 对接
 
-- [ ] 新增 `compare-semantics`
-- [ ] 新增 `upgrade-cognition`
+- [x] 新增 `compare-semantics`
+- [x] 新增 `upgrade-cognition`
 
 ### Step 3: task001 首次使用
 
-- [ ] 用 `run_0009` 与 `run_0011` 做第一次语义比较
-- [ ] 用比较结果生成更高层认知对象
+- [x] 用 `run_0009` 与 `run_0011` 做第一次语义比较
+- [x] 用比较结果生成更高层认知对象
 
 ## 5. 非目标
 
@@ -71,6 +82,7 @@
 - 自动完整文献综述
 - 自动论文写作
 - 大规模外部知识图谱
+- 一步到位的全文精细语义解析
 
 ## 6. 结论
 

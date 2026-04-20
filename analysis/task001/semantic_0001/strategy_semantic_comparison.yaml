@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+object_type: strategy_semantic_comparison
+object_id: semantic_comparison.power.ieee33_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-19T12:23:07Z'
+updated_at: '2026-04-19T12:23:07Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee33_reactive_opt
+left_run_ref: run.power.ieee33_reactive_opt.0009
+right_run_ref: run.power.ieee33_reactive_opt.0011
+left_skill_ref: skill.power.reactive_optimizer
+right_skill_ref: skill.power.weak_bus_shunt_optimizer
+semantic_dimensions:
+  problem_alignment:
+    left: medium
+    right: high
+    winner: right
+  research_value:
+    left: medium
+    right: high
+    winner: right
+  control_realism:
+    left: low
+    right: high
+    winner: right
+  reuse_potential:
+    left: medium
+    right: medium
+    winner: tie
+  method_family:
+    left: ext_grid_vm_search
+    right: weak_bus_shunt_search
+    winner: different
+  control_signature:
+    left: boundary_voltage_tuning
+    right: reactive_compensation
+    winner: different
+preferred_for_research_ref: run.power.ieee33_reactive_opt.0011
+summary: 语义比较完成：skill.power.reactive_optimizer 与 skill.power.weak_bus_shunt_optimizer
+  在研究语义层面存在显著差异。
+notes:
+- ext_grid_vm_pu=1.04
+- candidate_buses=[17, 16, 15, 32, 31]
+- evaluated_candidates=76

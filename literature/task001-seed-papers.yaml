@@ -1,0 +1,77 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee33_reactive_opt"
+seed_papers:
+  - ref_id: "paper.capacitor_tlbo_2014"
+    title: "Optimal capacitor placement in radial distribution systems using teaching learning based optimization"
+    source_kind: "manual_summary"
+    year: 2014
+    doi: "10.1016/j.ijepes.2013.07.011"
+    url: "https://www.sciencedirect.com/science/article/pii/S0142061513003086"
+    method_family: "capacitor_placement_optimization"
+    tags: ["capacitor placement", "radial distribution system", "optimization"]
+    relevance_notes: "代表性电容器配置/补偿优化工作，适合对齐 weak-shunt 路线。"
+    method_excerpt_seed: "采用 teaching-learning based optimization，在径向配电系统中优化电容器配置，以降低损耗和能量成本。"
+    explanation_excerpt_seed: "核心解释是：通过选择合适的补偿位置和容量，可以同时改善损耗与运行经济性。"
+    explanation_point_notes:
+      - "控制对象直接作用于电容器位置与容量配置。"
+      - "优化目标聚焦于降低损耗、改善电压并兼顾运行经济性。"
+      - "该路线把无功补偿配置视为问题本体，而不是外部边界调压。"
+  - ref_id: "paper.capacitor_nsga_2022"
+    title: "Solving the capacitor placement problem in radial distribution networks"
+    source_kind: "manual_summary"
+    year: 2022
+    doi: "10.1016/j.rineng.2022.100870"
+    url: "https://www.sciencedirect.com/science/article/pii/S2590123022005400"
+    method_family: "capacitor_placement_optimization"
+    tags: ["capacitor placement", "fuzzy logic", "NSGA-II"]
+    relevance_notes: "强调候选节点选择与电容容量配置，对齐弱节点 + shunt 搜索思路。"
+    method_excerpt_seed: "采用模糊逻辑筛选候选母线，再用 NSGA-II 优化固定和投切电容器的位置与容量。"
+    explanation_excerpt_seed: "核心解释是：先缩小候选节点，再做多目标补偿配置，有助于同时改善电压稳定性、损耗与经济性。"
+    explanation_point_notes:
+      - "先用启发式规则缩小候选节点，再进入补偿配置优化。"
+      - "多目标优化同时关注电压稳定性、损耗与经济性。"
+      - "文献语义仍围绕补偿设备配置，而不是统一 Volt/Var 协调调度。"
+  - ref_id: "paper.voltvar_fuzzy_2011"
+    title: "Volt/Var control in a distribution system by a fuzzy optimization approach"
+    source_kind: "abstract_excerpt"
+    year: 2011
+    doi: "10.1016/j.ijepes.2010.08.023"
+    url: "https://www.sciencedirect.com/science/article/abs/pii/S0142061510001596"
+    method_family: "volt_var_control"
+    tags: ["volt/var control", "fuzzy optimization", "transformer tap", "switched capacitor"]
+    relevance_notes: "代表性 Volt/Var control 路线，适合对齐 ext-grid / 边界调压式策略。"
+    method_excerpt_seed: "通过模糊优化协调 ULTC 分接头与投切电容器状态，在不确定负荷和风速条件下优化电压与损耗。"
+    explanation_excerpt_seed: "核心解释是：通过协调调压设备与无功设备的离散动作，可以在不确定环境下维持电压并降低损耗。"
+    explanation_point_notes:
+      - "控制动作覆盖 ULTC 分接头和投切电容器的协调切换。"
+      - "文献同样追求损耗降低和电压质量改善，但着力点是设备协同调节。"
+      - "该路线更像 Volt/Var 控制框架，而非直接补偿配置问题。"
+  - ref_id: "paper.voltvar_prosumer_2020"
+    title: "Optimal Volt/VAR control in distribution systems with prosumer DERs"
+    source_kind: "manual_summary"
+    year: 2020
+    doi: "10.1016/j.epsr.2020.106520"
+    url: "https://www.sciencedirect.com/science/article/pii/S0378779620303242"
+    method_family: "volt_var_control"
+    tags: ["volt/var control", "distribution systems", "optimization"]
+    relevance_notes: "代表更现代的 Volt/Var control 语义，对齐 ext-grid 型电压调节思路。"
+    method_excerpt_seed: "构建多目标 Volt/Var control，协调电容器、OLTC、调压器和 prosumer DER 有功/无功设定点。"
+    explanation_excerpt_seed: "核心解释是：通过多类电压控制资产的协调调度，可以降低损耗并控制调节成本。"
+    explanation_point_notes:
+      - "文献显式协调电容器、OLTC、调压器和 prosumer DER 设定点。"
+      - "目标函数同时兼顾损耗和调节成本。"
+      - "问题表述侧重多资产 Volt/Var 协调，而不是候选补偿节点搜索。"
+  - ref_id: "paper.robust_vvc_2017"
+    title: "Robust distributed volt/var control of distribution systems"
+    source_kind: "manual_summary"
+    year: 2017
+    url: "https://impact.ornl.gov/en/publications/robust-distributed-voltvar-control-of-distribution-systems/"
+    method_family: "volt_var_control"
+    tags: ["distributed control", "volt/var control", "robust control"]
+    relevance_notes: "提供更偏控制理论语义的 Volt/Var 路线参照。"
+    method_excerpt_seed: "提出面向不确定负荷和 DER 扰动的鲁棒分布式 Volt/Var 控制框架。"
+    explanation_excerpt_seed: "核心解释是：通过鲁棒控制设计提升闭环稳定性和扰动抑制能力，从而维持期望电压性能。"
+    explanation_point_notes:
+      - "重点在不确定负荷和 DER 扰动下维持稳定的 Volt/Var 控制。"
+      - "核心收益是扰动抑制和电压性能保持。"
+      - "该语义更接近控制理论上的鲁棒调压，而不是补偿设备选址定容。"

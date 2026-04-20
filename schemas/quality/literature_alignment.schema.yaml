@@ -1,0 +1,71 @@
+schema_id: "literature_alignment.schema"
+schema_version: "0.1.0"
+object_type: "literature_alignment"
+title: "Literature Alignment Schema"
+description: "用于表达本地技能、策略或认知与已有文献方法/解释之间的对应关系。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - assessed_object_refs
+  - literature_refs
+  - alignment_summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["literature_alignment"]
+  object_id:
+    type: string
+    pattern_hint: "literature_alignment.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+    pattern_hint: "major.minor.patch"
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  assessed_object_refs:
+    type: array[string]
+  literature_refs:
+    type: array[string]
+  method_mappings:
+    type: object
+    required: false
+  theory_mappings:
+    type: object
+    required: false
+  novelty_position:
+    type: enum
+    allowed: ["known_pattern", "variant", "potential_extension", "unclear"]
+    required: false
+  alignment_summary:
+    type: string
+  notes:
+    type: array[string]
+    required: false
+
+validation_rules:
+  - rule_id: "literature-alignment-assessed-objects-required"
+    description: "必须明确被对齐的本地对象。"
+  - rule_id: "literature-alignment-refs-required"
+    description: "必须明确引用的文献种子。"
+  - rule_id: "literature-alignment-summary-required"
+    description: "alignment_summary 不得为空。"
