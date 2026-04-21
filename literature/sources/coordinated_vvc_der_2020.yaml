@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.coordinated_vvc_der_2020
+object_version: 0.1.0
+created_at: '2026-04-21T00:58:43Z'
+updated_at: '2026-04-21T00:58:43Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.coordinated_vvc_der_2020
+title: Coordinated Volt/Var control with smart inverters and legacy devices in distribution
+  systems
+source_kind: manual_summary
+method_family: coordinated_volt_var_control
+tags:
+- coordinated volt/var control
+- smart inverter
+- capacitor
+- legacy devices
+relevance_notes: 作为 task003 后续扩展中 shunt + inverter 协同的文献预留家族。
+method_notes:
+- 协调 inverter、capacitor 和调压设备的 Volt/Var 控制，以在多个控制对象间平衡损耗与电压性能。
+explanation_notes:
+- 核心解释是：新能源场景下，合理的 Volt/Var 控制往往不是单一设备，而是多控制对象之间的协调。
+explanation_point_notes:
+- 协调控制覆盖 inverter 与传统 Volt/Var 设备。
+- 方法目标是平衡多个控制对象和多个性能指标。
+- 该家族为 task003 后续协同 candidate 提供外部语义参照。
+provenance_notes:
+- 由 task003-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2020

@@ -1,0 +1,146 @@
+{
+  "baseline_solution": {
+    "control_settings": {
+      "inverter_q": [
+        {
+          "bus": 18,
+          "q_mvar": 0.0
+        },
+        {
+          "bus": 35,
+          "q_mvar": 0.0
+        },
+        {
+          "bus": 61,
+          "q_mvar": 0.0
+        }
+      ],
+      "shunts": [],
+      "ext_grid_vm_pu": 1.0
+    },
+    "metrics": {
+      "loss": 139.67066814649814,
+      "voltage_deviation": 0.018566134568860092,
+      "constraint_violation": 8,
+      "reactive_support_effort": 0.0
+    }
+  },
+  "candidate_solution": {
+    "control_settings": {
+      "inverter_q": [
+        {
+          "bus": 18,
+          "q_mvar": -0.1
+        },
+        {
+          "bus": 35,
+          "q_mvar": -0.1
+        },
+        {
+          "bus": 61,
+          "q_mvar": -0.1
+        }
+      ],
+      "shunts": [],
+      "ext_grid_vm_pu": 1.0,
+      "evaluated_candidates": 1,
+      "performance_failure_probe": true
+    },
+    "metrics": {
+      "loss": 156.10778200173186,
+      "voltage_deviation": 0.019382700337500586,
+      "constraint_violation": 8,
+      "reactive_support_effort": 0.6897546897546898
+    }
+  },
+  "evaluation": {
+    "passed": false,
+    "key_metrics_pass": false,
+    "constraints_pass": true,
+    "comparisons": {
+      "loss": {
+        "candidate": 156.10778200173186,
+        "baseline": 139.67066814649814,
+        "direction": "lower_is_better",
+        "improved": false,
+        "delta": 16.43711385523372
+      },
+      "voltage_deviation": {
+        "candidate": 0.019382700337500586,
+        "baseline": 0.018566134568860092,
+        "direction": "lower_is_better",
+        "improved": false,
+        "delta": 0.0008165657686404933
+      },
+      "constraint_violation": {
+        "candidate": 8,
+        "baseline": 8,
+        "direction": "constraint_only",
+        "improved": true,
+        "delta": 0
+      },
+      "reactive_support_effort": {
+        "candidate": 0.6897546897546898,
+        "baseline": 0.0,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": 0.6897546897546898
+      }
+    },
+    "summary": "candidate did not meet task003 evaluator criteria",
+    "baseline_solution": {
+      "control_settings": {
+        "inverter_q": [
+          {
+            "bus": 18,
+            "q_mvar": 0.0
+          },
+          {
+            "bus": 35,
+            "q_mvar": 0.0
+          },
+          {
+            "bus": 61,
+            "q_mvar": 0.0
+          }
+        ],
+        "shunts": [],
+        "ext_grid_vm_pu": 1.0
+      },
+      "metrics": {
+        "loss": 139.67066814649814,
+        "voltage_deviation": 0.018566134568860092,
+        "constraint_violation": 8,
+        "reactive_support_effort": 0.0
+      }
+    },
+    "candidate_solution": {
+      "control_settings": {
+        "inverter_q": [
+          {
+            "bus": 18,
+            "q_mvar": -0.1
+          },
+          {
+            "bus": 35,
+            "q_mvar": -0.1
+          },
+          {
+            "bus": 61,
+            "q_mvar": -0.1
+          }
+        ],
+        "shunts": [],
+        "ext_grid_vm_pu": 1.0,
+        "evaluated_candidates": 1,
+        "performance_failure_probe": true
+      },
+      "metrics": {
+        "loss": 156.10778200173186,
+        "voltage_deviation": 0.019382700337500586,
+        "constraint_violation": 8,
+        "reactive_support_effort": 0.6897546897546898
+      }
+    }
+  }
+}

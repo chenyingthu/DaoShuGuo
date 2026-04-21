@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+context_type: "renewable_context"
+task_package: "task003"
+renewable_type: "pv_inverter"
+snapshot:
+  active_power_scale: 1.0
+sites:
+  - bus: 18
+    p_mw: 0.35
+    sn_mva: 0.5
+    q_mvar_limit: 0.35
+  - bus: 35
+    p_mw: 0.45
+    sn_mva: 0.65
+    q_mvar_limit: 0.45
+  - bus: 61
+    p_mw: 0.55
+    sn_mva: 0.8
+    q_mvar_limit: 0.55
+modeling_notes:
+  - "PV 有功出力固定，不做时序波动。"
+  - "q_mvar_limit 是第一版无功能力边界代理。"

@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: explanation_card
+object_id: explanation_card.power.hosting_capacity_pv_2017
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+  source_kind: abstract_excerpt
+paper_ref: paper_record.power.hosting_capacity_pv_2017
+explanation_summary: The hosting-capacity boundary only has meaning when the scenario
+  and triggering constraints are explicitly stated.
+explanation_points:
+- Boundary judgments must remain conditioned on scenario and constraints.
+- Voltage screening is a common first boundary.
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+concept_tags:
+- hosting capacity
+- boundary assessment
+- renewable integration
+- distributed PV
+- voltage constraints
+- distribution system
+excerpt_refs:
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+notes:
+- 当前优先由 literature_source.power.hosting_capacity_pv_2017.abstract 驱动解释卡片生成，不是原文全文抽取。

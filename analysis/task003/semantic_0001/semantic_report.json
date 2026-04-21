@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-04-21T00:42:54Z",
+  "left_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+  "right_run_ref": "run.power.ieee69_renewable_reactive_opt.0003",
+  "left_skill_ref": "skill.power.renewable_inverter_reactive_optimizer_task003",
+  "right_skill_ref": "skill.power.weak_bus_shunt_optimizer",
+  "preferred_for_research_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+  "summary": "task003 语义比较完成：已显式区分新能源-aware success、skill mismatch 与 performance failure。"
+}

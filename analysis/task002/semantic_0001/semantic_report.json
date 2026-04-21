@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-04-20T11:26:41Z",
+  "run_ref": "run.power.ieee69_reactive_opt.0005",
+  "left_skill_ref": "skill.power.baseline_solver",
+  "right_skill_ref": "skill.power.weak_bus_shunt_optimizer",
+  "preferred_for_research_ref": "run.power.ieee69_reactive_opt.0005",
+  "summary": "task002 baseline 与 weak-shunt candidate 的研究语义比较完成，candidate 更贴近无功补偿问题本体。"
+}

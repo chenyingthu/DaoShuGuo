@@ -1,0 +1,14 @@
+schema_version: "0.1.0"
+context_type: "control_scope"
+task_package: "task004"
+baseline_strategy:
+  name: "fixed_inverter_q_capacity_scan"
+  description: "固定 inverter Q=0 的保守策略下扫描新能源接入水平。"
+candidate_strategy:
+  name: "inverter_support_capacity_scan"
+  description: "显式使用 inverter reactive support 的策略下扫描新能源接入水平。"
+failure_probes:
+  - "single_point_optimization_skill_mismatch"
+  - "boundary_overclaim"
+notes:
+  - "承载力评估对象依赖控制策略，不应被误写成系统固有边界。"

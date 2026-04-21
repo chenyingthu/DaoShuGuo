@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: paper_record
+object_id: paper_record.power.hosting_capacity_pv_2017
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+title: Distributed PV hosting capacity estimation under voltage constraints in radial
+  distribution systems
+year: 2017
+method_family: hosting_capacity_assessment
+tags:
+- hosting capacity
+- distributed PV
+- voltage constraints
+- distribution system
+relevance_notes: 代表性新能源接入承载力评估文献，用于对齐 task004 的 baseline 扫描语义。

@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.smart_inverter_hosting_2020.abstract
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.smart_inverter_hosting_2020
+title: Impact of smart inverter Volt/Var control on photovoltaic hosting capacity
+source_kind: abstract_excerpt
+method_family: hosting_capacity_controlled
+tags:
+- hosting capacity
+- smart inverter
+- volt/var control
+- PV
+relevance_notes: 用于对齐 task004 candidate，说明控制策略会改变承载力边界。
+method_notes:
+- Smart inverter Volt/Var control can increase PV hosting capacity relative to passive
+  or fixed-Q operation.
+explanation_notes:
+- Hosting-capacity boundaries change with control strategy and should not be written
+  as unique system-intrinsic capacities.
+explanation_point_notes:
+- Control strategy conditions hosting-capacity boundaries.
+- Boundary comparison itself is part of hosting-capacity analysis.
+provenance_notes:
+- Curated abstract-style overlay for task004 candidate alignment.
+year: 2020

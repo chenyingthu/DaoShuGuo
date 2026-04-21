@@ -1,0 +1,19 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_hosting_capacity"
+target_metrics:
+  hosting_capacity_level:
+    direction: "higher_is_better"
+    minimum_expectation: "bounded_and_auditable"
+  violation_trigger_type:
+    direction: "target_is_best"
+    minimum_expectation: "explicitly_recorded"
+  loss_at_boundary:
+    direction: "lower_is_better"
+    minimum_expectation: "reported"
+  voltage_margin:
+    direction: "higher_is_better"
+    minimum_expectation: "reported"
+claim_limits:
+  - "只支持给定控制策略下的静态承载力边界"
+  - "不支持系统普适承载力结论"
+  - "不支持长期时序承载力结论"

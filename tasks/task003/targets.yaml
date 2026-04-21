@@ -1,0 +1,19 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+target_metrics:
+  loss:
+    direction: "lower_is_better"
+    minimum_expectation: "not_worse_than_baseline"
+  voltage_deviation:
+    direction: "lower_is_better"
+    minimum_expectation: "not_worse_than_baseline"
+  constraint_violation:
+    direction: "constraint_only"
+    minimum_expectation: "no_new_violation"
+  reactive_support_effort:
+    direction: "lower_is_better"
+    minimum_expectation: "bounded_and_reported"
+claim_limits:
+  - "不支持新能源波动性结论"
+  - "不支持经济最优结论"
+  - "只支持单代表工况下的 task 接入验证"

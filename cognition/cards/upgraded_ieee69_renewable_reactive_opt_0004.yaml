@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.upgraded_ieee69_renewable_reactive_opt_0004
+object_version: 0.1.0
+created_at: '2026-04-21T00:44:56Z'
+updated_at: '2026-04-21T00:44:56Z'
+status: active
+metadata:
+  mode: task003_cognition_upgrade
+cognition_type: candidate
+statement: task003 对照表明，使用正确新能源控制空间但当前性能失败的 candidate，仍应保留为可继续改进的方向。
+evidence_refs:
+- comparison.power.ieee69_renewable_reactive_opt.0002
+- semantic_comparison.power.ieee69_renewable_reactive_opt.0002
+- novelty.power.ieee69_renewable_reactive_opt.0004
+scope_boundary:
+  task: task.power.ieee69_renewable_reactive_opt
+  mode: task003_comparative_upgrade
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_renewable_reactive_opt.0001
+- run.power.ieee69_renewable_reactive_opt.0004
+promotion_status: proposed
+uncertainty_notes: 当前仍只基于单代表工况与最小策略集合。

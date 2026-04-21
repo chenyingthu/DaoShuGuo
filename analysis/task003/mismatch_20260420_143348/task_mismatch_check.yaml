@@ -1,0 +1,14 @@
+schema_version: 0.1.0
+object_type: task_mismatch_check
+object_id: task_mismatch.power.ieee69_renewable_reactive_opt.20260420_143348
+created_at: '2026-04-20T14:33:48Z'
+status: blocked
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_dir: tasks/task003_mismatch_fixture
+missing_inputs:
+- renewable_context
+- control_scope
+- constraints
+assumption_gaps: []
+decision: freeze
+rationale: 任务定义缺失关键输入，不应进入真实执行。

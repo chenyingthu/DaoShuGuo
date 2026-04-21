@@ -1,0 +1,6 @@
+{
+  "created_at": "2026-04-21T03:52:28Z",
+  "left_run_ref": "run.power.ieee69_hosting_capacity.0001",
+  "right_run_ref": "run.power.ieee69_hosting_capacity.0002",
+  "summary": "task004 承载力比较完成，real_inverter-support 与 real_single-point-mismatch 的边界差异已结构化。"
+}

@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: paper_record
+object_id: paper_record.power.hosting_capacity_method_review_2021
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+title: Review of hosting capacity assessment methods for renewable-rich distribution
+  grids
+year: 2021
+method_family: hosting_capacity_assessment
+tags:
+- hosting capacity
+- review
+- distribution grid
+- renewable integration
+relevance_notes: 用于解释 task004 的 boundary overclaim 风险。

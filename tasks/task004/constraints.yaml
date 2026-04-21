@@ -1,0 +1,42 @@
+physical:
+  - name: "voltage_limits"
+    description: "节点电压必须在允许范围内"
+  - name: "inverter_q_limits"
+    description: "新能源 inverter 无功支撑必须保持在能力边界内"
+  - name: "hosting_capacity_scan"
+    description: "新能源接入水平通过统一 scale 扫描"
+engineering:
+  - name: "single_snapshot_only"
+    description: "第一版只做单代表工况"
+  - name: "reuse_task003_runtime"
+    description: "沿用 task003 的新能源接入运行基础"
+research:
+  - name: "capacity_definition_must_be_explicit"
+    description: "承载力定义必须写清楚"
+  - name: "control_strategy_condition_must_be_stated"
+    description: "必须显式说明边界依赖的控制策略"
+  - name: "boundary_overclaim_must_be_detected"
+    description: "必须检测边界过度表述"
+solver:
+  task_package: "task004"
+  base_task_package: "task003"
+  network_model: "ieee69_hosting_capacity"
+  renewable_scale_values: [0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.4, 2.8, 3.0]
+  baseline_inverter_q_mvar: 0.0
+  candidate_q_step_mvar: 0.1
+  voltage_limits:
+    min: 0.91
+    max: 1.05
+  renewable_sites:
+    - bus: 18
+      p_mw: 0.12
+      sn_mva: 0.5
+      q_mvar_limit: 0.35
+    - bus: 35
+      p_mw: 0.16
+      sn_mva: 0.65
+      q_mvar_limit: 0.45
+    - bus: 61
+      p_mw: 0.2
+      sn_mva: 0.8
+      q_mvar_limit: 0.55

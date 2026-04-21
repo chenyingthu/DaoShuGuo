@@ -1,0 +1,33 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_renewable_reactive_opt.0006
+object_version: 0.1.0
+created_at: '2026-04-21T01:00:15Z'
+updated_at: '2026-04-21T01:00:15Z'
+status: reviewed
+metadata:
+  mode: task003_failure_taxonomy
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0001
+semantic_comparison_ref: semantic_comparison.power.ieee69_renewable_reactive_opt.0001
+novelty_assessment_ref: novelty.power.ieee69_renewable_reactive_opt.0006
+literature_alignment_ref: literature_alignment.power.ieee69_renewable_reactive_opt.0002
+explanation_alignment_ref: explanation_alignment.power.ieee69_renewable_reactive_opt.0001
+explanation_excerpt_refs:
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_1
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_2
+- paper_excerpt.power.der_reactive_support_2021.explanation
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_1
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_2
+- paper_excerpt.power.coordinated_vvc_der_2020.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+upgraded_cognition_ref: cognition.power.upgraded_ieee69_renewable_reactive_opt_0006
+evidence_strength: medium
+decision: upgrade
+rationale: 显式使用新能源 inverter 控制空间，是判断 candidate 是否回答 task003 本体的重要条件。 当前文献对齐将其定位为 `variant`。
+  explanation alignment 提供了 11 条 excerpt 级证据，evidence_strength=`medium`。
+claim_adjustment: task003 当前认知升级仍只支持单代表工况下的 failure taxonomy 与任务本体判断。

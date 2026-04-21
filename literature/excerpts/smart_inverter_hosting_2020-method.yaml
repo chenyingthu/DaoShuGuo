@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: paper_excerpt
+object_id: paper_excerpt.power.smart_inverter_hosting_2020.method
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+paper_ref: paper_record.power.smart_inverter_hosting_2020
+source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+source_kind: abstract_excerpt
+excerpt_kind: method
+granularity: summary
+content: Smart inverter Volt/Var control can increase PV hosting capacity relative
+  to passive or fixed-Q operation.
+notes:
+- 当前由 literature_source.power.smart_inverter_hosting_2020.abstract 的 method_notes
+  驱动的方法摘要片段

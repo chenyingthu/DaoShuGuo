@@ -1,0 +1,28 @@
+schema_version: 0.1.0
+object_type: explanation_card
+object_id: explanation_card.power.single_point_operation_2019
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.single_point_operation_2019.abstract
+  source_kind: abstract_excerpt
+paper_ref: paper_record.power.single_point_operation_2019
+explanation_summary: Using a single operating point as a boundary conclusion creates
+  a category mistake between operation analysis and boundary analysis.
+explanation_points:
+- Operating-point analysis and hosting-capacity boundary evaluation are different
+  problem types.
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+concept_tags:
+- operating point
+- boundary mismatch
+- hosting capacity
+- boundary evaluation
+excerpt_refs:
+- paper_excerpt.power.single_point_operation_2019.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation_point_1
+notes:
+- 当前优先由 literature_source.power.single_point_operation_2019.abstract 驱动解释卡片生成，不是原文全文抽取。

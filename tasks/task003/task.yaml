@@ -1,0 +1,71 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.ieee69_renewable_reactive_opt"
+object_version: "0.1.0"
+created_at: "2026-04-20T00:00:00Z"
+updated_at: "2026-04-20T00:00:00Z"
+status: "active"
+metadata:
+  source_brief: "tasks/task003/research_brief.md"
+title: "新能源接入下的 IEEE69 无功补偿与优化调控任务接入验证"
+description: "用于验证真实科研 brief 能否被形式化为新能源接入下的最小无功优化任务包。"
+tags:
+  - "power"
+  - "renewable"
+  - "reactive_opt"
+  - "task_framing"
+research_object: "含 PV inverter 接入的 IEEE69 配电网无功补偿与优化调控问题"
+problem_statement: "在单时刻代表工况下，比较朴素 inverter 固定无功基线与新能源-aware candidate 对网损、电压偏差、约束违反和无功支撑使用程度的影响。"
+scenario_boundary:
+  grid_model: "ieee69_with_renewables"
+  base_grid: "ieee69"
+  renewable_type: "pv_inverter"
+  operating_conditions:
+    - "single_representative_snapshot"
+  simulator: "pandapower"
+  excluded:
+    - "renewable_time_series"
+    - "economic_dispatch"
+    - "uncertainty_propagation"
+success_intent:
+  goal: "验证新能源接入任务能否被接入现有自主科研框架并形成 success/failure 认知。"
+  non_goal:
+    - "证明新能源场景下的最优无功控制方法"
+    - "覆盖新能源波动性结论"
+baseline_refs:
+  - "baseline.power.ieee69_renewable_reactive_opt.fixed_inverter_q"
+constraint_summary:
+  physical:
+    - "节点电压约束"
+    - "inverter 无功能力边界"
+    - "传统补偿边界"
+  engineering:
+    - "复用 task002 IEEE69 runtime 基础"
+    - "只做单代表工况"
+  research:
+    - "必须区分 skill mismatch 与 task mismatch"
+    - "必须保留 claim 上限"
+motivation: "将任务输入从标准算例升级为更接近真实科研 brief 的新能源无功优化问题。"
+importance_level: "high"
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task003/research_brief.md"
+  - kind: "grid_context"
+    path: "tasks/task003/grid_context.yaml"
+  - kind: "renewable_context"
+    path: "tasks/task003/renewable_context.yaml"
+  - kind: "control_scope"
+    path: "tasks/task003/control_scope.yaml"
+target_metrics:
+  - "loss"
+  - "voltage_deviation"
+  - "constraint_violation"
+  - "reactive_support_effort"
+risk_hypotheses:
+  - "旧 weak-shunt 技能可能不适合新能源 inverter 控制空间"
+  - "若缺失 inverter 能力边界，task mismatch 应被检测而不是硬执行"
+assumptions:
+  - "PV 有功出力固定"
+  - "inverter Q 能力由 q_mvar_limit 表达"
+  - "reactive_support_effort 是第一版代理指标"
+owner_notes: "task003 第一版只验证任务接入与双通路，不追求论文级算法性能。"

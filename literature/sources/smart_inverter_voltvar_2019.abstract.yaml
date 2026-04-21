@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.smart_inverter_voltvar_2019.abstract
+object_version: 0.1.0
+created_at: '2026-04-21T00:58:43Z'
+updated_at: '2026-04-21T00:58:43Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.smart_inverter_voltvar_2019
+title: Smart inverter volt/var control for distribution systems with photovoltaic
+  generation
+source_kind: abstract_excerpt
+method_family: renewable_inverter_reactive_support
+tags:
+- smart inverter
+- volt/var control
+- photovoltaic
+- distribution system
+relevance_notes: 代表显式使用新能源 inverter 无功支撑的 Volt/Var 控制路线，可对齐 task003 success path。
+method_notes:
+- The method uses smart inverter reactive power support to improve voltage regulation
+  in PV-rich distribution feeders.
+explanation_notes:
+- The explanation emphasizes that inverter VAR support directly acts on the renewable-integrated
+  Volt/Var problem object.
+explanation_point_notes:
+- Smart inverter Q control is the primary control object.
+- The route is distinct from traditional capacitor placement.
+provenance_notes:
+- Curated abstract-style overlay for task003 success-path alignment.
+year: 2019

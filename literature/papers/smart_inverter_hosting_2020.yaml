@@ -1,0 +1,17 @@
+schema_version: 0.1.0
+object_type: paper_record
+object_id: paper_record.power.smart_inverter_hosting_2020
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+title: Impact of smart inverter Volt/Var control on photovoltaic hosting capacity
+year: 2020
+method_family: hosting_capacity_controlled
+tags:
+- hosting capacity
+- smart inverter
+- volt/var control
+- PV
+relevance_notes: 用于对齐 task004 candidate，说明控制策略会改变承载力边界。

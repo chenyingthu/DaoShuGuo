@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.ieee69_reactive_opt.default"
+object_version: "0.1.0"
+created_at: "2026-04-20T00:00:00Z"
+updated_at: "2026-04-20T00:00:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.ieee69_reactive_opt"
+baseline_kind: "default_method"
+method_summary: "复用已有 baseline solver，在 IEEE69 上使用默认 ext_grid 电压设定 vm_pu=1.0 作为真实比较基线。"
+artifact_ref:
+  kind: "python_module"
+  path: "skills/validated/baseline_solver_task002.py"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_reactive_opt"
+control_defaults:
+  ext_grid_vm_pu: 1.0
+limitations:
+  - "仅覆盖当前单工况"
+  - "只作为迁移验证基线，不代表 IEEE69 的强基线"

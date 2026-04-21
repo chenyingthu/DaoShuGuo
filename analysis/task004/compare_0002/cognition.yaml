@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.strategy_comparison_ieee69_hosting_capacity_0002
+object_version: 0.1.0
+created_at: '2026-04-21T03:52:28Z'
+updated_at: '2026-04-21T03:52:28Z'
+status: active
+metadata: {}
+cognition_type: candidate
+statement: 在当前单工况 IEEE69 hosting capacity screening 任务中，策略 `real_inverter-support`
+  在 evaluator 指标上整体优于 `real_single-point-mismatch`。
+evidence_refs:
+- run.power.ieee69_hosting_capacity.0001
+- run.power.ieee69_hosting_capacity.0002
+scope_boundary:
+  task: task.power.ieee69_hosting_capacity
+  mode: strategy_comparison
+  left_strategy: real_inverter-support
+  right_strategy: real_single-point-mismatch
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_hosting_capacity.0001
+- run.power.ieee69_hosting_capacity.0002
+promotion_status: proposed
+uncertainty_notes: '该认知仅基于单工况比较，winner=left，关键比较={''hosting_capacity_level'': {''left'':
+  3.0, ''right'': 1.4, ''direction'': ''higher_is_better'', ''winner'': ''left'',
+  ''delta_right_minus_left'': -1.6}, ''loss_at_boundary'': {''left'': 121.37896983940597,
+  ''right'': 174.47777167376452, ''direction'': ''lower_is_better'', ''winner'': ''left'',
+  ''delta_right_minus_left'': 53.098801834358554}, ''voltage_margin'': {''left'':
+  0.027143627645226154, ''right'': 0.011487907646359541, ''direction'': ''higher_is_better'',
+  ''winner'': ''left'', ''delta_right_minus_left'': -0.015655719998866613}}'

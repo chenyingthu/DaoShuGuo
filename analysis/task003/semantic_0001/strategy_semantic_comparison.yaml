@@ -1,0 +1,59 @@
+schema_version: 0.1.0
+object_type: strategy_semantic_comparison
+object_id: semantic_comparison.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-21T00:42:54Z'
+updated_at: '2026-04-21T00:42:54Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_renewable_reactive_opt
+left_run_ref: run.power.ieee69_renewable_reactive_opt.0001
+right_run_ref: run.power.ieee69_renewable_reactive_opt.0003
+left_skill_ref: skill.power.renewable_inverter_reactive_optimizer_task003
+right_skill_ref: skill.power.weak_bus_shunt_optimizer
+semantic_dimensions:
+  problem_alignment:
+    left: high
+    right: medium
+    winner: left
+  research_value:
+    left: high
+    right: medium
+    winner: left
+  control_realism:
+    left: high
+    right: medium
+    winner: left
+  reuse_potential:
+    left: high
+    right: medium
+    winner: left
+  method_family:
+    left: renewable_inverter_reactive_support
+    right: weak_bus_shunt_search
+    winner: different
+  control_signature:
+    left: inverter_q_support
+    right: reactive_compensation
+    winner: different
+  renewable_awareness:
+    left: high
+    right: low
+    winner: left
+  control_space_match:
+    left: high
+    right: low
+    winner: left
+  performance_status:
+    left: successful
+    right: mismatch
+    winner: left
+preferred_for_research_ref: run.power.ieee69_renewable_reactive_opt.0001
+summary: task003 语义比较完成：已显式区分新能源-aware success、skill mismatch 与 performance failure。
+notes:
+- 'inverter_q=[{''bus'': 18, ''q_mvar'': 0.1}, {''bus'': 35, ''q_mvar'': 0.1}, {''bus'':
+  61, ''q_mvar'': 0.1}]'
+- reactive_support_effort=0.6897546897546898
+- 未显式利用 inverter Q 控制空间
+- 'shunts=[{''bus'': 64, ''q_mvar'': -0.3, ''p_mw'': 0.0}, {''bus'': 61, ''q_mvar'':
+  -0.3, ''p_mw'': 0.0}]'

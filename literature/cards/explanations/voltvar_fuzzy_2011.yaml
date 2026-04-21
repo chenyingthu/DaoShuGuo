@@ -2,18 +2,18 @@ schema_version: 0.1.0
 object_type: explanation_card
 object_id: explanation_card.power.voltvar_fuzzy_2011
 object_version: 0.1.0
-created_at: '2026-04-20T04:13:17Z'
-updated_at: '2026-04-20T04:13:17Z'
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
 status: reviewed
 metadata:
-  source_ref: literature_source.power.voltvar_fuzzy_2011.fulltext
-  source_kind: fulltext_excerpt
+  source_ref: literature_source.power.voltvar_fuzzy_2011.abstract
+  source_kind: abstract_excerpt
 paper_ref: paper_record.power.voltvar_fuzzy_2011
-explanation_summary: 正文层解释更明确地把性能提升归因于调压设备与无功设备的协调控制，而不是补偿配置本体。
+explanation_summary: 文献摘要将性能改进归因于多类调压资产的协调动作，因此更接近 Volt/Var control 控制语义。
 explanation_points:
-- 正文层将调压设备和无功设备的协同动作作为核心机制。
-- 性能改进来源于协调控制，而不是节点补偿选址定容。
-- 该解释更适合作为 ext-grid/volt-var 路线的高强度参照。
+- 控制对象是调压设备与无功设备的协同行为。
+- 优化目标包括电压质量和损耗，但依赖的是协调控制而非补偿配置本身。
+- 该解释更适合作为 ext-grid/volt-var 路线的参照。
 scope_boundary:
   task: task.power.ieee33_reactive_opt
 concept_tags:
@@ -29,4 +29,4 @@ excerpt_refs:
 - paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_2
 - paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_3
 notes:
-- 当前优先由 literature_source.power.voltvar_fuzzy_2011.fulltext 驱动解释卡片生成，不是原文全文抽取。
+- 当前优先由 literature_source.power.voltvar_fuzzy_2011.abstract 驱动解释卡片生成，不是原文全文抽取。

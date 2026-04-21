@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: paper_excerpt
+object_id: paper_excerpt.power.hosting_capacity_pv_2017.explanation
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+paper_ref: paper_record.power.hosting_capacity_pv_2017
+source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+source_kind: abstract_excerpt
+excerpt_kind: explanation
+granularity: summary
+content: The hosting-capacity boundary only has meaning when the scenario and triggering
+  constraints are explicitly stated.
+notes:
+- 当前由 literature_source.power.hosting_capacity_pv_2017.abstract 的 explanation_notes
+  驱动的解释摘要片段

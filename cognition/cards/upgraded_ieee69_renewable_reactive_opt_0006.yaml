@@ -1,0 +1,37 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.upgraded_ieee69_renewable_reactive_opt_0006
+object_version: 0.1.0
+created_at: '2026-04-21T01:00:15Z'
+updated_at: '2026-04-21T01:00:15Z'
+status: active
+metadata:
+  mode: task003_cognition_upgrade
+cognition_type: candidate
+statement: task003 对照表明，旧 weak-shunt 路线即使数值更好，也不能替代显式使用 inverter 控制空间的 candidate。
+evidence_refs:
+- comparison.power.ieee69_renewable_reactive_opt.0001
+- semantic_comparison.power.ieee69_renewable_reactive_opt.0001
+- novelty.power.ieee69_renewable_reactive_opt.0006
+- literature_alignment.power.ieee69_renewable_reactive_opt.0002
+- explanation_alignment.power.ieee69_renewable_reactive_opt.0001
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_1
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_2
+- paper_excerpt.power.der_reactive_support_2021.explanation
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_1
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_2
+- paper_excerpt.power.coordinated_vvc_der_2020.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+scope_boundary:
+  task: task.power.ieee69_renewable_reactive_opt
+  mode: task003_comparative_upgrade
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_renewable_reactive_opt.0001
+- run.power.ieee69_renewable_reactive_opt.0003
+promotion_status: proposed
+uncertainty_notes: 当前认知已结合 task003 文献对齐与 excerpt 级 explanation 证据，但仍未覆盖时序新能源工况。

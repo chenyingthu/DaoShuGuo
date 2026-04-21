@@ -1,0 +1,42 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.ieee69_reactive_opt.default"
+object_version: "0.1.0"
+created_at: "2026-04-20T00:00:00Z"
+updated_at: "2026-04-20T00:00:00Z"
+status: "ready"
+metadata: {}
+title: "IEEE69默认迁移评估器"
+task_ref: "task.power.ieee69_reactive_opt"
+evaluation_goal: "验证 weak-shunt 迁移 candidate 是否相对 IEEE69 真实基线改善网损与电压偏差。"
+metric_definitions:
+  - metric_id: "loss"
+    direction: "lower_is_better"
+    unit: "kW"
+    description: "网络有功损耗"
+  - metric_id: "voltage_deviation"
+    direction: "lower_is_better"
+    unit: "p.u."
+    description: "节点电压偏差"
+  - metric_id: "constraint_violation"
+    direction: "constraint_only"
+    description: "约束违反数量"
+baseline_strategy:
+  type: "named_baseline"
+  refs:
+    - "baseline.power.ieee69_reactive_opt.default"
+pass_criteria:
+  rule: "关键指标优于基线且无新增约束违反"
+execution_entry:
+  type: "python_script"
+  path: "evaluators/task002_evaluator.py"
+comparison_mode: "baseline_and_constraint"
+stability_checks:
+  - "单次真实迁移验证"
+blind_spots:
+  - "未覆盖多工况"
+  - "未覆盖更强 baseline"
+  - "当前仅验证 weak-shunt 最小迁移路径"
+evidence_outputs:
+  - "metrics_json"
+  - "comparison_summary"

@@ -1,17 +1,17 @@
 {
   "schema_version": "0.1.0",
   "registry_type": "skill_registry",
-  "generated_at": "2026-04-19T08:27:35Z",
+  "generated_at": "2026-04-21T03:36:24Z",
   "skills": [
     {
       "object_id": "skill.power.baseline_solver",
       "object_version": "0.1.0",
       "path": "schemas/samples/skill.baseline.sample.yaml",
       "status": "active",
-      "last_seen_run_ref": "run.power.ieee33_reactive_opt.0011",
-      "last_seen_at": "2026-04-19T08:27:35Z",
-      "last_used_run_ref": "run.power.ieee33_reactive_opt.0011",
-      "last_used_at": "2026-04-19T08:27:35Z"
+      "last_seen_run_ref": "run.power.ieee69_hosting_capacity.0002",
+      "last_seen_at": "2026-04-21T03:36:24Z",
+      "last_used_run_ref": "run.power.ieee69_hosting_capacity.0002",
+      "last_used_at": "2026-04-21T03:36:24Z"
     },
     {
       "object_id": "skill.power.reactive_optimizer",
@@ -38,10 +38,60 @@
       "object_version": "0.1.0",
       "path": "schemas/samples/skill.weak_shunt.sample.yaml",
       "status": "draft",
-      "last_seen_run_ref": "run.power.ieee33_reactive_opt.0011",
-      "last_seen_at": "2026-04-19T08:27:35Z",
-      "last_produced_run_ref": "run.power.ieee33_reactive_opt.0011",
-      "last_produced_at": "2026-04-19T08:27:35Z"
+      "last_seen_run_ref": "run.power.ieee69_renewable_reactive_opt.0003",
+      "last_seen_at": "2026-04-20T14:33:49Z",
+      "last_produced_run_ref": "run.power.ieee69_renewable_reactive_opt.0003",
+      "last_produced_at": "2026-04-20T14:33:49Z"
+    },
+    {
+      "object_id": "skill.power.weak_bus_shunt_adversarial_task002",
+      "object_version": "0.1.0",
+      "path": "",
+      "status": "active",
+      "last_seen_run_ref": "run.power.ieee69_reactive_opt.0006",
+      "last_seen_at": "2026-04-20T11:39:23Z",
+      "last_produced_run_ref": "run.power.ieee69_reactive_opt.0006",
+      "last_produced_at": "2026-04-20T11:39:23Z"
+    },
+    {
+      "object_id": "skill.power.renewable_inverter_reactive_optimizer_task003",
+      "object_version": "0.1.0",
+      "path": "",
+      "status": "active",
+      "last_seen_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "last_seen_at": "2026-04-20T14:31:12Z",
+      "last_produced_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "last_produced_at": "2026-04-20T14:31:12Z"
+    },
+    {
+      "object_id": "skill.power.renewable_inverter_underperformer_task003",
+      "object_version": "0.1.0",
+      "path": "",
+      "status": "active",
+      "last_seen_run_ref": "run.power.ieee69_renewable_reactive_opt.0004",
+      "last_seen_at": "2026-04-21T00:34:52Z",
+      "last_produced_run_ref": "run.power.ieee69_renewable_reactive_opt.0004",
+      "last_produced_at": "2026-04-21T00:34:52Z"
+    },
+    {
+      "object_id": "skill.power.renewable_capacity_optimizer_task004",
+      "object_version": "0.1.0",
+      "path": "",
+      "status": "active",
+      "last_seen_run_ref": "run.power.ieee69_hosting_capacity.0001",
+      "last_seen_at": "2026-04-21T03:33:32Z",
+      "last_produced_run_ref": "run.power.ieee69_hosting_capacity.0001",
+      "last_produced_at": "2026-04-21T03:33:32Z"
+    },
+    {
+      "object_id": "skill.power.single_point_capacity_mismatch_task004",
+      "object_version": "0.1.0",
+      "path": "",
+      "status": "active",
+      "last_seen_run_ref": "run.power.ieee69_hosting_capacity.0002",
+      "last_seen_at": "2026-04-21T03:36:24Z",
+      "last_produced_run_ref": "run.power.ieee69_hosting_capacity.0002",
+      "last_produced_at": "2026-04-21T03:36:24Z"
     }
   ]
 }

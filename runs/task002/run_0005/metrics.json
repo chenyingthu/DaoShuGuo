@@ -1,0 +1,113 @@
+{
+  "baseline_solution": {
+    "control_settings": {
+      "ext_grid_vm_pu": 1.0
+    },
+    "metrics": {
+      "loss": 224.95197410054197,
+      "voltage_deviation": 0.02661527508198874,
+      "constraint_violation": 9
+    }
+  },
+  "candidate_solution": {
+    "control_settings": {
+      "shunts": [
+        {
+          "bus": 62,
+          "q_mvar": -0.5,
+          "p_mw": 0.0
+        },
+        {
+          "bus": 61,
+          "q_mvar": -0.5,
+          "p_mw": 0.0
+        }
+      ],
+      "ext_grid_vm_pu": 1.0,
+      "candidate_buses": [
+        65,
+        64,
+        63,
+        62,
+        61,
+        60
+      ],
+      "evaluated_candidates": 106
+    },
+    "metrics": {
+      "loss": 160.88164519252493,
+      "voltage_deviation": 0.02340570991646353,
+      "constraint_violation": 9
+    }
+  },
+  "evaluation": {
+    "passed": true,
+    "key_metrics_pass": true,
+    "constraints_pass": true,
+    "comparisons": {
+      "loss": {
+        "candidate": 160.88164519252493,
+        "baseline": 224.95197410054197,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": -64.07032890801705
+      },
+      "voltage_deviation": {
+        "candidate": 0.02340570991646353,
+        "baseline": 0.02661527508198874,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": -0.003209565165525209
+      },
+      "constraint_violation": {
+        "candidate": 9,
+        "baseline": 9,
+        "direction": "constraint_only",
+        "improved": true,
+        "delta": 0
+      }
+    },
+    "summary": "candidate improved relative to baseline",
+    "baseline_solution": {
+      "control_settings": {
+        "ext_grid_vm_pu": 1.0
+      },
+      "metrics": {
+        "loss": 224.95197410054197,
+        "voltage_deviation": 0.02661527508198874,
+        "constraint_violation": 9
+      }
+    },
+    "candidate_solution": {
+      "control_settings": {
+        "shunts": [
+          {
+            "bus": 62,
+            "q_mvar": -0.5,
+            "p_mw": 0.0
+          },
+          {
+            "bus": 61,
+            "q_mvar": -0.5,
+            "p_mw": 0.0
+          }
+        ],
+        "ext_grid_vm_pu": 1.0,
+        "candidate_buses": [
+          65,
+          64,
+          63,
+          62,
+          61,
+          60
+        ],
+        "evaluated_candidates": 106
+      },
+      "metrics": {
+        "loss": 160.88164519252493,
+        "voltage_deviation": 0.02340570991646353,
+        "constraint_violation": 9
+      }
+    }
+  }
+}

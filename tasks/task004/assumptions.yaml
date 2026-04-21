@@ -1,0 +1,15 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_hosting_capacity"
+assumptions:
+  - id: "static_hosting_capacity"
+    statement: "承载力边界在静态代表工况下定义。"
+    risk_if_false: "不能支持长期时序承载力结论。"
+  - id: "strategy_conditioned_capacity"
+    statement: "承载力定义依赖控制策略。"
+    risk_if_false: "容易误把策略相关边界写成系统固有边界。"
+  - id: "scale_based_scan"
+    statement: "接入水平通过统一 scale 扫描。"
+    risk_if_false: "边界解释会变得不可比较。"
+open_questions:
+  - "后续是否加入多工况 hosting capacity"
+  - "后续是否加入协调控制策略"

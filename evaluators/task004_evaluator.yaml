@@ -1,0 +1,43 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.ieee69_hosting_capacity.default"
+object_version: "0.1.0"
+created_at: "2026-04-21T00:00:00Z"
+updated_at: "2026-04-21T00:00:00Z"
+status: "ready"
+metadata: {}
+title: "task004 承载力评估默认评估器"
+task_ref: "task.power.ieee69_hosting_capacity"
+evaluation_goal: "比较不同控制策略下的新能源接入承载边界。"
+metric_definitions:
+  - metric_id: "hosting_capacity_level"
+    direction: "higher_is_better"
+    description: "给定控制策略下的最大允许接入水平"
+  - metric_id: "violation_trigger_type"
+    direction: "target_is_best"
+    description: "边界触发类型"
+  - metric_id: "loss_at_boundary"
+    direction: "lower_is_better"
+    description: "边界点损耗"
+  - metric_id: "voltage_margin"
+    direction: "higher_is_better"
+    description: "边界点电压裕度"
+baseline_strategy:
+  type: "named_baseline"
+  refs:
+    - "baseline.power.ieee69_hosting_capacity.fixed_inverter_q_capacity_scan"
+pass_criteria:
+  rule: "candidate 必须提高 hosting_capacity_level，且边界解释可审计"
+execution_entry:
+  type: "python_script"
+  path: "evaluators/task004_evaluator.py"
+comparison_mode: "baseline_and_constraint"
+stability_checks:
+  - "单代表工况静态边界比较"
+blind_spots:
+  - "不覆盖时序承载力"
+  - "不覆盖经济约束"
+  - "不覆盖多控制对象协调"
+evidence_outputs:
+  - "boundary_metrics"
+  - "violation_trigger"

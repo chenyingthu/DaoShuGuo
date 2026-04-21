@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+object_type: method_card
+object_id: method_card.power.single_point_operation_2019
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.single_point_operation_2019.abstract
+  source_kind: abstract_excerpt
+paper_ref: paper_record.power.single_point_operation_2019
+method_family: single_point_operating_evaluation
+method_summary: A feasible operating point cannot by itself substitute for a hosting-capacity
+  boundary study.
+control_signature: boundary_voltage_tuning
+optimization_style: volt_var_control
+excerpt_refs:
+- paper_excerpt.power.single_point_operation_2019.method
+notes:
+- 用于对齐 task004 skill mismatch，解释单点结果不能替代边界扫描。
+- selected_source_kind=abstract_excerpt

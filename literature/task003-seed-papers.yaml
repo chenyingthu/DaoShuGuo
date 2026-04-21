@@ -1,0 +1,55 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+seed_papers:
+  - ref_id: "paper.smart_inverter_voltvar_2019"
+    title: "Smart inverter volt/var control for distribution systems with photovoltaic generation"
+    source_kind: "manual_summary"
+    year: 2019
+    method_family: "renewable_inverter_reactive_support"
+    tags: ["smart inverter", "volt/var control", "photovoltaic", "distribution system"]
+    relevance_notes: "代表显式使用新能源 inverter 无功支撑的 Volt/Var 控制路线，可对齐 task003 success path。"
+    method_excerpt_seed: "通过智能逆变器的无功调节改善配电网电压分布和损耗表现。"
+    explanation_excerpt_seed: "核心解释是：显式利用 inverter 无功支撑能力，才能在新能源接入场景下直接作用于 Volt/Var 问题本体。"
+    explanation_point_notes:
+      - "控制对象直接作用于光伏/DER inverter 的无功支撑能力。"
+      - "目标是改善电压质量并降低网损，而不是只做传统补偿配置。"
+      - "该路线更接近新能源接入下的任务本体。"
+  - ref_id: "paper.der_reactive_support_2021"
+    title: "Reactive power support from distributed energy resources in active distribution networks"
+    source_kind: "manual_summary"
+    year: 2021
+    method_family: "renewable_inverter_reactive_support"
+    tags: ["DER", "reactive support", "distribution network", "active control"]
+    relevance_notes: "用于解释 performance failure 不应直接否定 inverter reactive support 家族。"
+    method_excerpt_seed: "通过 DER/逆变器提供有限无功支撑，在满足设备边界下改善电压与损耗。"
+    explanation_excerpt_seed: "核心解释是：逆变器 reactive support 的效果依赖参数、边界和系统目标，局部失败并不等于方法方向无效。"
+    explanation_point_notes:
+      - "逆变器无功支撑通常受能力边界和目标冲突影响。"
+      - "性能表现对参数与控制策略敏感。"
+      - "性能失败更可能是实现边界，而不必然是否定方法家族。"
+  - ref_id: "paper.coordinated_vvc_der_2020"
+    title: "Coordinated Volt/Var control with smart inverters and legacy devices in distribution systems"
+    source_kind: "manual_summary"
+    year: 2020
+    method_family: "coordinated_volt_var_control"
+    tags: ["coordinated volt/var control", "smart inverter", "capacitor", "legacy devices"]
+    relevance_notes: "作为 task003 后续扩展中 shunt + inverter 协同的文献预留家族。"
+    method_excerpt_seed: "协调 inverter、capacitor 和调压设备的 Volt/Var 控制，以在多个控制对象间平衡损耗与电压性能。"
+    explanation_excerpt_seed: "核心解释是：新能源场景下，合理的 Volt/Var 控制往往不是单一设备，而是多控制对象之间的协调。"
+    explanation_point_notes:
+      - "协调控制覆盖 inverter 与传统 Volt/Var 设备。"
+      - "方法目标是平衡多个控制对象和多个性能指标。"
+      - "该家族为 task003 后续协同 candidate 提供外部语义参照。"
+  - ref_id: "paper.capacitor_tlbo_2014"
+    title: "Optimal capacitor placement in radial distribution systems using teaching learning based optimization"
+    source_kind: "manual_summary"
+    year: 2014
+    method_family: "capacitor_placement_optimization"
+    tags: ["capacitor placement", "radial distribution system", "optimization"]
+    relevance_notes: "复用既有传统补偿配置文献，用于解释 weak-shunt 与 inverter reactive support 的方法家族差异。"
+    method_excerpt_seed: "采用 teaching-learning based optimization 优化电容器配置，以降低损耗和能量成本。"
+    explanation_excerpt_seed: "核心解释是：通过补偿设备的位置与容量配置改善损耗与电压，但其问题语义仍围绕传统补偿配置。"
+    explanation_point_notes:
+      - "控制对象是传统补偿设备的位置与容量。"
+      - "问题语义更接近补偿配置，而不是新能源 inverter reactive support。"
+      - "可用于解释 task003 中的 skill mismatch。"

@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: paper_record
+object_id: paper_record.power.coordinated_vvc_der_2020
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+title: Coordinated Volt/Var control with smart inverters and legacy devices in distribution
+  systems
+year: 2020
+method_family: coordinated_volt_var_control
+tags:
+- coordinated volt/var control
+- smart inverter
+- capacitor
+- legacy devices
+relevance_notes: 作为 task003 后续扩展中 shunt + inverter 协同的文献预留家族。

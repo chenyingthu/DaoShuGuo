@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: explanation_card
+object_id: explanation_card.power.hosting_capacity_method_review_2021
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.hosting_capacity_method_review_2021
+  source_kind: manual_summary
+paper_ref: paper_record.power.hosting_capacity_method_review_2021
+explanation_summary: 核心解释是：若忽略场景和控制条件，hosting capacity 结论容易被过度表述。
+explanation_points:
+- 承载力结果必须绑定条件。
+- 不同方法得到的边界不可直接横向等同。
+- 边界 overclaim 常来自条件丢失。
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+concept_tags:
+- hosting capacity
+- boundary assessment
+- renewable integration
+- review
+- distribution grid
+excerpt_refs:
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_1
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_2
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_3
+notes:
+- 当前优先由 literature_source.power.hosting_capacity_method_review_2021 驱动解释卡片生成，不是原文全文抽取。

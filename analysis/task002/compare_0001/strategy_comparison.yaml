@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+object_type: strategy_comparison
+object_id: comparison.power.ieee69_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-20T11:26:39Z'
+updated_at: '2026-04-20T11:26:39Z'
+status: reviewed
+metadata:
+  comparison_mode: within_run_baseline_vs_candidate
+task_ref: task.power.ieee69_reactive_opt
+left_run_ref: run.power.ieee69_reactive_opt.0005
+right_run_ref: run.power.ieee69_reactive_opt.0005
+left_strategy: baseline.default_ext_grid
+right_strategy: candidate.weak_shunt
+metric_comparisons:
+  loss:
+    left: 224.95197410054197
+    right: 160.88164519252493
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -64.07032890801705
+  voltage_deviation:
+    left: 0.02661527508198874
+    right: 0.02340570991646353
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -0.003209565165525209
+  constraint_violation:
+    left: 9
+    right: 9
+    direction: constraint_only
+    winner: tie
+    delta_right_minus_left: 0
+objective_scores:
+  left: 90251.56724918252
+  right: 90184.28735510899
+winner_run_ref: run.power.ieee69_reactive_opt.0005
+summary: 在当前 task002 run 内，baseline 与 weak-shunt candidate 的结构化对照完成，winner=right。
+report_refs:
+- report.power.ieee69_reactive_opt.note_0005
+cognition_refs:
+- cognition.power.strategy_comparison_ieee69_reactive_opt_0001

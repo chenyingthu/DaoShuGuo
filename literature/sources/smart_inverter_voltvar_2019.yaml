@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.smart_inverter_voltvar_2019
+object_version: 0.1.0
+created_at: '2026-04-21T00:58:43Z'
+updated_at: '2026-04-21T00:58:43Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.smart_inverter_voltvar_2019
+title: Smart inverter volt/var control for distribution systems with photovoltaic
+  generation
+source_kind: manual_summary
+method_family: renewable_inverter_reactive_support
+tags:
+- smart inverter
+- volt/var control
+- photovoltaic
+- distribution system
+relevance_notes: 代表显式使用新能源 inverter 无功支撑的 Volt/Var 控制路线，可对齐 task003 success path。
+method_notes:
+- 通过智能逆变器的无功调节改善配电网电压分布和损耗表现。
+explanation_notes:
+- 核心解释是：显式利用 inverter 无功支撑能力，才能在新能源接入场景下直接作用于 Volt/Var 问题本体。
+explanation_point_notes:
+- 控制对象直接作用于光伏/DER inverter 的无功支撑能力。
+- 目标是改善电压质量并降低网损，而不是只做传统补偿配置。
+- 该路线更接近新能源接入下的任务本体。
+provenance_notes:
+- 由 task003-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2019

@@ -1,0 +1,6 @@
+schema_version: "0.1.0"
+context_type: "grid_context"
+task_package: "task003"
+network_model: "ieee69_with_renewables"
+base_network: "tasks/task002/ieee69bus.txt"
+simulator: "pandapower"

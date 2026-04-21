@@ -1,0 +1,30 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.renewable_capacity_optimizer_task004"
+object_version: "0.1.0"
+created_at: "2026-04-21T00:00:00Z"
+updated_at: "2026-04-21T00:00:00Z"
+status: "draft"
+metadata: {}
+name: "Renewable Capacity Optimizer Task004"
+title: "task004 新能源承载力边界候选技能"
+capability_statement: "在给定控制策略下扫描新能源接入水平，输出当前扫描包络内的静态承载力边界。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_hosting_capacity"
+  limits:
+    - "仅覆盖当前扫描包络内的静态承载力边界"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/renewable_capacity_optimizer_task004.py"
+maturity_level: "candidate"

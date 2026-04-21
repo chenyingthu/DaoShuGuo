@@ -1,0 +1,192 @@
+schema_version: 0.1.0
+object_type: explanation_alignment
+object_id: explanation_alignment.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-21T06:27:54Z'
+updated_at: '2026-04-21T06:27:54Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_hosting_capacity
+assessed_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0001
+explanation_card_refs:
+- explanation_card.power.hosting_capacity_pv_2017
+- explanation_card.power.smart_inverter_hosting_2020
+- explanation_card.power.hosting_capacity_method_review_2021
+- explanation_card.power.single_point_operation_2019
+per_card_relations:
+  explanation_card.power.hosting_capacity_pv_2017:
+    paper_ref: paper_record.power.hosting_capacity_pv_2017
+    relation: unclear
+    reason: 当前无法确定该解释卡片与本地认知的关系。
+    explanation_points:
+    - Boundary judgments must remain scenario-conditioned.
+    - Voltage constraints commonly define the first screening boundary.
+    relation_counts:
+      supports: 0
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 3
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation
+      granularity: summary
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: The boundary only has meaning when the triggering constraints and scenario
+        assumptions are explicitly stated.
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: Boundary judgments must remain scenario-conditioned.
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: Voltage constraints commonly define the first screening boundary.
+  explanation_card.power.smart_inverter_hosting_2020:
+    paper_ref: paper_record.power.smart_inverter_hosting_2020
+    relation: unclear
+    reason: 当前无法确定该解释卡片与本地认知的关系。
+    explanation_points:
+    - Control strategy conditions the hosting-capacity boundary.
+    - Comparing policies is part of hosting-capacity assessment.
+    relation_counts:
+      supports: 0
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 3
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation
+      granularity: summary
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: The hosting-capacity boundary changes with control strategy, so it
+        should not be written as a unique system-intrinsic number.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: Control strategy conditions the hosting-capacity boundary.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: Comparing policies is part of hosting-capacity assessment.
+  explanation_card.power.hosting_capacity_method_review_2021:
+    paper_ref: paper_record.power.hosting_capacity_method_review_2021
+    relation: unclear
+    reason: 当前无法确定该解释卡片与本地认知的关系。
+    explanation_points:
+    - 承载力结果必须绑定假设。
+    - 不同方法得到的承载力往往不可直接横向等同。
+    - 边界结论若脱离条件，容易出现 overclaim。
+    relation_counts:
+      supports: 0
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 4
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+      granularity: summary
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: 核心解释是：若忽略场景、约束或控制策略条件，承载力结论容易被过度表述。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: 承载力结果必须绑定假设。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: 不同方法得到的承载力往往不可直接横向等同。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: 边界结论若脱离条件，容易出现 overclaim。
+  explanation_card.power.single_point_operation_2019:
+    paper_ref: paper_record.power.single_point_operation_2019
+    relation: unclear
+    reason: 当前无法确定该解释卡片与本地认知的关系。
+    explanation_points:
+    - Single-point analysis and hosting-capacity boundary evaluation are different
+      problem types.
+    relation_counts:
+      supports: 0
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 2
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.single_point_operation_2019.explanation
+      granularity: summary
+      source_ref: literature_source.power.single_point_operation_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: Using a single operating result as a boundary judgment leads to a category
+        mistake between operation analysis and boundary analysis.
+    - excerpt_ref: paper_excerpt.power.single_point_operation_2019.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.single_point_operation_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: unclear
+      reason: 当前规则未覆盖该类本地认知。
+      evidence_basis: cognition_guard
+      content: Single-point analysis and hosting-capacity boundary evaluation are
+        different problem types.
+evidence_excerpt_refs: []
+evidence_strength: medium
+relation_summary: 当前没有形成明确的 excerpt 级支持/补充/相似判断。
+overall_relation: unclear
+notes:
+- 当前 relation judgment 以 excerpt 文本证据为主，card 标签仅作兜底提示
+- 支持与仅相似已显式区分，但仍未进行原文全文语义匹配

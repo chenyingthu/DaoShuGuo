@@ -2,19 +2,19 @@ schema_version: 0.1.0
 object_type: method_card
 object_id: method_card.power.voltvar_fuzzy_2011
 object_version: 0.1.0
-created_at: '2026-04-20T04:13:17Z'
-updated_at: '2026-04-20T04:13:17Z'
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
 status: reviewed
 metadata:
-  source_ref: literature_source.power.voltvar_fuzzy_2011.fulltext
-  source_kind: fulltext_excerpt
+  source_ref: literature_source.power.voltvar_fuzzy_2011.abstract
+  source_kind: abstract_excerpt
 paper_ref: paper_record.power.voltvar_fuzzy_2011
 method_family: volt_var_control
-method_summary: 正文层材料显示该方法通过模糊优化协调 ULTC 与投切电容器动作，在不确定条件下实现 Volt/Var 协同控制。
+method_summary: 文献摘要强调通过模糊优化协调 OLTC 与投切电容器，在不确定负荷和风速条件下优化电压与损耗。
 control_signature: boundary_voltage_tuning
 optimization_style: volt_var_control
 excerpt_refs:
 - paper_excerpt.power.voltvar_fuzzy_2011.method
 notes:
 - 代表性 Volt/Var control 路线，适合对齐 ext-grid / 边界调压式策略。
-- selected_source_kind=fulltext_excerpt
+- selected_source_kind=abstract_excerpt

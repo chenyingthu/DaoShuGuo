@@ -1,0 +1,27 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+overlay_sources:
+  - paper_ref_id: "paper.smart_inverter_voltvar_2019"
+    source_kind: "abstract_excerpt"
+    source_key: "abstract"
+    method_notes:
+      - "The method uses smart inverter reactive power support to improve voltage regulation in PV-rich distribution feeders."
+    explanation_notes:
+      - "The explanation emphasizes that inverter VAR support directly acts on the renewable-integrated Volt/Var problem object."
+    explanation_point_notes:
+      - "Smart inverter Q control is the primary control object."
+      - "The route is distinct from traditional capacitor placement."
+    provenance_notes:
+      - "Curated abstract-style overlay for task003 success-path alignment."
+  - paper_ref_id: "paper.der_reactive_support_2021"
+    source_kind: "abstract_excerpt"
+    source_key: "abstract"
+    method_notes:
+      - "DER reactive support performance depends on capability limits and controller parameterization."
+    explanation_notes:
+      - "Failure in one controller setting does not by itself invalidate the DER reactive support method family."
+    explanation_point_notes:
+      - "Reactive support effectiveness is parameter-sensitive."
+      - "Local performance failure can coexist with family-level validity."
+    provenance_notes:
+      - "Curated abstract-style overlay for task003 performance-failure interpretation."

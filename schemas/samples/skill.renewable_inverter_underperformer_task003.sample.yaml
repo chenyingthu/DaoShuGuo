@@ -1,0 +1,32 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.renewable_inverter_underperformer_task003"
+object_version: "0.1.0"
+created_at: "2026-04-21T00:00:00Z"
+updated_at: "2026-04-21T00:00:00Z"
+status: "draft"
+metadata: {}
+name: "Renewable Inverter Underperformer Task003"
+title: "task003 语义正确但性能失败的 inverter 候选"
+capability_statement: "显式使用新能源 inverter 无功控制空间，但通过错误参数方向触发性能失败，以验证诚实边界认知。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_renewable_reactive_opt"
+  limits:
+    - "仅用于 performance-failure 验证，不代表真实候选方法"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/renewable_inverter_underperformer_task003.py"
+maturity_level: "candidate"
+failure_conditions:
+  - "若意外优于 baseline，说明 performance failure probe 设计失效。"

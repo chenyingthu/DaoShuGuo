@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.upgraded_strategy_comparison_ieee69_reactive_opt_0001
+object_version: 0.1.0
+created_at: '2026-04-20T11:26:41Z'
+updated_at: '2026-04-20T11:26:41Z'
+status: active
+metadata: {}
+cognition_type: candidate
+statement: 当前单工况对照表明，ext-grid 路线在指标上更优，但 weak-shunt 路线在无功优化语义上更贴近问题本体，因此更适合作为后续技能演化对象。
+evidence_refs:
+- comparison.power.ieee69_reactive_opt.0001
+- semantic_comparison.power.ieee69_reactive_opt.0001
+- novelty.power.ieee69_reactive_opt.0001
+- literature_alignment.power.ieee69_reactive_opt.0001
+- explanation_alignment.power.ieee69_reactive_opt.0001
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_1
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_2
+- paper_excerpt.power.voltvar_fuzzy_2011.explanation_point_3
+- paper_excerpt.power.voltvar_prosumer_2020.explanation
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_1
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_2
+- paper_excerpt.power.voltvar_prosumer_2020.explanation_point_3
+- paper_excerpt.power.robust_vvc_2017.explanation
+- paper_excerpt.power.robust_vvc_2017.explanation_point_1
+- paper_excerpt.power.robust_vvc_2017.explanation_point_2
+- paper_excerpt.power.robust_vvc_2017.explanation_point_3
+- paper_excerpt.power.capacitor_tlbo_2014.explanation
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+- paper_excerpt.power.capacitor_nsga_2022.explanation
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_1
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_2
+- paper_excerpt.power.capacitor_nsga_2022.explanation_point_3
+scope_boundary:
+  task: task.power.ieee69_reactive_opt
+  mode: comparative_cognition_upgrade
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_reactive_opt.0005
+- run.power.ieee69_reactive_opt.0005
+promotion_status: proposed
+uncertainty_notes: 该认知当前已结合种子文献对齐，解释对齐关系=mixed，解释证据强度=high，解释片段证据数=20，novelty_position=variant。

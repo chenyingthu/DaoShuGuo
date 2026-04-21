@@ -1,19 +1,20 @@
-"""Experimental candidate optimizer for task001."""
+"""Experimental shared ext-grid optimizer."""
 
 from __future__ import annotations
 
 from typing import Any
 
-from tasks.task001.runtime_helpers import evaluate_vm_setting, objective
+from tasks.runtime_loader import runtime_helpers_for_task, task_package_from_constraints
 
 
 def solve(network_model: str, constraint_set: dict[str, Any]) -> dict[str, Any]:
     """Search a deliberately poor voltage range to preserve a failure path."""
+    helpers = runtime_helpers_for_task(task_package_from_constraints(constraint_set))
     vm_candidates = constraint_set.get("experimental_vm_grid", [0.97, 0.98, 0.99])
     best = None
     for vm_pu in vm_candidates:
-        result = evaluate_vm_setting(float(vm_pu))
-        score = objective(result["metrics"])
+        result = helpers.evaluate_vm_setting(float(vm_pu))
+        score = helpers.objective(result["metrics"])
         if best is None or score < best["score"]:
             best = {"score": score, **result}
     assert best is not None

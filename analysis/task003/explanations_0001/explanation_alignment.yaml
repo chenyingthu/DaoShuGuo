@@ -1,0 +1,221 @@
+schema_version: 0.1.0
+object_type: explanation_alignment
+object_id: explanation_alignment.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-21T00:58:56Z'
+updated_at: '2026-04-21T00:58:56Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_renewable_reactive_opt
+assessed_cognition_ref: cognition.power.upgraded_ieee69_renewable_reactive_opt_0003
+explanation_card_refs:
+- explanation_card.power.smart_inverter_voltvar_2019
+- explanation_card.power.der_reactive_support_2021
+- explanation_card.power.coordinated_vvc_der_2020
+- explanation_card.power.capacitor_tlbo_2014
+per_card_relations:
+  explanation_card.power.smart_inverter_voltvar_2019:
+    paper_ref: paper_record.power.smart_inverter_voltvar_2019
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Smart inverter Q control is the primary control object.
+    - The route is distinct from traditional capacitor placement.
+    relation_counts:
+      supports: 1
+      supplements: 2
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.smart_inverter_voltvar_2019.explanation
+      granularity: summary
+      source_ref: literature_source.power.smart_inverter_voltvar_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: The explanation emphasizes that inverter VAR support directly acts
+        on the renewable-integrated Volt/Var problem object.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_voltvar_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: Smart inverter Q control is the primary control object.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_voltvar_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: The route is distinct from traditional capacitor placement.
+  explanation_card.power.der_reactive_support_2021:
+    paper_ref: paper_record.power.der_reactive_support_2021
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Reactive support effectiveness is parameter-sensitive.
+    - Local performance failure can coexist with family-level validity.
+    relation_counts:
+      supports: 1
+      supplements: 2
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.der_reactive_support_2021.explanation
+      granularity: summary
+      source_ref: literature_source.power.der_reactive_support_2021.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: Failure in one controller setting does not by itself invalidate the
+        DER reactive support method family.
+    - excerpt_ref: paper_excerpt.power.der_reactive_support_2021.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.der_reactive_support_2021.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Reactive support effectiveness is parameter-sensitive.
+    - excerpt_ref: paper_excerpt.power.der_reactive_support_2021.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.der_reactive_support_2021.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 当前只从卡片标签推知其属于 Volt/Var 家族，但 excerpt 文本证据不足。
+      evidence_basis: card_tag_fallback
+      content: Local performance failure can coexist with family-level validity.
+  explanation_card.power.coordinated_vvc_der_2020:
+    paper_ref: paper_record.power.coordinated_vvc_der_2020
+    relation: supplements
+    reason: 当前片段主要提供对照性补充参照，而不是直接支持。
+    explanation_points:
+    - 协调控制覆盖 inverter 与传统 Volt/Var 设备。
+    - 方法目标是平衡多个控制对象和多个性能指标。
+    - 该家族为 task003 后续协同 candidate 提供外部语义参照。
+    relation_counts:
+      supports: 0
+      supplements: 1
+      similar: 0
+      conflicts: 0
+      unclear: 3
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.coordinated_vvc_der_2020.explanation
+      granularity: summary
+      source_ref: literature_source.power.coordinated_vvc_der_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 核心解释是：新能源场景下，合理的 Volt/Var 控制往往不是单一设备，而是多控制对象之间的协调。
+    - excerpt_ref: paper_excerpt.power.coordinated_vvc_der_2020.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.coordinated_vvc_der_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supplements
+      reason: 片段虽涉及邻近控制语境，但没有直接给出问题本体支持。
+      evidence_basis: excerpt_content
+      content: 协调控制覆盖 inverter 与传统 Volt/Var 设备。
+    - excerpt_ref: paper_excerpt.power.coordinated_vvc_der_2020.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.coordinated_vvc_der_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 方法目标是平衡多个控制对象和多个性能指标。
+    - excerpt_ref: paper_excerpt.power.coordinated_vvc_der_2020.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.coordinated_vvc_der_2020
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 该家族为 task003 后续协同 candidate 提供外部语义参照。
+  explanation_card.power.capacitor_tlbo_2014:
+    paper_ref: paper_record.power.capacitor_tlbo_2014
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - 补偿位置与容量被共同优化，而不是只调单一边界电压。
+    - 改进路径直接依赖无功补偿设备配置。
+    - 该解释更接近 weak-shunt 一类技能的研究语义。
+    relation_counts:
+      supports: 4
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation
+      granularity: summary
+      source_ref: literature_source.power.capacitor_tlbo_2014.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 文献摘要将补偿配置视为改善损耗与电压质量的直接手段，而不是把调压边界当作主要控制对象。
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.capacitor_tlbo_2014.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 补偿位置与容量被共同优化，而不是只调单一边界电压。
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.capacitor_tlbo_2014.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 改进路径直接依赖无功补偿设备配置。
+    - excerpt_ref: paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.capacitor_tlbo_2014.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接提到补偿配置/候选节点/问题本体，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 该解释更接近 weak-shunt 一类技能的研究语义。
+evidence_excerpt_refs:
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_1
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_2
+- paper_excerpt.power.der_reactive_support_2021.explanation
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_1
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_2
+- paper_excerpt.power.coordinated_vvc_der_2020.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_1
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
+- paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
+evidence_strength: medium
+relation_summary: 3 张 explanation card 含 excerpt 级直接支持（6 条 excerpt）；1 张 card 主要提供边界性补充（5
+  条 excerpt）。
+overall_relation: mixed
+notes:
+- 当前 relation judgment 以 excerpt 文本证据为主，card 标签仅作兜底提示
+- 支持与仅相似已显式区分，但仍未进行原文全文语义匹配

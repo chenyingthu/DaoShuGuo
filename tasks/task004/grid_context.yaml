@@ -1,0 +1,11 @@
+schema_version: "0.1.0"
+context_type: "grid_context"
+task_package: "task004"
+base_task_ref: "task.power.ieee69_renewable_reactive_opt"
+network_model: "ieee69_hosting_capacity"
+base_network: "tasks/task002/ieee69bus.txt"
+simulator: "pandapower"
+operating_condition: "single_representative_snapshot"
+notes:
+  - "沿用 task003 的 IEEE69 + renewable 基础，以减少网络变化造成的干扰。"
+  - "task004 的新增重点是承载力边界，而不是网络拓扑变化。"

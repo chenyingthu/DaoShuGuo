@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.hosting_capacity_pv_2017.abstract
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.hosting_capacity_pv_2017
+title: Distributed PV hosting capacity estimation under voltage constraints in radial
+  distribution systems
+source_kind: abstract_excerpt
+method_family: hosting_capacity_assessment
+tags:
+- hosting capacity
+- distributed PV
+- voltage constraints
+- distribution system
+relevance_notes: 代表性新能源接入承载力评估文献，用于对齐 task004 的 baseline 扫描语义。
+method_notes:
+- Hosting capacity is estimated by progressively increasing renewable penetration
+  under explicit voltage constraints.
+explanation_notes:
+- The hosting-capacity boundary only has meaning when the scenario and triggering
+  constraints are explicitly stated.
+explanation_point_notes:
+- Boundary judgments must remain conditioned on scenario and constraints.
+- Voltage screening is a common first boundary.
+provenance_notes:
+- Curated abstract-style overlay for task004 baseline hosting-capacity alignment.
+year: 2017

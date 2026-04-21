@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+object_type: method_card
+object_id: method_card.power.coordinated_vvc_der_2020
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.coordinated_vvc_der_2020
+  source_kind: manual_summary
+paper_ref: paper_record.power.coordinated_vvc_der_2020
+method_family: coordinated_volt_var_control
+method_summary: 协调 inverter、capacitor 和调压设备的 Volt/Var 控制，以在多个控制对象间平衡损耗与电压性能。
+control_signature: coordinated_volt_var_control
+optimization_style: coordinated_control
+excerpt_refs:
+- paper_excerpt.power.coordinated_vvc_der_2020.method
+notes:
+- 作为 task003 后续扩展中 shunt + inverter 协同的文献预留家族。
+- selected_source_kind=manual_summary

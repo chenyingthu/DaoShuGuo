@@ -1,0 +1,48 @@
+schema_version: 0.1.0
+object_type: strategy_comparison
+object_id: comparison.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-21T00:42:54Z'
+updated_at: '2026-04-21T00:42:54Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_renewable_reactive_opt
+left_run_ref: run.power.ieee69_renewable_reactive_opt.0001
+right_run_ref: run.power.ieee69_renewable_reactive_opt.0003
+left_strategy: real_inverter-support
+right_strategy: real_weak-shunt-mismatch
+metric_comparisons:
+  loss:
+    left: 125.83126629527341
+    right: 95.64078642051933
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -30.190479874754075
+  voltage_deviation:
+    left: 0.017764574874954343
+    right: 0.01655153416419549
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -0.0012130407107588531
+  constraint_violation:
+    left: 8
+    right: 6
+    direction: constraint_only
+    winner: right
+    delta_right_minus_left: -2
+  reactive_support_effort:
+    left: 0.6897546897546898
+    right: 0.0
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -0.6897546897546898
+objective_scores:
+  left: 80147.04461461901
+  right: 60112.19232058471
+winner_run_ref: run.power.ieee69_renewable_reactive_opt.0003
+summary: 在当前任务下，real_inverter-support 与 real_weak-shunt-mismatch 的对照完成，winner=right。
+report_refs:
+- report.power.ieee69_renewable_reactive_opt.note_0001
+- report.power.ieee69_renewable_reactive_opt.memo_0003
+cognition_refs:
+- cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0001

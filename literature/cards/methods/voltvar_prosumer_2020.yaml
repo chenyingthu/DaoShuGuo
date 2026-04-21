@@ -2,8 +2,8 @@ schema_version: 0.1.0
 object_type: method_card
 object_id: method_card.power.voltvar_prosumer_2020
 object_version: 0.1.0
-created_at: '2026-04-20T04:13:17Z'
-updated_at: '2026-04-20T04:13:17Z'
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
 status: reviewed
 metadata:
   source_ref: literature_source.power.voltvar_prosumer_2020

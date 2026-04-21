@@ -1,0 +1,15 @@
+schema_version: "0.1.0"
+context_type: "hosting_capacity_scope"
+task_package: "task004"
+capacity_definition: "在单代表工况和给定控制策略下，最大允许新能源接入水平。"
+boundary_type: "control_strategy_conditioned_static_capacity"
+primary_constraints:
+  - "voltage_limits"
+  - "constraint_violation"
+secondary_observations:
+  - "loss_at_boundary"
+  - "voltage_margin"
+forbidden_claims:
+  - "系统固有唯一承载力"
+  - "长期时序承载力"
+  - "跨场景普适承载力"

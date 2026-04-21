@@ -1,0 +1,15 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+assumptions:
+  - id: "static_snapshot"
+    statement: "新能源有功出力固定，不做时序波动。"
+    risk_if_false: "不能支持新能源波动性相关结论。"
+  - id: "q_limit_proxy"
+    statement: "inverter 无功能力用 q_mvar_limit 代理。"
+    risk_if_false: "reactive_support_effort 的解释力会下降。"
+  - id: "single_metric_extension"
+    statement: "第一版只新增 reactive_support_effort。"
+    risk_if_false: "复杂指标可能掩盖任务接入验证主线。"
+open_questions:
+  - "后续是否需要加入时序 PV 曲线"
+  - "是否需要把无功支撑 effort 转化为经济代价"

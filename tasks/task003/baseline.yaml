@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.ieee69_renewable_reactive_opt.fixed_inverter_q"
+object_version: "0.1.0"
+created_at: "2026-04-20T00:00:00Z"
+updated_at: "2026-04-20T00:00:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+baseline_kind: "default_method"
+method_summary: "在 IEEE69 新能源接入场景下，将 PV inverter Q 固定为 0，作为朴素、稳定、可解释的比较基线。"
+artifact_ref:
+  kind: "python_module"
+  path: "skills/validated/baseline_solver_task003.py"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_renewable_reactive_opt"
+control_defaults:
+  inverter_q_mvar: 0.0
+limitations:
+  - "仅覆盖单代表工况"
+  - "不做多对象协同优化"

@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-04-21T06:30:05Z",
+  "assessed_object_refs": [
+    "skill.power.renewable_capacity_optimizer_task004",
+    "skill.power.single_point_capacity_mismatch_task004"
+  ],
+  "literature_refs": [
+    "paper.hosting_capacity_pv_2017",
+    "paper.smart_inverter_hosting_2020",
+    "paper.hosting_capacity_method_review_2021",
+    "paper.single_point_operation_2019"
+  ],
+  "novelty_position": "variant",
+  "summary": "当前对齐表明，task004 的边界扫描路线更接近 hosting capacity assessment 家族，而 single-point mismatch 路线更接近 operating-point analysis，不能直接替代边界评估。"
+}

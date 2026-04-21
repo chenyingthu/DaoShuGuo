@@ -1,0 +1,48 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.ieee69_reactive_opt"
+object_version: "0.1.0"
+created_at: "2026-04-20T00:00:00Z"
+updated_at: "2026-04-20T00:00:00Z"
+status: "active"
+metadata: {}
+title: "IEEE69无功补偿迁移验证"
+description: "用于验证 task001 框架在 IEEE69 配电网无功补偿问题上的最小迁移闭环。"
+tags:
+  - "power"
+  - "migration"
+  - "ieee69"
+research_object: "IEEE 69节点配电网无功补偿优化问题"
+problem_statement: "在给定单工况下，复用现有框架对象与 weak-shunt 技能思路，比较基线与迁移 candidate 的网损和电压偏差表现。"
+scenario_boundary:
+  grid_model: "ieee69"
+  operating_conditions:
+    - "normal_load"
+  simulator: "pandapower"
+  case_name: "ieee69_custom"
+success_intent:
+  goal: "在不重造 task001 框架的前提下完成真实 baseline/candidate 对比"
+  non_goal:
+    - "直接宣称在 IEEE69 上获得最优方法"
+    - "直接上升为普适理论"
+baseline_refs:
+  - "baseline.power.ieee69_reactive_opt.default"
+constraint_summary:
+  physical:
+    - "电压约束"
+    - "无功补偿边界"
+  engineering:
+    - "使用可编程 pandapower 模型"
+    - "沿用现有 schema envelope 与 writeback 机制"
+  research:
+    - "必须保留基线比较"
+    - "必须控制 claim 上限"
+motivation: "用相邻网络任务验证现有自主科研闭环是否具备可迁移性。"
+importance_level: "high"
+risk_hypotheses:
+  - "task001 的弱节点补偿思路可能依赖 IEEE33 的结构特征"
+  - "迁移后 evaluator 可能只能形成失败认知，而无法形成成功认知"
+assumptions:
+  - "本地 pandapower 环境可稳定运行自建 IEEE69 网络"
+  - "task001 的 baseline/evaluator/taste/writeback 机制可直接复用"
+owner_notes: "task002 只做最小迁移验证，不扩张到多工况和文献自动检索。"

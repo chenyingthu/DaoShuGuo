@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.single_point_operation_2019
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.single_point_operation_2019
+title: Operating-point based assessment versus hosting-capacity boundary evaluation
+  in active distribution systems
+source_kind: manual_summary
+method_family: single_point_operating_evaluation
+tags:
+- operating point
+- hosting capacity
+- boundary evaluation
+relevance_notes: 用于对齐 task004 skill mismatch，解释单点结果不能替代边界扫描。
+method_notes:
+- 单点运行结果可用于局部运行分析，但不能直接作为 hosting-capacity 边界评估。
+explanation_notes:
+- 核心解释是：边界扫描与单点运行分析是不同层次的问题。
+explanation_point_notes:
+- 单点结果不等于边界结果。
+- operating point analysis 与 boundary evaluation 属于不同问题层次。
+- 将单点结果提升为边界结论会产生语义失配。
+provenance_notes:
+- 由 task004-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2019

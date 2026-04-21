@@ -1,0 +1,14 @@
+created_at: '2026-04-21T03:51:02Z'
+task_ref: task.power.ieee69_hosting_capacity
+decision: freeze
+missing_inputs:
+- renewable_context
+- hosting_capacity_scope
+- control_scope
+- constraints
+assumption_gaps: []
+required_next_inputs:
+- renewable_context
+- hosting_capacity_scope
+- control_scope
+- constraints

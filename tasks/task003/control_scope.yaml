@@ -1,0 +1,20 @@
+schema_version: "0.1.0"
+context_type: "control_scope"
+task_package: "task003"
+allowed_controls:
+  inverter_q_mvar:
+    enabled: true
+    description: "允许新能源 inverter 在给定边界内提供无功支撑。"
+  shunt_compensation:
+    enabled: true
+    description: "允许沿用传统 shunt/capacitor 补偿作为对照或简单协同。"
+  ext_grid_voltage:
+    enabled: false
+    description: "第一版不把边界电压调节作为 candidate 主控制对象。"
+excluded_controls:
+  - "OLTC 时序调节"
+  - "经济调度"
+  - "新能源有功削减优化"
+claim_boundary:
+  - "只能讨论单时刻代表工况。"
+  - "不能宣称覆盖新能源波动性。"

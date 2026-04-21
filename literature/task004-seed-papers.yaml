@@ -1,0 +1,55 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_hosting_capacity"
+seed_papers:
+  - ref_id: "paper.hosting_capacity_pv_2017"
+    title: "Distributed PV hosting capacity estimation under voltage constraints in radial distribution systems"
+    source_kind: "manual_summary"
+    year: 2017
+    method_family: "hosting_capacity_assessment"
+    tags: ["hosting capacity", "distributed PV", "voltage constraints", "distribution system"]
+    relevance_notes: "代表性新能源接入承载力评估文献，用于对齐 task004 的 baseline 扫描语义。"
+    method_excerpt_seed: "通过给定约束下逐步增加新能源接入水平，评估系统在电压边界下的 hosting capacity。"
+    explanation_excerpt_seed: "核心解释是：承载力必须在明确场景和约束下定义，而不是脱离条件的单一数值。"
+    explanation_point_notes:
+      - "承载力是条件化边界，不是孤立数字。"
+      - "电压约束常用于静态 hosting capacity screening。"
+      - "边界结果必须绑定场景与约束。"
+  - ref_id: "paper.smart_inverter_hosting_2020"
+    title: "Impact of smart inverter Volt/Var control on photovoltaic hosting capacity"
+    source_kind: "manual_summary"
+    year: 2020
+    method_family: "hosting_capacity_controlled"
+    tags: ["hosting capacity", "smart inverter", "volt/var control", "PV"]
+    relevance_notes: "用于对齐 task004 candidate，说明控制策略会改变承载力边界。"
+    method_excerpt_seed: "在 hosting capacity 评估中显式考虑 smart inverter Volt/Var 控制，比较不同策略下的接入边界。"
+    explanation_excerpt_seed: "核心解释是：承载力边界依赖控制策略，因此不能写成系统唯一固有承载力。"
+    explanation_point_notes:
+      - "控制策略是承载力定义的一部分。"
+      - "smart inverter reactive support 可改变边界。"
+      - "条件化边界不等于系统固有边界。"
+  - ref_id: "paper.hosting_capacity_method_review_2021"
+    title: "Review of hosting capacity assessment methods for renewable-rich distribution grids"
+    source_kind: "manual_summary"
+    year: 2021
+    method_family: "hosting_capacity_assessment"
+    tags: ["hosting capacity", "review", "distribution grid", "renewable integration"]
+    relevance_notes: "用于解释 task004 的 boundary overclaim 风险。"
+    method_excerpt_seed: "承载力方法依赖场景、约束、控制假设和边界定义，不同方法的结果不可直接混为系统固有承载力。"
+    explanation_excerpt_seed: "核心解释是：若忽略场景和控制条件，hosting capacity 结论容易被过度表述。"
+    explanation_point_notes:
+      - "承载力结果必须绑定条件。"
+      - "不同方法得到的边界不可直接横向等同。"
+      - "边界 overclaim 常来自条件丢失。"
+  - ref_id: "paper.single_point_operation_2019"
+    title: "Operating-point based assessment versus hosting-capacity boundary evaluation in active distribution systems"
+    source_kind: "manual_summary"
+    year: 2019
+    method_family: "single_point_operating_evaluation"
+    tags: ["operating point", "hosting capacity", "boundary evaluation"]
+    relevance_notes: "用于对齐 task004 skill mismatch，解释单点结果不能替代边界扫描。"
+    method_excerpt_seed: "单点运行结果可用于局部运行分析，但不能直接作为 hosting-capacity 边界评估。"
+    explanation_excerpt_seed: "核心解释是：边界扫描与单点运行分析是不同层次的问题。"
+    explanation_point_notes:
+      - "单点结果不等于边界结果。"
+      - "operating point analysis 与 boundary evaluation 属于不同问题层次。"
+      - "将单点结果提升为边界结论会产生语义失配。"

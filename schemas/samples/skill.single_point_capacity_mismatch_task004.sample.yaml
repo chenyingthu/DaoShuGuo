@@ -1,0 +1,30 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.single_point_capacity_mismatch_task004"
+object_version: "0.1.0"
+created_at: "2026-04-21T00:00:00Z"
+updated_at: "2026-04-21T00:00:00Z"
+status: "draft"
+metadata: {}
+name: "Single Point Capacity Mismatch Task004"
+title: "task004 单点容量结果误用失配探针"
+capability_statement: "故意将单点运行结果误作承载力边界，以验证 task004 对 skill mismatch 的识别能力。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_hosting_capacity"
+  limits:
+    - "仅用于 task004 skill mismatch 验证"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/single_point_capacity_mismatch_task004.py"
+maturity_level: "candidate"

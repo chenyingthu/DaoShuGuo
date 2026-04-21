@@ -1,0 +1,11 @@
+schema_version: 0.1.0
+object_type: task_mismatch_check
+object_id: task_mismatch.power.ieee69_renewable_reactive_opt.20260420_143110
+created_at: '2026-04-20T14:31:10Z'
+status: ready
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_dir: tasks/task003
+missing_inputs: []
+assumption_gaps: []
+decision: execute
+rationale: 任务定义具备最小执行条件。

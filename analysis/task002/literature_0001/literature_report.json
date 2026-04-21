@@ -1,0 +1,16 @@
+{
+  "created_at": "2026-04-20T11:26:41Z",
+  "assessed_object_refs": [
+    "skill.power.baseline_solver",
+    "skill.power.weak_bus_shunt_optimizer"
+  ],
+  "literature_refs": [
+    "paper.voltvar_fuzzy_2011",
+    "paper.voltvar_prosumer_2020",
+    "paper.robust_vvc_2017",
+    "paper.capacitor_tlbo_2014",
+    "paper.capacitor_nsga_2022"
+  ],
+  "novelty_position": "variant",
+  "summary": "当前对齐表明，ext-grid 路线更接近 Volt/Var control 家族，而 weak-shunt 路线更接近 capacitor placement / reactive compensation 家族。"
+}

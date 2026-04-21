@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: literature_source
+object_id: literature_source.power.hosting_capacity_method_review_2021
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+paper_ref_id: paper.hosting_capacity_method_review_2021
+title: Review of hosting capacity assessment methods for renewable-rich distribution
+  grids
+source_kind: manual_summary
+method_family: hosting_capacity_assessment
+tags:
+- hosting capacity
+- review
+- distribution grid
+- renewable integration
+relevance_notes: 用于解释 task004 的 boundary overclaim 风险。
+method_notes:
+- 承载力方法依赖场景、约束、控制假设和边界定义，不同方法的结果不可直接混为系统固有承载力。
+explanation_notes:
+- 核心解释是：若忽略场景和控制条件，hosting capacity 结论容易被过度表述。
+explanation_point_notes:
+- 承载力结果必须绑定条件。
+- 不同方法得到的边界不可直接横向等同。
+- 边界 overclaim 常来自条件丢失。
+provenance_notes:
+- 由 task004-seed-papers.yaml 物化生成的轻量文献源对象
+- source_kind=manual_summary
+year: 2021

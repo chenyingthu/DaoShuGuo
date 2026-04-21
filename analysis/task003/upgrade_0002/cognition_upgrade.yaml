@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_renewable_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-21T00:43:31Z'
+updated_at: '2026-04-21T00:43:31Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0002
+semantic_comparison_ref: semantic_comparison.power.ieee69_renewable_reactive_opt.0002
+novelty_assessment_ref: novelty.power.ieee69_renewable_reactive_opt.0002
+literature_alignment_ref: null
+explanation_alignment_ref: null
+explanation_excerpt_refs: []
+upgraded_cognition_ref: null
+evidence_strength: low
+decision: freeze
+rationale: 虽然 ext-grid 路线在当前指标上更强，但 weak-shunt 路线的控制变量和方法语义更接近无功优化问题本体，因此比较认知应从“谁更强”升级为“谁更值得继续演化”。
+  当前证据强度为 `low`，因此决策为 `freeze`。
+claim_adjustment: 应维持对 weak-shunt 当前性能的克制表述，但允许提高其研究价值判断。

@@ -1,0 +1,11 @@
+schema_version: "0.1.0"
+context_type: "grid_context"
+task_package: "task003"
+base_task_ref: "task.power.ieee69_reactive_opt"
+network_model: "ieee69_with_renewables"
+base_network: "tasks/task002/ieee69bus.txt"
+simulator: "pandapower"
+operating_condition: "single_representative_snapshot"
+notes:
+  - "第一版沿用 task002 的 IEEE69 网络构造，避免网络模型变化掩盖 task 接入问题。"
+  - "新能源接入通过 runtime helper 叠加到基础网络。"

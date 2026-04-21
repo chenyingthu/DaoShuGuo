@@ -1,0 +1,43 @@
+physical:
+  - name: "voltage_limits"
+    description: "节点电压必须保持在允许范围内"
+  - name: "inverter_q_limits"
+    description: "每个 PV inverter 的无功输出必须处于 q_mvar_limit 内"
+  - name: "reactive_support_effort"
+    description: "无功支撑使用程度必须被记录为评价指标"
+engineering:
+  - name: "single_snapshot_only"
+    description: "第一版只覆盖单时刻代表工况"
+  - name: "reuse_task002_ieee69"
+    description: "沿用 task002 IEEE69 网络作为基础"
+research:
+  - name: "task_framing_required"
+    description: "必须保留 brief 到 task package 的形式化记录"
+  - name: "mismatch_must_be_classified"
+    description: "失败必须区分 skill mismatch 与 task mismatch"
+solver:
+  task_package: "task003"
+  network_model: "ieee69_with_renewables"
+  base_task_package: "task002"
+  baseline_inverter_q_mvar: 0.0
+  candidate_q_step_mvar: 0.1
+  candidate_voltage_threshold: 0.97
+  weak_bus_count: 6
+  max_shunts: 2
+  shunt_q_mvar_grid: [0.05, 0.1, 0.2, 0.3]
+  voltage_limits:
+    min: 0.95
+    max: 1.05
+  renewable_sites:
+    - bus: 18
+      p_mw: 0.35
+      sn_mva: 0.5
+      q_mvar_limit: 0.35
+    - bus: 35
+      p_mw: 0.45
+      sn_mva: 0.65
+      q_mvar_limit: 0.45
+    - bus: 61
+      p_mw: 0.55
+      sn_mva: 0.8
+      q_mvar_limit: 0.55

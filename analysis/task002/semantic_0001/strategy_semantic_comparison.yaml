@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+object_type: strategy_semantic_comparison
+object_id: semantic_comparison.power.ieee69_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-20T11:26:41Z'
+updated_at: '2026-04-20T11:26:41Z'
+status: reviewed
+metadata:
+  comparison_mode: within_run_baseline_vs_candidate
+task_ref: task.power.ieee69_reactive_opt
+left_run_ref: run.power.ieee69_reactive_opt.0005
+right_run_ref: run.power.ieee69_reactive_opt.0005
+left_skill_ref: skill.power.baseline_solver
+right_skill_ref: skill.power.weak_bus_shunt_optimizer
+semantic_dimensions:
+  problem_alignment:
+    left: medium
+    right: high
+    winner: right
+  research_value:
+    left: low
+    right: high
+    winner: right
+  control_realism:
+    left: medium
+    right: high
+    winner: right
+  reuse_potential:
+    left: high
+    right: medium
+    winner: left
+  method_family:
+    left: ext_grid_vm_search
+    right: weak_bus_shunt_search
+    winner: different
+  control_signature:
+    left: boundary_voltage_tuning
+    right: reactive_compensation
+    winner: different
+preferred_for_research_ref: run.power.ieee69_reactive_opt.0005
+summary: task002 baseline 与 weak-shunt candidate 的研究语义比较完成，candidate 更贴近无功补偿问题本体。
+notes:
+- ext_grid_vm_pu=1.0
+- candidate_buses=[65, 64, 63, 62, 61, 60]
+- evaluated_candidates=106

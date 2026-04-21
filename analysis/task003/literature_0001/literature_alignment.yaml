@@ -1,0 +1,35 @@
+schema_version: 0.1.0
+object_type: literature_alignment
+object_id: literature_alignment.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-21T00:58:43Z'
+updated_at: '2026-04-21T00:58:43Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_renewable_reactive_opt
+assessed_object_refs:
+- skill.power.renewable_inverter_reactive_optimizer_task003
+- skill.power.renewable_inverter_underperformer_task003
+literature_refs:
+- paper.smart_inverter_voltvar_2019
+- paper.der_reactive_support_2021
+- paper.coordinated_vvc_der_2020
+method_mappings:
+  skill.power.renewable_inverter_reactive_optimizer_task003:
+  - paper.smart_inverter_voltvar_2019
+  - paper.der_reactive_support_2021
+  - paper.coordinated_vvc_der_2020
+  skill.power.renewable_inverter_underperformer_task003:
+  - paper.smart_inverter_voltvar_2019
+  - paper.der_reactive_support_2021
+  - paper.coordinated_vvc_der_2020
+theory_mappings:
+  renewable_inverter_reactive_support: inverter_based_volt_var_control
+  coordinated_volt_var_control: coordinated_volt_var_control
+  weak_bus_shunt_search: traditional_compensation_configuration
+novelty_position: variant
+alignment_summary: 当前对齐表明，inverter-support 路线更接近 smart inverter / DER reactive support
+  家族，weak-shunt 路线更接近传统 capacitor placement 家族。
+notes:
+- 当前只基于种子文献做方法家族级对齐
+- 尚未进行片段级解释对齐

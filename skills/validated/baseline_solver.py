@@ -1,16 +1,17 @@
-"""Real baseline solver for task001."""
+"""Shared real baseline solver for task tasks."""
 
 from __future__ import annotations
 
 from typing import Any
 
-from tasks.task001.runtime_helpers import evaluate_vm_setting
+from tasks.runtime_loader import runtime_helpers_for_task, task_package_from_constraints
 
 
 def solve(network_model: str, constraint_set: dict[str, Any]) -> dict[str, Any]:
     """Solve the baseline using the default ext_grid setpoint."""
+    helpers = runtime_helpers_for_task(task_package_from_constraints(constraint_set))
     vm_pu = float(constraint_set.get("baseline_vm_pu", 1.0))
-    result = evaluate_vm_setting(vm_pu)
+    result = helpers.evaluate_vm_setting(vm_pu)
     return {
         "network_model": network_model,
         "constraint_set": constraint_set,

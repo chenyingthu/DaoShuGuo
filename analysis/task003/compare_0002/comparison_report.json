@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-04-21T00:42:54Z",
+  "left_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+  "right_run_ref": "run.power.ieee69_renewable_reactive_opt.0004",
+  "left_strategy": "real_inverter-support",
+  "right_strategy": "real_inverter-underperformer",
+  "winner": "left",
+  "winner_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+  "summary": "在当前任务下，real_inverter-support 与 real_inverter-underperformer 的对照完成，winner=left。",
+  "claim_ceiling": "该比较仅支持当前单工况下的策略相对判断，不支持普适结论。"
+}

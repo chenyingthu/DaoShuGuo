@@ -1,0 +1,9 @@
+schema_version: 0.1.0
+object_type: boundary_overclaim_check
+object_id: boundary_overclaim.power.ieee69_hosting_capacity.20260421_033407
+created_at: '2026-04-21T03:34:07Z'
+status: flagged
+task_ref: task.power.ieee69_hosting_capacity
+run_ref: run.power.ieee69_hosting_capacity.0001
+decision: downgrade
+rationale: 报告出现超出扫描包络边界的承载力表述。

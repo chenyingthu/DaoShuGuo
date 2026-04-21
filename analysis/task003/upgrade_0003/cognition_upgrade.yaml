@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_renewable_reactive_opt.0003
+object_version: 0.1.0
+created_at: '2026-04-21T00:44:56Z'
+updated_at: '2026-04-21T00:44:56Z'
+status: reviewed
+metadata:
+  mode: task003_failure_taxonomy
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0001
+semantic_comparison_ref: semantic_comparison.power.ieee69_renewable_reactive_opt.0001
+novelty_assessment_ref: novelty.power.ieee69_renewable_reactive_opt.0003
+upgraded_cognition_ref: cognition.power.upgraded_ieee69_renewable_reactive_opt_0003
+evidence_strength: low
+decision: upgrade
+rationale: 显式使用新能源 inverter 控制空间，是判断 candidate 是否回答 task003 本体的重要条件。
+claim_adjustment: task003 当前认知升级仍只支持单代表工况下的 failure taxonomy 与任务本体判断。

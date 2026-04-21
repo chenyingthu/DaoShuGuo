@@ -1,0 +1,70 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.ieee69_hosting_capacity"
+object_version: "0.1.0"
+created_at: "2026-04-21T00:00:00Z"
+updated_at: "2026-04-21T00:00:00Z"
+status: "active"
+metadata:
+  source_brief: "tasks/task004/research_brief.md"
+title: "新能源接入下的 IEEE69 静态承载力评估"
+description: "用于验证控制策略相关的新能源接入承载边界能否进入现有自主科研框架。"
+tags:
+  - "power"
+  - "hosting_capacity"
+  - "renewable"
+research_object: "给定控制策略和约束条件下的新能源接入承载边界"
+problem_statement: "在单代表工况下比较不同控制策略对应的最大允许新能源接入水平，并对边界结论的适用条件形成认知。"
+scenario_boundary:
+  grid_model: "ieee69_hosting_capacity"
+  operating_conditions:
+    - "single_representative_snapshot"
+  simulator: "pandapower"
+  boundary_type: "control_strategy_conditioned_static_capacity"
+success_intent:
+  goal: "验证系统能否在控制策略条件下输出结构化承载力边界。"
+  non_goal:
+    - "宣称系统唯一固有承载力"
+    - "宣称长期时序承载力"
+baseline_refs:
+  - "baseline.power.ieee69_hosting_capacity.fixed_inverter_q_capacity_scan"
+constraint_summary:
+  physical:
+    - "电压 screening threshold"
+    - "inverter 无功能力边界"
+    - "新能源接入水平扫描"
+  engineering:
+    - "只做静态代表工况"
+    - "沿用 task003 network/runtime 基础"
+  research:
+    - "必须显式说明承载力定义"
+    - "必须显式说明控制策略条件"
+    - "必须控制 boundary overclaim"
+motivation: "将系统从局部优化问题推进到系统边界判断问题。"
+importance_level: "high"
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task004/research_brief.md"
+  - kind: "grid_context"
+    path: "tasks/task004/grid_context.yaml"
+  - kind: "renewable_context"
+    path: "tasks/task004/renewable_context.yaml"
+  - kind: "hosting_capacity_scope"
+    path: "tasks/task004/hosting_capacity_scope.yaml"
+  - kind: "control_scope"
+    path: "tasks/task004/control_scope.yaml"
+target_metrics:
+  - "hosting_capacity_level"
+  - "violation_trigger_type"
+  - "loss_at_boundary"
+  - "voltage_margin"
+risk_hypotheses:
+  - "承载力若未定义清楚，任务会直接失配"
+  - "控制策略相关边界容易被误写成系统固有边界"
+assumptions:
+  - "接入水平以统一 scale 扫描"
+  - "边界由约束触发条件定义"
+  - "第一版不做时序 hosting capacity"
+  - "vm_min=0.91 作为第一版 screening threshold"
+  - "承载力边界在当前扫描包络内定义"
+owner_notes: "task004 第一版聚焦静态、控制策略相关的承载力边界，不追求完整承载力理论。"

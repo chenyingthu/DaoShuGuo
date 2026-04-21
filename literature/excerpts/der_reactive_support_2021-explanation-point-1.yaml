@@ -1,0 +1,17 @@
+schema_version: 0.1.0
+object_type: paper_excerpt
+object_id: paper_excerpt.power.der_reactive_support_2021.explanation_point_1
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+paper_ref: paper_record.power.der_reactive_support_2021
+source_ref: literature_source.power.der_reactive_support_2021.abstract
+source_kind: abstract_excerpt
+excerpt_kind: explanation
+granularity: point
+content: Reactive support effectiveness is parameter-sensitive.
+notes:
+- 当前由 literature_source.power.der_reactive_support_2021.abstract 的 explanation_point_notes
+  驱动的细粒度解释片段。

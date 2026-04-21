@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1.0",
   "registry_type": "cognition_registry",
-  "generated_at": "2026-04-20T04:13:18Z",
+  "generated_at": "2026-04-21T06:30:55Z",
   "cognition": [
     {
       "object_id": "cognition.power.loss_voltage_tradeoff_candidate",
@@ -86,14 +86,6 @@
       "status": "active",
       "source_run_ref": "run.power.ieee33_reactive_opt.0009",
       "written_at": "2026-04-19T08:46:05Z"
-    },
-    {
-      "object_id": "cognition.power.upgraded_strategy_comparison_0001",
-      "object_version": "0.1.0",
-      "path": "cognition/cards/upgraded_strategy_comparison_0001.yaml",
-      "status": "active",
-      "source_run_ref": "run.power.ieee33_reactive_opt.0009",
-      "written_at": "2026-04-19T12:23:07Z"
     },
     {
       "object_id": "cognition.power.upgraded_strategy_comparison_0002",
@@ -190,6 +182,214 @@
       "status": "active",
       "source_run_ref": "run.power.ieee33_reactive_opt.0009",
       "written_at": "2026-04-20T04:13:18Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_reactive_opt_runtime_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_reactive_opt_runtime_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0001",
+      "written_at": "2026-04-20T09:12:47Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_reactive_opt_runtime_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_reactive_opt_runtime_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0002",
+      "written_at": "2026-04-20T09:16:00Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_reactive_opt_runtime_0003",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_reactive_opt_runtime_0003.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0003",
+      "written_at": "2026-04-20T09:16:20Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_reactive_opt_runtime_0004",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_reactive_opt_runtime_0004.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0004",
+      "written_at": "2026-04-20T09:19:46Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_reactive_opt_runtime_0005",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_reactive_opt_runtime_0005.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0005",
+      "written_at": "2026-04-20T09:22:37Z"
+    },
+    {
+      "object_id": "cognition.power.strategy_comparison_ieee69_reactive_opt_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/strategy_comparison_ieee69_reactive_opt_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0005",
+      "written_at": "2026-04-20T11:26:39Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_strategy_comparison_ieee69_reactive_opt_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_strategy_comparison_ieee69_reactive_opt_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0005",
+      "written_at": "2026-04-20T11:26:41Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_reactive_opt_runtime_failure_0006",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_reactive_opt_runtime_failure_0006.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_reactive_opt.0006",
+      "written_at": "2026-04-20T11:39:23Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "written_at": "2026-04-20T14:31:12Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_failure_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_renewable_reactive_opt_runtime_failure_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0002",
+      "written_at": "2026-04-20T14:31:34Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_task_mismatch_20260420_143348",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_renewable_reactive_opt_task_mismatch_20260420_143348.yaml",
+      "status": "active",
+      "source_run_ref": "task_mismatch.power.ieee69_renewable_reactive_opt.20260420_143348",
+      "written_at": "2026-04-20T14:33:48Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_failure_0003",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_renewable_reactive_opt_runtime_failure_0003.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0003",
+      "written_at": "2026-04-20T14:33:49Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_failure_0004",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_renewable_reactive_opt_runtime_failure_0004.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0004",
+      "written_at": "2026-04-21T00:34:52Z"
+    },
+    {
+      "object_id": "cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/strategy_comparison_ieee69_renewable_reactive_opt_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0003",
+      "written_at": "2026-04-21T00:42:54Z"
+    },
+    {
+      "object_id": "cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/strategy_comparison_ieee69_renewable_reactive_opt_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "written_at": "2026-04-21T00:42:54Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0003",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_renewable_reactive_opt_0003.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "written_at": "2026-04-21T00:44:56Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0004",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_renewable_reactive_opt_0004.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "written_at": "2026-04-21T00:44:56Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0005",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_renewable_reactive_opt_0005.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "written_at": "2026-04-21T01:00:15Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0006",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_renewable_reactive_opt_0006.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0001",
+      "written_at": "2026-04-21T01:00:15Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0001",
+      "written_at": "2026-04-21T03:33:32Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0002",
+      "written_at": "2026-04-21T03:36:24Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_task_mismatch_20260421_035102",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_task_mismatch_20260421_035102.yaml",
+      "status": "active",
+      "source_run_ref": "task_mismatch.power.ieee69_hosting_capacity.20260421_035102",
+      "written_at": "2026-04-21T03:51:02Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_task_mismatch_20260421_035228",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_task_mismatch_20260421_035228.yaml",
+      "status": "active",
+      "source_run_ref": "task_mismatch.power.ieee69_hosting_capacity.20260421_035228",
+      "written_at": "2026-04-21T03:52:28Z"
+    },
+    {
+      "object_id": "cognition.power.strategy_comparison_ieee69_hosting_capacity_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/strategy_comparison_ieee69_hosting_capacity_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0001",
+      "written_at": "2026-04-21T03:52:28Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_hosting_capacity_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_hosting_capacity_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0001",
+      "written_at": "2026-04-21T03:52:42Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_hosting_capacity_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_hosting_capacity_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0001",
+      "written_at": "2026-04-21T06:30:55Z"
     }
   ]
 }

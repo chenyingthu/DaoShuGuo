@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:55Z'
+updated_at: '2026-04-21T06:30:55Z'
+status: reviewed
+metadata:
+  mode: task004_boundary_cognition
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_hosting_capacity_0002
+semantic_comparison_ref: semantic_comparison.power.ieee69_hosting_capacity.0002
+novelty_assessment_ref: novelty.power.ieee69_hosting_capacity.0002
+literature_alignment_ref: literature_alignment.power.ieee69_hosting_capacity.0002
+explanation_alignment_ref: explanation_alignment.power.ieee69_hosting_capacity.0002
+explanation_excerpt_refs:
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation_point_1
+upgraded_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0002
+evidence_strength: medium
+decision: upgrade
+rationale: 承载力评估必须以边界扫描为对象，单点运行结果不能替代条件化边界判断。 当前文献对齐将其定位为 `variant`。 explanation alignment
+  提供了 9 条 excerpt 级证据，evidence_strength=`medium`。
+claim_adjustment: task004 边界认知只支持当前扫描包络内、给定控制策略下的静态边界判断。

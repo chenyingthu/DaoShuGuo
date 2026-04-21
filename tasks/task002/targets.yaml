@@ -1,0 +1,16 @@
+task_ref: "task.power.ieee69_reactive_opt"
+target_style: "baseline_relative_improvement"
+primary_metrics:
+  - metric_id: "loss"
+    goal: "lower_than_baseline"
+  - metric_id: "voltage_deviation"
+    goal: "lower_than_baseline"
+constraints:
+  - metric_id: "constraint_violation"
+    goal: "not_worse_than_baseline"
+reporting_expectation:
+  successful_grade_target: "zhuoshi"
+  failed_grade_target: "huimo"
+candidate_strategy:
+  type: "weak_bus_shunt_grid_search"
+  objective: "loss + 1000*voltage_deviation + 10000*constraint_violation"

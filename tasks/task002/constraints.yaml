@@ -1,0 +1,27 @@
+physical:
+  - name: "voltage_limits"
+    description: "节点电压必须保持在允许范围内"
+  - name: "reactive_bounds"
+    description: "无功补偿量必须在设备边界内"
+engineering:
+  - name: "single_scenario_only"
+    description: "当前迁移验证仅覆盖默认工况"
+  - name: "schema_tracked_outputs"
+    description: "所有关键产物都必须按既有 schema 输出"
+  - name: "bundled_ieee69_case"
+    description: "当前使用任务内置 IEEE69 数据构建 pandapower 网络"
+research:
+  - name: "baseline_required"
+    description: "所有结论都必须与基线比较"
+  - name: "claim_must_follow_taste_assessment"
+    description: "报告主张必须受成果分级约束"
+solver:
+  task_package: "task002"
+  network_model: "ieee69"
+  baseline_vm_pu: 1.0
+  weak_bus_count: 6
+  max_shunts: 2
+  shunt_q_mvar_grid: [0.05, 0.1, 0.2, 0.3, 0.5]
+  voltage_limits:
+    min: 0.95
+    max: 1.05

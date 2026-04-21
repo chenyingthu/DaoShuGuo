@@ -1,11 +1,11 @@
-"""Weak-bus shunt optimizer for task001."""
+"""Weak-bus shunt optimizer shared across adjacent tasks."""
 
 from __future__ import annotations
 
 from itertools import combinations
 from typing import Any
 
-from tasks.task001.runtime_helpers import evaluate_shunt_setting, objective, weakest_buses
+from tasks.runtime_loader import runtime_helpers_for_task, task_package_from_constraints
 
 
 def _candidate_shunt_sets(
@@ -24,17 +24,18 @@ def _candidate_shunt_sets(
 
 def solve(network_model: str, constraint_set: dict[str, Any]) -> dict[str, Any]:
     """Search shunt compensation on weak-voltage buses."""
+    helpers = runtime_helpers_for_task(task_package_from_constraints(constraint_set))
     weak_bus_count = int(constraint_set.get("weak_bus_count", 5))
     q_grid = constraint_set.get("shunt_q_mvar_grid", [0.05, 0.1, 0.2, 0.3, 0.5])
     max_shunts = int(constraint_set.get("max_shunts", 2))
-    candidate_buses = weakest_buses(weak_bus_count)
+    candidate_buses = helpers.weakest_buses(weak_bus_count)
 
     best = None
     evaluated = 0
     for shunts in _candidate_shunt_sets(candidate_buses, q_grid, max_shunts):
-        result = evaluate_shunt_setting(shunts)
+        result = helpers.evaluate_shunt_setting(shunts)
         evaluated += 1
-        score = objective(result["metrics"])
+        score = helpers.objective(result["metrics"])
         if best is None or score < best["score"]:
             best = {"score": score, **result}
 

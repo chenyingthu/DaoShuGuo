@@ -1,0 +1,6 @@
+schema_version: "0.1.0"
+context_type: "grid_context"
+task_package: "task004"
+network_model: "ieee69_hosting_capacity"
+base_network: "tasks/task002/ieee69bus.txt"
+simulator: "pandapower"

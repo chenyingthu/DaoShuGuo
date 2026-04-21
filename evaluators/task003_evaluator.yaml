@@ -1,0 +1,45 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.ieee69_renewable_reactive_opt.default"
+object_version: "0.1.0"
+created_at: "2026-04-20T00:00:00Z"
+updated_at: "2026-04-20T00:00:00Z"
+status: "ready"
+metadata: {}
+title: "task003 新能源无功优化默认评估器"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+evaluation_goal: "验证新能源 inverter reactive support candidate 是否相对固定 Q baseline 改善网损与电压偏差，同时不新增约束违反。"
+metric_definitions:
+  - metric_id: "loss"
+    direction: "lower_is_better"
+    unit: "kW"
+    description: "网络有功损耗"
+  - metric_id: "voltage_deviation"
+    direction: "lower_is_better"
+    unit: "p.u."
+    description: "节点电压偏差"
+  - metric_id: "constraint_violation"
+    direction: "constraint_only"
+    description: "约束违反数量"
+  - metric_id: "reactive_support_effort"
+    direction: "lower_is_better"
+    description: "新能源 inverter 无功支撑使用程度代理"
+baseline_strategy:
+  type: "named_baseline"
+  refs:
+    - "baseline.power.ieee69_renewable_reactive_opt.fixed_inverter_q"
+pass_criteria:
+  rule: "关键指标优于基线、无新增约束违反，并记录 reactive_support_effort"
+execution_entry:
+  type: "python_script"
+  path: "evaluators/task003_evaluator.py"
+comparison_mode: "baseline_and_constraint"
+stability_checks:
+  - "单代表工况验证"
+blind_spots:
+  - "未覆盖新能源时序波动"
+  - "未覆盖经济代价"
+  - "reactive_support_effort 仍是代理指标"
+evidence_outputs:
+  - "metrics_json"
+  - "comparison_summary"

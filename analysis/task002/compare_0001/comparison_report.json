@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-04-20T11:26:39Z",
+  "run_ref": "run.power.ieee69_reactive_opt.0005",
+  "left_strategy": "baseline.default_ext_grid",
+  "right_strategy": "candidate.weak_shunt",
+  "winner": "right",
+  "winner_run_ref": "run.power.ieee69_reactive_opt.0005",
+  "summary": "在当前 task002 run 内，baseline 与 weak-shunt candidate 的结构化对照完成，winner=right。",
+  "claim_ceiling": "该比较仅支持当前 task002 单run内 baseline 与 candidate 的局部判断，不支持普适结论。"
+}

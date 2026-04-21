@@ -1,0 +1,201 @@
+schema_version: 0.1.0
+object_type: explanation_alignment
+object_id: explanation_alignment.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:30Z'
+updated_at: '2026-04-21T06:30:30Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_hosting_capacity
+assessed_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0001
+explanation_card_refs:
+- explanation_card.power.hosting_capacity_pv_2017
+- explanation_card.power.smart_inverter_hosting_2020
+- explanation_card.power.hosting_capacity_method_review_2021
+- explanation_card.power.single_point_operation_2019
+per_card_relations:
+  explanation_card.power.hosting_capacity_pv_2017:
+    paper_ref: paper_record.power.hosting_capacity_pv_2017
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Boundary judgments must remain conditioned on scenario and constraints.
+    - Voltage screening is a common first boundary.
+    relation_counts:
+      supports: 3
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation
+      granularity: summary
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: The hosting-capacity boundary only has meaning when the scenario and
+        triggering constraints are explicitly stated.
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Boundary judgments must remain conditioned on scenario and constraints.
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Voltage screening is a common first boundary.
+  explanation_card.power.smart_inverter_hosting_2020:
+    paper_ref: paper_record.power.smart_inverter_hosting_2020
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Control strategy conditions hosting-capacity boundaries.
+    - Boundary comparison itself is part of hosting-capacity analysis.
+    relation_counts:
+      supports: 1
+      supplements: 2
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation
+      granularity: summary
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 当前只从卡片标签推知其属于 Volt/Var 家族，但 excerpt 文本证据不足。
+      evidence_basis: card_tag_fallback
+      content: Hosting-capacity boundaries change with control strategy and should
+        not be written as unique system-intrinsic capacities.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 当前只从卡片标签推知其属于 Volt/Var 家族，但 excerpt 文本证据不足。
+      evidence_basis: card_tag_fallback
+      content: Control strategy conditions hosting-capacity boundaries.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Boundary comparison itself is part of hosting-capacity analysis.
+  explanation_card.power.hosting_capacity_method_review_2021:
+    paper_ref: paper_record.power.hosting_capacity_method_review_2021
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - 承载力结果必须绑定条件。
+    - 不同方法得到的边界不可直接横向等同。
+    - 边界 overclaim 常来自条件丢失。
+    relation_counts:
+      supports: 1
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 3
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+      granularity: summary
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 核心解释是：若忽略场景和控制条件，hosting capacity 结论容易被过度表述。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 承载力结果必须绑定条件。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 不同方法得到的边界不可直接横向等同。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 边界 overclaim 常来自条件丢失。
+  explanation_card.power.single_point_operation_2019:
+    paper_ref: paper_record.power.single_point_operation_2019
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Operating-point analysis and hosting-capacity boundary evaluation are different
+      problem types.
+    relation_counts:
+      supports: 2
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.single_point_operation_2019.explanation
+      granularity: summary
+      source_ref: literature_source.power.single_point_operation_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接支持单点结果不能替代边界扫描的判断。
+      evidence_basis: excerpt_content
+      content: Using a single operating point as a boundary conclusion creates a category
+        mistake between operation analysis and boundary analysis.
+    - excerpt_ref: paper_excerpt.power.single_point_operation_2019.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.single_point_operation_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Operating-point analysis and hosting-capacity boundary evaluation are
+        different problem types.
+evidence_excerpt_refs:
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation_point_1
+evidence_strength: medium
+relation_summary: 4 张 explanation card 含 excerpt 级直接支持（7 条 excerpt）。
+overall_relation: supports
+notes:
+- 当前 relation judgment 以 excerpt 文本证据为主，card 标签仅作兜底提示
+- 支持与仅相似已显式区分，但仍未进行原文全文语义匹配

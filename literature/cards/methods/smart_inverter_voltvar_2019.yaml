@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+object_type: method_card
+object_id: method_card.power.smart_inverter_voltvar_2019
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.smart_inverter_voltvar_2019.abstract
+  source_kind: abstract_excerpt
+paper_ref: paper_record.power.smart_inverter_voltvar_2019
+method_family: renewable_inverter_reactive_support
+method_summary: The method uses smart inverter reactive power support to improve voltage
+  regulation in PV-rich distribution feeders.
+control_signature: inverter_q_support
+optimization_style: renewable_inverter_support
+excerpt_refs:
+- paper_excerpt.power.smart_inverter_voltvar_2019.method
+notes:
+- 代表显式使用新能源 inverter 无功支撑的 Volt/Var 控制路线，可对齐 task003 success path。
+- selected_source_kind=abstract_excerpt

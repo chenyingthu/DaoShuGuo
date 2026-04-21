@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+object_type: method_card
+object_id: method_card.power.der_reactive_support_2021
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.der_reactive_support_2021.abstract
+  source_kind: abstract_excerpt
+paper_ref: paper_record.power.der_reactive_support_2021
+method_family: renewable_inverter_reactive_support
+method_summary: DER reactive support performance depends on capability limits and
+  controller parameterization.
+control_signature: inverter_q_support
+optimization_style: renewable_inverter_support
+excerpt_refs:
+- paper_excerpt.power.der_reactive_support_2021.method
+notes:
+- 用于解释 performance failure 不应直接否定 inverter reactive support 家族。
+- selected_source_kind=abstract_excerpt

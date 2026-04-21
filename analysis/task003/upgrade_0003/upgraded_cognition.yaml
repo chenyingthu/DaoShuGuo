@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.upgraded_ieee69_renewable_reactive_opt_0003
+object_version: 0.1.0
+created_at: '2026-04-21T00:44:56Z'
+updated_at: '2026-04-21T00:44:56Z'
+status: active
+metadata:
+  mode: task003_cognition_upgrade
+cognition_type: candidate
+statement: task003 对照表明，旧 weak-shunt 路线即使数值更好，也不能替代显式使用 inverter 控制空间的 candidate。
+evidence_refs:
+- comparison.power.ieee69_renewable_reactive_opt.0001
+- semantic_comparison.power.ieee69_renewable_reactive_opt.0001
+- novelty.power.ieee69_renewable_reactive_opt.0003
+scope_boundary:
+  task: task.power.ieee69_renewable_reactive_opt
+  mode: task003_comparative_upgrade
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_renewable_reactive_opt.0001
+- run.power.ieee69_renewable_reactive_opt.0003
+promotion_status: proposed
+uncertainty_notes: 当前仍只基于单代表工况与最小策略集合。

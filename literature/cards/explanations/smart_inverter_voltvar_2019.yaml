@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: explanation_card
+object_id: explanation_card.power.smart_inverter_voltvar_2019
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.smart_inverter_voltvar_2019.abstract
+  source_kind: abstract_excerpt
+paper_ref: paper_record.power.smart_inverter_voltvar_2019
+explanation_summary: The explanation emphasizes that inverter VAR support directly
+  acts on the renewable-integrated Volt/Var problem object.
+explanation_points:
+- Smart inverter Q control is the primary control object.
+- The route is distinct from traditional capacitor placement.
+scope_boundary:
+  task: task.power.ieee33_reactive_opt
+concept_tags:
+- smart inverter
+- reactive support
+- volt/var control
+- DER
+- photovoltaic
+- distribution system
+excerpt_refs:
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_1
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_2
+notes:
+- 当前优先由 literature_source.power.smart_inverter_voltvar_2019.abstract 驱动解释卡片生成，不是原文全文抽取。

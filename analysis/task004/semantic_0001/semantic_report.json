@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-04-21T03:51:02Z",
+  "left_run_ref": "run.power.ieee69_hosting_capacity.0001",
+  "right_run_ref": "run.power.ieee69_hosting_capacity.0002",
+  "left_skill_ref": "skill.power.renewable_capacity_optimizer_task004",
+  "right_skill_ref": "skill.power.single_point_capacity_mismatch_task004",
+  "preferred_for_research_ref": "run.power.ieee69_hosting_capacity.0001",
+  "summary": "task004 语义比较完成：已显式区分边界扫描候选与单点结果失配。"
+}

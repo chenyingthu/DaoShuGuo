@@ -1,0 +1,38 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_hosting_capacity"
+overlay_sources:
+  - paper_ref_id: "paper.hosting_capacity_pv_2017"
+    source_kind: "abstract_excerpt"
+    source_key: "abstract"
+    method_notes:
+      - "Hosting capacity is estimated by progressively increasing renewable penetration under explicit voltage constraints."
+    explanation_notes:
+      - "The hosting-capacity boundary only has meaning when the scenario and triggering constraints are explicitly stated."
+    explanation_point_notes:
+      - "Boundary judgments must remain conditioned on scenario and constraints."
+      - "Voltage screening is a common first boundary."
+    provenance_notes:
+      - "Curated abstract-style overlay for task004 baseline hosting-capacity alignment."
+  - paper_ref_id: "paper.smart_inverter_hosting_2020"
+    source_kind: "abstract_excerpt"
+    source_key: "abstract"
+    method_notes:
+      - "Smart inverter Volt/Var control can increase PV hosting capacity relative to passive or fixed-Q operation."
+    explanation_notes:
+      - "Hosting-capacity boundaries change with control strategy and should not be written as unique system-intrinsic capacities."
+    explanation_point_notes:
+      - "Control strategy conditions hosting-capacity boundaries."
+      - "Boundary comparison itself is part of hosting-capacity analysis."
+    provenance_notes:
+      - "Curated abstract-style overlay for task004 candidate alignment."
+  - paper_ref_id: "paper.single_point_operation_2019"
+    source_kind: "abstract_excerpt"
+    source_key: "abstract"
+    method_notes:
+      - "A feasible operating point cannot by itself substitute for a hosting-capacity boundary study."
+    explanation_notes:
+      - "Using a single operating point as a boundary conclusion creates a category mistake between operation analysis and boundary analysis."
+    explanation_point_notes:
+      - "Operating-point analysis and hosting-capacity boundary evaluation are different problem types."
+    provenance_notes:
+      - "Curated abstract-style overlay for task004 skill mismatch interpretation."

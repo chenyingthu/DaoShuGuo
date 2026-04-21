@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: novelty_assessment
+object_id: novelty.power.ieee69_renewable_reactive_opt.0004
+object_version: 0.1.0
+created_at: '2026-04-21T00:44:56Z'
+updated_at: '2026-04-21T00:44:56Z'
+status: reviewed
+metadata:
+  mode: task003_failure_taxonomy
+task_ref: task.power.ieee69_renewable_reactive_opt
+assessed_object_ref: skill.power.renewable_inverter_underperformer_task003
+supporting_refs:
+- comparison.power.ieee69_renewable_reactive_opt.0002
+- semantic_comparison.power.ieee69_renewable_reactive_opt.0002
+novelty_level: medium
+research_value_level: high
+continue_investment: continue
+evidence_strength: low
+summary: 语义正确但性能失败的 candidate 不应与 skill mismatch 混同，应保留为后续可演化实现边界。
+reasons:
+- control_space_match winner=tie
+- performance_status right=failed
+- left_skill=skill.power.renewable_inverter_reactive_optimizer_task003
+- right_skill=skill.power.renewable_inverter_underperformer_task003

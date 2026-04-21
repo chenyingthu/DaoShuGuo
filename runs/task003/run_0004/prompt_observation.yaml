@@ -1,0 +1,15 @@
+schema_version: 0.1.0
+object_type: prompt_observation
+object_id: prompt_observation.power.ieee69_renewable_reactive_opt.0004
+object_version: 0.1.0
+created_at: '2026-04-21T00:34:52Z'
+updated_at: '2026-04-21T00:34:52Z'
+status: active
+metadata:
+  mismatch_type: performance_failure
+task_ref: task.power.ieee69_renewable_reactive_opt
+run_ref: run.power.ieee69_renewable_reactive_opt.0004
+observation_kind: process_drift
+statement: task003 failure path 将失配或性能失败结果压到边界材料。
+severity: medium
+suggested_action: 继续区分新能源-aware candidate 与 failure probe。

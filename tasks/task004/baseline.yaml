@@ -1,0 +1,21 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.ieee69_hosting_capacity.fixed_inverter_q_capacity_scan"
+object_version: "0.1.0"
+created_at: "2026-04-21T00:00:00Z"
+updated_at: "2026-04-21T00:00:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.ieee69_hosting_capacity"
+baseline_kind: "default_method"
+method_summary: "在固定 inverter Q=0 的保守策略下扫描新能源接入水平，记录第一次触碰边界的位置。"
+artifact_ref:
+  kind: "python_module"
+  path: "skills/validated/baseline_solver_task004.py"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_hosting_capacity"
+limitations:
+  - "仅覆盖静态单代表工况"
+  - "不代表系统唯一固有承载力"

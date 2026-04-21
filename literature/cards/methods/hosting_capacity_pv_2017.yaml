@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+object_type: method_card
+object_id: method_card.power.hosting_capacity_pv_2017
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata:
+  source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+  source_kind: abstract_excerpt
+paper_ref: paper_record.power.hosting_capacity_pv_2017
+method_family: hosting_capacity_assessment
+method_summary: Hosting capacity is estimated by progressively increasing renewable
+  penetration under explicit voltage constraints.
+control_signature: boundary_voltage_tuning
+optimization_style: volt_var_control
+excerpt_refs:
+- paper_excerpt.power.hosting_capacity_pv_2017.method
+notes:
+- 代表性新能源接入承载力评估文献，用于对齐 task004 的 baseline 扫描语义。
+- selected_source_kind=abstract_excerpt

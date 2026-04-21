@@ -1,0 +1,32 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.weak_bus_shunt_adversarial_task002"
+object_version: "0.1.0"
+created_at: "2026-04-20T11:35:00Z"
+updated_at: "2026-04-20T11:35:00Z"
+status: "draft"
+metadata: {}
+name: "Weak Bus Shunt Adversarial Failure Probe"
+title: "task002 弱节点错误极性补偿失败探针"
+capability_statement: "在 IEEE69 弱节点上施加错误极性的 shunt 设置，以稳定触发 task002 的失败认知与边界验证。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_reactive_opt"
+  limits:
+    - "仅用于 failure-path 验证，不代表真实候选方法"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/weak_bus_shunt_adversarial_task002.py"
+maturity_level: "candidate"
+failure_conditions:
+  - "若意外优于基线，说明 failure probe 设计失效，应重新校准。"

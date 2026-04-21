@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-04-21T00:58:43Z",
+  "assessed_object_refs": [
+    "skill.power.renewable_inverter_reactive_optimizer_task003",
+    "skill.power.weak_bus_shunt_optimizer"
+  ],
+  "literature_refs": [
+    "paper.smart_inverter_voltvar_2019",
+    "paper.der_reactive_support_2021",
+    "paper.coordinated_vvc_der_2020",
+    "paper.capacitor_tlbo_2014"
+  ],
+  "novelty_position": "variant",
+  "summary": "当前对齐表明，inverter-support 路线更接近 smart inverter / DER reactive support 家族，weak-shunt 路线更接近传统 capacitor placement 家族。"
+}

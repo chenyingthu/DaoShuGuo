@@ -1,0 +1,5 @@
+{
+  "novelty_assessment": "analysis/task003/upgrade_0001/novelty_assessment.yaml",
+  "cognition_upgrade": "analysis/task003/upgrade_0001/cognition_upgrade.yaml",
+  "cognition_registry": "cognition/registry.json"
+}

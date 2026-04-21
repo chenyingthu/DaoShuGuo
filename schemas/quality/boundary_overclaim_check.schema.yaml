@@ -1,0 +1,44 @@
+schema_id: "boundary_overclaim_check.schema"
+schema_version: "0.1.0"
+object_type: "boundary_overclaim_check"
+title: "Boundary Overclaim Check Schema"
+description: "用于表达边界类结论是否存在过度表述。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - created_at
+  - status
+  - task_ref
+  - run_ref
+  - decision
+  - rationale
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["boundary_overclaim_check"]
+  object_id:
+    type: string
+    pattern_hint: "boundary_overclaim.<domain>.<problem_name>.<serial>"
+  created_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["controlled", "flagged"]
+  task_ref:
+    type: string
+  run_ref:
+    type: string
+  decision:
+    type: enum
+    allowed: ["accept", "downgrade"]
+  rationale:
+    type: string
+
+validation_rules:
+  - rule_id: "boundary-overclaim-decision-required"
+    description: "必须明确 accept 或 downgrade。"

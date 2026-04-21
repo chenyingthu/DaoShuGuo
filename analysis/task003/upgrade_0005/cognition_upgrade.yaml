@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_renewable_reactive_opt.0005
+object_version: 0.1.0
+created_at: '2026-04-21T01:00:15Z'
+updated_at: '2026-04-21T01:00:15Z'
+status: reviewed
+metadata:
+  mode: task003_failure_taxonomy
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0002
+semantic_comparison_ref: semantic_comparison.power.ieee69_renewable_reactive_opt.0002
+novelty_assessment_ref: novelty.power.ieee69_renewable_reactive_opt.0005
+literature_alignment_ref: literature_alignment.power.ieee69_renewable_reactive_opt.0001
+explanation_alignment_ref: explanation_alignment.power.ieee69_renewable_reactive_opt.0002
+explanation_excerpt_refs:
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_1
+- paper_excerpt.power.smart_inverter_voltvar_2019.explanation_point_2
+- paper_excerpt.power.der_reactive_support_2021.explanation
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_1
+- paper_excerpt.power.der_reactive_support_2021.explanation_point_2
+- paper_excerpt.power.coordinated_vvc_der_2020.explanation_point_1
+upgraded_cognition_ref: cognition.power.upgraded_ieee69_renewable_reactive_opt_0005
+evidence_strength: medium
+decision: retain
+rationale: 语义正确但性能失败的 candidate 不应与 skill mismatch 混同，应保留为后续可演化实现边界。 当前文献对齐将其定位为 `variant`。
+  explanation alignment 提供了 7 条 excerpt 级证据，evidence_strength=`medium`。
+claim_adjustment: task003 当前认知升级仍只支持单代表工况下的 failure taxonomy 与任务本体判断。

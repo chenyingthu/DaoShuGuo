@@ -2,18 +2,18 @@ schema_version: 0.1.0
 object_type: explanation_card
 object_id: explanation_card.power.capacitor_tlbo_2014
 object_version: 0.1.0
-created_at: '2026-04-20T04:13:17Z'
-updated_at: '2026-04-20T04:13:17Z'
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
 status: reviewed
 metadata:
-  source_ref: literature_source.power.capacitor_tlbo_2014.fulltext
-  source_kind: fulltext_excerpt
+  source_ref: literature_source.power.capacitor_tlbo_2014.abstract
+  source_kind: abstract_excerpt
 paper_ref: paper_record.power.capacitor_tlbo_2014
-explanation_summary: 正文层解释更明确地指出：性能改善来自补偿配置改变网络潮流分布，而不是经由边界调压间接实现。
+explanation_summary: 文献摘要将补偿配置视为改善损耗与电压质量的直接手段，而不是把调压边界当作主要控制对象。
 explanation_points:
-- 正文层把电容器位置与容量作为主要决策变量。
-- 正文层说明改进机制来自补偿配置对潮流和损耗分布的直接影响。
-- 这类解释与 weak-shunt 路线的研究语义高度一致。
+- 补偿位置与容量被共同优化，而不是只调单一边界电压。
+- 改进路径直接依赖无功补偿设备配置。
+- 该解释更接近 weak-shunt 一类技能的研究语义。
 scope_boundary:
   task: task.power.ieee33_reactive_opt
 concept_tags:
@@ -28,4 +28,4 @@ excerpt_refs:
 - paper_excerpt.power.capacitor_tlbo_2014.explanation_point_2
 - paper_excerpt.power.capacitor_tlbo_2014.explanation_point_3
 notes:
-- 当前优先由 literature_source.power.capacitor_tlbo_2014.fulltext 驱动解释卡片生成，不是原文全文抽取。
+- 当前优先由 literature_source.power.capacitor_tlbo_2014.abstract 驱动解释卡片生成，不是原文全文抽取。

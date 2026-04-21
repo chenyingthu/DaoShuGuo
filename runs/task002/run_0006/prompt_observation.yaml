@@ -1,0 +1,14 @@
+schema_version: 0.1.0
+object_type: prompt_observation
+object_id: prompt_observation.power.ieee69_reactive_opt.0006
+object_version: 0.1.0
+created_at: '2026-04-20T11:39:23Z'
+updated_at: '2026-04-20T11:39:23Z'
+status: active
+metadata: {}
+task_ref: task.power.ieee69_reactive_opt
+run_ref: run.power.ieee69_reactive_opt.0006
+observation_kind: process_drift
+statement: task002 failure probe 失败运行中，系统将结果压到负向边界材料而非正向成果。
+severity: medium
+suggested_action: 保持 task001 的基线比较与成果分级为迁移任务默认约束。

@@ -1,0 +1,50 @@
+schema_id: "task_mismatch_check.schema"
+schema_version: "0.1.0"
+object_type: "task_mismatch_check"
+title: "Task Mismatch Check Schema"
+description: "用于表达任务定义是否具备最小执行条件的检查对象。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - created_at
+  - status
+  - task_ref
+  - decision
+  - rationale
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["task_mismatch_check"]
+  object_id:
+    type: string
+    pattern_hint: "task_mismatch.<domain>.<problem_name>.<serial>"
+  created_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["ready", "blocked"]
+  task_ref:
+    type: string
+  source_dir:
+    type: string
+    required: false
+  missing_inputs:
+    type: array[string]
+    required: false
+  assumption_gaps:
+    type: array[string]
+    required: false
+  decision:
+    type: enum
+    allowed: ["execute", "freeze"]
+  rationale:
+    type: string
+
+validation_rules:
+  - rule_id: "task-mismatch-decision-required"
+    description: "必须明确 execute 或 freeze。"

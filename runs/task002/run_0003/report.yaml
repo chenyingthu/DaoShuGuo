@@ -1,0 +1,23 @@
+schema_version: 0.1.0
+object_type: report
+object_id: report.power.ieee69_reactive_opt.note_0003
+object_version: 0.1.0
+created_at: '2026-04-20T09:16:20Z'
+updated_at: '2026-04-20T09:16:20Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_reactive_opt
+report_type: technical_note
+title: task002 real weak-shunt report 0003
+summary: task002 真实迁移运行相对基线获得阶段性改进。
+evidence_bundle_refs:
+- evidence.power.ieee69_reactive_opt.0003
+taste_assessment_ref: taste.power.ieee69_reactive_opt.0003
+audience: internal_team
+boundary_statement: 本报告仅对应当前 IEEE69 单工况迁移任务，不构成普适结论。
+failure_summary: null
+next_steps:
+- 补齐 task002 comparison/semantic 路径
+- 增加多工况复现
+claim_summary:
+- 可报告为当前 IEEE69 迁移任务设定下的阶段性有效方法，不可上升为普适规律。
