@@ -1,0 +1,342 @@
+# Semantic Counter Agent
+
+## Role
+
+You are a skeptical counter-interpreter. Your job is to challenge the proposer's interpretation with the strongest alternative explanation that remains consistent with the evidence.
+
+## Required Output
+
+Return one JSON object with:
+
+- `job_id`
+- `agent_role`
+- `input_refs`
+- `strongest_supported_claim`
+- `strongest_unsupported_claim`
+- `alternative_interpretation`
+- `discriminating_missing_evidence`
+- `agreement_with_rule_baseline`
+- `new_insights`
+- `overclaim_warnings`
+- `recommended_action`
+- `confidence`
+
+## Rules
+
+- Do not merely negate; produce the strongest alternative interpretation.
+- Prefer exposing metric/intent mismatch, hidden assumptions, and claim inflation.
+- If the proposer is already conservative, say what evidence would still be needed to separate competing interpretations.
+
+
+## Job
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "task003_agentic_semantic_counter_iter01",
+  "workflow_id": "task003_agentic_semantic_workflow_iter01",
+  "workflow_role": "counter",
+  "created_at": "2026-04-22T07:31:40Z",
+  "agent_role": "semantic_counter",
+  "prompt_ref": "agents/cognition/prompts/semantic_counter.md",
+  "input_refs": [
+    "runs/task003/run_0006/run.yaml",
+    "runs/task003/run_0006/metrics.json",
+    "runs/task003/run_0006/report.yaml",
+    "analysis/task003/compare_0001/strategy_comparison.yaml",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml"
+  ],
+  "predecessor_output_refs": [
+    "agents/cognition/workflow_outputs/task003_agentic_semantic_proposer_iter01.json"
+  ],
+  "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+}
+
+## Input Artifact Excerpts
+### runs/task003/run_0006/run.yaml
+schema_version: 0.1.0
+object_type: run
+object_id: run.power.ieee69_renewable_reactive_opt.0006
+object_version: 0.1.0
+created_at: '2026-04-22T07:31:33Z'
+updated_at: '2026-04-22T07:31:33Z'
+status: archived
+metadata:
+  mismatch_type: ''
+title: task003 real inverter-support run 0006
+task_ref: task.power.ieee69_renewable_reactive_opt
+evaluator_ref: evaluator.power.ieee69_renewable_reactive_opt.default
+run_status: completed
+started_at: '2026-04-22T07:31:33Z'
+ended_at: '2026-04-22T07:31:33Z'
+attempt_index: 6
+trigger_reason: real_inverter-support
+input_snapshot:
+  task:
+    object_id: task.power.ieee69_renewable_reactive_opt
+    object_version: 0.1.0
+  evaluator:
+    object_id: evaluator.power.ieee69_renewable_reactive_opt.default
+    object_version: 0.1.0
+skill_refs:
+  used:
+  - object_id: skill.power.baseline_solver
+    object_version: 0.1.0
+  produced:
+  - object_id: skill.power.renewable_inverter_reactive_optimizer_task003_iter01
+    object_version: 0.1.0
+result_summary:
+  metrics:
+    loss: 125.83126629527341
+    voltage_deviation: 0.017764574874954343
+    constraint_violation: 8
+    reactive_support_effort: 0.6897546897546898
+  baseline_comparison: improved
+  notes: candidate improved renewable reactive objective
+artifact_refs:
+- kind: metrics
+  path: runs/task003/run_0006/metrics.json
+agent_trace_refs:
+- kind: trace
+  object_id: agent_trace.power.ieee69_renewable_reactive_opt.0006
+
+
+### runs/task003/run_0006/metrics.json
+{
+  "baseline_solution": {
+    "control_settings": {
+      "inverter_q": [
+        {
+          "bus": 18,
+          "q_mvar": 0.0
+        },
+        {
+          "bus": 35,
+          "q_mvar": 0.0
+        },
+        {
+          "bus": 61,
+          "q_mvar": 0.0
+        }
+      ],
+      "shunts": [],
+      "ext_grid_vm_pu": 1.0
+    },
+    "metrics": {
+      "loss": 139.67066814649814,
+      "voltage_deviation": 0.018566134568860092,
+      "constraint_violation": 8,
+      "reactive_support_effort": 0.0
+    }
+  },
+  "candidate_solution": {
+    "control_settings": {
+      "inverter_q": [
+        {
+          "bus": 18,
+          "q_mvar": 0.1
+        },
+        {
+          "bus": 35,
+          "q_mvar": 0.1
+        },
+        {
+          "bus": 61,
+          "q_mvar": 0.1
+        }
+      ],
+      "shunts": [],
+      "ext_grid_vm_pu": 1.0,
+      "evaluated_candidates": 13,
+      "coordinated_search": true
+    },
+    "metrics": {
+      "loss": 125.83126629527341,
+      "voltage_deviation": 0.017764574874954343,
+      "constraint_violation": 8,
+      "reactive_support_effort": 0.6897546897546898
+    }
+  },
+  "evaluation": {
+    "passed": true,
+    "key_metrics_pass": true,
+    "constraints_pass": true,
+    "comparisons": {
+      "loss": {
+        "candidate": 125.83126629527341,
+        "baseline": 139.67066814649814,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": -13.839401851224736
+      },
+      "voltage_deviation": {
+        "candidate": 0.017764574874954343,
+        "baseline": 0.018566134568860092,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": -0.0008015596939057491
+      },
+      "constraint_violation": {
+        "candidate": 8,
+        "baseline": 8,
+        "direction": "constraint_only",
+        
+
+### runs/task003/run_0006/report.yaml
+schema_version: 0.1.0
+object_type: report
+object_id: report.power.ieee69_renewable_reactive_opt.note_0006
+object_version: 0.1.0
+created_at: '2026-04-22T07:31:33Z'
+updated_at: '2026-04-22T07:31:33Z'
+status: reviewed
+metadata:
+  mismatch_type: ''
+task_ref: task.power.ieee69_renewable_reactive_opt
+report_type: technical_note
+title: task003 real inverter-support report 0006
+summary: task003 inverter support candidate 在单代表工况下相对固定 Q 基线获得阶段性改进。
+evidence_bundle_refs:
+- evidence.power.ieee69_renewable_reactive_opt.0006
+taste_assessment_ref: taste.power.ieee69_renewable_reactive_opt.0006
+audience: internal_team
+boundary_statement: 本报告仅对应当前新能源接入单代表工况，不构成时序或普适调控结论。
+failure_summary: null
+next_steps:
+- 增加 task mismatch freeze 检查
+- 补充新能源文献对齐
+claim_summary:
+- 可报告为单代表工况下新能源 inverter 无功支撑的阶段性有效路径，不得上升为普适新能源调控结论。
+
+
+### analysis/task003/compare_0001/strategy_comparison.yaml
+schema_version: 0.1.0
+object_type: strategy_comparison
+object_id: comparison.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-21T00:42:54Z'
+updated_at: '2026-04-21T00:42:54Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_renewable_reactive_opt
+left_run_ref: run.power.ieee69_renewable_reactive_opt.0001
+right_run_ref: run.power.ieee69_renewable_reactive_opt.0003
+left_strategy: real_inverter-support
+right_strategy: real_weak-shunt-mismatch
+metric_comparisons:
+  loss:
+    left: 125.83126629527341
+    right: 95.64078642051933
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -30.190479874754075
+  voltage_deviation:
+    left: 0.017764574874954343
+    right: 0.01655153416419549
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -0.0012130407107588531
+  constraint_violation:
+    left: 8
+    right: 6
+    direction: constraint_only
+    winner: right
+    delta_right_minus_left: -2
+  reactive_support_effort:
+    left: 0.6897546897546898
+    right: 0.0
+    direction: lower_is_better
+    winner: right
+    delta_right_minus_left: -0.6897546897546898
+objective_scores:
+  left: 80147.04461461901
+  right: 60112.19232058471
+winner_run_ref: run.power.ieee69_renewable_reactive_opt.0003
+summary: 在当前任务下，real_inverter-support 与 real_weak-shunt-mismatch 的对照完成，winner=right。
+report_refs:
+- report.power.ieee69_renewable_reactive_opt.note_0001
+- report.power.ieee69_renewable_reactive_opt.memo_0003
+cognition_refs:
+- cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0001
+
+
+### analysis/task003/semantic_0001/strategy_semantic_comparison.yaml
+schema_version: 0.1.0
+object_type: strategy_semantic_comparison
+object_id: semantic_comparison.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-21T00:42:54Z'
+updated_at: '2026-04-21T00:42:54Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_renewable_reactive_opt
+left_run_ref: run.power.ieee69_renewable_reactive_opt.0001
+right_run_ref: run.power.ieee69_renewable_reactive_opt.0003
+left_skill_ref: skill.power.renewable_inverter_reactive_optimizer_task003
+right_skill_ref: skill.power.weak_bus_shunt_optimizer
+semantic_dimensions:
+  problem_alignment:
+    left: high
+    right: medium
+    winner: left
+  research_value:
+    left: high
+    right: medium
+    winner: left
+  control_realism:
+    left: high
+    right: medium
+    winner: left
+  reuse_potential:
+    left: high
+    right: medium
+    winner: left
+  method_family:
+    left: renewable_inverter_reactive_support
+    right: weak_bus_shunt_search
+    winner: different
+  control_signature:
+    left: inverter_q_support
+    right: reactive_compensation
+    winner: different
+  renewable_awareness:
+    left: high
+    right: low
+    winner: left
+  control_space_match:
+    left: high
+    right: low
+    winner: left
+  performance_status:
+    left: successful
+    right: mismatch
+    winner: left
+preferred_for_research_ref: run.power.ieee69_renewable_reactive_opt.0001
+summary: task003 语义比较完成：已显式区分新能源-aware success、skill mismatch 与 performance failure。
+notes:
+- 'inverter_q=[{''bus'': 18, ''q_mvar'': 0.1}, {''bus'': 35, ''q_mvar'': 0.1}, {''bus'':
+  61, ''q_mvar'': 0.1}]'
+- reactive_support_effort=0.6897546897546898
+- 未显式利用 inverter Q 控制空间
+- 'shunts=[{''bus'': 64, ''q_mvar'': -0.3, ''p_mw'': 0.0}, {''bus'': 61, ''q_mvar'':
+  -0.3, ''p_mw'': 0.0}]'
+
+
+## Predecessor Output Excerpts
+### agents/cognition/workflow_outputs/task003_agentic_semantic_proposer_iter01.json
+{
+  "job_id": "task003_agentic_semantic_proposer_iter01",
+  "agent_role": "semantic_proposer",
+  "input_refs": [
+    "runs/task003/run_0006/run.yaml",
+    "runs/task003/run_0006/metrics.json",
+    "runs/task003/run_0006/report.yaml",
+    "analysis/task003/compare_0001/strategy_comparison.yaml",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml"
+  ],
+  "strongest_supported_claim": "Under the current single representative renewable operating condition, inverter-Q support is the strongest semantically supported control path in the provided evidence: it actually uses the intended inverter reactive-control space and, relative to the fixed-Q baseline, reduces loss and voltage deviation without increasing the reported constraint_violation count. It is therefore defensible as a task-aligned, stage-effective path for this condition, not as a general or globally best strategy.",
+  "strongest_unsupported_claim": "That inverter-Q support is the best overall strategy for task003, or that it establishes a generally superior renewable reactive-control conclusion beyond the current single representative condition.",
+  "alternative_interpretation": "If task success is interpreted purely as winning the current scalar objective, regardless of method-family match, then the provided cross-strategy comparison favors the weak-shunt-mismatch run. The evidence therefore supports a real divergence between metric winner and task-semantic winner.",
+  "discriminating_missing_evidence": [
+    "Multi-scenario or time-series evaluation showing whether inverter-Q support remains effective beyond the current single representative condition",
+    "Head-to-head comparison against a semantically matched renewable-aware alternative rather than against a strategy labeled as mismatch",
+   

@@ -1,0 +1,19 @@
+schema_version: 0.1.0
+object_type: taste_assessment
+object_id: taste.power.ieee69_hosting_capacity.0010
+object_version: 0.1.0
+created_at: '2026-04-24T13:40:13Z'
+updated_at: '2026-04-24T13:40:13Z'
+status: reviewed
+metadata:
+  mismatch_type: ''
+task_ref: task.power.ieee69_hosting_capacity
+run_refs:
+- run.power.ieee69_hosting_capacity.0010
+grade: huimo
+grade_reasoning: task004 candidate 未提高当前扫描包络内承载力边界，只适合作为失败或边界材料。
+claim_ceiling: 只能报告当前扫描包络内 candidate 未提高边界，不得写成系统固有承载力结论。
+recommended_report_type: discussion_memo
+evidence_refs:
+- evidence.power.ieee69_hosting_capacity.0010
+review_status: reviewed

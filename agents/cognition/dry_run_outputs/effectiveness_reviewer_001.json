@@ -1,0 +1,22 @@
+{
+  "job_id": "effectiveness_reviewer_001",
+  "agent_role": "effectiveness_reviewer",
+  "input_refs": [
+    "effectiveness/task003/validation_plan.yaml",
+    "effectiveness/task003/application_assessment.yaml",
+    "effectiveness/task003/deliverable_package.yaml",
+    "effectiveness/task003/claim_routing.yaml",
+    "effectiveness/task004/validation_plan.yaml",
+    "effectiveness/task004/application_assessment.yaml",
+    "effectiveness/task004/deliverable_package.yaml",
+    "effectiveness/task004/claim_routing.yaml"
+  ],
+  "interpretation_summary": "dry-run only; no LLM response generated",
+  "evidence_used": [],
+  "agreement_with_rule_baseline": "not_evaluated",
+  "new_insights": [],
+  "overclaim_warnings": [],
+  "missing_evidence": [],
+  "recommended_action": "run_with_llm",
+  "confidence": "low"
+}

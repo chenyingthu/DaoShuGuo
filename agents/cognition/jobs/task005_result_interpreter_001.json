@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "task005_result_interpreter_001",
+  "created_at": "2026-04-22T07:43:48Z",
+  "agent_role": "result_interpreter",
+  "prompt_ref": "agents/cognition/prompts/result_interpreter.md",
+  "input_refs": [
+    "runs/task005/run_0004/run.yaml",
+    "runs/task005/run_0004/metrics.json",
+    "runs/task005/run_0004/taste_assessment.yaml",
+    "runs/task005/run_0004/report.yaml"
+  ],
+  "rule_baseline_refs": [
+    "runs/task005/run_0004/cognition.yaml"
+  ],
+  "expected_output_schema": "agents/cognition/job_spec.yaml"
+}

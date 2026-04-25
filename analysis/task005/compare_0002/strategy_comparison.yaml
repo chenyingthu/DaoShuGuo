@@ -1,0 +1,50 @@
+schema_version: 0.1.0
+object_type: strategy_comparison
+object_id: comparison.power.ieee69_restoration_resilience.0002
+object_version: 0.1.0
+created_at: '2026-04-22T00:25:12Z'
+updated_at: '2026-04-22T00:25:12Z'
+status: reviewed
+metadata:
+  mode: task005_restoration_comparison
+task_ref: task.power.ieee69_restoration_resilience
+left_run_ref: run.power.ieee69_restoration_resilience.0001
+right_run_ref: run.power.ieee69_restoration_resilience.0003
+left_strategy: real_renewable-restoration
+right_strategy: real_renewable-underperformer
+metric_comparisons:
+  restored_load_ratio:
+    left: 0.681211187067485
+    right: 0.5891517113856529
+    direction: higher_is_better
+    winner: left
+    delta_right_minus_left: -0.09205947568183204
+  unserved_critical_load:
+    left: 1.121
+    right: 1.471
+    direction: lower_is_better
+    winner: left
+    delta_right_minus_left: 0.3500000000000001
+  constraint_violation:
+    left: 0
+    right: 0
+    direction: constraint_only
+    winner: tie
+    delta_right_minus_left: 0
+  restoration_action_cost_proxy:
+    left: 1.5
+    right: 2.0
+    direction: lower_is_better
+    winner: left
+    delta_right_minus_left: 0.5
+objective_scores:
+  left: -120.71118706748496
+  right: 146.3482886143471
+winner_run_ref: run.power.ieee69_restoration_resilience.0001
+summary: task005 恢复比较完成，real_renewable-restoration 与 real_renewable-underperformer
+  的恢复差异已结构化。
+report_refs:
+- report.power.ieee69_restoration_resilience.note_0001
+- report.power.ieee69_restoration_resilience.memo_0003
+cognition_refs:
+- cognition.power.strategy_comparison_ieee69_restoration_resilience_0002

@@ -1,0 +1,24 @@
+schema_version: "0.1.0"
+object_type: "skill_iteration_plan"
+object_id: "skill_iteration_plan.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-22T10:10:00Z"
+updated_at: "2026-04-22T10:10:00Z"
+status: "ready"
+metadata: {}
+task_ref: "task.power.ieee33_reactive_opt"
+controller_update_ref: "cognition_to_skill_update.power.ieee33_reactive_opt.0001"
+target_skill_family: "reactive_optimization_candidate"
+planned_actions:
+  - "新增候选技能与基线的受控对照。"
+  - "记录局部改善是否稳定复现。"
+planned_validation:
+  - "比较局部指标改善与研究价值判断是否一致。"
+blocked_paths:
+  - "不进行无依据的泛化宣称。"
+candidate_skill_refs:
+  - "skill.power.reactive_optimizer_candidate"
+success_criteria:
+  - "下一轮比较对象具备可复用的受控对照。"
+  - "结果边界被清楚记录。"
+summary: "下一轮 task001 技能工作应在受控对照基础上验证候选方向。"

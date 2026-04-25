@@ -1,0 +1,52 @@
+schema_version: 0.1.0
+object_type: run
+object_id: run.power.ieee69_hosting_capacity.0007
+object_version: 0.1.0
+created_at: '2026-04-24T12:06:04Z'
+updated_at: '2026-04-24T12:06:04Z'
+status: archived
+metadata:
+  boundary_type: control_strategy_conditioned_static_capacity
+  mismatch_type: skill_mismatch
+title: task004 real single-point-mismatch run 0007
+task_ref: task.power.ieee69_hosting_capacity
+evaluator_ref: evaluator.power.ieee69_hosting_capacity.default
+run_status: failed_experiment
+started_at: '2026-04-24T12:06:04Z'
+ended_at: '2026-04-24T12:06:04Z'
+attempt_index: 7
+trigger_reason: real_single-point-mismatch
+input_snapshot:
+  task:
+    object_id: task.power.ieee69_hosting_capacity
+    object_version: 0.1.0
+  evaluator:
+    object_id: evaluator.power.ieee69_hosting_capacity.default
+    object_version: 0.1.0
+skill_refs:
+  used:
+  - object_id: skill.power.baseline_solver
+    object_version: 0.1.0
+  produced:
+  - object_id: skill.power.single_point_capacity_mismatch_task004
+    object_version: 0.1.0
+result_summary:
+  metrics:
+    hosting_capacity_level: 1.4
+    violation_trigger_type: feasible
+    loss_at_boundary: 174.47777167376452
+    voltage_margin: 0.011487907646359541
+    constraint_violation: 0
+    reactive_support_effort: 0.0
+    min_vm: 0.9214879076463596
+    max_vm: 1.0057724146397942
+  baseline_comparison: worse
+  notes: candidate did not improve hosting-capacity boundary
+artifact_refs:
+- kind: metrics
+  path: runs/task004/run_0007/metrics.json
+agent_trace_refs:
+- kind: trace
+  object_id: agent_trace.power.ieee69_hosting_capacity.0007
+failure_summary: 'skill mismatch: single-point operating result cannot substitute
+  hosting-capacity boundary'

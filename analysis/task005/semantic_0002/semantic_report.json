@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-04-22T00:25:12Z",
+  "left_run_ref": "run.power.ieee69_restoration_resilience.0001",
+  "right_run_ref": "run.power.ieee69_restoration_resilience.0003",
+  "left_skill_ref": "skill.power.renewable_restoration_candidate_task005",
+  "right_skill_ref": "skill.power.renewable_underperformer_task005",
+  "preferred_for_research_ref": "run.power.ieee69_restoration_resilience.0001",
+  "summary": "task005 语义比较完成：已显式区分恢复候选与稳态结果失配。"
+}

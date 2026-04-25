@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_hosting_capacity.worker_0001
+object_version: 0.1.0
+created_at: '2026-04-24T14:14:17Z'
+updated_at: '2026-04-24T14:14:17Z'
+status: reviewed
+metadata:
+  task_package: task004
+  loop_source: worker_materialization
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_event.power.ieee69_hosting_capacity.effectiveness_0001
+source_event_ref: cognition_event.power.ieee69_hosting_capacity.effectiveness_0001
+next_iteration_skill_constraints:
+- 继续在同一 skill 家族内受控调整参数。
+next_iteration_evaluator_constraints:
+- 仍以 hosting_capacity_level 为首要判据。
+next_iteration_task_refinements:
+- 保持相同 evaluator 与任务定义。
+search_priority_updates:
+- 观察参数变化是否带来边界提升。
+required_discriminating_tests:
+- 比较结构变体 skill 与当前参数化 skill 是否真正提高 hosting_capacity_level。
+summary: 先建立当前参数化技能基线。

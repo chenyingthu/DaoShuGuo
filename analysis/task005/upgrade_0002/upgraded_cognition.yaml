@@ -1,0 +1,23 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.upgraded_ieee69_restoration_resilience_0002
+object_version: 0.1.0
+created_at: '2026-04-22T00:25:29Z'
+updated_at: '2026-04-22T00:25:29Z'
+status: active
+metadata:
+  mode: task005_restoration_upgrade
+cognition_type: candidate
+statement: task005 对照表明，语义正确但性能失败的恢复策略仍应保留为后续可改进方向。
+evidence_refs:
+- comparison.power.ieee69_restoration_resilience.0002
+- semantic_comparison.power.ieee69_restoration_resilience.0002
+- novelty.power.ieee69_restoration_resilience.0002
+scope_boundary:
+  task: task.power.ieee69_restoration_resilience
+  mode: task005_comparative_upgrade
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_restoration_resilience.0001
+- run.power.ieee69_restoration_resilience.0003
+promotion_status: proposed

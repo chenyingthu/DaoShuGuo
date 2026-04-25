@@ -1,0 +1,8 @@
+{
+  "step": "cognition_constraint_step",
+  "created_at": "2026-04-23T01:09:36Z",
+  "prompt": "Use record_cognition_constraint with task_ref task.power.ieee69_renewable_reactive_opt, source_run_ref run.power.ieee69_renewable_reactive_opt.0017, constraint 'Keep renewable-aware control and require a matched comparison before broader claims.', blocked_path pure_weak_shunt_substitution, and required_test 'Compare against a semantically matched renewable-aware variant under the same evaluator.'",
+  "task_ref": "task.power.ieee69_renewable_reactive_opt",
+  "provider": "openai",
+  "model": "gpt-5.4"
+}

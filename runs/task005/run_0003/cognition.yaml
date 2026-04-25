@@ -1,0 +1,22 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.ieee69_restoration_resilience_runtime_failure_0003
+object_version: 0.1.0
+created_at: '2026-04-22T00:09:21Z'
+updated_at: '2026-04-22T00:09:21Z'
+status: active
+metadata:
+  strategy: renewable-underperformer
+  mismatch_type: performance_failure
+cognition_type: failure
+statement: 当前 task005 真实运行表明，candidate 未改善当前 fault 场景下的恢复结果。
+evidence_refs:
+- run.power.ieee69_restoration_resilience.0003
+scope_boundary:
+  task: task.power.ieee69_restoration_resilience
+  mode: real_renewable-underperformer
+  fault: single_line_outage
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_restoration_resilience.0003
+promotion_status: proposed

@@ -1,0 +1,6 @@
+{
+  "novelty_assessment": "analysis/task005/upgrade_0001/novelty_assessment.yaml",
+  "cognition_upgrade": "analysis/task005/upgrade_0001/cognition_upgrade.yaml",
+  "upgraded_cognition_asset": "cognition/cards/upgraded_ieee69_restoration_resilience_0001.yaml",
+  "cognition_registry": "cognition/registry.json"
+}

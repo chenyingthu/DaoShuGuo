@@ -1,0 +1,17 @@
+schema_version: 0.1.0
+object_type: task_mismatch_check
+object_id: task_mismatch.power.ieee69_restoration_resilience.20260422_001023
+created_at: '2026-04-22T00:10:23Z'
+status: blocked
+task_ref: task.power.ieee69_restoration_resilience
+source_dir: tasks/task005_mismatch_fixture
+missing_inputs:
+- research_brief
+- grid_context
+- fault_context
+- renewable_context
+- restoration_scope
+- constraints
+assumption_gaps: []
+decision: freeze
+rationale: task005 故障恢复定义缺失关键输入，不应进入真实执行。

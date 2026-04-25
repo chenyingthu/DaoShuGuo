@@ -1,0 +1,29 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.ieee69_restoration_resilience.default"
+object_version: "0.1.0"
+created_at: "2026-04-22T00:00:00Z"
+updated_at: "2026-04-22T00:00:00Z"
+status: "ready"
+metadata: {}
+title: "task005 故障恢复默认评估器"
+task_ref: "task.power.ieee69_restoration_resilience"
+evaluation_goal: "比较故障后 baseline 与 candidate 的恢复结果。"
+metric_definitions:
+  - metric_id: "restored_load_ratio"
+    direction: "higher_is_better"
+  - metric_id: "unserved_critical_load"
+    direction: "lower_is_better"
+  - metric_id: "constraint_violation"
+    direction: "constraint_only"
+  - metric_id: "restoration_action_cost_proxy"
+    direction: "lower_is_better"
+baseline_strategy:
+  type: "named_baseline"
+  refs:
+    - "baseline.power.ieee69_restoration_resilience.conservative_restoration"
+pass_criteria:
+  rule: "恢复比例提升且不新增约束违反"
+execution_entry:
+  type: "python_script"
+  path: "evaluators/task005_evaluator.py"

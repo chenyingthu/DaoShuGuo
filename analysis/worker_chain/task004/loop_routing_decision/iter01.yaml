@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+object_type: loop_routing_decision
+object_id: loop_routing_decision.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-24T14:49:55Z'
+updated_at: '2026-04-24T14:49:55Z'
+status: reviewed
+metadata:
+  task_package: task004
+  controller_mode: non_authoring
+task_ref: task.power.ieee69_hosting_capacity
+diagnosis_ref: cognition_diagnosis.power.ieee69_hosting_capacity.0001
+evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity.0001
+- skill_change_result.power.ieee69_hosting_capacity.0001
+- effectiveness_assessment.power.ieee69_hosting_capacity.0001
+- cognition_diagnosis.power.ieee69_hosting_capacity.0001
+selected_next_worker: skill_worker
+selected_action: Keep the same skill family and continue controlled parameterized
+  exploration.
+continue_loop: true
+policy_basis:
+- Route only from cognition_diagnosis and complete object-chain evidence.
+summary: Controller routes the next step from diagnosis evidence without authoring
+  worker judgments.

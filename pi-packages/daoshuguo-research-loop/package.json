@@ -1,0 +1,27 @@
+{
+  "name": "daoshuguo-pi-research-loop",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DaoShuGuo research-loop harness package for Pi.",
+  "keywords": [
+    "pi-package",
+    "research-agent",
+    "daoshuguo"
+  ],
+  "license": "UNLICENSED",
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@sinclair/typebox": "*"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0"
+  }
+}

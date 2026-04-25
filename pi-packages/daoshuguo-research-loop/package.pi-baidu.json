@@ -1,0 +1,14 @@
+{
+  "name": "daoshuguo-pi-research-loop-baidu-adapter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "pi": {
+    "extensions": [
+      "./extensions/daoshuguo-baidu-anthropic/index.ts"
+    ]
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0"
+  }
+}

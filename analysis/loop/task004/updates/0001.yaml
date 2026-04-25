@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: reviewed
+metadata:
+  task_package: task004
+  controller_mode: minimum_viable_loop
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0002
+source_event_ref: cognition_event.power.ieee69_hosting_capacity.0001
+next_iteration_skill_constraints:
+- 承载力探索必须围绕边界扫描，禁止用单点运行结果替代条件化边界。
+next_iteration_evaluator_constraints:
+- 保留 boundary overclaim gate，避免报告超出扫描包络。
+- 对比对象必须覆盖多场景或扩展扫描包络。
+next_iteration_task_refinements:
+- 明确 claim 仅在当前扫描包络和控制策略下成立。
+- 下一轮应补多场景 hosting capacity 对照。
+search_priority_updates:
+- 优先扩大 scan envelope。
+- 引入多场景 boundary scan，而不是继续强化单点操作路径。
+blocked_skill_families:
+- single_point_operation_proxy
+required_discriminating_tests:
+- 补充多场景 hosting capacity 对照。
+- 检查边界表达是否仍通过 overclaim gate。
+summary: task004 的认知层要求下一轮承载力技能工作围绕边界扫描的真实性和边界表达的克制展开。

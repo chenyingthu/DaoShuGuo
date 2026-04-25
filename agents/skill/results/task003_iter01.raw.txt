@@ -1,0 +1,5 @@
+Changed [renewable_inverter_reactive_optimizer_task003_iter01.py](/home/chenying/root-research/DaoShuGuo-v1/skills/active_dev/renewable_inverter_reactive_optimizer_task003_iter01.py).
+
+Added a renewable-aware coordinated candidate skill that keeps inverter Q as the primary control, conditionally explores inverter + weak-bus shunt combinations, and ranks candidates by constraint violation, voltage deviation, objective, effort, shunt count, and loss.
+
+Verified importability and executable `solve()` against `tasks/task003/constraints.yaml`: status `ok`, 13 candidates evaluated, expected metric keys returned.

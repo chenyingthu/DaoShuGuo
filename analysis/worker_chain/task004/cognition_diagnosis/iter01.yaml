@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+object_type: cognition_diagnosis
+object_id: cognition_diagnosis.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-24T14:49:55Z'
+updated_at: '2026-04-24T14:49:55Z'
+status: reviewed
+metadata:
+  task_package: task004
+  worker: cognition_worker
+task_ref: task.power.ieee69_hosting_capacity
+problem_class: skill_use_problem
+judgment_summary: 当前轮次主要用于建立参数化技能基线，仍适合在同一技能家族内受控推进。
+evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity.0001
+- skill_change_result.power.ieee69_hosting_capacity.0001
+- effectiveness_assessment.power.ieee69_hosting_capacity.0001
+boundary_notes:
+- Current judgment remains bounded by the present hosting-capacity scan envelope.
+uncertainty_notes:
+- No structural variant has been compared yet in the current iteration set.
+recommended_next_worker: skill_worker
+recommended_action: Keep the same skill family and continue controlled parameterized
+  exploration.
+continue_loop: true

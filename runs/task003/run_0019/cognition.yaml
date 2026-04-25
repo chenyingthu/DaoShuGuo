@@ -1,0 +1,23 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.ieee69_renewable_reactive_opt_runtime_failure_0019
+object_version: 0.1.0
+created_at: '2026-04-23T08:37:45Z'
+updated_at: '2026-04-23T08:37:45Z'
+status: active
+metadata:
+  strategy: inverter-underperformer
+  mismatch_type: performance_failure
+cognition_type: failure
+statement: 当前 task003 performance-failure probe 表明，candidate 使用了新能源 inverter 控制空间，但当前参数方向未能优于固定
+  Q 基线，因此只能保留为语义正确但性能失败的边界认知。
+evidence_refs:
+- run.power.ieee69_renewable_reactive_opt.0019
+scope_boundary:
+  task: task.power.ieee69_renewable_reactive_opt
+  mode: real_inverter-underperformer
+  snapshot: single_representative
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_renewable_reactive_opt.0019
+promotion_status: proposed

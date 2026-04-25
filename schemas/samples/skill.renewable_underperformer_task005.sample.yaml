@@ -1,0 +1,28 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.renewable_underperformer_task005"
+object_version: "0.1.0"
+created_at: "2026-04-22T00:00:00Z"
+updated_at: "2026-04-22T00:00:00Z"
+status: "draft"
+metadata: {}
+name: "Renewable Underperformer Task005"
+title: "task005 语义正确但性能失败探针"
+capability_statement: "在恢复问题中使用新能源语义正确的策略，但故意不形成更优恢复结果。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_restoration_resilience"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/renewable_underperformer_task005.py"
+maturity_level: "candidate"

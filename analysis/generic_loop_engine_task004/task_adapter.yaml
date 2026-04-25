@@ -1,0 +1,59 @@
+schema_version: "0.1"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task004_hosting_capacity"
+object_version: "0.1.0"
+task_ref: "task.power.ieee69_hosting_capacity"
+task_definition_ref: "task.power.ieee69_hosting_capacity"
+baseline_binding:
+  baseline_refs:
+    - "baseline.power.ieee69_hosting_capacity.default"
+  selection_rule: "fixed_default"
+  comparison_scope: "same_task_same_evaluator"
+candidate_binding:
+  candidate_kind: "skill_variant"
+  candidate_locator: "tasks/task004/constraints.yaml"
+  materialization_rule: "parameterized_q_step_variant_from_existing_task004_state"
+  artifact_expectations:
+    - "skill_change_result"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.ieee69_hosting_capacity.default"
+  execution_entry:
+    type: "state_backed_runtime"
+    path: "analysis/pi_harness/pi_json_loop_task004_skill_evolution/state/iterations/iter_001"
+  input_mapping: {}
+  output_mapping: {}
+search_envelope:
+  modifiable_dimensions:
+    - "candidate_q_step_mvar"
+  frozen_dimensions:
+    - "task_definition"
+    - "evaluator_logic"
+  budget_constraints:
+    max_iterations: 1
+  termination_hints:
+    - "single_iteration_phase4_attachment_proof"
+diagnosis_hook_config:
+  expected_failure_modes:
+    - "parameter_change_no_boundary_gain"
+    - "secondary_metric_improvement_without_boundary_expansion"
+  task_specific_blind_spots:
+    - "secondary metric improvement cannot substitute boundary expansion"
+    - "scan envelope remains control-strategy-conditioned"
+  adapter_level_checks:
+    - "baseline_and_candidate_use_same_evaluator"
+    - "run_ref must come from the task004 hosting-capacity lane"
+workspace_binding:
+  input_roots:
+    - "analysis/pi_harness/pi_json_loop_task004_skill_evolution/state/iterations/iter_001/"
+    - "tasks/task004/"
+  output_roots:
+    - "analysis/generic_loop_engine_task004/workspaces/"
+  naming_convention: "run_task004_adapter_<serial>"
+metadata:
+  task_package: "task004"
+experimental:
+  worker_module: "scripts/generic_loop_engine_task004_workers.py"
+  iteration_root: "analysis/pi_harness/pi_json_loop_task004_skill_evolution/state/iterations/iter_001"
+  iteration_index: 1
+  previous_skill_ref: "skill.power.renewable_capacity_optimizer_task004"
+  require_loop_review: true

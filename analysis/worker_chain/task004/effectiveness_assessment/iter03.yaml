@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+object_type: effectiveness_assessment
+object_id: effectiveness_assessment.power.ieee69_hosting_capacity.0003
+object_version: 0.1.0
+created_at: '2026-04-24T14:49:55Z'
+updated_at: '2026-04-24T14:49:55Z'
+status: completed
+metadata:
+  task_package: task004
+  worker: effectiveness_worker
+task_ref: task.power.ieee69_hosting_capacity
+result_ref: skill_change_result.power.ieee69_hosting_capacity.0003
+baseline_ref: baseline.power.ieee69_hosting_capacity.default
+evaluator_ref: evaluator.power.ieee69_hosting_capacity.default
+run_ref: run.power.ieee69_hosting_capacity.0011
+run_passed: false
+metric_summary:
+  candidate_hosting_capacity_level: 3.0
+  baseline_hosting_capacity_level: 3.0
+  candidate_loss_at_boundary: 101.48162202967931
+  candidate_voltage_margin: 0.03112809278854467
+comparison_summary: candidate did not improve hosting-capacity boundary
+judgment_summary: This round changed the skill parameter but still did not improve
+  hosting-capacity boundary.
+recommended_cognition_action: Decide whether this remains a skill-use issue or has
+  become a skill-structure issue.

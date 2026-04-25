@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_restoration_resilience.0002
+object_version: 0.1.0
+created_at: '2026-04-22T00:25:29Z'
+updated_at: '2026-04-22T00:25:29Z'
+status: reviewed
+metadata:
+  mode: task005_failure_taxonomy
+task_ref: task.power.ieee69_restoration_resilience
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_restoration_resilience_0002
+semantic_comparison_ref: semantic_comparison.power.ieee69_restoration_resilience.0002
+novelty_assessment_ref: novelty.power.ieee69_restoration_resilience.0002
+upgraded_cognition_ref: cognition.power.upgraded_ieee69_restoration_resilience_0002
+evidence_strength: low
+decision: retain
+rationale: 语义正确但恢复性能失败的 candidate 不应与 skill mismatch 混同，应保留为可继续演化的恢复方向。
+claim_adjustment: task005 恢复认知只支持当前 fault 场景、动作集合和单工况条件下的局部恢复判断。

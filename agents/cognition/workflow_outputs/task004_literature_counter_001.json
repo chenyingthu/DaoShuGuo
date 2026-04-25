@@ -1,0 +1,40 @@
+{
+  "job_id": "task004_literature_counter_001",
+  "agent_role": "literature_counter",
+  "input_refs": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "strongest_supported_claim": "The current artifacts support a narrow category-bound claim: in task004, scenario-conditioned boundary scanning is better aligned with the hosting-capacity assessment family, while single-point mismatch analysis is better treated as operating-point analysis and cannot substitute for conditional hosting-capacity boundary evaluation.",
+  "strongest_unsupported_claim": "The current artifacts do not support claiming a substantively new hosting-capacity method, a general hosting-capacity law, broad transfer beyond the scanned static envelope and given control strategy, or a medium/high novelty interpretation strong enough to justify `research_value_level: high` and `continue_investment: prioritize` without further discriminating evidence.",
+  "alternative_interpretation": "The safest interpretation is not literature-backed novelty but category hygiene: task004 usefully prevents a category mistake between boundary assessment and operating-point diagnosis. That is a valid cognition refinement, but it is closer to claim-boundary correction than to a new research contribution.",
+  "discriminating_missing_evidence": [
+    "Full-text or method-section comparison against the cited hosting-capacity papers, not only seed-literature family mapping, abstract excerpts, manual summaries, or card-tag fallback.",
+    "Same-scenario IEEE69 evidence showing where boundary-scan conclusions and single-point mismatch conclusions diverge under matched constraints and control settings.",
+    "A baseline comparison against at least one established hosting-capacity assessment workflow to show that the task004 framing changes evaluable research outcomes.",
+    "Sensitivity analysis across PV/load scenarios, voltage limits, and control strategies to test whether the claim survives beyond the current scan envelope.",
+    "A resolved object-reference chain: `explanation_alignment.yaml` assesses `cognition.power.upgraded_ieee69_hosting_capacity_0001`, while `cognition_upgrade.yaml` writes `...0002`.",
+    "Evidence that the upgrade improves explanation quality, evaluator reliability, or research decision quality rather than only relabeling the two routes."
+  ],
+  "agreement_with_rule_baseline": {
+    "agreement": "partial",
+    "agrees_with": "I agree with the rule baseline that the boundary-scan route maps to hosting-capacity assessment, the single-point route maps to operating-point analysis, novelty should be capped at `variant`, and claims must remain conditional on scenario, constraints, and control strategy.",
+    "disagrees_with": "I do not agree that the current evidence is strong enough for medium novelty, high research value, or prioritized continued investment. The support is still sparse, partly abstract-level, partly manual-summary based, and not yet discriminating against existing hosting-capacity workflows."
+  },
+  "new_insights": [
+    "The evidence chain looks stronger by excerpt count than by independence: several excerpts restate the same boundary-conditioning idea rather than adding separate support.",
+    "The smart-inverter support includes `card_tag_fallback`, which should not be treated as equivalent to direct textual evidence even if the artifact labels evidence strength as medium.",
+    "The novelty assessment targets `skill.power.single_point_capacity_mismatch_task004`, but the defensible positive claim mainly concerns the boundary-scan route. This object/claim mismatch weakens the upgrade rationale.",
+    "The strongest research value is negative or corrective: preventing a false equivalence between single-point operation results and hosting-capacity boundaries."
+  ],
+  "overclaim_warnings": [
+    "Do not convert family resemblance into method equivalence.",
+    "Do not treat a `variant` literature position as evidence of methodological novelty.",
+    "Do not generalize from static scanned-envelope evidence to dynamic, multi-scenario, or control-agnostic hosting-capacity conclusions.",
+    "Do not use single-point mismatch evidence as a proxy for boundary capacity evidence.",
+    "Do not treat weak literature support as a footnote; it is a central limitation on the claim ceiling."
+  ],
+  "recommended_action": "Downgrade the interpretation to a bounded category-discipline claim until stronger evidence is added. Before making any stronger novelty or investment claim, fix the cognition-reference mismatch, add full-text/method-level literature comparison, run same-case boundary-scan versus single-point discrimination, and compare against an established hosting-capacity baseline.",
+  "confidence": "medium"
+}

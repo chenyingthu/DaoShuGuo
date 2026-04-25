@@ -1,0 +1,10 @@
+{
+  "iteration": 1,
+  "task_ref": "task.power.ieee69_renewable_reactive_opt",
+  "strategy": "inverter-support",
+  "rationale": "Start from the renewable-aware effective path.",
+  "blocked_paths": [
+    "pure_weak_shunt_substitution"
+  ],
+  "required_test": "Establish the bounded effective baseline path under the current evaluator."
+}

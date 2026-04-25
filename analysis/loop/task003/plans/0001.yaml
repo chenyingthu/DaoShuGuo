@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: skill_iteration_plan
+object_id: skill_iteration_plan.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: ready
+metadata:
+  task_package: task003
+  loop_source: cognition_to_skill_update
+task_ref: task.power.ieee69_renewable_reactive_opt
+controller_update_ref: cognition_to_skill_update.power.ieee69_renewable_reactive_opt.0001
+target_skill_family: renewable_inverter_reactive_support
+planned_actions:
+- 新增 shunt + inverter 协同 candidate。
+- 保留 inverter-only candidate 作为对照。
+- 记录性能失败但语义正确的候选，不与 mismatch 合并。
+planned_validation:
+- 比较协同 candidate 与 inverter-only candidate 在 admissibility / efficacy 双轴上的差异。
+- 检查 failure taxonomy 是否仍稳定地区分 mismatch 与 underperformer。
+blocked_paths:
+- 不以 weak-shunt 路线替代新能源感知主线。
+candidate_skill_refs:
+- skill.power.renewable_inverter_reactive_optimizer_task003
+- skill.power.renewable_inverter_underperformer_task003
+success_criteria:
+- 下一轮候选仍属于新能源感知控制空间。
+- evaluator 输出明确区分 admissibility 与 efficacy。
+- failure taxonomy 不再混淆性能失败与任务失配。
+summary: task003 的下一轮技能工作应在新能源控制方法族内部做更细粒度扩展和判别。

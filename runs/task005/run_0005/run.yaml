@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+object_type: run
+object_id: run.power.ieee69_restoration_resilience.0005
+object_version: 0.1.0
+created_at: '2026-04-22T01:21:35Z'
+updated_at: '2026-04-22T01:21:35Z'
+status: archived
+metadata:
+  mismatch_type: performance_failure
+title: task005 real renewable-underperformer run 0005
+task_ref: task.power.ieee69_restoration_resilience
+evaluator_ref: evaluator.power.ieee69_restoration_resilience.default
+run_status: failed_experiment
+started_at: '2026-04-22T01:21:35Z'
+ended_at: '2026-04-22T01:21:35Z'
+attempt_index: 5
+trigger_reason: real_renewable-underperformer
+input_snapshot:
+  task:
+    object_id: task.power.ieee69_restoration_resilience
+    object_version: 0.1.0
+  evaluator:
+    object_id: evaluator.power.ieee69_restoration_resilience.default
+    object_version: 0.1.0
+skill_refs:
+  used:
+  - object_id: skill.power.baseline_solver
+    object_version: 0.1.0
+  produced:
+  - object_id: skill.power.renewable_underperformer_task005
+    object_version: 0.1.0
+result_summary:
+  metrics:
+    restored_load_ratio: 0.5891517113856529
+    unserved_critical_load: 1.471
+    constraint_violation: 0
+    restoration_action_cost_proxy: 2.0
+    isolated_buses:
+    - 61
+    - 62
+    - 63
+    - 64
+    - 65
+    restored_load_mw: 2.23989
+  baseline_comparison: worse
+  notes: candidate did not improve restoration result
+artifact_refs:
+- kind: metrics
+  path: runs/task005/run_0005/metrics.json
+agent_trace_refs:
+- kind: trace
+  object_id: agent_trace.power.ieee69_restoration_resilience.0005
+failure_summary: candidate did not improve restoration result

@@ -1,0 +1,23 @@
+{
+  "iteration": 2,
+  "strategy": "single-point-mismatch",
+  "run_ref": "run.power.ieee69_hosting_capacity.0007",
+  "hosting_capacity_improved": false,
+  "loss_improved_vs_baseline": false,
+  "voltage_margin_improved_vs_baseline": false,
+  "baseline_hosting_capacity_level": 3.0,
+  "candidate_hosting_capacity_level": 1.4,
+  "baseline_loss_at_boundary": 135.1525491499995,
+  "candidate_loss_at_boundary": 174.47777167376452,
+  "baseline_voltage_margin": 0.025108200251617863,
+  "candidate_voltage_margin": 0.011487907646359541,
+  "run_passed": false,
+  "evaluation_summary": "candidate did not improve hosting-capacity boundary",
+  "delta_vs_prior": {
+    "hosting_capacity_level": -1.6,
+    "loss_at_boundary": 53.098801834358554,
+    "voltage_margin": -0.015655719998866613
+  },
+  "progress_type": "cognition_deepened",
+  "improvement_judgment": "Task performance did not improve; cognition improved because this round proved a boundary-invalid evidence lane."
+}

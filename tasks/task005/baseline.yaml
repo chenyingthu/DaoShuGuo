@@ -1,0 +1,17 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.ieee69_restoration_resilience.conservative_restoration"
+object_version: "0.1.0"
+created_at: "2026-04-22T00:00:00Z"
+updated_at: "2026-04-22T00:00:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.ieee69_restoration_resilience"
+baseline_kind: "default_method"
+method_summary: "故障后仅保留主网可直接供电部分，不显式利用新能源资源恢复孤岛负荷。"
+artifact_ref:
+  kind: "python_module"
+  path: "skills/validated/baseline_solver_task005.py"
+limitations:
+  - "不做主动恢复动作"
+  - "只作为最低恢复基线"

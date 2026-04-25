@@ -1,0 +1,22 @@
+schema_version: 0.1.0
+object_type: novelty_assessment
+object_id: novelty.power.ieee69_restoration_resilience.0001
+object_version: 0.1.0
+created_at: '2026-04-22T00:25:29Z'
+updated_at: '2026-04-22T00:25:29Z'
+status: reviewed
+metadata:
+  mode: task005_failure_taxonomy
+task_ref: task.power.ieee69_restoration_resilience
+assessed_object_ref: skill.power.steady_state_restoration_mismatch_task005
+supporting_refs:
+- comparison.power.ieee69_restoration_resilience.0001
+- semantic_comparison.power.ieee69_restoration_resilience.0001
+novelty_level: medium
+research_value_level: high
+continue_investment: prioritize
+evidence_strength: low
+summary: 故障恢复任务必须显式面向 fault 后动作与恢复路径，稳态局部结果不能替代恢复策略。
+reasons:
+- restoration_scope_match winner=left
+- performance_status right=mismatch

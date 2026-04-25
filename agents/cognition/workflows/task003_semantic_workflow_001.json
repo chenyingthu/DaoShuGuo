@@ -1,0 +1,65 @@
+{
+  "workflow_id": "task003_semantic_workflow_001",
+  "jobs": [
+    {
+      "schema_version": "0.1.0",
+      "object_type": "llm_cognition_job",
+      "job_id": "task003_semantic_proposer_001",
+      "workflow_id": "task003_semantic_workflow_001",
+      "workflow_role": "proposer",
+      "created_at": "2026-04-22T06:37:59Z",
+      "agent_role": "semantic_proposer",
+      "prompt_ref": "agents/cognition/prompts/semantic_proposer.md",
+      "input_refs": [
+        "analysis/task003/compare_0001/strategy_comparison.yaml",
+        "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml",
+        "runs/task003/run_0001/run.yaml",
+        "runs/task003/run_0003/run.yaml"
+      ],
+      "predecessor_output_refs": [],
+      "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+    },
+    {
+      "schema_version": "0.1.0",
+      "object_type": "llm_cognition_job",
+      "job_id": "task003_semantic_counter_001",
+      "workflow_id": "task003_semantic_workflow_001",
+      "workflow_role": "counter",
+      "created_at": "2026-04-22T06:37:59Z",
+      "agent_role": "semantic_counter",
+      "prompt_ref": "agents/cognition/prompts/semantic_counter.md",
+      "input_refs": [
+        "analysis/task003/compare_0001/strategy_comparison.yaml",
+        "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml",
+        "runs/task003/run_0001/run.yaml",
+        "runs/task003/run_0003/run.yaml"
+      ],
+      "predecessor_output_refs": [
+        "agents/cognition/outputs/task003_semantic_proposer_001.json"
+      ],
+      "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+    },
+    {
+      "schema_version": "0.1.0",
+      "object_type": "llm_cognition_job",
+      "job_id": "task003_semantic_adjudicator_001",
+      "workflow_id": "task003_semantic_workflow_001",
+      "workflow_role": "adjudicator",
+      "created_at": "2026-04-22T06:37:59Z",
+      "agent_role": "semantic_adjudicator",
+      "prompt_ref": "agents/cognition/prompts/semantic_adjudicator.md",
+      "input_refs": [
+        "analysis/task003/compare_0001/strategy_comparison.yaml",
+        "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml",
+        "runs/task003/run_0001/run.yaml",
+        "runs/task003/run_0003/run.yaml"
+      ],
+      "predecessor_output_refs": [
+        "agents/cognition/outputs/task003_semantic_proposer_001.json",
+        "agents/cognition/outputs/task003_semantic_counter_001.json",
+        "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml"
+      ],
+      "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+    }
+  ]
+}

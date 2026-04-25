@@ -1,0 +1,8 @@
+{
+  "step": "boundary_judgment_step",
+  "created_at": "2026-04-24T09:13:13Z",
+  "prompt": "Use record_boundary_judgment with task_ref task.power.ieee69_hosting_capacity, run_ref run.power.ieee69_hosting_capacity.0005, boundary_statement 'The current result only supports a control-strategy-conditioned static hosting-capacity boundary observation under the present scan envelope.', claim_ceiling 'Do not describe this as intrinsic system hosting capacity or a paper-level hosting-capacity conclusion.', boundary_type control_strategy_conditioned_static_capacity",
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "provider": "baidu-anthropic",
+  "model": "glm-5"
+}

@@ -1,0 +1,71 @@
+{
+  "job_id": "effectiveness_reviewer_001",
+  "agent_role": "effectiveness_reviewer",
+  "input_refs": [
+    "effectiveness/task003/validation_plan.yaml",
+    "effectiveness/task003/application_assessment.yaml",
+    "effectiveness/task003/deliverable_package.yaml",
+    "effectiveness/task003/claim_routing.yaml",
+    "effectiveness/task004/validation_plan.yaml",
+    "effectiveness/task004/application_assessment.yaml",
+    "effectiveness/task004/deliverable_package.yaml",
+    "effectiveness/task004/claim_routing.yaml"
+  ],
+  "interpretation_summary": {
+    "overall_judgment": "当前材料适合分任务路由，不适合合并抬高为统一对外科研成果包。",
+    "task003": "已达到内部报告就绪，并可作为方法/技术路线型专利候选线索；不具备论文级结论条件。允许的核心判断应严格限制在单代表工况下 inverter reactive support 的局部指标改善，以及“显式使用 inverter 控制空间”这一任务本体相关方法认知。",
+    "task004": "已达到内部报告就绪，但尚不具备专利或论文候选条件。其价值更偏向静态边界评估框架原型、claim 控制样例和 screening 级分析，而非可公开强化主张的成果体。",
+    "taste_boundary": "两项任务都更接近“雕木”而非“琢石/拓玉”：有局部价值和结构化材料，但证据强度、外推边界和工程级验证不足，不能靠表达升级成果等级。"
+  },
+  "evidence_used": [
+    "effectiveness/task003/validation_plan.yaml",
+    "effectiveness/task003/application_assessment.yaml",
+    "effectiveness/task003/deliverable_package.yaml",
+    "effectiveness/task003/claim_routing.yaml",
+    "effectiveness/task004/validation_plan.yaml",
+    "effectiveness/task004/application_assessment.yaml",
+    "effectiveness/task004/deliverable_package.yaml",
+    "effectiveness/task004/claim_routing.yaml"
+  ],
+  "agreement_with_rule_baseline": {
+    "overall": "agree",
+    "task003": {
+      "baseline_route": "patent_candidate",
+      "review_agreement": "agree_with_narrow_route",
+      "notes": "规则基线将其限制为 patent_candidate 是合理的；同时仍应理解为专利线索就绪，而非支持宽泛公开 claim 的成熟成果。"
+    },
+    "task004": {
+      "baseline_route": "internal_report_ready",
+      "review_agreement": "strongly_agree",
+      "notes": "规则基线对其限制为 internal_report_ready 是保守且正确的；现有证据不足以支撑专利新颖性或论文级边界结论。"
+    }
+  },
+  "new_insights": [
+    "task003 的真实可交付价值不在“新能源 Volt/Var 普适方法”，而在于证明了 inverter 控制空间必须被显式纳入问题建模；这更像问题建模与技术路线认知资产。",
+    "task004 的主要资产不是结果强度，而是边界型 evaluator 与 claim routing 样例：它证明单点运行不能替代承载力边界扫描，这对后续研究流程约束有直接价值。",
+    "两项任务共同表明：当前体系已经能形成“内部报告 ready”和“claim 边界控制”能力，但距离“可公开强化主张”的外部成果仍差在多工况、工程阈值和更强对照验证。"
+  ],
+  "overclaim_warnings": [
+    "不得把 task003 表述为普适新能源 Volt/Var 最优控制方法。",
+    "不得把 task003 的单工况局部改善上升为完整工程级协调控制方案。",
+    "不得把 task004 表述为系统固有唯一承载力结论。",
+    "不得把 task004 的 screening threshold 或单工况扫描结果表述为长期时序承载力或工程标准级规划结论。",
+    "不得将两项任务合并包装为已形成论文级统一方法学突破。"
+  ],
+  "missing_evidence": [
+    "task003 缺少多工况/多场景 renewable variation 验证，直接阻断论文级 claim。",
+    "task003 缺少 shunt + inverter 协同 candidate，对“更强策略”与协调控制外延支撑不足。",
+    "task003 缺少工程成本或工程可实施性验证，不适合扩展为工程级落地主张。",
+    "task004 缺少更大的 scan envelope 和多工况 hosting capacity 验证，无法支持论文级边界结论。",
+    "task004 缺少工程标准级电压阈值验证，无法支撑规划或工程标准级 claim。",
+    "task004 缺少更强控制策略新颖性与更强外部 benchmark，不支撑专利或高强度公开论断。",
+    "两项任务的摘录中都未给出稳定复现、统计稳健性或跨基线外部对照的明确证据，这限制了公开主张强度。"
+  ],
+  "recommended_action": {
+    "overall": "split_route_and_continue_research",
+    "task003": "进入内部报告与窄边界专利线索评审可以成立；若要进入论文候选，必须先补多工况验证、协同控制 candidate 和工程性验证。",
+    "task004": "仅进入内部报告与框架验证沉淀；不建议进入专利或论文包装，应继续扩展扫描包络、多场景验证和工程阈值对齐。",
+    "portfolio_level": "对外材料应分开路由，不应合并成统一强 claim 包。当前最稳妥路径是：task003 做窄主张专利线索/内部技术总结，task004 做内部边界研究报告与 evaluator/claim-control 资产沉淀。"
+  },
+  "confidence": "high"
+}

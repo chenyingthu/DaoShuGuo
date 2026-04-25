@@ -1,0 +1,12 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_restoration_resilience"
+assumptions:
+  - id: "single_fault_single_snapshot"
+    statement: "只考虑单故障单工况。"
+    risk_if_false: "不能支持更一般韧性结论。"
+  - id: "graph_level_restoration"
+    statement: "第一版恢复判断采用简化拓扑/负荷逻辑。"
+    risk_if_false: "不代表工程级恢复仿真。"
+  - id: "critical_load_priority"
+    statement: "关键负荷优先恢复。"
+    risk_if_false: "难以体现韧性价值。"

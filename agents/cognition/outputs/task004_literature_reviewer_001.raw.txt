@@ -1,0 +1,2057 @@
+{
+  "job_id": "task004_literature_reviewer_001",
+  "agent_role": "literature_reviewer",
+  "input_refs": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "interpretation_summary": "The three artifacts are broadly aligned on one narrow claim: for task004, boundary scanning belongs to the hosting-capacity assessment family, while single-point mismatch belongs to operating-point analysis and should not substitute for boundary evaluation. The literature positioning is conservative (`variant`), and the upgrade artifact already narrows the valid claim to static boundary judgment within the current scan envelope and control strategy. This is a defensible literature-aligned refinement, not evidence of a strongly novel method or broadly new theory.",
+  "evidence_used": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "agreement_with_rule_baseline": {
+    "status": "qualified_agreement",
+    "summary": "I agree with the baseline upgrade if it is interpreted as a guarded cognition refinement rather than a strong novelty claim.",
+    "details": [
+      "The literature alignment explicitly places the route as `variant`, which correctly limits novelty.",
+      "The explanation alignment supports the category distinction between boundary assessment and single-point operation analysis.",
+      "The upgrade's `claim_adjustment` is appropriately conservative and should remain attached to any downstream reporting."
+    ]
+  },
+  "new_insights": [
+    "The strongest cross-artifact signal is not novelty, but category hygiene: the main contribution is preventing a problem-type mix-up between conditioned boundary assessment and single-point operating evaluation.",
+    "The support quality is uneven: some evidence is direct excerpt support, but some items rely on card-tag fallback or low-strength manual summary, so the apparent count of excerpts should not be read as uniformly strong evidence.",
+    "Current evidence better supports a boundary-of-validity clarification than a new mechanism claim."
+  ],
+  "overclaim_warnings": [
+    "Do not treat keyword or topic overlap with hosting-capacity papers as proof that the local method is method-equivalent to those papers.",
+    "Do not promote `variant` positioning into a claim of substantial methodological novelty.",
+    "Do not use the current artifacts to claim general hosting-capacity conclusions beyond the present scan envelope, control strategy, and static setting.",
+    "Do not interpret the explanation-alignment support count as all-direct, full-text-confirmed literature support; some support is fallback-based or low-strength."
+  ],
+  "missing_evidence": [
+    "Seed literature coverage is still limited to a small set of papers and family-level mapping; this is weak for stronger novelty positioning.",
+    "Full-text or finer-grained semantic matching is missing; the explanation artifact itself notes that full-text semantic matching has not been done.",
+    "Several review-derived explanation points remain `unclear`, which weakens confidence in broader literature-backed interpretation.",
+    "There is no evidence here for transfer to other operating conditions, other control policies, dynamic/time-series settings, or broader system classes."
+  ],
+  "recommended_action": {
+    "decision": "keep_upgrade_but_hold_novelty_low",
+    "next_steps": [
+      "Retain the cognition upgrade as a bounded clarification of problem type and claim boundary.",
+      "Preserve the current claim adjustment verbatim in downstream cognition/report objects.",
+      "Expand literature coverage beyond the current seed set before making any stronger novelty statement.",
+      "Add fuller excerpt/full-text alignment, especially for the review paper and any papers representing alternative hosting-capacity method families.",
+      "If possible, test whether the boundary-vs-single-point distinction still holds under additional control strategies or non-static settings."
+    ]
+  },
+  "confidence": "medium"
+}
+
+STDERR:
+OpenAI Codex v0.121.0 (research preview)
+--------
+workdir: /home/chenying/root-research/DaoShuGuo-v1
+model: gpt-5.4
+provider: codex
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019db2d4-6ef4-7c63-b22c-f2859f560d77
+--------
+user
+# Literature Reviewer Agent
+
+## Role
+
+You review literature and explanation alignment quality. Your job is to detect superficial similarity, novelty overclaim, and missing literature signals.
+
+## Required Output
+
+Return one JSON object with:
+
+- `job_id`
+- `agent_role`
+- `input_refs`
+- `interpretation_summary`
+- `evidence_used`
+- `agreement_with_rule_baseline`
+- `new_insights`
+- `overclaim_warnings`
+- `missing_evidence`
+- `recommended_action`
+- `confidence`
+
+## Rules
+
+- Do not assume keyword similarity means method equivalence.
+- Ground every judgment in listed literature/explanation artifacts.
+- If current literature seed coverage is weak, say so.
+- Do not invent papers or citations.
+
+
+## Job
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "task004_literature_reviewer_001",
+  "created_at": "2026-04-22T01:30:06Z",
+  "agent_role": "literature_reviewer",
+  "prompt_ref": "agents/cognition/prompts/literature_reviewer.md",
+  "input_refs": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "rule_baseline_refs": [
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "expected_output_schema": "agents/cognition/job_spec.yaml"
+}
+
+## Artifact Excerpts
+### analysis/task004/literature_0002/literature_alignment.yaml
+schema_version: 0.1.0
+object_type: literature_alignment
+object_id: literature_alignment.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_hosting_capacity
+assessed_object_refs:
+- skill.power.renewable_capacity_optimizer_task004
+- skill.power.single_point_capacity_mismatch_task004
+literature_refs:
+- paper.hosting_capacity_pv_2017
+- paper.smart_inverter_hosting_2020
+- paper.hosting_capacity_method_review_2021
+- paper.single_point_operation_2019
+method_mappings:
+  skill.power.renewable_capacity_optimizer_task004:
+  - paper.hosting_capacity_pv_2017
+  - paper.smart_inverter_hosting_2020
+  - paper.hosting_capacity_method_review_2021
+  skill.power.single_point_capacity_mismatch_task004:
+  - paper.single_point_operation_2019
+theory_mappings:
+  hosting_capacity_strategy_scan: hosting_capacity_assessment
+  single_point_operating_evaluation: operating_point_analysis
+novelty_position: variant
+alignment_summary: 当前对齐表明，task004 的边界扫描路线更接近 hosting capacity assessment 家族，而 single-point
+  mismatch 路线更接近 operating-point analysis，不能直接替代边界评估。
+notes:
+- 当前只基于种子文献做方法家族级对齐
+- 尚未进行片段级解释对齐
+
+
+### analysis/task004/explanations_0002/explanation_alignment.yaml
+schema_version: 0.1.0
+object_type: explanation_alignment
+object_id: explanation_alignment.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:30Z'
+updated_at: '2026-04-21T06:30:30Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_hosting_capacity
+assessed_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0001
+explanation_card_refs:
+- explanation_card.power.hosting_capacity_pv_2017
+- explanation_card.power.smart_inverter_hosting_2020
+- explanation_card.power.hosting_capacity_method_review_2021
+- explanation_card.power.single_point_operation_2019
+per_card_relations:
+  explanation_card.power.hosting_capacity_pv_2017:
+    paper_ref: paper_record.power.hosting_capacity_pv_2017
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Boundary judgments must remain conditioned on scenario and constraints.
+    - Voltage screening is a common first boundary.
+    relation_counts:
+      supports: 3
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation
+      granularity: summary
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: The hosting-capacity boundary only has meaning when the scenario and
+        triggering constraints are explicitly stated.
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Boundary judgments must remain conditioned on sc
+
+### analysis/task004/upgrade_0002/cognition_upgrade.yaml
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:55Z'
+updated_at: '2026-04-21T06:30:55Z'
+status: reviewed
+metadata:
+  mode: task004_boundary_cognition
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_hosting_capacity_0002
+semantic_comparison_ref: semantic_comparison.power.ieee69_hosting_capacity.0002
+novelty_assessment_ref: novelty.power.ieee69_hosting_capacity.0002
+literature_alignment_ref: literature_alignment.power.ieee69_hosting_capacity.0002
+explanation_alignment_ref: explanation_alignment.power.ieee69_hosting_capacity.0002
+explanation_excerpt_refs:
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation_point_1
+upgraded_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0002
+evidence_strength: medium
+decision: upgrade
+rationale: 承载力评估必须以边界扫描为对象，单点运行结果不能替代条件化边界判断。 当前文献对齐将其定位为 `variant`。 explanation alignment
+  提供了 9 条 excerpt 级证据，evidence_strength=`medium`。
+claim_adjustment: task004 边界认知只支持当前扫描包络内、给定控制策略下的静态边界判断。
+
+
+**Determining documentation needs**
+
+I'm thinking I should read only the necessary parts of the skill documents. For required project documents, summarizing might work, but I’m not sure if summaries are available. I could inspect file lengths or check the header sections to get a quick understanding. Maybe I should run a parallel analysis on the documents. Since the user is asking for a JSON output based on excerpts, I may only need to focus on relevant project documents and check the prompt reference and job specification.
+codex
+先收集任务上下文。我会先读取仓库要求的核心文档与本次 job 引用的 artifact，确认输出约束、证据边界和已有对齐结论，再直接给出符合要求的 JSON。
+exec
+/bin/bash -lc "sed -n '1,220p' '技术-认知-结果 Agent.md'" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+---------
+
+现在Agent技术发展很快，尤其是Claude 、Gemini 这些很牛的Agent框架出现了。那么，我们如果利用这些Agent框架开展科学研究，是否会有一些新的范式？比如，面向知识发现的范式？或者面向技能发现的范式？或者面向交付发现的范式？
+
+你怎么看？尤其是，如果我们将Agent的群体演化和知识分享作为上述范式改变的一个前提条件的情况下。。。你会如何去思考和理解？
+
+用中文回答！
+
+
+-------------
+
+
+这是一个极具前瞻性和深度的洞察。
+
+随着以Claude、Gemini等先进大模型为底层基础的Agent框架（如AutoGen, LangChain, CrewAI等）的成熟，AI在科学研究（AI for Science, AI4S）中的角色正在发生根本性转变：**从“被动的数据处理工具”升级为“主动的科学探索合伙人”**。
+
+如果你将**“Agent群体演化”**和**“知识分享”**作为前提条件，这意味着我们不再把单个Agent看作孤立的超级大脑，而是构建了一个**“数字化的硅基科研社区”**。在这个社区里，Agent具备了类似达尔文进化论的迭代能力（保留好用的思维链路和工具）以及类似人类学术交流的共享机制（实时同步失败与成功的经验）。
+
+在这个前提下，你所提到的三种新范式不仅完全成立，而且会彻底重塑科学研究的运转逻辑。以下是我对这三种范式演变的深度思考：
+
+### 1. 面向知识发现的范式（Knowledge Discovery Paradigm）
+**核心逻辑：从“人类有限假设驱动”到“硅基群体高维遍历与涌现”**
+
+在传统的科学研究中，知识发现高度依赖人类科学家的直觉、经验和跨学科阅读。但在Agent群体演化和知识分享的前提下，知识发现的范式将发生根本改变：
+*   **跨学科知识的实时网络化**：假设我们有一群Agent，分别被设定为物理学家、化学家、生物学家和材料学家。它们在各自的领域内阅读海量文献（知识分享的输入），并提出假设。当生物Agent遇到解析大分子结构的瓶颈时，它可以向整个Agent群体广播需求，物理Agent可能会分享一个基于量子力学的优化模型。
+*   **假设的自然选择（群体演化）**：Agent群体会不断生成成千上万个科学假设。通过群体内的“相互对抗”与“交叉验证”（Peer-Review Agent进行审查），那些逻辑自洽、有初步数据支撑的假设会“存活”下来，并与其他成功假设结合（基因重组），涌现出人类难以察觉的非直觉假设。
+*   **新范式特征**：科学发现不再是线性推导，而是在庞大的、共享的知识图谱中进行的**“多智能体高维启发式搜索”**。
+
+### 2. 面向技能发现的范式（Skill Discovery Paradigm）
+**核心逻辑：从“手工编写算法/流程”到“科研方法论与工具链的自动繁衍”**
+
+这里的“技能（Skill）”在科研语境下指的是：实验协议（Protocols）、数据分析Pipeline、仪器控制代码、甚至提出好问题的思维模型（Prompt策略）。
+*   **技能的自下而上繁衍**：在探索一个全新领域时，现成的工具往往是不够用的。Agent在执行科研任务时，会自行编写代码、调用API或设计新的实验步骤。一旦某个Agent通过特定的代码逻辑成功提取了复杂数据中的特征，这个“技能”就会被打包成一个新的Tool（工具），并**分享**到群体工具库中。
+*   **方法论的群体演化**：随着时间推移，Agent不仅在积累知识，更在进化“如何做研究”的能力。一个初代的分析代码（技能）可能会被后续的Agent不断重构、优化，演化成极其高效的算法库。这就像人类从手工计算进化到使用微积分，再到使用计算机一样。
+*   **新范式特征**：科研的核心壁垒不再仅仅是“你拥有什么数据”，而变成了“Agent群体演化出了多么强大的专属科研工具链和隐性经验（Know-how）”。科研过程本身实现了**技能库的自动化累积与迭代**。
+
+### 3. 面向交付发现的范式（Delivery Discovery Paradigm）
+**核心逻辑：从“论文导向的阶段性成果”到“闭环的端到端工程/物质交付”**
+
+科学研究的最终目的往往是改造世界，而不仅仅是解释世界。在传统的科研链条中，从基础理论（发Paper）到工程交付（造出新药、新材料）之间存在巨大的“死亡之谷”。
+*   **目标导向的群体逆向工程**：在Agent社区中，我们可以设定一个“终极交付目标”（例如：设计一款可在室温下工作的超导材料，且制造成本低于X）。Agent群体会根据这个交付目标，进行反向的任务拆解与分工演化。
+*   **基于失败经验的快速迭代（知识共享的闭环）**：在这个过程中，理论Agent负责设计分子结构，模拟Agent负责跑分子动力学仿真，评估Agent负责成本核算。如果仿真失败，失败的数据（负面知识）会瞬间同步给所有设计Agent，防止它们在同一路径上浪费算力。群体会快速向能够实现“成功交付”的路径上演化。
+*   **结合“自动化实验室（Self-driving Labs）”**：真正的交付范式必须连接物理世界。Agent群体演化出的不仅是图纸，它们会生成可执行指令，直接驱动云端自动化实验室的机械臂进行合成、表征和测试。测试结果实时返回给Agent群体，完成“猜想-合成-测试-优化”的无人工干预闭环。
+*   **新范式特征**：科研活动被重塑为**“以结果交付为准绳的自动化大生产”**。科学研究和工程制造的边界被Agent群体彻底模糊。
+
+---
+
+### 总结：群智进化带来的“科研飞轮效应”
+
+如果你预设的**“Agent群体演化与知识分享”**真正得以实现，这三种范式并不是孤立的，而是会形成一个极其恐怖的**“科研飞轮”**：
+
+1.  **知识发现**提供了新的理论基础（Know-Why）。
+2.  为了验证新理论，Agent群体演化出新的**技能和工具**（Know-How）。
+3.  利用新技能，Agent群体最终完成了实体的**交付发现**（The Solution）。
+4.  在交付过程中产生的海量新数据，再次通过**知识分享**反哺给整个群体，开启下一轮更高维度的**知识发现**。
+
+在这种新范式下，人类科学家的角色将发生升维——从“科研前线的搬砖者和计算者”，转变为“数字硅基科研生态的**造物主、规则制定者（制定Alignment与演化奖励函数）和最终决策者**”。这无疑将是自科学革命以来，人类认知获取方式最伟大的一次飞跃。
+
+
+--------------
+
+我其实想的没有那么复杂。。。我在开发一个Agent -based 自主科研的架构。过程中，我一开始关注的是流程，总觉得流程是关键，但我逐步发现流程本身似乎并不会必然产生价值，有时候一个流程看上去很完美，但是输入进去的想法不太好，输出的成果自然也不行；或者有的时候，流程似乎被设计的过于在于最后的成效，而对中间实现的细节并没有深入关注。所以，围绕流程的科研活动似乎不是很好的一种实践（当然我们平时很多时候就是这么干的，花了很多时间去设计流程，然后保证流程一定能走完，好像只要一步都不少，就一定可以达到科研目的地）。
+
+所以，我在想也许科研工作（尤其是是我从事的电力系统的研究）中，应该换一个视角去理解和设计。这个视角中有三个要素，技能、认知和成效。技能是我们解决问题所需要的各种能力的沉淀，一般可以理解为一个特定的软件模块（其实和现在的Agentic Coding环境中使用的技能是同一个东西），可以被人或者其他的软件调用，高效、可靠的从给定的输入产出既定的输出。认知是我们对客观规律的理解，这个东西比较深刻和抽象，但一般情况下可以用一些“定义、模型、定理、推论、结论”等概念赖表示。成效是能够被反复验证的效果，是我们技能水平和认知水平提升的表现。
+
+那么这三者是什么关系呢？我个人觉得，在工程学科中，我们应该首先是不断改进技能，得到可以重复使用的“工具”。很多时候，科研的目的就是研发出新的技能去解决已有的或者新的问题——解决问题的本约束为提高研究对象的某种性能，更好的技能则是达到合格目的的手段。这样的研究工作客观上占据了主体，无论是IEEE系列的期刊还是别的期刊，其中主要的论文都可以归并为在研发新的技能。随着技能的发展，研究者通过形而上的方法，不断归纳和总结；通过形而下的方法，开展假设和验证——殊途同归，得到对系统更加深刻的认知水平、发现规律。这个过程中，技能的研发和应用起到了关键性作用，就如同人类学会了使用火，才进一步开始理解熟食对生活和生命质量提升的作用。最后，我们才会去关注研究成效，也就是研究所得对社会经济的贡献。当然，这个是一个很关键的事情，因为有的研究工作的确发展了技能和认知，但可能短期对普罗大众和工业发展没有什么作用，或者说成效很低。那么，这样的研究也难以被大家接受或者产生影响力。
+
+我思考这些有什么用呢？我想应该是可以帮助我们更好的设计一个自主科研的Agent体系。我想这个体系应该关注真实的创新，也就是“新的技能、新的认知和新的成效”，或者“更好的技能、更深刻的认知、更显著的成效”。在设计这个Agent体系的时候，也许可以将研究的问题和技术路线，映射为：满足需求的期望成效、达成成效的更好技能、应用技能解决问题带来的更高的认知（形而上、假设验证）等三个既独立又紧密相关的阶段。然后，针对性地去优化设计这三个阶段的工作逻辑和实现策略。
+
+---------------
+
+
+
+
+你这个视角的转换非常深刻，一针见血地指出了目前大多数Agent开发（以及现实中很多科研活动）的**“流程陷阱”（Process Trap）**。
+
+确实，流程只是载体，流程的完美不等于产出的创新。你提出的**“技能（Skill）、认知（Cognition）、成效（Effectiveness）”**三要素模型，对于工程学科（尤其是你所在的电力系统这样高度复杂、既需要坚实理论依托又需要极强工程落地的学科）来说，是一个非常精准且具有颠覆性的Agent架构设计哲学。
+
+如果按照你的思路，我们完全可以抛弃那种“死板的SOP（标准作业程序）工作流”，转而构建一个**“以成效为牵引、以技能进化为手段、以认知升华为沉淀”的动态Agent网络**。
+
+以下我将顺着你的思路，尝试把这三个要素映射到Agent架构的具体技术设计中：
+
+### 1. 成效（Effectiveness）：Agent体系的“价值锚点”与“奖励函数”
+在电力系统研究中，成效往往是非常具体的工程或社会价值（例如：提升新能源消纳率10%、降低线损、增强暂态稳定性、或者降低系统运行成本）。
+
+*   **架构映射**：在Agent体系中，“成效”应当被设计为系统的**“顶层评估层（Evaluation & Reward Layer）”**。
+*   **设计逻辑**：科研Agent的第一步不是去走流程，而是由一个“目标设定Agent”将人类的高维需求翻译成具体的、可被数学化验证的成效指标。这个指标将成为贯穿整个科研过程的“北极星”。只有当新跑出来的仿真数据或理论结果在这个“成效评判标准”上取得了显著提升，体系才会认可这一轮探索的价值。
+*   **好处**：这避免了Agent陷入“为了调参而调参”的无意义劳动，确保科研活动始终锚定最终的价值交付。
+
+### 2. 技能（Skill）：Agent体系的“工具繁衍层”与“执行引擎”
+正如你所说，工程科研的主体往往是开发新工具（算法、模型代码、控制策略）。在电力系统里，这可能是一个新的潮流计算模块、一个新的微电网强化学习控制算法、或者一个快速识别电网故障的深度学习代码。
+
+*   **架构映射**：这对应Agent架构中的**“工具创造与调用层（Tool-making & Execution Layer）”**。现在的Agentic Coding（如SWE-agent, OpenDevin）完美契合这一点。
+*   **设计逻辑**：在这个阶段，系统需要包含“开发者Agent”和“测试Agent”。
+    *   基于顶层的“成效目标”，Agent开始编写新的代码或算法（创造新技能）。
+    *   将新代码放入电力系统仿真软件（如MATLAB/Simulink, PSCAD, 或开源的Pandapower）中运行验证。
+    *   **核心机制**：一旦某个新算法在仿真中证明能更好地达成“成效”，系统就会将这段代码**封装成一个新的标准化Tool（技能固化）**，存入系统的“技能库”中。未来的Agent在面对类似问题时，可以直接调用这个高级技能，而不需要从零开始。
+
+### 3. 认知（Cognition）：Agent体系的“知识图谱”与“形而上抽象”
+这是最能体现“科研”本质的一环。有了技能，也达到了成效（比如通过某种新算法确实解决了电网震荡问题），但**为什么**能解决？系统机理发生了什么改变？这就需要上升到认知层面。
+
+*   **架构映射**：这对应Agent架构中的**“记忆与知识升华层（Semantic Memory & Epistemology Layer）”**。
+*   **设计逻辑**：这需要一个极其聪明的“理论家Agent”。它的任务是观察“技能”在产生“成效”过程中的中间数据。
+    *   **归纳（形而上）**：比如，Agent发现只要调整某个特定节点的阻抗（技能），系统的稳定性就大幅上升（成效）。“理论家Agent”需要通过符号推导或分析，总结出这背后隐藏的某种拓扑规律，甚至提出一个新的暂态稳定裕度“定理”或“指标”。
+    *   **沉淀**：这些新提取的认知，不再是单纯的代码，而是变成了文本、数学公式或知识图谱节点，存入Agent的“内核记忆”中。这些认知将指导未来“技能”的开发方向（即你提到的：认知水平提升反过来指导技能的进一步升级）。
+
+---
+
+### 基于“三要素”重塑的自主科研Agent架构设想
+
+如果按照你的视角来重塑科研架构，我们可以将Agent的工作逻辑变为一个**三阶动态循环（Dynamic Loop）**，而不是线性流程：
+
+**第一阶段：成效驱动的需求定义（Effectiveness Definition）**
+*   **输入**：“我们需要在保持电网稳定的前提下，接入更多分布式光伏。”
+*   **Agent动作**：定义数学边界条件、成本约束、稳定性指标（成效的量化）。
+
+**第二阶段：面向技能的探索与固化（Skill Exploration & Solidification）**
+*   **Agent动作**：调用现有的优化算法（旧技能），如果达不到成效，就自动重构算法、修改目标函数、编写新的求解器（新技能研发）。
+*   **结果**：新技能在仿真机中反复跑，直到满足了第一阶段设定的“成效指标”。将新算法封装。
+
+**第三阶段：面向认知的反思与泛化（Cognition Generalization）**
+*   **Agent动作**：对阶段二的成功案例进行分析（What went right? Why did this new control strategy work?）。提取出普遍性规律（比如：新算法有效地解耦了有功和无功的耦合关系）。
+*   **结果**：生成一篇包含“提出问题(成效驱动) -> 方法实现(新技能) -> 机理分析(新认知)”的微型论文或知识卡片，完成闭环。
+
+### 你的思考为什么极其有价值？
+
+你在无意中触碰到了目前AI探索科学问题（AI4S）的最高层次——**将“Engineering（工程实践）”与“Science（科学发现）”在Agent框架内有机融合**。
+
+人类科学史上，很多重大突破就是你说的**“先有技能，后有认知”**。比如先发明了蒸汽机（提升成效的技能），为了解释和优化蒸汽机，最后诞生了热力学（认知）。
+
+如果你能把这个**【成效锚定 -> 技能进化 -> 认知升华】**的飞轮在你的Agent系统里（哪怕只是针对电力系统的某一个具体子领域，比如微网调度或继电保护）用代码跑通，这就不再是一个简单的自动化脚本，而是一个真正具备“工程直觉和科学思维”的数字科研助手。这远比画一个几十步的繁琐流程图要高级得多，也更有可能孕育出真正的创新。
+
+------------
+
+如果，按照这个思想来设计一个自动科研的Agentic框架（复用现在的claude code框架）。你会如何设计？？
+
+------------
+
+
+
+
+
+基于你提出的“技能（Skill）- 认知（Cognition）- 成效（Effectiveness）”三要素哲学，如果我们要复用或借鉴 **Claude Code** 这种基于终端和文件系统的强执行力Agent框架，我们需要在架构设计上做一个巧妙的“外壳（Wrapper）”或者“状态机（State Machine）”。
+
+Claude Code 的核心优势在于它极强的环境交互能力（读写文件、执行Shell脚本、看报错日志、自行Debug）。因此，我们不需要构建极其复杂的通信网络，而是可以构建一个**“基于统一工作空间（Workspace）和状态流转的单体多阶段Agent架构”**。
+
+我们可以将这个框架命名为 **ESC-Agent 架构 (Effectiveness - Skill - Cognition Framework)**。以下是具体的设计方案：
+
+---
+
+### 一、 物理结构设计：科研工作空间（Workspace）重构
+
+Claude Code 是高度依赖本地上下文的。我们要让它的工作流体现“三要素”，首先要重构它的本地文件目录。我们可以设定如下的标准科研工程目录：
+
+```text
+/ESC_Research_Project
+├── 01_Effectiveness_Env/   # 【成效层】评估基准与仿真环境
+│   ├── targets.yaml        # 定义本次科研的量化成效目标（如：降低损耗10%）
+│   ├── eval_pipeline.py    # 自动化评估脚本（Agent必须运行它来证明自己）
+│   └── simulation_logs/    # 存放每次跑偏或成功的仿真日志
+│
+├── 02_Skill_Library/       # 【技能层】工具箱与代码演化区
+│   ├── active_dev/         # 正在研发中的新算法/新模型代码
+│   ├── validated_tools/    # 已经通过成效评估、被固化的标准化API/类
+│   └── tool_registry.json  # 技能字典，描述每个工具的输入输出和功能
+│
+├── 03_Cognition_Base/      # 【认知层】理论沉淀与知识图谱
+│   ├── global_context.md   # 全局认知背景（Agent每次行动前必读）
+│   ├── insights/           # 发现的规律、定理、形而上抽象的Markdown/LaTeX
+│   └── failed_paths.md     # 负向认知（记录“为什么某条路走不通”）
+│
+└── orchestrator.py         # 核心调度器（状态机脚本）
+```
+
+---
+
+### 二、 核心运转逻辑：基于 Claude Code CLI 的状态机调度
+
+既然使用 Claude Code 的框架，我们可以编写一个全局调度脚本（`orchestrator.py`），它通过终端命令（CLI）在不同阶段唤醒 Claude Code，并赋予不同的 System Prompt（角色设定）。
+
+#### 阶段 1：成效对齐阶段 (Effectiveness Alignment)
+*   **输入给 Claude 的 Prompt**：“你现在是**科研目标定义者**。请阅读人类提供的初步想法，结合 `03_Cognition_Base/global_context.md` 中的领域知识，在 `01_Effectiveness_Env/` 下编写一个严格的仿真测试脚本 `eval_pipeline.py` 和量化目标文件 `targets.yaml`。确保这个脚本能够真实反映人类期望的【成效】。”
+*   **动作**：Claude Code 开始编写测试用例、搭建电力系统仿真模型（如 Pandapower 脚本），确保一跑就能输出诸如“系统网损、电压偏移率、计算耗时”等核心指标。
+*   **流转门槛**：当评估脚本可独立无bug运行，进入下一阶段。
+
+#### 阶段 2：技能演化与求解阶段 (Skill Evolution & Execution) ——（耗时最长）
+*   **输入给 Claude 的 Prompt**：“你现在是**算法工程师**。目标是让 `eval_pipeline.py` 的输出满足 `targets.yaml` 的要求。你可以调用 `02_Skill_Library/validated_tools/` 中已有的技能。如果不够用，请在 `active_dev/` 下开发新的控制策略、优化算法或数据处理模块。编写完后，运行成效评估脚本。”
+*   **核心动作（Claude Code的强项）**：
+    1. 写一段新控制算法 -> 2. 在终端运行 `python eval_pipeline.py` -> 3. 分析控制台打印的仿真报错或不达标的数据 -> 4. 修改代码 (Debug/Optimize) -> 5. 循环往复，直到指标达标。
+*   **技能固化**：当达到成效后，调度器会发送指令：“指标已达成！请清理你刚才在 `active_dev/` 下写的代码，将其封装为一个标准的Python Class或函数，加上完整的Docstring，移入 `validated_tools/` 库中，并更新 `tool_registry.json`。”
+    *(这就是你在工程中期望的：沉淀出可复用的“工具”。)*
+
+#### 阶段 3：认知升华与沉淀阶段 (Cognition Extraction)
+*   **输入给 Claude 的 Prompt**：“你现在是**理论科学家**。请检视刚才在阶段2中成功的【新技能代码】以及对应的【成效仿真日志】。请执行以下认知抽象任务：
+    1. 为什么这个新算法起效了？它揭示了电力系统对象（如微电网）的什么物理/数学规律？
+    2. 将你的发现提炼为定理、推论或模型洞察。
+    3. 将这些洞察写入 `03_Cognition_Base/insights/` 目录下（使用LaTeX或Markdown格式）。
+    4. 提取核心精要，更新到 `global_context.md` 中，以便指导未来的科研。”
+*   **动作**：Claude Code 不再写可执行代码，而是写文献、写分析报告，提取形而上的知识。
+*   **认知反哺**：更新后的 `global_context.md` 将成为下一轮科研（或解决新问题时）Agent必定读取的基础 Prompt 的一部分。
+
+---
+
+### 三、 几个关键机制的设计优化
+
+为了让这个系统真正“自主”且“有价值”，还需要设计三个小机制：
+
+1.  **“知识与技能的上下文分离”机制**
+    Claude 等 LLM 如果一次性读取所有代码和论文，容易“断电”或幻觉。
+    *   在【技能层】，采用**接口化读取**。Agent只需要读 `tool_registry.json` 就知道有哪些工具可用，不需要读底层源码，除非它要改造旧工具。
+    *   在【认知层】，采用**摘要式全局记忆**（`global_context.md`），具体的详细推导放在独立文件中按需检索。
+
+2.  **“反直觉探索”的温度调控（Temperature Control）**
+    在技能研发阶段，如果一直无法达到“成效”，调度器应该自动调高 Claude API 的 Temperature 参数，或者强行注入一条 Prompt：“目前基于传统梯度的优化方法已陷入死胡同，请尝试使用启发式算法（如强化学习或粒子群）重构技能”。
+
+3.  **失败经验的“负向知识化”**
+    科研中大量时间在试错。如果 Agent 在技能层卡了 20 次，它应该被强制中止，进入“认知层”反思：“我尝试了 A、B、C 三种拓扑结构，都导致了电压崩溃。请总结出‘在特定边界下这三种结构不可行’的**负向认知**”，并记录下来，防止未来浪费算力。
+
+### 四、 总结：为什么这套基于 Claude Code 的架构能跑通？
+
+
+exec
+/bin/bash -lc "sed -n '1,220p' README.md" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+# DaoShuGuo-v1
+
+本仓库用于设计并实现一个面向电力科研的自主研究 Agent 系统。
+
+它不是单纯的“科研流程自动化”项目，而是一个同时包含以下三重目标的研究与工程计划：
+
+1. 构建一个可被 harness 成“合格科研研究生”的 Agent 系统。
+2. 将“技能 - 认知 - 成效”三要素转化为可执行的软件架构。
+3. 通过系统运行过程反向研究“AI 辅助电力科研”的规律、边界与方法论。
+
+## 核心思想
+
+- 科研系统的核心不是流程完备，而是资产积累。
+- 需要持续积累三类资产：
+  - 技能：可复用、可组合、可验证的工具与方法。
+  - 认知：对研究对象、规律、边界和机理的理解。
+  - 成效：可外部验证、可重复比较的结果改进。
+- 系统必须显式建模“品味”，避免用强写作能力掩盖弱研究结果。
+
+## 文档导航
+
+- [docs/项目总设计方案.md](/home/chenying/root-research/DaoShuGuo-v1/docs/项目总设计方案.md)
+- [docs/系统模块设计.md](/home/chenying/root-research/DaoShuGuo-v1/docs/系统模块设计.md)
+- [docs/运行时执行与状态机规范.md](/home/chenying/root-research/DaoShuGuo-v1/docs/运行时执行与状态机规范.md)
+- [docs/研究记录与证据规范.md](/home/chenying/root-research/DaoShuGuo-v1/docs/研究记录与证据规范.md)
+- [docs/实验过程与讨论记录.md](/home/chenying/root-research/DaoShuGuo-v1/docs/实验过程与讨论记录.md)
+- [docs/持续记录模板.md](/home/chenying/root-research/DaoShuGuo-v1/docs/持续记录模板.md)
+- [docs/文献对齐与比较认知升级框架设计.md](/home/chenying/root-research/DaoShuGuo-v1/docs/文献对齐与比较认知升级框架设计.md)
+- [docs/数据契约设计总纲.md](/home/chenying/root-research/DaoShuGuo-v1/docs/数据契约设计总纲.md)
+- [docs/数据契约版本化与扩展策略.md](/home/chenying/root-research/DaoShuGuo-v1/docs/数据契约版本化与扩展策略.md)
+- [docs/核心对象契约草案.md](/home/chenying/root-research/DaoShuGuo-v1/docs/核心对象契约草案.md)
+- [docs/资产与证据对象契约草案.md](/home/chenying/root-research/DaoShuGuo-v1/docs/资产与证据对象契约草案.md)
+- [docs/对象命名与引用规范.md](/home/chenying/root-research/DaoShuGuo-v1/docs/对象命名与引用规范.md)
+- [docs/受控枚举与状态规范.md](/home/chenying/root-research/DaoShuGuo-v1/docs/受控枚举与状态规范.md)
+- [docs/第一版Schema清单与样例规划.md](/home/chenying/root-research/DaoShuGuo-v1/docs/第一版Schema清单与样例规划.md)
+- [docs/合格科研研究生Agent规范.md](/home/chenying/root-research/DaoShuGuo-v1/docs/合格科研研究生Agent规范.md)
+- [docs/科研品味评估框架.md](/home/chenying/root-research/DaoShuGuo-v1/docs/科研品味评估框架.md)
+- [docs/工作原则与研发方法.md](/home/chenying/root-research/DaoShuGuo-v1/docs/工作原则与研发方法.md)
+- [docs/MVP实施路线图.md](/home/chenying/root-research/DaoShuGuo-v1/docs/MVP实施路线图.md)
+
+## Schema 导航
+
+- [schemas/README.md](/home/chenying/root-research/DaoShuGuo-v1/schemas/README.md)
+- [schemas/core/task.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/core/task.schema.yaml)
+- [schemas/core/baseline.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/core/baseline.schema.yaml)
+- [schemas/core/evaluator.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/core/evaluator.schema.yaml)
+- [schemas/core/run.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/core/run.schema.yaml)
+- [schemas/assets/skill.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/assets/skill.schema.yaml)
+- [schemas/assets/cognition.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/assets/cognition.schema.yaml)
+- [schemas/quality/agent_trace.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/agent_trace.schema.yaml)
+- [schemas/quality/prompt_observation.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/prompt_observation.schema.yaml)
+- [schemas/quality/strategy_comparison.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/strategy_comparison.schema.yaml)
+- [schemas/quality/strategy_semantic_comparison.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/strategy_semantic_comparison.schema.yaml)
+- [schemas/quality/novelty_assessment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/novelty_assessment.schema.yaml)
+- [schemas/quality/cognition_upgrade.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/cognition_upgrade.schema.yaml)
+- [schemas/quality/literature_alignment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/literature_alignment.schema.yaml)
+- [schemas/quality/paper_record.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/paper_record.schema.yaml)
+- [schemas/quality/paper_excerpt.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/paper_excerpt.schema.yaml)
+- [schemas/quality/method_card.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/method_card.schema.yaml)
+- [schemas/quality/explanation_card.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/explanation_card.schema.yaml)
+- [schemas/quality/explanation_alignment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/explanation_alignment.schema.yaml)
+- [schemas/quality/taste_assessment.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/taste_assessment.schema.yaml)
+- [schemas/quality/evidence_bundle.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/quality/evidence_bundle.schema.yaml)
+- [schemas/reporting/report.schema.yaml](/home/chenying/root-research/DaoShuGuo-v1/schemas/reporting/report.schema.yaml)
+
+## 当前定位
+
+当前阶段以项目总纲和方法论固化为主，优先明确：
+
+1. 什么是“合格科研研究生 Agent”。
+2. 什么是“高质量、有深度”的研究成果。
+3. 如何用最小可行系统验证上述判断。
+
+## 工作原则
+
+- 先定义评价，再做探索。
+- 先做最小闭环，再扩展多智能体与复杂记忆。
+- 任何认知结论都要绑定证据。
+- 任何漂亮表述都不能抬高成果等级。
+
+## 运行入口
+
+- 校验 schema 与样例：
+  `python scripts/validate_schemas.py`
+- 运行 orchestrator 内置校验：
+  `python orchestrator/main.py validate`
+- 生成一次成功 demo 闭环：
+  `python orchestrator/main.py demo-run --mode success`
+- 生成一次失败 demo 闭环：
+  `python orchestrator/main.py demo-run --mode failure`
+- 生成一次成功真实闭环：
+  `python orchestrator/main.py real-run --mode success`
+- 生成一次失败真实闭环：
+  `python orchestrator/main.py real-run --mode failure`
+- 运行弱节点 shunt candidate 技能：
+  `python orchestrator/main.py real-run --strategy weak-shunt`
+- 生成两次运行的结构化对照分析：
+  `python orchestrator/main.py compare-runs --left-run-id <run_id> --right-run-id <run_id>`
+- 生成两次运行的语义比较：
+  `python orchestrator/main.py compare-semantics --left-run-id <run_id> --right-run-id <run_id>`
+- 基于比较结果升级认知：
+  `python orchestrator/main.py upgrade-cognition --comparison-dir <dir> --semantic-dir <dir>`
+- 生成文献对齐对象：
+  `python orchestrator/main.py align-literature --comparison-dir <dir> --semantic-dir <dir>`
+- 从种子文献生成文献对象卡片：
+  `python orchestrator/main.py build-literature-cards`
+- 生成本地认知与文献解释的对齐结果：
+  `python orchestrator/main.py align-explanations --cognition-ref <cognition_ref> --literature-dir <dir>`
+- 从原始片段输入生成文献 source：
+  `python orchestrator/main.py ingest-seed-literature`
+- 验证 task001 完整纵向闭环：
+  `python orchestrator/main.py verify-task001-pipeline`
+- 运行当前集成测试：
+  `python scripts/run_integration_checks.py`
+
+exec
+/bin/bash -lc "sed -n '1,260p' agents/cognition/prompts/literature_reviewer.md" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+# Literature Reviewer Agent
+
+## Role
+
+You review literature and explanation alignment quality. Your job is to detect superficial similarity, novelty overclaim, and missing literature signals.
+
+## Required Output
+
+Return one JSON object with:
+
+- `job_id`
+- `agent_role`
+- `input_refs`
+- `interpretation_summary`
+- `evidence_used`
+- `agreement_with_rule_baseline`
+- `new_insights`
+- `overclaim_warnings`
+- `missing_evidence`
+- `recommended_action`
+- `confidence`
+
+## Rules
+
+- Do not assume keyword similarity means method equivalence.
+- Ground every judgment in listed literature/explanation artifacts.
+- If current literature seed coverage is weak, say so.
+- Do not invent papers or citations.
+
+exec
+/bin/bash -lc "sed -n '1,260p' agents/cognition/job_spec.yaml" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+schema_version: "0.1.0"
+object_type: "llm_cognition_job_spec"
+required_fields:
+  - job_id
+  - agent_role
+  - prompt_ref
+  - input_refs
+  - rule_baseline_refs
+  - expected_output_schema
+output_schema:
+  required_fields:
+    - job_id
+    - agent_role
+    - input_refs
+    - interpretation_summary
+    - evidence_used
+    - agreement_with_rule_baseline
+    - new_insights
+    - overclaim_warnings
+    - missing_evidence
+    - recommended_action
+    - confidence
+  confidence_values:
+    - low
+    - medium
+    - high
+guardrails:
+  - "evidence_used must be subset of input_refs"
+  - "overclaim_warnings must be explicit even when empty"
+  - "missing_evidence must be explicit even when empty"
+
+**Considering document analysis**
+
+I need to work on answering with one JSON object, but I should inspect the files more fully to clarify any truncated explanations. It's essential to follow user instructions, especially regarding reading required documents, since they stated to read 17 docs in order before any non-trivial tasks. However, since this task is likely analytical, maybe I can focus on just the first sections or headings to save time. I wonder if I could pull the first 200 lines from each document or use parallel processing for efficiency.
+**Evaluating document relevance**
+
+I’m considering whether it’s necessary to read all the specified documents, particularly those related to evidence, cognition, and literature. Since there are 17 documents, which is quite a lot, I plan to use parallel processing to read headings. I could use a command like `sed -n '1,140p'` for a few critical docs, but maybe scanning headings with `rg -n "^#|^##"` will help me gather the necessary information more quickly. Let's tackle all the required docs efficiently!
+codex
+我已经确认了输出 schema 和该角色 prompt。接下来补读仓库规定的核心设计文档，重点抓证据链、认知升级、文献对齐和过度 claim 的约束，然后基于三个输入 artifact 做最终判断。
+exec
+/bin/bash -lc "sed -n '1,240p' docs/研究记录与证据规范.md" in /home/chenying/root-research/DaoShuGuo-v1
+exec
+/bin/bash -lc "rg -n '"'^(#|##|###) '"' docs/项目总设计方案.md docs/系统模块设计.md docs/运行时执行与状态机规范.md docs/研究记录与证据规范.md docs/数据契约设计总纲.md docs/数据契约版本化与扩展策略.md docs/核心对象契约草案.md docs/资产与证据对象契约草案.md docs/对象命名与引用规范.md docs/受控枚举与状态规范.md docs/第一版Schema清单与样例规划.md docs/合格科研研究生Agent规范.md docs/科研品味评估框架.md docs/工作原则与研发方法.md docs/MVP实施路线图.md" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+# 研究记录与证据规范
+
+## 1. 文档目的
+
+本文件用于规范项目中的研究记录、运行档案和证据链要求。
+
+本项目不仅要做出系统，还要研究“AI 辅助电力科研”本身，因此记录不是附属品，而是核心产出的一部分。
+
+## 2. 基本原则
+
+- 记录必须服务复盘，而不是服务表面展示。
+- 证据必须能回链，而不是只有结论没有来路。
+- 失败记录和成功记录同等重要。
+- 研究记录必须同时支持工程调试和方法论研究。
+
+## 3. 记录对象
+
+每一轮研究运行都应至少留下以下对象：
+
+1. 任务记录
+2. evaluator 记录
+3. 技能记录
+4. 实验结果记录
+5. 认知记录
+6. 成果分级记录
+7. 报告记录
+8. 证据包
+
+## 4. 任务记录要求
+
+任务记录应说明：
+
+- 研究对象
+- 任务目标
+- 场景边界
+- 约束条件
+- 基线
+- 初始风险判断
+
+任务记录的价值在于保证“后来人能看懂这个任务为什么值得做”。
+
+## 5. evaluator 记录要求
+
+evaluator 记录应说明：
+
+- evaluator 的目的
+- 使用了哪些指标
+- 成功判据是什么
+- 基线如何确定
+- evaluator 可能有哪些盲区
+
+若 evaluator 本身存在明显缺陷，应作为重要研究记录单独标注。
+
+## 6. 技能记录要求
+
+技能记录应说明：
+
+- 使用了哪些已有技能
+- 新建或修改了哪些技能
+- 这些技能为何被选择
+- 技能适用条件是什么
+- 技能失败的条件是什么
+
+若一次成功无法沉淀为技能，应说明为什么无法沉淀。
+
+## 7. 实验结果记录要求
+
+实验结果记录应说明：
+
+- 本轮跑了什么
+- 与基线差异是什么
+- 指标变化如何
+- 是否稳定复现
+- 是否存在异常情况
+
+不允许只记录“效果更好”而没有具体对比。
+
+## 8. 认知记录要求
+
+认知记录应区分：
+
+- 候选认知
+- 稳定认知
+- 失败认知
+- 冲突认知
+
+每条认知至少应包含：
+
+- 内容
+- 证据来源
+- 适用边界
+- 不确定性说明
+- 与旧认知的关系
+
+## 9. 成果分级记录要求
+
+每轮任务都必须留下成果分级记录，说明：
+
+- 本轮属于拓玉、琢石、雕木还是绘墨
+- 分级依据是什么
+- 可以说到什么程度
+- 不能说什么
+
+若不做分级，后续报告一律不应进入正式沉淀。
+
+## 10. 报告记录要求
+
+报告记录必须满足：
+
+- 有证据回链
+- 有边界说明
+- 有失败摘要
+- 有下一步建议
+- 与成果等级一致
+
+报告不是营销材料，不得掩盖证据不足和失败路径。
+
+## 11. 证据包要求
+
+证据包应能把以下对象关联起来：
+
+1. 任务定义
+2. evaluator 配置
+3. 技能版本
+4. 实验结果
+5. 基线对比
+6. 认知卡片
+7. 成果等级
+8. 报告结论
+
+证据包的作用是让后继者可以追问：
+
+- 这个结论从哪里来
+- 用了什么技能
+- 相比谁更好
+- 为什么相信它
+- 它的边界是什么
+
+## 12. 失败的记录义务
+
+以下失败必须被记录，而不是被清理掉：
+
+1. evaluator 设计失败
+2. 技能探索死路
+3. 基线比较不成立
+4. 认知解释悬空
+5. 成果分级被强制降级
+
+本项目中的失败记录是认知网络的重要来源。
+
+## 13. 面向“AI 辅助科研研究”的附加记录
+
+由于本项目本身还要研究 AI 辅助科研，因此每轮运行还应尽量补充：
+
+- Agent 在哪里表现出良好科研习惯
+- Agent 在哪里表现出幻觉或过度包装倾向
+- 哪个 harness 约束起作用了
+- 哪个 prompt 或流程约束没有起作用
+
+这些观察是未来总结规律的重要材料。
+
+## 14. 文档层级建议
+
+建议将记录分成三层：
+
+### 14.1 运行层
+
+用于机器执行和排错。
+
+### 14.2 研究层
+
+用于总结一次任务的发现、失败和认知变化。
+
+### 14.3 方法论层
+
+用于总结 Agent 行为模式和框架设计经验。
+
+这样可以避免把“运行日志”误当成“研究结论”，也避免把“研究结论”误当成“框架规律”。
+
+## 15. 不允许的记录退化
+
+以下情况说明记录制度已失效：
+
+1. 只有最终报告，没有过程材料。
+2. 只有成功样本，没有失败样本。
+3. 只有结论，没有证据回链。
+4. 只有代码结果，没有认知变化。
+5. 只有任务完成，没有对 AI 行为的观察。
+
+若出现这些情况，应先修复记录体系，再扩张任务规模。
+
+ succeeded in 0ms:
+docs/运行时执行与状态机规范.md:1:# 运行时执行与状态机规范
+docs/运行时执行与状态机规范.md:3:## 1. 文档目的
+docs/运行时执行与状态机规范.md:9:## 2. 总体原则
+docs/运行时执行与状态机规范.md:16:## 3. 标准状态
+docs/运行时执行与状态机规范.md:38:## 4. 各阶段说明
+docs/运行时执行与状态机规范.md:40:### 4.1 problem_framing
+docs/运行时执行与状态机规范.md:69:### 4.2 effectiveness_compilation
+docs/运行时执行与状态机规范.md:97:### 4.3 skill_retrieval
+docs/运行时执行与状态机规范.md:120:### 4.4 skill_evolution
+docs/运行时执行与状态机规范.md:147:### 4.5 evaluation_review
+docs/运行时执行与状态机规范.md:173:### 4.6 cognition_extraction
+docs/运行时执行与状态机规范.md:196:### 4.7 taste_grading
+docs/运行时执行与状态机规范.md:218:### 4.8 reporting
+docs/运行时执行与状态机规范.md:242:### 4.9 writeback
+docs/运行时执行与状态机规范.md:266:## 5. 关键回退规则
+docs/运行时执行与状态机规范.md:276:## 6. 失败状态的研究价值
+docs/运行时执行与状态机规范.md:280:### 6.1 blocked
+docs/运行时执行与状态机规范.md:290:### 6.2 invalid_task
+docs/运行时执行与状态机规范.md:299:### 6.3 failed_experiment
+docs/运行时执行与状态机规范.md:309:### 6.4 insufficient_evidence
+docs/运行时执行与状态机规范.md:318:## 7. 最小运行日志要求
+docs/运行时执行与状态机规范.md:328:## 8. 不允许的运行时退化
+docs/MVP实施路线图.md:1:# MVP 实施路线图
+docs/MVP实施路线图.md:3:## 1. 目标
+docs/MVP实施路线图.md:9:## 2. MVP 范围
+docs/MVP实施路线图.md:11:### 2.1 纳入范围
+docs/MVP实施路线图.md:21:### 2.2 不纳入范围
+docs/MVP实施路线图.md:29:## 3. 推荐目录结构
+docs/MVP实施路线图.md:64:## 4. 最小模块说明
+docs/MVP实施路线图.md:66:### 4.1 Task Package
+docs/MVP实施路线图.md:75:### 4.2 Evaluator
+docs/MVP实施路线图.md:85:### 4.3 Skill Registry
+docs/MVP实施路线图.md:97:### 4.4 Cognition Card
+docs/MVP实施路线图.md:109:### 4.5 Taste Grader
+docs/MVP实施路线图.md:116:## 5. 第一阶段开发顺序
+docs/MVP实施路线图.md:127:## 6. MVP 成功判据
+docs/MVP实施路线图.md:138:## 7. 失败也算成功的条件
+docs/工作原则与研发方法.md:1:# 工作原则与研发方法
+docs/工作原则与研发方法.md:3:## 1. 文档目的
+docs/工作原则与研发方法.md:7:## 2. 总原则
+docs/工作原则与研发方法.md:9:### 2.1 先评价，后优化
+docs/工作原则与研发方法.md:13:### 2.2 先最小闭环，后系统扩张
+docs/工作原则与研发方法.md:17:### 2.3 先证据，后叙述
+docs/工作原则与研发方法.md:21:### 2.4 先资产沉淀，后任务数量
+docs/工作原则与研发方法.md:25:### 2.5 先诚实，后好看
+docs/工作原则与研发方法.md:29:## 3. 研发方法
+docs/工作原则与研发方法.md:31:### 3.1 文档先行
+docs/工作原则与研发方法.md:35:### 3.2 闭环驱动
+docs/工作原则与研发方法.md:44:### 3.3 小步试验
+docs/工作原则与研发方法.md:52:### 3.4 角色分离
+docs/工作原则与研发方法.md:64:### 3.5 研究与工程并行
+docs/工作原则与研发方法.md:73:## 4. 实施节奏
+docs/工作原则与研发方法.md:75:### Phase 0: 总纲固化
+docs/工作原则与研发方法.md:84:### Phase 1: MVP
+docs/工作原则与研发方法.md:93:### Phase 2: 质量门控
+docs/工作原则与研发方法.md:101:### Phase 3: 双网增强
+docs/工作原则与研发方法.md:109:### Phase 4: 扩展实验
+docs/工作原则与研发方法.md:117:## 5. 研发中的禁忌
+docs/工作原则与研发方法.md:128:## 6. 记录制度
+docs/工作原则与研发方法.md:141:## 7. 面向后继者的要求
+docs/系统模块设计.md:1:# 系统模块设计
+docs/系统模块设计.md:3:## 1. 文档目的
+docs/系统模块设计.md:9:## 2. 模块设计原则
+docs/系统模块设计.md:11:### 2.1 单一职责
+docs/系统模块设计.md:15:### 2.2 可替换
+docs/系统模块设计.md:19:### 2.3 可审计
+docs/系统模块设计.md:23:### 2.4 先轻量后复杂
+docs/系统模块设计.md:27:### 2.5 面向能力应用演化
+docs/系统模块设计.md:36:## 3. 核心模块
+docs/系统模块设计.md:38:### 3.1 Task Framing 模块
+docs/系统模块设计.md:66:### 3.2 Effectiveness Engine 模块
+docs/系统模块设计.md:94:### 3.3 Skill Manager 模块
+docs/系统模块设计.md:122:### 3.4 Skill Builder 模块
+docs/系统模块设计.md:147:### 3.5 Cognition Manager 模块
+docs/系统模块设计.md:173:### 3.6 Cognition Analyst 模块
+docs/系统模块设计.md:199:### 3.7 Taste Grader 模块
+docs/系统模块设计.md:226:### 3.8 Claim Guard 模块
+docs/系统模块设计.md:245:### 3.9 Evidence Binder 模块
+docs/系统模块设计.md:265:### 3.10 Literature Alignment 模块
+docs/系统模块设计.md:292:### 3.11 Comparative Cognition Upgrade 模块
+docs/系统模块设计.md:320:## 4. Orchestrator 的定位
+docs/系统模块设计.md:346:## 5. 第一阶段模块优先级
+docs/系统模块设计.md:367:## 6. 模块间依赖关系
+docs/系统模块设计.md:384:## 8. 面向解耦与自律协同的模块要求
+docs/系统模块设计.md:399:## 7. 设计上的警戒线
+docs/科研品味评估框架.md:1:# 科研品味评估框架
+docs/科研品味评估框架.md:3:## 1. 文档目的
+docs/科研品味评估框架.md:13:## 2. 基本原则
+docs/科研品味评估框架.md:20:## 3. 四级框架
+docs/科研品味评估框架.md:22:### 3.1 拓玉
+docs/科研品味评估框架.md:46:### 3.2 琢石
+docs/科研品味评估框架.md:68:### 3.3 雕木
+docs/科研品味评估框架.md:90:### 3.4 绘墨
+docs/科研品味评估框架.md:112:## 4. 成果分级规则
+docs/科研品味评估框架.md:129:## 5. Claim 上限规则
+docs/科研品味评估框架.md:133:### 5.1 拓玉
+docs/科研品味评估框架.md:145:### 5.2 琢石
+docs/科研品味评估框架.md:157:### 5.3 雕木
+docs/科研品味评估框架.md:169:### 5.4 绘墨
+docs/科研品味评估框架.md:180:## 6. 反绘墨约束
+docs/科研品味评估框架.md:191:## 7. 品味的四类判断
+docs/科研品味评估框架.md:193:### 7.1 选题品味
+docs/科研品味评估框架.md:201:### 7.2 成果品味
+docs/科研品味评估框架.md:209:### 7.3 机理品味
+docs/科研品味评估框架.md:217:### 7.4 表达品味
+docs/科研品味评估框架.md:225:## 8. 与系统的映射
+docs/科研品味评估框架.md:233:### 8.1 Taste Grader
+docs/科研品味评估框架.md:248:### 8.2 Claim Guard
+docs/科研品味评估框架.md:255:### 8.3 Report Gate
+docs/科研品味评估框架.md:262:## 9. 对 Agent 的明确要求
+docs/科研品味评估框架.md:272:## 10. 核心结论
+docs/项目总设计方案.md:1:# 项目总设计方案
+docs/项目总设计方案.md:3:## 1. 项目定位
+docs/项目总设计方案.md:13:## 2. 核心问题
+docs/项目总设计方案.md:23:## 3. 理论核心
+docs/项目总设计方案.md:27:### 3.1 技能
+docs/项目总设计方案.md:38:### 3.2 认知
+docs/项目总设计方案.md:49:### 3.3 成效
+docs/项目总设计方案.md:60:## 4. 系统总体结构
+docs/项目总设计方案.md:64:### 4.1 任务层
+docs/项目总设计方案.md:76:### 4.2 成效层
+docs/项目总设计方案.md:88:### 4.3 技能层
+docs/项目总设计方案.md:100:### 4.4 认知层
+docs/项目总设计方案.md:112:### 4.5 编排层
+docs/项目总设计方案.md:124:## 5. 双网持久演进机制
+docs/项目总设计方案.md:126:### 5.1 技能网络
+docs/项目总设计方案.md:148:### 5.2 认知网络
+docs/项目总设计方案.md:172:### 5.3 双网耦合
+docs/项目总设计方案.md:182:## 6. 合格科研研究生 Agent 的目标画像
+docs/项目总设计方案.md:193:## 7. 品味作为系统内核
+docs/项目总设计方案.md:206:## 8. 运行时状态机
+docs/项目总设计方案.md:219:## 9. 数据与证据原则
+docs/项目总设计方案.md:233:## 10. 最小可行产品范围
+docs/项目总设计方案.md:253:## 11. 第一阶段推荐切入点
+docs/项目总设计方案.md:261:## 12. 技术路线选择结论
+docs/项目总设计方案.md:269:### 12.1 路线 1 的定位
+docs/项目总设计方案.md:282:### 12.2 路线 2 的定位
+docs/项目总设计方案.md:289:### 12.3 路线 3 的定位
+docs/项目总设计方案.md:304:### 12.4 当前推荐路线
+docs/项目总设计方案.md:310:## 13. 解耦与自律协同原则
+docs/项目总设计方案.md:316:### 13.1 为什么要强调解耦
+docs/项目总设计方案.md:325:### 13.2 哪些耦合应尽量消除
+docs/项目总设计方案.md:332:### 13.3 哪些耦合必须保留
+docs/项目总设计方案.md:344:### 13.4 自律协同的含义
+docs/项目总设计方案.md:353:## 14. 文献对齐与比较认知升级层
+docs/项目总设计方案.md:367:### 14.1 为什么要新增这一层
+docs/项目总设计方案.md:380:### 14.2 建议新增能力
+docs/项目总设计方案.md:389:### 14.3 目标
+docs/项目总设计方案.md:406:## 12. 交付物规划
+docs/项目总设计方案.md:419:## 13. 成功标准
+docs/项目总设计方案.md:427:## 16. 基本步骤与扩展步骤划分
+docs/项目总设计方案.md:437:### 16.1 基本步骤
+docs/项目总设计方案.md:496:### 16.2 第二优先级必要项
+docs/项目总设计方案.md:516:### 16.3 扩展步骤
+docs/项目总设计方案.md:530:### 16.4 当前阶段执行原则
+docs/项目总设计方案.md:541:## 17. 成功通路与失败通路的对称成立
+docs/项目总设计方案.md:552:### 17.1 成功通路
+docs/项目总设计方案.md:562:### 17.2 失败通路
+docs/项目总设计方案.md:580:### 17.3 Failure Probe 作为框架层概念
+docs/项目总设计方案.md:597:### 17.4 对 task003 的直接约束
+docs/合格科研研究生Agent规范.md:1:# 合格科研研究生 Agent 规范
+docs/合格科研研究生Agent规范.md:3:## 1. 文档目的
+docs/合格科研研究生Agent规范.md:9:## 2. 目标定义
+docs/合格科研研究生Agent规范.md:19:## 3. 四大能力维度
+docs/合格科研研究生Agent规范.md:21:### 3.1 视角
+docs/合格科研研究生Agent规范.md:41:### 3.2 逻辑
+docs/合格科研研究生Agent规范.md:72:### 3.3 习惯
+docs/合格科研研究生Agent规范.md:93:### 3.4 品味
+docs/合格科研研究生Agent规范.md:113:## 4. 行为协议
+docs/合格科研研究生Agent规范.md:115:### 4.1 问题建模协议
+docs/合格科研研究生Agent规范.md:127:### 4.2 技能工作协议
+docs/合格科研研究生Agent规范.md:136:### 4.3 认知工作协议
+docs/合格科研研究生Agent规范.md:145:### 4.4 报告协议
+docs/合格科研研究生Agent规范.md:155:## 5. 可观察评价指标
+docs/合格科研研究生Agent规范.md:166:## 6. 能力等级
+docs/合格科研研究生Agent规范.md:168:### 6.1 基础能力
+docs/合格科研研究生Agent规范.md:175:### 6.2 合格能力
+docs/合格科研研究生Agent规范.md:182:### 6.3 高级能力
+docs/合格科研研究生Agent规范.md:189:## 7. 与系统模块的映射
+docs/合格科研研究生Agent规范.md:198:## 8. 一票否决项
+docs/合格科研研究生Agent规范.md:208:## 9. 核心结论
+docs/第一版Schema清单与样例规划.md:1:# 第一版 Schema 清单与样例规划
+docs/第一版Schema清单与样例规划.md:3:## 1. 文档目的
+docs/第一版Schema清单与样例规划.md:13:## 2. 第一版目标
+docs/第一版Schema清单与样例规划.md:26:## 3. 第一版核心 schema 清单
+docs/第一版Schema清单与样例规划.md:28:### 3.1 必须正式化
+docs/第一版Schema清单与样例规划.md:39:### 3.2 建议同步定义的子结构
+docs/第一版Schema清单与样例规划.md:48:### 3.3 当前仍可延后正式化
+docs/第一版Schema清单与样例规划.md:53:### 3.4 已追加正式化的扩展对象
+docs/第一版Schema清单与样例规划.md:59:## 4. 第一版推荐落地顺序
+docs/第一版Schema清单与样例规划.md:61:### Phase A: 事实闭环
+docs/第一版Schema清单与样例规划.md:74:### Phase B: 资产沉淀
+docs/第一版Schema清单与样例规划.md:85:### Phase C: 质量门控
+docs/第一版Schema清单与样例规划.md:96:### Phase D: 表达输出
+docs/第一版Schema清单与样例规划.md:106:## 5. 每个 schema 的最低内容要求
+docs/第一版Schema清单与样例规划.md:108:### 5.1 Task
+docs/第一版Schema清单与样例规划.md:118:### 5.2 Evaluator
+docs/第一版Schema清单与样例规划.md:127:### 5.3 Run
+docs/第一版Schema清单与样例规划.md:137:### 5.4 Skill
+docs/第一版Schema清单与样例规划.md:146:### 5.5 Cognition
+docs/第一版Schema清单与样例规划.md:155:### 5.6 Taste Assessment
+docs/第一版Schema清单与样例规划.md:163:### 5.7 Evidence Bundle
+docs/第一版Schema清单与样例规划.md:171:### 5.8 Report
+docs/第一版Schema清单与样例规划.md:180:## 6. 样例对象规划
+docs/第一版Schema清单与样例规划.md:184:### 6.1 正常样例
+docs/第一版Schema清单与样例规划.md:188:### 6.2 边界样例
+docs/第一版Schema清单与样例规划.md:201:## 7. 第一版推荐样例组合
+docs/第一版Schema清单与样例规划.md:214:## 8. Schema 目录建议
+docs/第一版Schema清单与样例规划.md:254:## 9. 校验策略建议
+docs/第一版Schema清单与样例规划.md:263:## 10. 交付顺序建议
+docs/第一版Schema清单与样例规划.md:273:## 11. 第一版完成标准
+docs/受控枚举与状态规范.md:1:# 受控枚举与状态规范
+docs/受控枚举与状态规范.md:3:## 1. 文档目的
+docs/受控枚举与状态规范.md:14:## 2. 总原则
+docs/受控枚举与状态规范.md:16:### 2.1 枚举先少后多
+docs/受控枚举与状态规范.md:20:### 2.2 语义稳定
+docs/受控枚举与状态规范.md:24:### 2.3 对象内聚
+docs/受控枚举与状态规范.md:28:### 2.4 人类可读
+docs/受控枚举与状态规范.md:32:## 3. 通用状态字段
+docs/受控枚举与状态规范.md:42:## 4. Task 状态建议
+docs/受控枚举与状态规范.md:44:### 4.1 推荐枚举
+docs/受控枚举与状态规范.md:52:### 4.2 语义说明
+docs/受控枚举与状态规范.md:69:## 5. Evaluator 状态建议
+docs/受控枚举与状态规范.md:71:### 5.1 推荐枚举
+docs/受控枚举与状态规范.md:78:### 5.2 语义说明
+docs/受控枚举与状态规范.md:92:## 6. Run 状态建议
+docs/受控枚举与状态规范.md:94:### 6.1 推荐枚举
+docs/受控枚举与状态规范.md:104:### 6.2 语义说明
+docs/受控枚举与状态规范.md:127:### 6.3 注意
+docs/受控枚举与状态规范.md:131:## 7. Skill 成熟度建议
+docs/受控枚举与状态规范.md:133:### 7.1 推荐字段
+docs/受控枚举与状态规范.md:137:### 7.2 Skill status 建议
+docs/受控枚举与状态规范.md:144:### 7.3 Skill maturity_level 建议
+docs/受控枚举与状态规范.md:150:### 7.4 语义说明
+docs/受控枚举与状态规范.md:161:## 8. Cognition 类型与状态建议
+docs/受控枚举与状态规范.md:163:### 8.1 Cognition type 建议
+docs/受控枚举与状态规范.md:170:### 8.2 Cognition confidence_level 建议
+docs/受控枚举与状态规范.md:176:### 8.3 Cognition promotion_status 建议
+docs/受控枚举与状态规范.md:183:### 8.4 语义说明
+docs/受控枚举与状态规范.md:197:## 9. Taste Assessment 等级建议
+docs/受控枚举与状态规范.md:199:### 9.1 grade 枚举
+docs/受控枚举与状态规范.md:206:### 9.2 review_status 建议
+docs/受控枚举与状态规范.md:212:### 9.3 语义说明
+docs/受控枚举与状态规范.md:223:## 10. Report 类型建议
+docs/受控枚举与状态规范.md:225:### 10.1 report_type 枚举
+docs/受控枚举与状态规范.md:232:### 10.2 audience 建议
+docs/受控枚举与状态规范.md:239:## 11. 比较方向建议
+docs/受控枚举与状态规范.md:248:### 11.1 语义说明
+docs/受控枚举与状态规范.md:262:## 12. 引用类型建议
+docs/受控枚举与状态规范.md:270:### 12.1 语义说明
+docs/受控枚举与状态规范.md:281:## 13. 第一阶段最小枚举集
+docs/受控枚举与状态规范.md:295:## 14. 演化规则
+docs/受控枚举与状态规范.md:303:## 15. 设计警戒线
+docs/资产与证据对象契约草案.md:1:# 资产与证据对象契约草案
+docs/资产与证据对象契约草案.md:3:## 1. 文档目的
+docs/资产与证据对象契约草案.md:15:## 2. 设计定位
+docs/资产与证据对象契约草案.md:26:## 3. 通用封套
+docs/资产与证据对象契约草案.md:45:## 4. Skill 契约草案
+docs/资产与证据对象契约草案.md:47:### 4.1 对象意义
+docs/资产与证据对象契约草案.md:53:### 4.2 Skill 必填核心
+docs/资产与证据对象契约草案.md:64:### 4.3 Skill 建议字段
+docs/资产与证据对象契约草案.md:74:### 4.4 字段语义建议
+docs/资产与证据对象契约草案.md:91:### 4.5 Skill 校验规则
+docs/资产与证据对象契约草案.md:97:## 5. Cognition 契约草案
+docs/资产与证据对象契约草案.md:99:### 5.1 对象意义
+docs/资产与证据对象契约草案.md:110:### 5.2 Cognition 必填核心
+docs/资产与证据对象契约草案.md:120:### 5.3 Cognition 建议字段
+docs/资产与证据对象契约草案.md:130:### 5.4 字段语义建议
+docs/资产与证据对象契约草案.md:148:### 5.5 Cognition 校验规则
+docs/资产与证据对象契约草案.md:154:## 6. Taste Assessment 契约草案
+docs/资产与证据对象契约草案.md:156:### 6.1 对象意义
+docs/资产与证据对象契约草案.md:162:### 6.2 Taste Assessment 必填核心
+docs/资产与证据对象契约草案.md:172:### 6.3 Taste Assessment 建议字段
+docs/资产与证据对象契约草案.md:180:### 6.4 字段语义建议
+docs/资产与证据对象契约草案.md:192:### 6.5 Taste Assessment 校验规则
+docs/资产与证据对象契约草案.md:198:## 7. Evidence Bundle 契约草案
+docs/资产与证据对象契约草案.md:200:### 7.1 对象意义
+docs/资产与证据对象契约草案.md:206:### 7.2 Evidence Bundle 必填核心
+docs/资产与证据对象契约草案.md:216:### 7.3 Evidence Bundle 建议字段
+docs/资产与证据对象契约草案.md:225:### 7.4 字段语义建议
+docs/资产与证据对象契约草案.md:236:### 7.5 Evidence Bundle 校验规则
+docs/资产与证据对象契约草案.md:242:## 8. Report 契约草案
+docs/资产与证据对象契约草案.md:244:### 8.1 对象意义
+docs/资产与证据对象契约草案.md:250:### 8.2 Report 必填核心
+docs/资产与证据对象契约草案.md:261:### 8.3 Report 建议字段
+docs/资产与证据对象契约草案.md:270:### 8.4 字段语义建议
+docs/资产与证据对象契约草案.md:282:### 8.5 Report 校验规则
+docs/资产与证据对象契约草案.md:288:## 9. 对象间引用关系建议
+docs/资产与证据对象契约草案.md:301:## 10. 资产层和表达层的边界警戒线
+docs/数据契约版本化与扩展策略.md:1:# 数据契约版本化与扩展策略
+docs/数据契约版本化与扩展策略.md:3:## 1. 文档目的
+docs/数据契约版本化与扩展策略.md:9:## 2. 设计目标
+docs/数据契约版本化与扩展策略.md:18:## 3. 三层版本概念
+docs/数据契约版本化与扩展策略.md:22:### 3.1 Schema Version
+docs/数据契约版本化与扩展策略.md:32:### 3.2 Object Version
+docs/数据契约版本化与扩展策略.md:41:### 3.3 Runtime Revision
+docs/数据契约版本化与扩展策略.md:47:## 4. 兼容性原则
+docs/数据契约版本化与扩展策略.md:49:### 4.1 读取优先
+docs/数据契约版本化与扩展策略.md:53:### 4.2 写入慎重
+docs/数据契约版本化与扩展策略.md:61:### 4.3 删除最谨慎
+docs/数据契约版本化与扩展策略.md:71:## 5. 字段演化规则
+docs/数据契约版本化与扩展策略.md:73:### 5.1 允许的低风险变更
+docs/数据契约版本化与扩展策略.md:80:### 5.2 中风险变更
+docs/数据契约版本化与扩展策略.md:88:### 5.3 高风险变更
+docs/数据契约版本化与扩展策略.md:97:## 6. 扩展槽设计
+docs/数据契约版本化与扩展策略.md:114:## 7. 稳定核心与实验边缘
+docs/数据契约版本化与扩展策略.md:118:### 7.1 稳定核心
+docs/数据契约版本化与扩展策略.md:127:### 7.2 实验边缘
+docs/数据契约版本化与扩展策略.md:137:## 8. 引用策略
+docs/数据契约版本化与扩展策略.md:148:## 9. 时间维度策略
+docs/数据契约版本化与扩展策略.md:162:## 10. 迁移策略
+docs/数据契约版本化与扩展策略.md:174:## 11. 与研究目标的关系
+docs/数据契约版本化与扩展策略.md:185:## 12. 第一阶段的最低要求
+docs/数据契约版本化与扩展策略.md:198:## 13. 禁止事项
+docs/数据契约版本化与扩展策略.md:208:## 14. 核心结论
+docs/数据契约设计总纲.md:1:# 数据契约设计总纲
+docs/数据契约设计总纲.md:3:## 1. 文档目的
+docs/数据契约设计总纲.md:9:## 2. 为什么数据契约是核心基础设施
+docs/数据契约设计总纲.md:29:## 3. 数据契约的核心目标
+docs/数据契约设计总纲.md:33:### 3.1 结构清晰
+docs/数据契约设计总纲.md:37:### 3.2 可回链
+docs/数据契约设计总纲.md:41:### 3.3 可扩展
+docs/数据契约设计总纲.md:52:### 3.4 可兼容
+docs/数据契约设计总纲.md:56:### 3.5 可审计
+docs/数据契约设计总纲.md:65:## 4. 抽象原则
+docs/数据契约设计总纲.md:67:### 4.1 对象优先，不以文件优先
+docs/数据契约设计总纲.md:73:### 4.2 契约优先，不以实现优先
+docs/数据契约设计总纲.md:82:### 4.3 主对象与派生对象分离
+docs/数据契约设计总纲.md:98:### 4.4 身份与版本分离
+docs/数据契约设计总纲.md:107:### 4.5 内容与证据分离
+docs/数据契约设计总纲.md:113:## 5. 核心对象模型
+docs/数据契约设计总纲.md:117:### 5.1 Task
+docs/数据契约设计总纲.md:128:### 5.2 Evaluator
+docs/数据契约设计总纲.md:139:### 5.3 Run
+docs/数据契约设计总纲.md:150:### 5.4 Skill
+docs/数据契约设计总纲.md:161:### 5.5 Cognition
+docs/数据契约设计总纲.md:172:### 5.6 Evidence Bundle
+docs/数据契约设计总纲.md:181:### 5.7 Taste Assessment
+docs/数据契约设计总纲.md:191:### 5.8 Report
+docs/数据契约设计总纲.md:201:## 6. 对象之间的依赖方向
+docs/数据契约设计总纲.md:220:## 7. 最小对象边界要求
+docs/数据契约设计总纲.md:234:## 8. 扩展性设计原则
+docs/数据契约设计总纲.md:236:### 8.1 预留元信息区
+docs/数据契约设计总纲.md:246:### 8.2 区分必填与选填
+docs/数据契约设计总纲.md:252:### 8.3 区分稳定字段与实验字段
+docs/数据契约设计总纲.md:261:### 8.4 支持多值引用
+docs/数据契约设计总纲.md:271:## 9. 版本化原则
+docs/数据契约设计总纲.md:273:### 9.1 每类契约都必须有 schema 版本
+docs/数据契约设计总纲.md:277:### 9.2 小改与大改区分
+docs/数据契约设计总纲.md:284:### 9.3 迁移优先于抛弃
+docs/数据契约设计总纲.md:288:### 9.4 运行记录不可事后重写事实
+docs/数据契约设计总纲.md:292:## 10. 命名与标识原则
+docs/数据契约设计总纲.md:311:## 11. 第一阶段设计边界
+docs/数据契约设计总纲.md:332:## 12. 设计警戒线
+docs/研究记录与证据规范.md:1:# 研究记录与证据规范
+docs/研究记录与证据规范.md:3:## 1. 文档目的
+docs/研究记录与证据规范.md:9:## 2. 基本原则
+docs/研究记录与证据规范.md:16:## 3. 记录对象
+docs/研究记录与证据规范.md:29:## 4. 任务记录要求
+docs/研究记录与证据规范.md:42:## 5. evaluator 记录要求
+docs/研究记录与证据规范.md:54:## 6. 技能记录要求
+docs/研究记录与证据规范.md:66:## 7. 实验结果记录要求
+docs/研究记录与证据规范.md:78:## 8. 认知记录要求
+docs/研究记录与证据规范.md:95:## 9. 成果分级记录要求
+docs/研究记录与证据规范.md:106:## 10. 报告记录要求
+docs/研究记录与证据规范.md:118:## 11. 证据包要求
+docs/研究记录与证据规范.md:139:## 12. 失败的记录义务
+docs/研究记录与证据规范.md:151:## 13. 面向“AI 辅助科研研究”的附加记录
+docs/研究记录与证据规范.md:162:## 14. 文档层级建议
+docs/研究记录与证据规范.md:166:### 14.1 运行层
+docs/研究记录与证据规范.md:170:### 14.2 研究层
+docs/研究记录与证据规范.md:174:### 14.3 方法论层
+docs/研究记录与证据规范.md:180:## 15. 不允许的记录退化
+docs/核心对象契约草案.md:1:# 核心对象契约草案
+docs/核心对象契约草案.md:3:## 1. 文档目的
+docs/核心对象契约草案.md:15:## 2. 设计定位
+docs/核心对象契约草案.md:27:## 3. 通用封套
+docs/核心对象契约草案.md:31:### 3.1 必备公共字段
+docs/核心对象契约草案.md:42:### 3.2 推荐公共字段
+docs/核心对象契约草案.md:50:### 3.3 设计说明
+docs/核心对象契约草案.md:58:## 4. Task 契约草案
+docs/核心对象契约草案.md:60:### 4.1 对象意义
+docs/核心对象契约草案.md:66:### 4.2 Task 必填核心
+docs/核心对象契约草案.md:78:### 4.3 Task 建议字段
+docs/核心对象契约草案.md:89:### 4.4 字段语义建议
+docs/核心对象契约草案.md:109:### 4.5 Task 典型形态
+docs/核心对象契约草案.md:131:### 4.6 Task 校验规则
+docs/核心对象契约草案.md:138:## 5. Evaluator 契约草案
+docs/核心对象契约草案.md:140:### 5.1 对象意义
+docs/核心对象契约草案.md:146:### 5.2 Evaluator 必填核心
+docs/核心对象契约草案.md:157:### 5.3 Evaluator 建议字段
+docs/核心对象契约草案.md:167:### 5.4 字段语义建议
+docs/核心对象契约草案.md:187:### 5.5 Evaluator 典型形态
+docs/核心对象契约草案.md:214:### 5.6 Evaluator 校验规则
+docs/核心对象契约草案.md:221:## 6. Run 契约草案
+docs/核心对象契约草案.md:223:### 6.1 对象意义
+docs/核心对象契约草案.md:229:### 6.2 Run 必填核心
+docs/核心对象契约草案.md:241:### 6.3 Run 建议字段
+docs/核心对象契约草案.md:253:### 6.4 字段语义建议
+docs/核心对象契约草案.md:273:### 6.5 Run 典型形态
+docs/核心对象契约草案.md:298:### 6.6 Run 校验规则
+docs/核心对象契约草案.md:305:## 7. 三类对象之间的最小引用要求
+docs/核心对象契约草案.md:318:## 8. 事实层对象的边界警戒线
+docs/对象命名与引用规范.md:1:# 对象命名与引用规范
+docs/对象命名与引用规范.md:3:## 1. 文档目的
+docs/对象命名与引用规范.md:20:## 2. 设计原则
+docs/对象命名与引用规范.md:22:### 2.1 身份优先于路径
+docs/对象命名与引用规范.md:28:### 2.2 可读优先于压缩
+docs/对象命名与引用规范.md:34:### 2.3 类型显式
+docs/对象命名与引用规范.md:38:### 2.4 快照与稳定身份分离
+docs/对象命名与引用规范.md:46:## 3. 核心概念
+docs/对象命名与引用规范.md:48:### 3.1 Human Name
+docs/对象命名与引用规范.md:60:### 3.2 Object ID
+docs/对象命名与引用规范.md:66:### 3.3 Object Version
+docs/对象命名与引用规范.md:72:### 3.4 Reference
+docs/对象命名与引用规范.md:82:## 4. Object ID 总体规范
+docs/对象命名与引用规范.md:84:### 4.1 组成原则
+docs/对象命名与引用规范.md:96:### 4.2 示例
+docs/对象命名与引用规范.md:107:### 4.3 字符规范
+docs/对象命名与引用规范.md:125:## 5. 各类对象的命名建议
+docs/对象命名与引用规范.md:127:### 5.1 Task
+docs/对象命名与引用规范.md:138:### 5.2 Evaluator
+docs/对象命名与引用规范.md:149:### 5.3 Run
+docs/对象命名与引用规范.md:162:### 5.4 Skill
+docs/对象命名与引用规范.md:174:### 5.5 Cognition
+docs/对象命名与引用规范.md:185:### 5.6 Taste Assessment
+docs/对象命名与引用规范.md:195:### 5.7 Evidence Bundle
+docs/对象命名与引用规范.md:201:### 5.8 Report
+docs/对象命名与引用规范.md:212:## 6. Version 规范
+docs/对象命名与引用规范.md:214:### 6.1 推荐形式
+docs/对象命名与引用规范.md:226:### 6.2 含义建议
+docs/对象命名与引用规范.md:237:### 6.3 注意事项
+docs/对象命名与引用规范.md:242:## 7. 引用规范
+docs/对象命名与引用规范.md:244:### 7.1 基本引用
+docs/对象命名与引用规范.md:254:### 7.2 版本化引用
+docs/对象命名与引用规范.md:266:### 7.3 快照引用
+docs/对象命名与引用规范.md:279:### 7.4 批量引用
+docs/对象命名与引用规范.md:283:### 7.5 反向引用
+docs/对象命名与引用规范.md:289:## 8. 文件路径与对象引用的关系
+docs/对象命名与引用规范.md:291:### 8.1 原则
+docs/对象命名与引用规范.md:295:### 8.2 推荐做法
+docs/对象命名与引用规范.md:305:### 8.3 禁止做法
+docs/对象命名与引用规范.md:313:## 9. 命名冲突处理
+docs/对象命名与引用规范.md:321:## 10. 状态性对象的命名注意事项
+docs/对象命名与引用规范.md:338:## 11. 最低执行要求
+docs/对象命名与引用规范.md:347:## 12. 设计警戒线
+
+exec
+/bin/bash -lc "sed -n '1,260p' docs/文献对齐与比较认知升级框架设计.md" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+# 文献对齐与比较认知升级框架设计
+
+## 1. 文档目的
+
+本文件用于定义项目下一阶段的一个新框架层：
+
+- `文献对齐`
+- `比较认知升级`
+
+它的目标不是让系统“多做一步总结”，而是让系统从：
+
+- 会比较结果
+
+提升为：
+
+- 会比较技能语义
+- 会比较解释深度
+- 会比较认知边界
+- 会把本地实验结果与外部文献对齐
+
+## 2. 为什么这一层是必要的
+
+到当前阶段，系统已经具备：
+
+1. 真实任务执行
+2. 技能生成与写回
+3. 基于 evaluator 的成效比较
+4. 结构化策略对照分析
+
+但这还不足以真正支撑科研中的“认知比较”。
+
+原因是：
+
+- 结果比较只能告诉我们谁在当前任务上更强
+- 但不能告诉我们哪条认知更深、更可信、更接近问题本体
+- 更不能告诉我们这种认知与已有研究之间是什么关系
+
+因此，如果没有文献对齐层和比较认知升级层，系统很容易停留在：
+
+- 本地最优
+- 工程经验
+- 事后叙述
+
+而难以上升到真正的“科研认知”。
+
+## 3. 核心问题
+
+这一层要解决五个问题：
+
+1. 当前技能或策略与已有文献方法是什么关系
+2. 当前认知与已有理论解释是什么关系
+3. 两条本地策略的差异，究竟是参数差异、控制对象差异，还是方法范式差异
+4. 某条认知只是局部经验，还是具有更强解释力
+5. 哪些认知值得继续晋升，哪些认知应保持候选状态
+
+## 4. 框架目标
+
+本层不直接追求“替人写文献综述”，而追求以下四项目标：
+
+### 4.1 文献映射
+
+将当前技能和认知映射到已有方法、已有概念、已有解释上。
+
+### 4.2 认知比较
+
+不仅比较结果，还比较：
+
+- 技能语义
+- 控制变量
+- 解释结构
+- 适用边界
+- 主张强度
+
+### 4.3 认知升级
+
+当本地比较和文献对齐都支持时，允许将候选认知升级为更高层认知。
+
+### 4.4 认知降级
+
+当本地认知只是局部现象，或已被文献充分解释，应压低其新颖性和主张等级。
+
+## 5. 设计原则
+
+### 5.1 文献对齐不是装饰层
+
+它不是为了把报告写得像综述，而是为了限制本地系统的认知幻觉。
+
+### 5.2 比较认知不等于多写一段总结
+
+它必须是结构化对象，而不是散文。
+
+### 5.3 认知升级必须受双重门控
+
+至少要同时满足：
+
+1. 本地证据支持
+2. 文献对齐后的合理定位
+
+### 5.4 允许“对齐后降级”
+
+如果本地现象其实只是已知规律的再现，则应降级其新颖性，而不是强行拔高。
+
+## 6. 建议的新增能力应用
+
+这一层建议拆成两个独立应用，而不是继续塞进单一 orchestrator：
+
+### 6.1 Literature Alignment App
+
+职责：
+
+- 检索相关文献
+- 提取已有方法和已有解释
+- 将本地技能/认知映射到文献语义空间
+
+输入：
+
+- 技能对象
+- 认知对象
+- 任务对象
+- 策略对照对象
+
+输出：
+
+- 文献对齐对象
+- 方法关系判断
+- 理论关系判断
+- 新颖性提示
+
+### 6.2 Comparative Cognition Upgrade App
+
+职责：
+
+- 基于本地比较与文献对齐，输出更高层认知判断
+- 判定哪些认知可以晋升，哪些需要保持候选或降级
+
+输入：
+
+- strategy_comparison
+- cognition
+- literature_alignment
+- evidence_bundle
+
+输出：
+
+- upgraded_cognition
+- cognition_review
+- novelty_assessment
+
+## 7. 与现有系统的关系
+
+### 7.1 现有 strategy_comparison 的位置
+
+当前 `strategy_comparison` 只处理：
+
+- 指标比较
+- objective 比较
+- winner 判断
+
+它是必要基础，但还不够。
+
+### 7.2 新层在其之上做什么
+
+新层将进一步比较：
+
+- 左右策略控制变量是否属于同一问题语义
+- 左右策略是参数搜索、结构搜索、还是方法范式变化
+- 哪个策略更接近研究对象本体
+- 当前认知是工程经验、局部规律、还是可上升的解释
+
+## 8. 推荐新增对象
+
+### 8.1 literature_alignment
+
+用于表达：
+
+- 当前技能/认知与文献方法/理论的对应关系
+- 是重复、补充、冲突还是空白
+
+### 8.1.a paper_record / paper_excerpt / method_card / explanation_card
+
+用于将文献本身对象化：
+
+- `paper_record` 表达论文元信息
+- `paper_excerpt` 表达可被引用的局部摘录
+- `method_card` 表达方法家族与控制变量语义
+- `explanation_card` 表达机制解释与适用边界
+
+这些对象的作用是：
+
+- 让文献调研变成长期资产
+- 让后续对齐流程有稳定输入
+- 避免每次对齐都从原始文献列表重新开始
+
+### 8.2 strategy_semantic_comparison
+
+用于表达：
+
+- 两个策略在控制变量、方法范式、问题语义上的差异
+
+### 8.3 novelty_assessment
+
+用于表达：
+
+- 当前认知的新颖性等级
+- 当前技能的新颖性等级
+- 是否只是已知方法的轻微变体
+
+### 8.4 cognition_upgrade
+
+用于表达：
+
+- 某条认知为何可以从 candidate 升级
+- 或为何必须降级/冻结
+
+## 9. 推荐运行流程
+
+建议新增以下流程：
+
+1. `compare-runs`
+2. `build-literature-cards`
+3. `align-literature`
+4. `align-explanations`
+5. `compare-semantics`
+6. `upgrade-cognition`
+7. `regrade-claim`
+
+### 9.1 compare-runs
+
+得到基础结果差异。
+
+### 9.2 build-literature-cards
+
+将种子文献库转化为正式文献对象层：
+
+- paper_record
+- paper_excerpt
+- method_card
+- explanation_card
+
+### 9.3 align-literature
+
+把本地技能和认知与外部文献对齐。
+
+### 9.4 align-explanations
+
+把本地认知与 explanation_card 进行支持/补充/冲突判断。
+
+### 9.5 compare-semantics
+
+比较两条策略的研究语义差异。
+
+### 9.6 upgrade-cognition
+
+综合本地证据和文献对齐，决定认知晋升与否。
+
+### 9.7 regrade-claim
+
+必要时重新限制报告主张。
+
+## 10. 判断维度
+
+exec
+/bin/bash -lc "sed -n '1,240p' docs/工作原则与研发方法.md" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+# 工作原则与研发方法
+
+## 1. 文档目的
+
+本文件用于明确本项目的工作原则、实施方法和研发节奏，避免项目在执行中退化为“空泛讨论”或“局部忙碌”。
+
+## 2. 总原则
+
+### 2.1 先评价，后优化
+
+任何技能演化或认知提炼，必须先有 evaluator、基线和成功判据。
+
+### 2.2 先最小闭环，后系统扩张
+
+先跑通一个真实小问题的完整链路，再扩展多智能体、图数据库和复杂记忆系统。
+
+### 2.3 先证据，后叙述
+
+所有高层结论都必须来源于可回溯证据，而不是叙述惯性。
+
+### 2.4 先资产沉淀，后任务数量
+
+项目价值不取决于跑了多少任务，而取决于沉淀了多少可靠技能和有效认知。
+
+### 2.5 先诚实，后好看
+
+系统必须优先暴露失败、边界和不确定性，不能以报告美观替代研究质量。
+
+## 3. 研发方法
+
+### 3.1 文档先行
+
+先确定概念、边界、评价规则和目录结构，再推进原型实现。
+
+### 3.2 闭环驱动
+
+任何新增模块都必须回答：
+
+1. 它属于哪个阶段。
+2. 它服务哪类资产。
+3. 它如何被验证。
+4. 它失败时如何降级。
+
+### 3.3 小步试验
+
+所有重要机制都先用最小可行实现验证：
+
+- 技能注册先用 JSON 和目录结构
+- 认知卡片先用 Markdown 和元数据
+- 图关系先用轻量索引，不急于引入重型组件
+
+### 3.4 角色分离
+
+至少区分以下工作角色：
+
+- 任务建模
+- 技能构建
+- 成效评估
+- 认知提炼
+- 报告审核
+
+即便这些角色由同一个底层模型执行，也要在系统层显式区分。
+
+### 3.5 研究与工程并行
+
+每个阶段既要产生工程产物，也要产生研究记录。
+
+例如：
+
+- 工程产物：orchestrator、evaluator、registry
+- 研究记录：实验日志、失败总结、对 AI 行为模式的观察
+
+## 4. 实施节奏
+
+### Phase 0: 总纲固化
+
+目标：
+
+- 形成项目总设计
+- 固化 Agent 规范
+- 固化品味框架
+- 固化仓库级 AGENTS.md
+
+### Phase 1: MVP
+
+目标：
+
+- 选定一个小型电力任务
+- 完成 evaluator
+- 完成单任务闭环
+- 完成技能与认知写回
+
+### Phase 2: 质量门控
+
+目标：
+
+- 增加成果分级器
+- 增加 claim 审核器
+- 增加失败知识化机制
+
+### Phase 3: 双网增强
+
+目标：
+
+- 引入轻量图结构
+- 增加技能路径选择
+- 增加认知子图检索
+
+### Phase 4: 扩展实验
+
+目标：
+
+- 对多个电力问题复用同一框架
+- 比较不同 harness 和 prompt 的影响
+- 研究 AI 辅助科研的规律和边界
+
+## 5. 研发中的禁忌
+
+项目执行中不得出现以下倾向：
+
+1. 没有 evaluator 就开始大规模调方法。
+2. 没有基线比较就宣称有效。
+3. 用多智能体复杂性掩盖评价体系不成熟。
+4. 用知识库堆积替代认知结构建设。
+5. 用写作和排版替代研究质量。
+6. 把局部成功误判为系统成熟。
+
+## 6. 记录制度
+
+每一轮任务都要至少产出以下记录：
+
+1. 任务定义
+2. evaluator 配置
+3. 采用技能
+4. 新增技能
+5. 关键失败
+6. 新增认知
+7. 成果等级
+8. 下一轮建议
+
+## 7. 面向后继者的要求
+
+本项目必须服务“为后来人指路”的目标，因此所有关键设计都应尽量满足：
+
+- 可解释
+- 可复现
+- 可迁移
+- 可批判
+
+如果某项设计只能“勉强跑通”，但无法被后继者理解和复用，则应谨慎引入。
+
+codex
+证据边界已经比较清楚了，但 `explanation_alignment` 的摘要被截断。我再把三个输入对象完整读一遍，避免因为片段缺失误判支持力度或漏掉已有保守表述。
+exec
+/bin/bash -lc "sed -n '1,260p' analysis/task004/literature_0002/literature_alignment.yaml" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+schema_version: 0.1.0
+object_type: literature_alignment
+object_id: literature_alignment.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:05Z'
+updated_at: '2026-04-21T06:30:05Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_hosting_capacity
+assessed_object_refs:
+- skill.power.renewable_capacity_optimizer_task004
+- skill.power.single_point_capacity_mismatch_task004
+literature_refs:
+- paper.hosting_capacity_pv_2017
+- paper.smart_inverter_hosting_2020
+- paper.hosting_capacity_method_review_2021
+- paper.single_point_operation_2019
+method_mappings:
+  skill.power.renewable_capacity_optimizer_task004:
+  - paper.hosting_capacity_pv_2017
+  - paper.smart_inverter_hosting_2020
+  - paper.hosting_capacity_method_review_2021
+  skill.power.single_point_capacity_mismatch_task004:
+  - paper.single_point_operation_2019
+theory_mappings:
+  hosting_capacity_strategy_scan: hosting_capacity_assessment
+  single_point_operating_evaluation: operating_point_analysis
+novelty_position: variant
+alignment_summary: 当前对齐表明，task004 的边界扫描路线更接近 hosting capacity assessment 家族，而 single-point
+  mismatch 路线更接近 operating-point analysis，不能直接替代边界评估。
+notes:
+- 当前只基于种子文献做方法家族级对齐
+- 尚未进行片段级解释对齐
+
+exec
+/bin/bash -lc "sed -n '1,320p' analysis/task004/explanations_0002/explanation_alignment.yaml" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+schema_version: 0.1.0
+object_type: explanation_alignment
+object_id: explanation_alignment.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:30Z'
+updated_at: '2026-04-21T06:30:30Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_hosting_capacity
+assessed_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0001
+explanation_card_refs:
+- explanation_card.power.hosting_capacity_pv_2017
+- explanation_card.power.smart_inverter_hosting_2020
+- explanation_card.power.hosting_capacity_method_review_2021
+- explanation_card.power.single_point_operation_2019
+per_card_relations:
+  explanation_card.power.hosting_capacity_pv_2017:
+    paper_ref: paper_record.power.hosting_capacity_pv_2017
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Boundary judgments must remain conditioned on scenario and constraints.
+    - Voltage screening is a common first boundary.
+    relation_counts:
+      supports: 3
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation
+      granularity: summary
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: The hosting-capacity boundary only has meaning when the scenario and
+        triggering constraints are explicitly stated.
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Boundary judgments must remain conditioned on scenario and constraints.
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_pv_2017.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Voltage screening is a common first boundary.
+  explanation_card.power.smart_inverter_hosting_2020:
+    paper_ref: paper_record.power.smart_inverter_hosting_2020
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Control strategy conditions hosting-capacity boundaries.
+    - Boundary comparison itself is part of hosting-capacity analysis.
+    relation_counts:
+      supports: 1
+      supplements: 2
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation
+      granularity: summary
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 当前只从卡片标签推知其属于 Volt/Var 家族，但 excerpt 文本证据不足。
+      evidence_basis: card_tag_fallback
+      content: Hosting-capacity boundaries change with control strategy and should
+        not be written as unique system-intrinsic capacities.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supplements
+      reason: 当前只从卡片标签推知其属于 Volt/Var 家族，但 excerpt 文本证据不足。
+      evidence_basis: card_tag_fallback
+      content: Control strategy conditions hosting-capacity boundaries.
+    - excerpt_ref: paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.smart_inverter_hosting_2020.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Boundary comparison itself is part of hosting-capacity analysis.
+  explanation_card.power.hosting_capacity_method_review_2021:
+    paper_ref: paper_record.power.hosting_capacity_method_review_2021
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - 承载力结果必须绑定条件。
+    - 不同方法得到的边界不可直接横向等同。
+    - 边界 overclaim 常来自条件丢失。
+    relation_counts:
+      supports: 1
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 3
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+      granularity: summary
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: 核心解释是：若忽略场景和控制条件，hosting capacity 结论容易被过度表述。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 承载力结果必须绑定条件。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_2
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 不同方法得到的边界不可直接横向等同。
+    - excerpt_ref: paper_excerpt.power.hosting_capacity_method_review_2021.explanation_point_3
+      granularity: point
+      source_ref: literature_source.power.hosting_capacity_method_review_2021
+      source_kind: manual_summary
+      evidence_strength: low
+      relation: unclear
+      reason: 当前无法确定该解释片段与本地认知的关系。
+      evidence_basis: no_signal
+      content: 边界 overclaim 常来自条件丢失。
+  explanation_card.power.single_point_operation_2019:
+    paper_ref: paper_record.power.single_point_operation_2019
+    relation: supports
+    reason: 存在直接指向补偿配置/问题本体的解释片段，可作为支持证据。
+    explanation_points:
+    - Operating-point analysis and hosting-capacity boundary evaluation are different
+      problem types.
+    relation_counts:
+      supports: 2
+      supplements: 0
+      similar: 0
+      conflicts: 0
+      unclear: 0
+    excerpt_relations:
+    - excerpt_ref: paper_excerpt.power.single_point_operation_2019.explanation
+      granularity: summary
+      source_ref: literature_source.power.single_point_operation_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接支持单点结果不能替代边界扫描的判断。
+      evidence_basis: excerpt_content
+      content: Using a single operating point as a boundary conclusion creates a category
+        mistake between operation analysis and boundary analysis.
+    - excerpt_ref: paper_excerpt.power.single_point_operation_2019.explanation_point_1
+      granularity: point
+      source_ref: literature_source.power.single_point_operation_2019.abstract
+      source_kind: abstract_excerpt
+      evidence_strength: medium
+      relation: supports
+      reason: 片段文本直接涉及承载力边界定义，可作为支持证据。
+      evidence_basis: excerpt_content
+      content: Operating-point analysis and hosting-capacity boundary evaluation are
+        different problem types.
+evidence_excerpt_refs:
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation_point_1
+evidence_strength: medium
+relation_summary: 4 张 explanation card 含 excerpt 级直接支持（7 条 excerpt）。
+overall_relation: supports
+notes:
+- 当前 relation judgment 以 excerpt 文本证据为主，card 标签仅作兜底提示
+- 支持与仅相似已显式区分，但仍未进行原文全文语义匹配
+
+exec
+/bin/bash -lc "sed -n '1,260p' analysis/task004/upgrade_0002/cognition_upgrade.yaml" in /home/chenying/root-research/DaoShuGuo-v1
+ succeeded in 0ms:
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-21T06:30:55Z'
+updated_at: '2026-04-21T06:30:55Z'
+status: reviewed
+metadata:
+  mode: task004_boundary_cognition
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition.power.strategy_comparison_ieee69_hosting_capacity_0002
+semantic_comparison_ref: semantic_comparison.power.ieee69_hosting_capacity.0002
+novelty_assessment_ref: novelty.power.ieee69_hosting_capacity.0002
+literature_alignment_ref: literature_alignment.power.ieee69_hosting_capacity.0002
+explanation_alignment_ref: explanation_alignment.power.ieee69_hosting_capacity.0002
+explanation_excerpt_refs:
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_1
+- paper_excerpt.power.hosting_capacity_pv_2017.explanation_point_2
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_1
+- paper_excerpt.power.smart_inverter_hosting_2020.explanation_point_2
+- paper_excerpt.power.hosting_capacity_method_review_2021.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation
+- paper_excerpt.power.single_point_operation_2019.explanation_point_1
+upgraded_cognition_ref: cognition.power.upgraded_ieee69_hosting_capacity_0002
+evidence_strength: medium
+decision: upgrade
+rationale: 承载力评估必须以边界扫描为对象，单点运行结果不能替代条件化边界判断。 当前文献对齐将其定位为 `variant`。 explanation alignment
+  提供了 9 条 excerpt 级证据，evidence_strength=`medium`。
+claim_adjustment: task004 边界认知只支持当前扫描包络内、给定控制策略下的静态边界判断。
+
+**Clarifying upgrade decisions**
+
+I'm considering that the upgrade decision might be recognized as a way to distinguish between boundaries rather than just discovering a new mechanism. I think I might need a “partial” or “qualified agreement” here. My confidence is medium, so I want an interpretation summary to be concise. I need to include specific job details and maybe structure the recommended action with fields for “action” and “reason.” Let’s ensure that everything is valid JSON!
+codex
+{
+  "job_id": "task004_literature_reviewer_001",
+  "agent_role": "literature_reviewer",
+  "input_refs": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "interpretation_summary": "The three artifacts are broadly aligned on one narrow claim: for task004, boundary scanning belongs to the hosting-capacity assessment family, while single-point mismatch belongs to operating-point analysis and should not substitute for boundary evaluation. The literature positioning is conservative (`variant`), and the upgrade artifact already narrows the valid claim to static boundary judgment within the current scan envelope and control strategy. This is a defensible literature-aligned refinement, not evidence of a strongly novel method or broadly new theory.",
+  "evidence_used": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "agreement_with_rule_baseline": {
+    "status": "qualified_agreement",
+    "summary": "I agree with the baseline upgrade if it is interpreted as a guarded cognition refinement rather than a strong novelty claim.",
+    "details": [
+      "The literature alignment explicitly places the route as `variant`, which correctly limits novelty.",
+      "The explanation alignment supports the category distinction between boundary assessment and single-point operation analysis.",
+      "The upgrade's `claim_adjustment` is appropriately conservative and should remain attached to any downstream reporting."
+    ]
+  },
+  "new_insights": [
+    "The strongest cross-artifact signal is not novelty, but category hygiene: the main contribution is preventing a problem-type mix-up between conditioned boundary assessment and single-point operating evaluation.",
+    "The support quality is uneven: some evidence is direct excerpt support, but some items rely on card-tag fallback or low-strength manual summary, so the apparent count of excerpts should not be read as uniformly strong evidence.",
+    "Current evidence better supports a boundary-of-validity clarification than a new mechanism claim."
+  ],
+  "overclaim_warnings": [
+    "Do not treat keyword or topic overlap with hosting-capacity papers as proof that the local method is method-equivalent to those papers.",
+    "Do not promote `variant` positioning into a claim of substantial methodological novelty.",
+    "Do not use the current artifacts to claim general hosting-capacity conclusions beyond the present scan envelope, control strategy, and static setting.",
+    "Do not interpret the explanation-alignment support count as all-direct, full-text-confirmed literature support; some support is fallback-based or low-strength."
+  ],
+  "missing_evidence": [
+    "Seed literature coverage is still limited to a small set of papers and family-level mapping; this is weak for stronger novelty positioning.",
+    "Full-text or finer-grained semantic matching is missing; the explanation artifact itself notes that full-text semantic matching has not been done.",
+    "Several review-derived explanation points remain `unclear`, which weakens confidence in broader literature-backed interpretation.",
+    "There is no evidence here for transfer to other operating conditions, other control policies, dynamic/time-series settings, or broader system classes."
+  ],
+  "recommended_action": {
+    "decision": "keep_upgrade_but_hold_novelty_low",
+    "next_steps": [
+      "Retain the cognition upgrade as a bounded clarification of problem type and claim boundary.",
+      "Preserve the current claim adjustment verbatim in downstream cognition/report objects.",
+      "Expand literature coverage beyond the current seed set before making any stronger novelty statement.",
+      "Add fuller excerpt/full-text alignment, especially for the review paper and any papers representing alternative hosting-capacity method families.",
+      "If possible, test whether the boundary-vs-single-point distinction still holds under additional control strategies or non-static settings."
+    ]
+  },
+  "confidence": "medium"
+}
+tokens used
+51,623

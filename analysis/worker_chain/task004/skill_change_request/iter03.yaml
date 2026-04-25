@@ -1,0 +1,22 @@
+schema_version: 0.1.0
+object_type: skill_change_request
+object_id: skill_change_request.power.ieee69_hosting_capacity.0003
+object_version: 0.1.0
+created_at: '2026-04-24T14:49:55Z'
+updated_at: '2026-04-24T14:49:55Z'
+status: ready
+metadata:
+  task_package: task004
+  execution_mode: parameterized_skill_evolution
+task_ref: task.power.ieee69_hosting_capacity
+iteration_index: 3
+base_skill_ref: skill.power.renewable_capacity_optimizer_task004
+allowed_change_scope:
+- candidate_q_step_mvar
+blocked_paths:
+- single_point_operation_proxy
+required_tests:
+- Run the same inverter-support skill under the current evaluator.
+- Check whether hosting_capacity_level improves relative to the previous candidate.
+output_skill_path: parameterized:tasks/task004/constraints.yaml:candidate_q_step_mvar
+summary: Set candidate_q_step_mvar to 0.30 and test whether the same skill improves.

@@ -1,0 +1,22 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.ieee69_hosting_capacity_runtime_failure_0005
+object_version: 0.1.0
+created_at: '2026-04-24T09:08:24Z'
+updated_at: '2026-04-24T09:08:24Z'
+status: active
+metadata:
+  strategy: inverter-support
+  mismatch_type: ''
+cognition_type: failure
+statement: 当前 task004 真实运行表明，candidate 未提高当前扫描包络内的承载边界，只能作为边界或失败材料。
+evidence_refs:
+- run.power.ieee69_hosting_capacity.0005
+scope_boundary:
+  task: task.power.ieee69_hosting_capacity
+  mode: real_inverter-support
+  boundary_type: control_strategy_conditioned_static_capacity
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_hosting_capacity.0005
+promotion_status: proposed

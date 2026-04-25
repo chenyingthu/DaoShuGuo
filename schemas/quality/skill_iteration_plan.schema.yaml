@@ -1,0 +1,68 @@
+schema_id: "skill_iteration_plan.schema"
+schema_version: "0.1.0"
+object_type: "skill_iteration_plan"
+title: "Skill Iteration Plan Schema"
+description: "用于表达受认知约束驱动的下一轮技能开发和验证计划。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - controller_update_ref
+  - target_skill_family
+  - planned_actions
+  - planned_validation
+  - blocked_paths
+  - success_criteria
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["skill_iteration_plan"]
+  object_id:
+    type: string
+    pattern_hint: "skill_iteration_plan.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  controller_update_ref:
+    type: string
+  target_skill_family:
+    type: string
+  planned_actions:
+    type: array[string]
+  planned_validation:
+    type: array[string]
+  blocked_paths:
+    type: array[string]
+  candidate_skill_refs:
+    type: array[string]
+    required: false
+  success_criteria:
+    type: array[string]
+  summary:
+    type: string
+
+validation_rules:
+  - rule_id: "skill-iteration-plan-controller-required"
+    description: "必须能回溯到控制本轮技能工作的认知更新。"

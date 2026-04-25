@@ -1,0 +1,19 @@
+{
+  "iteration": 1,
+  "strategy": "inverter-support",
+  "run_ref": "run.power.ieee69_hosting_capacity.0006",
+  "hosting_capacity_improved": false,
+  "loss_improved_vs_baseline": true,
+  "voltage_margin_improved_vs_baseline": true,
+  "baseline_hosting_capacity_level": 3.0,
+  "candidate_hosting_capacity_level": 3.0,
+  "baseline_loss_at_boundary": 135.1525491499995,
+  "candidate_loss_at_boundary": 121.37896983940597,
+  "baseline_voltage_margin": 0.025108200251617863,
+  "candidate_voltage_margin": 0.027143627645226154,
+  "run_passed": false,
+  "evaluation_summary": "candidate did not improve hosting-capacity boundary",
+  "delta_vs_prior": null,
+  "progress_type": "bounded_baseline_established",
+  "improvement_judgment": "No hosting-capacity improvement yet; this round only establishes the initial bounded sample."
+}

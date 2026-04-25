@@ -1,0 +1,17 @@
+schema_version: "0.1.0"
+object_type: "llm_cognition_comparison_rubric"
+dimensions:
+  - name: "failure_type_discrimination"
+    description: "是否更清楚地区分 failure 类型"
+  - name: "overclaim_detection"
+    description: "是否更主动识别 overclaim 风险"
+  - name: "missing_evidence_exposure"
+    description: "是否更清楚指出真正缺失的证据"
+  - name: "bounded_claim_quality"
+    description: "是否形成更稳健的 bounded cognition"
+  - name: "new_valid_insight"
+    description: "是否发现规则层没有表达出的合理认知维度"
+scale:
+  0: "no_gain"
+  1: "marginal_gain"
+  2: "clear_gain"

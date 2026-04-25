@@ -1,0 +1,30 @@
+schema_version: "0.1.0"
+object_type: "llm_cognition_job_spec"
+required_fields:
+  - job_id
+  - agent_role
+  - prompt_ref
+  - input_refs
+  - rule_baseline_refs
+  - expected_output_schema
+output_schema:
+  required_fields:
+    - job_id
+    - agent_role
+    - input_refs
+    - interpretation_summary
+    - evidence_used
+    - agreement_with_rule_baseline
+    - new_insights
+    - overclaim_warnings
+    - missing_evidence
+    - recommended_action
+    - confidence
+  confidence_values:
+    - low
+    - medium
+    - high
+guardrails:
+  - "evidence_used must be subset of input_refs"
+  - "overclaim_warnings must be explicit even when empty"
+  - "missing_evidence must be explicit even when empty"

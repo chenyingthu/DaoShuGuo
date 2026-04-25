@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.ieee69_restoration_resilience_task_mismatch_20260422_001023
+object_version: 0.1.0
+created_at: '2026-04-22T00:10:23Z'
+updated_at: '2026-04-22T00:10:23Z'
+status: active
+metadata:
+  mismatch_type: task_mismatch
+cognition_type: failure
+statement: 当前 task005 brief 缺失故障恢复定义关键项，应冻结执行并补齐故障与恢复边界。
+evidence_refs:
+- task_mismatch.power.ieee69_restoration_resilience.20260422_001023
+scope_boundary:
+  task: task.power.ieee69_restoration_resilience
+  mode: task_mismatch_check
+confidence_level: medium
+promotion_status: proposed

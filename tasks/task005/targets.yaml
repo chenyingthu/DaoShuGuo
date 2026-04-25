@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+task_ref: "task.power.ieee69_restoration_resilience"
+target_metrics:
+  restored_load_ratio:
+    direction: "higher_is_better"
+    minimum_expectation: "not_worse_than_baseline"
+  unserved_critical_load:
+    direction: "lower_is_better"
+    minimum_expectation: "not_worse_than_baseline"
+  constraint_violation:
+    direction: "constraint_only"
+    minimum_expectation: "no_new_violation"
+  restoration_action_cost_proxy:
+    direction: "lower_is_better"
+    minimum_expectation: "reported"
+claim_limits:
+  - "只支持当前 fault 场景下的局部恢复判断"
+  - "不支持系统普适韧性结论"

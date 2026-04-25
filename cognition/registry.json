@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1.0",
   "registry_type": "cognition_registry",
-  "generated_at": "2026-04-21T06:30:55Z",
+  "generated_at": "2026-04-24T13:41:30Z",
   "cognition": [
     {
       "object_id": "cognition.power.loss_voltage_tradeoff_candidate",
@@ -390,6 +390,286 @@
       "status": "active",
       "source_run_ref": "run.power.ieee69_hosting_capacity.0001",
       "written_at": "2026-04-21T06:30:55Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_restoration_resilience_runtime_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_restoration_resilience_runtime_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0001",
+      "written_at": "2026-04-22T00:09:20Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_restoration_resilience_runtime_failure_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_restoration_resilience_runtime_failure_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0002",
+      "written_at": "2026-04-22T00:09:20Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_restoration_resilience_runtime_failure_0003",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_restoration_resilience_runtime_failure_0003.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0003",
+      "written_at": "2026-04-22T00:09:21Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_restoration_resilience_task_mismatch_20260422_001023",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_restoration_resilience_task_mismatch_20260422_001023.yaml",
+      "status": "active",
+      "source_run_ref": "task_mismatch.power.ieee69_restoration_resilience.20260422_001023",
+      "written_at": "2026-04-22T00:10:23Z"
+    },
+    {
+      "object_id": "cognition.power.strategy_comparison_ieee69_restoration_resilience_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/strategy_comparison_ieee69_restoration_resilience_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0001",
+      "written_at": "2026-04-22T00:25:12Z"
+    },
+    {
+      "object_id": "cognition.power.strategy_comparison_ieee69_restoration_resilience_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/strategy_comparison_ieee69_restoration_resilience_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0001",
+      "written_at": "2026-04-22T00:25:12Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_restoration_resilience_0001",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_restoration_resilience_0001.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0001",
+      "written_at": "2026-04-22T00:25:29Z"
+    },
+    {
+      "object_id": "cognition.power.upgraded_ieee69_restoration_resilience_0002",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/upgraded_ieee69_restoration_resilience_0002.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0001",
+      "written_at": "2026-04-22T00:25:29Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_restoration_resilience_runtime_0004",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_restoration_resilience_runtime_0004.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0004",
+      "written_at": "2026-04-22T01:21:35Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_restoration_resilience_runtime_failure_0005",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_restoration_resilience_runtime_failure_0005.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0005",
+      "written_at": "2026-04-22T01:21:35Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_restoration_resilience_runtime_failure_0006",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_restoration_resilience_runtime_failure_0006.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_restoration_resilience.0006",
+      "written_at": "2026-04-22T01:21:35Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0005",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0005.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0005",
+      "written_at": "2026-04-22T07:30:30Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0006",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0006.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0006",
+      "written_at": "2026-04-22T07:31:33Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0007",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0007.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0007",
+      "written_at": "2026-04-22T07:33:57Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0008",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0008.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0008",
+      "written_at": "2026-04-22T07:44:04Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0009",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0009.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0009",
+      "written_at": "2026-04-22T07:45:54Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0010",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0010.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0010",
+      "written_at": "2026-04-22T07:47:04Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0011",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0011.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0011",
+      "written_at": "2026-04-22T11:15:19Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0012",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0012.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0012",
+      "written_at": "2026-04-22T11:42:17Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0013",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0013.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0013",
+      "written_at": "2026-04-22T11:47:33Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0014",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0014.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0014",
+      "written_at": "2026-04-22T11:54:38Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0015",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0015.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0015",
+      "written_at": "2026-04-23T00:52:16Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0016",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0016.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0016",
+      "written_at": "2026-04-23T00:57:25Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0017",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0017.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0017",
+      "written_at": "2026-04-23T01:09:15Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_0018",
+      "object_version": "0.1.0",
+      "path": "cognition/cards/ieee69_renewable_reactive_opt_runtime_0018.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0018",
+      "written_at": "2026-04-23T08:36:44Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_runtime_failure_0019",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_renewable_reactive_opt_runtime_failure_0019.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0019",
+      "written_at": "2026-04-23T08:37:43Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0003",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0003.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0003",
+      "written_at": "2026-04-24T04:12:35Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0004",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0004.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0004",
+      "written_at": "2026-04-24T09:05:46Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0005",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0005.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0005",
+      "written_at": "2026-04-24T09:08:15Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0006",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0006.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0006",
+      "written_at": "2026-04-24T12:05:20Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0007",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0007.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0007",
+      "written_at": "2026-04-24T12:06:04Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0008",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0008.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0008",
+      "written_at": "2026-04-24T12:17:47Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0009",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0009.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0009",
+      "written_at": "2026-04-24T13:39:04Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0010",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0010.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0010",
+      "written_at": "2026-04-24T13:40:13Z"
+    },
+    {
+      "object_id": "cognition.power.ieee69_hosting_capacity_runtime_failure_0011",
+      "object_version": "0.1.0",
+      "path": "cognition/failed/ieee69_hosting_capacity_runtime_failure_0011.yaml",
+      "status": "active",
+      "source_run_ref": "run.power.ieee69_hosting_capacity.0011",
+      "written_at": "2026-04-24T13:41:30Z"
     }
   ]
 }

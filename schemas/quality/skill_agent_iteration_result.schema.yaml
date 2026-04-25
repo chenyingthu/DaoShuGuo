@@ -1,0 +1,64 @@
+schema_id: "skill_agent_iteration_result.schema"
+schema_version: "0.1.0"
+object_type: "skill_agent_iteration_result"
+title: "Skill Agent Iteration Result Schema"
+description: "用于记录某一轮 skill agent 实际生成的候选技能结果。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - request_ref
+  - produced_skill_ref
+  - code_paths
+  - change_summary
+  - expected_behavior_change
+  - command
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["skill_agent_iteration_result"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "completed", "failed"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  request_ref:
+    type: string
+  produced_skill_ref:
+    type: string
+  code_paths:
+    type: array[string]
+  change_summary:
+    type: array[string]
+  self_reported_risks:
+    type: array[string]
+    required: false
+  expected_behavior_change:
+    type: array[string]
+  command:
+    type: string
+  raw_output_path:
+    type: string
+    required: false
+

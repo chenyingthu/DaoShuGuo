@@ -1,0 +1,22 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.ieee69_renewable_reactive_opt_runtime_0014
+object_version: 0.1.0
+created_at: '2026-04-22T11:54:40Z'
+updated_at: '2026-04-22T11:54:40Z'
+status: active
+metadata:
+  strategy: inverter-support
+  mismatch_type: ''
+cognition_type: candidate
+statement: 当前 task003 真实运行表明，在单代表工况下，显式利用 PV inverter 无功支撑的 candidate 可相对固定 Q 基线改善网损和电压偏差，且未新增约束违反。
+evidence_refs:
+- run.power.ieee69_renewable_reactive_opt.0014
+scope_boundary:
+  task: task.power.ieee69_renewable_reactive_opt
+  mode: real_inverter-support
+  snapshot: single_representative
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_renewable_reactive_opt.0014
+promotion_status: proposed

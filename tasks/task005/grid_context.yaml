@@ -1,0 +1,10 @@
+schema_version: "0.1.0"
+context_type: "grid_context"
+task_package: "task005"
+base_task_ref: "task.power.ieee69_renewable_reactive_opt"
+network_model: "ieee69_restoration"
+base_network: "tasks/task002/ieee69bus.txt"
+simulator: "pandapower"
+operating_condition: "single_representative_snapshot"
+notes:
+  - "沿用 IEEE69 基础网络，重点变化是 fault 和 restoration 语义。"

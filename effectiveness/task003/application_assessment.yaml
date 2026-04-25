@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "application_assessment"
+object_id: "application.power.task003"
+created_at: "2026-04-22T00:00:00Z"
+status: "reviewed"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+applicable_scenarios:
+  - "单代表工况下的 PV inverter 无功支撑方法验证"
+  - "新能源接入控制对象建模与评估流程验证"
+not_applicable_scenarios:
+  - "长期新能源波动控制"
+  - "工程级多设备协调调度"
+  - "经济性最优调控"
+application_value: "可作为新能源 inverter reactive support 方法原型与研究任务接入案例。"
+limitations:
+  - "单工况"
+  - "简化 inverter Q 控制"
+  - "未覆盖协调控制"

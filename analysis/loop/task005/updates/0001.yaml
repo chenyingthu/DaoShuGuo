@@ -1,0 +1,32 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_restoration_resilience.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: reviewed
+metadata:
+  task_package: task005
+  controller_mode: minimum_viable_loop
+task_ref: task.power.ieee69_restoration_resilience
+source_cognition_ref: cognition.power.upgraded_ieee69_restoration_resilience_0002
+source_event_ref: cognition_event.power.ieee69_restoration_resilience.0001
+next_iteration_skill_constraints:
+- 稳态操作结果不得替代事件驱动恢复主线。
+- 保留语义正确但性能失败的恢复 candidate，作为可继续演化对象。
+next_iteration_evaluator_constraints:
+- 将 critical_load_relevance 纳入 evaluator 主轴。
+- 恢复性能与 restoration admissibility 必须分离评价。
+next_iteration_task_refinements:
+- 下一轮必须补充 fault 拓扑与恢复范围定义。
+- 明确 claim 仅支持当前 fault 场景、动作集合和单工况。
+search_priority_updates:
+- 优先比较不同 fault 拓扑下的恢复行为。
+- 探索带新能源支撑的事件驱动恢复策略，而不是稳态代理。
+blocked_skill_families:
+- steady_state_operation_substitution
+required_discriminating_tests:
+- 补 fault topology 对照。
+- 验证 critical_load_relevance 是否改变 candidate 排序。
+- 确保任务缺关键输入时进入 freeze 而非伪执行。
+summary: task005 的认知层要求下一轮恢复技能工作围绕事件驱动语义、fault 敏感性和关键负荷相关性开展。

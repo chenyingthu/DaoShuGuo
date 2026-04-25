@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+object_type: cognition_event
+object_id: cognition_event.power.ieee69_restoration_resilience.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: active
+metadata:
+  task_package: task005
+  generation_mode: rule_bootstrap
+task_ref: task.power.ieee69_restoration_resilience
+event_type: skill_mismatch_detected
+severity: high
+trigger_summary: task005 故障恢复定义缺失关键输入，不应进入真实执行。
+source_refs:
+- task_mismatch.power.ieee69_restoration_resilience.20260422_001023
+- cognition_upgrade.power.ieee69_restoration_resilience.0002
+- boundary_overclaim.power.ieee69_restoration_resilience.20260422_001023
+evidence_strength: low
+recommended_cognition_action: 冻结缺输入的伪执行路径，同时保留事件驱动恢复方向并要求下一轮补 fault-sensitive 判别试验。

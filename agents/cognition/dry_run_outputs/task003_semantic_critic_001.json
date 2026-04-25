@@ -1,0 +1,18 @@
+{
+  "job_id": "task003_semantic_critic_001",
+  "agent_role": "semantic_critic",
+  "input_refs": [
+    "analysis/task003/compare_0001/strategy_comparison.yaml",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml",
+    "runs/task003/run_0001/run.yaml",
+    "runs/task003/run_0003/run.yaml"
+  ],
+  "interpretation_summary": "dry-run only; no LLM response generated",
+  "evidence_used": [],
+  "agreement_with_rule_baseline": "not_evaluated",
+  "new_insights": [],
+  "overclaim_warnings": [],
+  "missing_evidence": [],
+  "recommended_action": "run_with_llm",
+  "confidence": "low"
+}

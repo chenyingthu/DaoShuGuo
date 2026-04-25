@@ -1,0 +1,20 @@
+{
+  "job_id": "task003_semantic_adjudicator_001",
+  "agent_role": "semantic_adjudicator",
+  "input_refs": [
+    "analysis/task003/compare_0001/strategy_comparison.yaml",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml",
+    "runs/task003/run_0001/run.yaml",
+    "runs/task003/run_0003/run.yaml"
+  ],
+  "strongest_supported_claim": "dry-run only",
+  "strongest_unsupported_claim": "",
+  "alternative_interpretation": "",
+  "discriminating_missing_evidence": [],
+  "agreement_with_rule_baseline": "not_evaluated",
+  "new_insights": [],
+  "overclaim_warnings": [],
+  "evidence_used": [],
+  "recommended_action": "run_with_llm",
+  "confidence": "low"
+}

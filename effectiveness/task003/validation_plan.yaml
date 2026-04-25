@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+object_type: "validation_plan"
+object_id: "validation.power.task003.validation_plan"
+created_at: "2026-04-22T00:00:00Z"
+status: "reviewed"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+covered_dimensions:
+  - "baseline coverage"
+  - "candidate coverage"
+  - "failure coverage"
+  - "literature support"
+  - "explanation support"
+missing_dimensions:
+  - "multi-scenario renewable variation"
+  - "shunt + inverter coordinated candidate"
+  - "engineering cost validation"
+blocking_for:
+  paper_candidate:
+    - "multi-scenario renewable variation"
+  patent_candidate: []
+  internal_report_ready: []
+summary: "task003 已具备内部报告和方法线索交付条件，但尚不足以支撑完整论文级结论。"

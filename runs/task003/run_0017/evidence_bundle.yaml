@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: evidence_bundle
+object_id: evidence.power.ieee69_renewable_reactive_opt.0017
+object_version: 0.1.0
+created_at: '2026-04-23T01:09:15Z'
+updated_at: '2026-04-23T01:09:15Z'
+status: active
+metadata:
+  mismatch_type: ''
+task_ref: task.power.ieee69_renewable_reactive_opt
+evaluator_ref: evaluator.power.ieee69_renewable_reactive_opt.default
+run_refs:
+- run.power.ieee69_renewable_reactive_opt.0017
+artifact_refs:
+- kind: run
+  path: runs/task003/run_0017/run.yaml
+- kind: metrics
+  path: runs/task003/run_0017/metrics.json
+claim_scope:
+  supported_claims:
+  - 当前新能源接入单代表工况下的阶段性结论
+skill_refs:
+- skill.power.renewable_inverter_reactive_optimizer_task003
+cognition_refs:
+- cognition.power.ieee69_renewable_reactive_opt_runtime_0017
+gaps:
+- 未覆盖时序波动
+- 未覆盖经济代价
+taste_assessment_ref: taste.power.ieee69_renewable_reactive_opt.0017
+report_refs:
+- report.power.ieee69_renewable_reactive_opt.note_0017

@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: evidence_bundle
+object_id: evidence.power.ieee69_hosting_capacity.0009
+object_version: 0.1.0
+created_at: '2026-04-24T13:39:04Z'
+updated_at: '2026-04-24T13:39:04Z'
+status: active
+metadata:
+  mismatch_type: ''
+task_ref: task.power.ieee69_hosting_capacity
+evaluator_ref: evaluator.power.ieee69_hosting_capacity.default
+run_refs:
+- run.power.ieee69_hosting_capacity.0009
+artifact_refs:
+- kind: run
+  path: runs/task004/run_0009/run.yaml
+- kind: metrics
+  path: runs/task004/run_0009/metrics.json
+claim_scope:
+  supported_claims:
+  - 当前扫描包络内、给定控制策略下的静态承载力边界
+skill_refs:
+- skill.power.renewable_capacity_optimizer_task004
+cognition_refs:
+- cognition.power.ieee69_hosting_capacity_runtime_failure_0009
+gaps:
+- 未覆盖系统真实极限承载力
+- 未覆盖长期时序 hosting capacity
+taste_assessment_ref: taste.power.ieee69_hosting_capacity.0009
+report_refs:
+- report.power.ieee69_hosting_capacity.memo_0009

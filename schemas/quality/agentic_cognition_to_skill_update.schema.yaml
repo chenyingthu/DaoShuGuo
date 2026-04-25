@@ -1,0 +1,74 @@
+schema_id: "agentic_cognition_to_skill_update.schema"
+schema_version: "0.1.0"
+object_type: "agentic_cognition_to_skill_update"
+title: "Agentic Cognition To Skill Update Schema"
+description: "用于表达真实 cognition workflow 产出的下一轮技能约束更新。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - iteration_index
+  - source_event_ref
+  - source_run_refs
+  - source_workflow_output_refs
+  - next_iteration_skill_constraints
+  - search_priority_updates
+  - blocked_skill_families
+  - required_discriminating_tests
+  - summary
+  - confidence
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["agentic_cognition_to_skill_update"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  iteration_index:
+    type: integer
+  source_event_ref:
+    type: string
+  source_run_refs:
+    type: array[string]
+  source_workflow_output_refs:
+    type: array[string]
+  next_iteration_skill_constraints:
+    type: array[string]
+  next_iteration_evaluator_constraints:
+    type: array[string]
+    required: false
+  search_priority_updates:
+    type: array[string]
+  blocked_skill_families:
+    type: array[string]
+  required_discriminating_tests:
+    type: array[string]
+  summary:
+    type: string
+  confidence:
+    type: enum
+    allowed: ["low", "medium", "high"]
+

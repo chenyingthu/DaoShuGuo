@@ -1,0 +1,10 @@
+{
+  "task": "task003",
+  "generated_at": "2026-04-22T07:43:48Z",
+  "artifacts": {
+    "event": "analysis/loop/task003/events/0001.yaml",
+    "update": "analysis/loop/task003/updates/0001.yaml",
+    "iteration_plan": "analysis/loop/task003/plans/0001.yaml",
+    "loop_review": "analysis/loop/task003/reviews/0001.yaml"
+  }
+}

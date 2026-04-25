@@ -1,0 +1,22 @@
+{
+  "iteration": 3,
+  "run_ref": "run.power.ieee69_hosting_capacity.0011",
+  "candidate_q_step_mvar": 0.3,
+  "hosting_capacity_improved_vs_baseline": false,
+  "loss_improved_vs_baseline": true,
+  "voltage_margin_improved_vs_baseline": true,
+  "candidate_hosting_capacity_level": 3.0,
+  "candidate_loss_at_boundary": 101.48162202967931,
+  "candidate_voltage_margin": 0.03112809278854467,
+  "baseline_hosting_capacity_level": 3.0,
+  "run_passed": false,
+  "evaluation_summary": "candidate did not improve hosting-capacity boundary",
+  "delta_vs_prior": {
+    "candidate_q_step_mvar": 0.09999999999999998,
+    "hosting_capacity_level": 0.0,
+    "loss_at_boundary": -8.683418982019333,
+    "voltage_margin": 0.0019780067558582415
+  },
+  "progress_type": "parameter_change_no_boundary_gain",
+  "improvement_judgment": "This round changed the skill parameter but still did not improve hosting-capacity boundary."
+}

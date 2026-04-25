@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from datetime import datetime, timezone
 from importlib.util import module_from_spec, spec_from_file_location
@@ -21,20 +22,24 @@ TASK_DIR = REPO_ROOT / "tasks" / "task001"
 TASK002_DIR = REPO_ROOT / "tasks" / "task002"
 TASK003_DIR = REPO_ROOT / "tasks" / "task003"
 TASK004_DIR = REPO_ROOT / "tasks" / "task004"
+TASK005_DIR = REPO_ROOT / "tasks" / "task005"
 RUNS_DIR = REPO_ROOT / "runs" / "task001"
 RUNS_TASK002_DIR = REPO_ROOT / "runs" / "task002"
 RUNS_TASK003_DIR = REPO_ROOT / "runs" / "task003"
 RUNS_TASK004_DIR = REPO_ROOT / "runs" / "task004"
+RUNS_TASK005_DIR = REPO_ROOT / "runs" / "task005"
 ANALYSIS_DIR = REPO_ROOT / "analysis" / "task001"
 ANALYSIS_TASK002_DIR = REPO_ROOT / "analysis" / "task002"
 ANALYSIS_TASK003_DIR = REPO_ROOT / "analysis" / "task003"
 ANALYSIS_TASK004_DIR = REPO_ROOT / "analysis" / "task004"
+ANALYSIS_TASK005_DIR = REPO_ROOT / "analysis" / "task005"
 LITERATURE_DIR = REPO_ROOT / "literature"
 VALIDATOR_PATH = REPO_ROOT / "scripts" / "validate_schemas.py"
 EVALUATOR_MODULE_PATH = REPO_ROOT / "evaluators" / "task001_evaluator.py"
 TASK002_EVALUATOR_MODULE_PATH = REPO_ROOT / "evaluators" / "task002_evaluator.py"
 TASK003_EVALUATOR_MODULE_PATH = REPO_ROOT / "evaluators" / "task003_evaluator.py"
 TASK004_EVALUATOR_MODULE_PATH = REPO_ROOT / "evaluators" / "task004_evaluator.py"
+TASK005_EVALUATOR_MODULE_PATH = REPO_ROOT / "evaluators" / "task005_evaluator.py"
 BASELINE_SOLVER_PATH = REPO_ROOT / "skills" / "validated" / "baseline_solver.py"
 VALIDATED_SOLVER_PATH = REPO_ROOT / "skills" / "validated" / "reactive_optimizer.py"
 EXPERIMENTAL_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "reactive_optimizer_candidate.py"
@@ -47,6 +52,10 @@ TASK003_WEAK_SHUNT_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "weak_bus
 TASK004_BASELINE_SOLVER_PATH = REPO_ROOT / "skills" / "validated" / "baseline_solver_task004.py"
 TASK004_CANDIDATE_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "renewable_capacity_optimizer_task004.py"
 TASK004_MISMATCH_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "single_point_capacity_mismatch_task004.py"
+TASK005_BASELINE_SOLVER_PATH = REPO_ROOT / "skills" / "validated" / "baseline_solver_task005.py"
+TASK005_CANDIDATE_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "renewable_restoration_candidate_task005.py"
+TASK005_MISMATCH_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "steady_state_restoration_mismatch_task005.py"
+TASK005_PERF_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "renewable_underperformer_task005.py"
 SKILL_REGISTRY_PATH = REPO_ROOT / "skills" / "registry.json"
 COGNITION_REGISTRY_PATH = REPO_ROOT / "cognition" / "registry.json"
 COGNITION_CARDS_DIR = REPO_ROOT / "cognition" / "cards"
@@ -85,6 +94,14 @@ TASK_RUN_CONTEXTS = {
         "case_label": "IEEE69 hosting capacity screening",
         "evaluator_path": REPO_ROOT / "evaluators" / "task004_evaluator.yaml",
     },
+    "task005": {
+        "task_dir": TASK005_DIR,
+        "runs_dir": RUNS_TASK005_DIR,
+        "analysis_dir": ANALYSIS_TASK005_DIR,
+        "problem_name": "ieee69_restoration_resilience",
+        "case_label": "IEEE69 single fault restoration",
+        "evaluator_path": REPO_ROOT / "evaluators" / "task005_evaluator.yaml",
+    },
 }
 
 
@@ -93,7 +110,13 @@ TASK_REF_TO_PACKAGE = {
     "task.power.ieee69_reactive_opt": "task002",
     "task.power.ieee69_renewable_reactive_opt": "task003",
     "task.power.ieee69_hosting_capacity": "task004",
+    "task.power.ieee69_restoration_resilience": "task005",
 }
+
+SKILL_COGNITION_LOOP_BUILDER = REPO_ROOT / "scripts" / "build_skill_cognition_loop.py"
+SKILL_COGNITION_LOOP_VERIFIER = REPO_ROOT / "scripts" / "verify_skill_cognition_loop.py"
+REAL_AGENTIC_LOOP_RUNNER = REPO_ROOT / "scripts" / "run_real_agentic_loop.py"
+REAL_AGENTIC_LOOP_VERIFIER = REPO_ROOT / "scripts" / "verify_real_agentic_loop.py"
 
 
 def utc_now() -> str:
@@ -129,6 +152,23 @@ def write_json(path: Path, data: dict[str, Any]) -> None:
 
 def object_tail(object_id: str) -> str:
     return object_id.split(".")[-1]
+
+
+def run_python_script(script: Path, *args: str) -> None:
+    result = subprocess.run(
+        ["python", str(script), *args],
+        cwd=REPO_ROOT,
+        text=True,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        if result.stdout:
+            print(result.stdout)
+        if result.stderr:
+            print(result.stderr, file=sys.stderr)
+        raise RuntimeError(f"command failed: python {script.relative_to(REPO_ROOT)} {' '.join(args)}")
+    if result.stdout.strip():
+        print(result.stdout.strip())
 
 
 def update_skill_registry(
@@ -318,6 +358,9 @@ def skill_version_for_id(skill_id: str) -> str:
         "skill.power.renewable_inverter_underperformer_task003": "0.1.0",
         "skill.power.renewable_capacity_optimizer_task004": "0.1.0",
         "skill.power.single_point_capacity_mismatch_task004": "0.1.0",
+        "skill.power.renewable_restoration_candidate_task005": "0.1.0",
+        "skill.power.steady_state_restoration_mismatch_task005": "0.1.0",
+        "skill.power.renewable_underperformer_task005": "0.1.0",
     }
     return versions.get(skill_id, "0.1.0")
 
@@ -444,6 +487,10 @@ def load_task003_real_inputs() -> tuple[dict[str, Any], dict[str, Any], dict[str
 
 def load_task004_real_inputs() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
     return load_real_inputs_for_task("task004")
+
+
+def load_task005_real_inputs() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
+    return load_real_inputs_for_task("task005")
 
 
 def build_run_artifacts(
@@ -685,6 +732,8 @@ def serial_from_run_id(run_id: str) -> str:
 
 
 def run_dir_from_id(run_id: str) -> Path:
+    if ".ieee69_restoration_resilience." in run_id:
+        return RUNS_TASK005_DIR / f"run_{serial_from_run_id(run_id)}"
     if ".ieee69_hosting_capacity." in run_id:
         return RUNS_TASK004_DIR / f"run_{serial_from_run_id(run_id)}"
     if ".ieee69_renewable_reactive_opt." in run_id:
@@ -702,6 +751,8 @@ def task_package_from_ref(task_ref: str) -> str:
 
 
 def task_package_from_run_id(run_id: str) -> str:
+    if ".ieee69_restoration_resilience." in run_id:
+        return "task005"
     if ".ieee69_hosting_capacity." in run_id:
         return "task004"
     if ".ieee69_renewable_reactive_opt." in run_id:
@@ -730,6 +781,8 @@ def case_label_from_task_ref(task_ref: str) -> str:
 
 
 def objective_for_task(task_ref: str, metrics: dict[str, float]) -> float:
+    if task_package_from_ref(task_ref) == "task005":
+        return -1000.0 * float(metrics["restored_load_ratio"]) + 500.0 * float(metrics["unserved_critical_load"])
     if task_package_from_ref(task_ref) == "task004":
         # task004 compares hosting-capacity level first, then supporting boundary metrics
         return float(metrics["hosting_capacity_level"]) * -1000.0 + float(metrics["loss_at_boundary"])
@@ -1628,6 +1681,13 @@ def strategy_semantic_profile(
             skill_id=skill_id,
             control_settings=control_settings,
         )
+    if run_obj.get("task_ref") == "task.power.ieee69_restoration_resilience":
+        return semantic_profile_for_task005(
+            run_obj=run_obj,
+            metrics_payload=metrics_payload,
+            skill_id=skill_id,
+            control_settings=control_settings,
+        )
     if run_obj.get("task_ref") == "task.power.ieee69_renewable_reactive_opt":
         return semantic_profile_for_task003(
             run_obj=run_obj,
@@ -1788,6 +1848,77 @@ def semantic_profile_for_task004(
     }
 
 
+def semantic_profile_for_task005(
+    *,
+    run_obj: dict[str, Any],
+    metrics_payload: dict[str, Any],
+    skill_id: str,
+    control_settings: dict[str, Any],
+) -> dict[str, Any]:
+    trigger = str(run_obj.get("trigger_reason", ""))
+    performance_status = "successful" if run_obj.get("run_status") == "completed" else "failed"
+    if trigger == "real_steady-state-mismatch":
+        performance_status = "mismatch"
+    if skill_id == "skill.power.renewable_restoration_candidate_task005":
+        return {
+            "skill_id": skill_id,
+            "problem_alignment": "high",
+            "research_value": "high",
+            "control_realism": "high",
+            "reuse_potential": "high",
+            "method_family": "renewable_restoration_support",
+            "control_signature": "restoration_support",
+            "resilience_awareness": "high",
+            "restoration_scope_match": "high",
+            "performance_status": performance_status,
+            "notes": [
+                f"strategy={control_settings.get('strategy')}",
+                f"restored_load_ratio={metrics_payload['candidate_solution']['metrics'].get('restored_load_ratio')}",
+            ],
+        }
+    if skill_id == "skill.power.steady_state_restoration_mismatch_task005":
+        return {
+            "skill_id": skill_id,
+            "problem_alignment": "medium",
+            "research_value": "medium",
+            "control_realism": "low",
+            "reuse_potential": "low",
+            "method_family": "steady_state_operating_adjustment",
+            "control_signature": "steady_state_result",
+            "resilience_awareness": "low",
+            "restoration_scope_match": "low",
+            "performance_status": performance_status,
+            "notes": ["单点稳态结果不能替代恢复决策语义"],
+        }
+    if skill_id == "skill.power.renewable_underperformer_task005":
+        return {
+            "skill_id": skill_id,
+            "problem_alignment": "high",
+            "research_value": "medium",
+            "control_realism": "medium",
+            "reuse_potential": "medium",
+            "method_family": "renewable_restoration_support",
+            "control_signature": "restoration_support",
+            "resilience_awareness": "high",
+            "restoration_scope_match": "high",
+            "performance_status": performance_status,
+            "notes": ["语义正确但恢复结果未优于 baseline"],
+        }
+    return {
+        "skill_id": skill_id,
+        "problem_alignment": "low",
+        "research_value": "low",
+        "control_realism": "low",
+        "reuse_potential": "low",
+        "method_family": "unknown",
+        "control_signature": "unknown",
+        "resilience_awareness": "low",
+        "restoration_scope_match": "low",
+        "performance_status": performance_status,
+        "notes": [],
+    }
+
+
 def semantic_profile_for_skill(*, skill_id: str, control_settings: dict[str, Any]) -> dict[str, Any]:
     if skill_id in {"skill.power.weak_bus_shunt_optimizer", "skill.power.weak_bus_shunt_optimizer_task002"}:
         return {
@@ -1943,6 +2074,36 @@ def compare_strategy_semantics(left_run_id: str, right_run_id: str) -> Path:
                 else "different"
             ),
         }
+    if task_ref == "task.power.ieee69_restoration_resilience":
+        dimensions["resilience_awareness"] = {
+            "left": left_profile["resilience_awareness"],
+            "right": right_profile["resilience_awareness"],
+            "winner": compare_scale_dimension(left_profile["resilience_awareness"], right_profile["resilience_awareness"]),
+        }
+        dimensions["restoration_scope_match"] = {
+            "left": left_profile["restoration_scope_match"],
+            "right": right_profile["restoration_scope_match"],
+            "winner": compare_scale_dimension(left_profile["restoration_scope_match"], right_profile["restoration_scope_match"]),
+        }
+        dimensions["critical_load_relevance"] = {
+            "left": "high" if left_profile["problem_alignment"] == "high" else "medium",
+            "right": "high" if right_profile["problem_alignment"] == "high" else "medium",
+            "winner": compare_scale_dimension(
+                "high" if left_profile["problem_alignment"] == "high" else "medium",
+                "high" if right_profile["problem_alignment"] == "high" else "medium",
+            ),
+        }
+        dimensions["performance_status"] = {
+            "left": left_profile["performance_status"],
+            "right": right_profile["performance_status"],
+            "winner": (
+                "left"
+                if left_profile["performance_status"] == "successful" and right_profile["performance_status"] != "successful"
+                else "right"
+                if right_profile["performance_status"] == "successful" and left_profile["performance_status"] != "successful"
+                else "different"
+            ),
+        }
 
     preferred_for_research = (
         left_run_id
@@ -1973,6 +2134,8 @@ def compare_strategy_semantics(left_run_id: str, right_run_id: str) -> Path:
                 if task_ref == "task.power.ieee69_renewable_reactive_opt"
                 else "task004 语义比较完成：已显式区分边界扫描候选与单点结果失配。"
                 if task_ref == "task.power.ieee69_hosting_capacity"
+                else "task005 语义比较完成：已显式区分恢复候选与稳态结果失配。"
+                if task_ref == "task.power.ieee69_restoration_resilience"
                 else f"语义比较完成：{left_profile['skill_id']} 与 {right_profile['skill_id']} 在研究语义层面存在显著差异。"
             )
         ),
@@ -2864,7 +3027,7 @@ def check_task004_mismatch(source_dir: Path | None = None) -> Path:
     return output_dir
 
 
-def run_real_task004(strategy: str) -> Path:
+def run_real_task004(strategy: str, candidate_q_step_mvar: float | None = None) -> Path:
     ensure_valid_schemas()
     evaluator_module = load_module("task004_evaluator", TASK004_EVALUATOR_MODULE_PATH)
     task, baseline, evaluator, constraints = load_task004_real_inputs()
@@ -2888,7 +3051,9 @@ def run_real_task004(strategy: str) -> Path:
     run_dir = RUNS_TASK004_DIR / f"run_{serial}"
     run_dir.mkdir(parents=True, exist_ok=False)
     now = utc_now()
-    constraint_set = constraints["solver"]
+    constraint_set = dict(constraints["solver"])
+    if candidate_q_step_mvar is not None:
+        constraint_set["candidate_q_step_mvar"] = float(candidate_q_step_mvar)
     network_model = str(constraint_set.get("network_model", "ieee69_hosting_capacity"))
     baseline_raw = baseline_solver.solve(network_model, constraint_set)
     candidate_raw = candidate_solver.solve(network_model, constraint_set)
@@ -2920,7 +3085,11 @@ def run_real_task004(strategy: str) -> Path:
         "created_at": now,
         "updated_at": now,
         "status": "archived",
-        "metadata": {"boundary_type": "control_strategy_conditioned_static_capacity", "mismatch_type": mismatch_type or ""},
+        "metadata": {
+            "boundary_type": "control_strategy_conditioned_static_capacity",
+            "mismatch_type": mismatch_type or "",
+            "candidate_q_step_mvar": constraint_set.get("candidate_q_step_mvar"),
+        },
         "title": f"task004 real {strategy} run {serial}",
         "task_ref": task["object_id"],
         "evaluator_ref": evaluator["object_id"],
@@ -3081,6 +3250,381 @@ def run_real_task004(strategy: str) -> Path:
     return run_dir
 
 
+def run_real_task005(strategy: str) -> Path:
+    evaluator_module = load_module("task005_evaluator", TASK005_EVALUATOR_MODULE_PATH)
+    task, baseline, evaluator, constraints = load_task005_real_inputs()
+    baseline_solver = load_solver_from_artifact(
+        "task005_baseline_solver",
+        baseline.get("artifact_ref", {}),
+        TASK005_BASELINE_SOLVER_PATH,
+    )
+    if strategy == "renewable-restoration":
+        candidate_skill_id = "skill.power.renewable_restoration_candidate_task005"
+        solver_path = TASK005_CANDIDATE_SOLVER_PATH
+        mismatch_type = None
+    elif strategy == "steady-state-mismatch":
+        candidate_skill_id = "skill.power.steady_state_restoration_mismatch_task005"
+        solver_path = TASK005_MISMATCH_SOLVER_PATH
+        mismatch_type = "skill_mismatch"
+    elif strategy == "renewable-underperformer":
+        candidate_skill_id = "skill.power.renewable_underperformer_task005"
+        solver_path = TASK005_PERF_SOLVER_PATH
+        mismatch_type = "performance_failure"
+    else:
+        raise ValueError(f"unsupported task005 strategy: {strategy}")
+    candidate_solver = load_module("task005_candidate_solver", solver_path)
+    serial = next_run_serial_for_dir(RUNS_TASK005_DIR)
+    run_dir = RUNS_TASK005_DIR / f"run_{serial}"
+    run_dir.mkdir(parents=True, exist_ok=False)
+    now = utc_now()
+    constraint_set = constraints["solver"]
+    baseline_raw = baseline_solver.solve("ieee69_restoration", constraint_set)
+    candidate_raw = candidate_solver.solve("ieee69_restoration", constraint_set)
+    baseline_solution = {"control_settings": baseline_raw["control_settings"], "metrics": baseline_raw["baseline_solution"]}
+    candidate_solution = {"control_settings": candidate_raw["control_settings"], "metrics": candidate_raw["reactive_power_settings"]}
+    evaluation = evaluator_module.evaluate_real_solution(baseline_solution, candidate_solution)
+    effective_passed = bool(evaluation["passed"]) and mismatch_type is None
+
+    run_id = f"run.power.ieee69_restoration_resilience.{serial}"
+    grade = grade_from_result(effective_passed)
+    report_type = report_type_from_grade(grade)
+    taste_id = f"taste.power.ieee69_restoration_resilience.{serial}"
+    evidence_id = f"evidence.power.ieee69_restoration_resilience.{serial}"
+    trace_id = f"agent_trace.power.ieee69_restoration_resilience.{serial}"
+    prompt_obs_id = f"prompt_observation.power.ieee69_restoration_resilience.{serial}"
+    report_id = f"report.power.ieee69_restoration_resilience.{'note' if effective_passed else 'memo'}_{serial}"
+    cognition = build_task005_cognition(
+        passed=effective_passed,
+        serial=serial,
+        run_id=run_id,
+        strategy=strategy,
+        mismatch_type=mismatch_type,
+    )
+    run_object = {
+        "schema_version": "0.1.0",
+        "object_type": "run",
+        "object_id": run_id,
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "archived",
+        "metadata": {"mismatch_type": mismatch_type or ""},
+        "title": f"task005 real {strategy} run {serial}",
+        "task_ref": task["object_id"],
+        "evaluator_ref": evaluator["object_id"],
+        "run_status": "completed" if effective_passed else "failed_experiment",
+        "started_at": now,
+        "ended_at": now,
+        "attempt_index": int(serial),
+        "trigger_reason": f"real_{strategy}",
+        "input_snapshot": {
+            "task": {"object_id": task["object_id"], "object_version": task["object_version"]},
+            "evaluator": {"object_id": evaluator["object_id"], "object_version": evaluator["object_version"]},
+        },
+        "skill_refs": {
+            "used": [{"object_id": "skill.power.baseline_solver", "object_version": "0.1.0"}],
+            "produced": [{"object_id": candidate_skill_id, "object_version": skill_version_for_id(candidate_skill_id)}],
+        },
+        "result_summary": {
+            "metrics": evaluation["candidate_solution"]["metrics"],
+            "baseline_comparison": "improved" if evaluation["passed"] else "worse",
+            "notes": evaluation["summary"],
+        },
+        "artifact_refs": [{"kind": "metrics", "path": str(run_dir.relative_to(REPO_ROOT) / "metrics.json")}],
+        "agent_trace_refs": [{"kind": "trace", "object_id": trace_id}],
+    }
+    if not effective_passed:
+        run_object["failure_summary"] = (
+            "skill mismatch: steady-state result cannot substitute event-driven restoration"
+            if mismatch_type == "skill_mismatch"
+            else "candidate did not improve restoration result"
+        )
+    evidence = {
+        "schema_version": "0.1.0",
+        "object_type": "evidence_bundle",
+        "object_id": evidence_id,
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "active",
+        "metadata": {"mismatch_type": mismatch_type or ""},
+        "task_ref": task["object_id"],
+        "evaluator_ref": evaluator["object_id"],
+        "run_refs": [run_id],
+        "artifact_refs": [
+            {"kind": "run", "path": str(run_dir.relative_to(REPO_ROOT) / "run.yaml")},
+            {"kind": "metrics", "path": str(run_dir.relative_to(REPO_ROOT) / "metrics.json")},
+        ],
+        "claim_scope": {"supported_claims": ["当前 fault 场景和动作集合下的局部恢复结果"]},
+        "skill_refs": [candidate_skill_id],
+        "cognition_refs": [cognition["object_id"]],
+        "gaps": ["未覆盖多故障", "未覆盖时序恢复"],
+        "taste_assessment_ref": taste_id,
+        "report_refs": [report_id],
+    }
+    taste = {
+        "schema_version": "0.1.0",
+        "object_type": "taste_assessment",
+        "object_id": taste_id,
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "reviewed",
+        "metadata": {"mismatch_type": mismatch_type or ""},
+        "task_ref": task["object_id"],
+        "run_refs": [run_id],
+        "grade": grade,
+        "grade_reasoning": (
+            "task005 candidate 在当前 fault 场景下提高了恢复结果。"
+            if effective_passed
+            else "task005 当前结果只适合作为失败、边界或恢复线索材料。"
+        ),
+        "claim_ceiling": (
+            "只能报告当前 fault 场景与动作集合下的恢复结果变化。"
+            if effective_passed
+            else "只能报告当前 fault 场景下的局部恢复结果，不得写成系统普适韧性结论。"
+        ),
+        "recommended_report_type": report_type,
+        "evidence_refs": [evidence_id],
+        "review_status": "reviewed",
+    }
+    prompt_observation = {
+        "schema_version": "0.1.0",
+        "object_type": "prompt_observation",
+        "object_id": prompt_obs_id,
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "active",
+        "metadata": {"mismatch_type": mismatch_type or ""},
+        "task_ref": task["object_id"],
+        "run_ref": run_id,
+        "observation_kind": "quality_improvement" if effective_passed else "process_drift",
+        "statement": "task005 当前恢复结论被限制在 fault 场景与动作集合条件内。",
+        "severity": "medium",
+        "suggested_action": "继续控制 resilience overclaim。",
+    }
+    agent_trace = {
+        "schema_version": "0.1.0",
+        "object_type": "agent_trace",
+        "object_id": trace_id,
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "active",
+        "metadata": {"mismatch_type": mismatch_type or ""},
+        "task_ref": task["object_id"],
+        "run_ref": run_id,
+        "agent_role": "orchestrator",
+        "trace_summary": "系统完成 task005 单故障恢复结果评估、分级、证据组织和报告写回。",
+        "event_count": 7,
+        "prompt_observation_refs": [prompt_obs_id],
+        "notable_behaviors": [
+            "以恢复结果而非稳态最优为核心",
+            "显式记录关键负荷未恢复量",
+            "继续受 taste_assessment 约束",
+        ],
+    }
+    report = {
+        "schema_version": "0.1.0",
+        "object_type": "report",
+        "object_id": report_id,
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "reviewed",
+        "metadata": {"mismatch_type": mismatch_type or ""},
+        "task_ref": task["object_id"],
+        "report_type": report_type,
+        "title": f"task005 real {strategy} report {serial}",
+        "summary": (
+            "task005 candidate 在当前 fault 场景下改善了局部恢复结果。"
+            if effective_passed
+            else "task005 当前结果未改善恢复结果，应作为失败或边界材料归档。"
+        ),
+        "evidence_bundle_refs": [evidence_id],
+        "taste_assessment_ref": taste_id,
+        "audience": "internal_team",
+        "boundary_statement": "本报告仅对应当前单故障单工况与动作集合下的局部恢复结果，不构成系统普适韧性结论。",
+        "failure_summary": run_object.get("failure_summary"),
+        "next_steps": ["增加 resilience overclaim checker", "增加更丰富恢复动作"],
+        "claim_summary": [taste["claim_ceiling"]],
+    }
+    write_run_outputs(
+        run_dir,
+        run_object,
+        cognition,
+        taste,
+        evidence,
+        agent_trace,
+        prompt_observation,
+        report,
+        {"baseline_solution": baseline_solution, "candidate_solution": candidate_solution, "evaluation": evaluation},
+        now,
+    )
+    return run_dir
+
+
+def verify_task005_pipeline() -> None:
+    required_paths = [
+        TASK005_DIR / "research_brief.md",
+        TASK005_DIR / "fault_context.yaml",
+        TASK005_DIR / "restoration_scope.yaml",
+        TASK005_DIR / "task.yaml",
+        TASK005_DIR / "constraints.yaml",
+        TASK005_DIR / "baseline.yaml",
+        REPO_ROOT / "evaluators" / "task005_evaluator.py",
+        REPO_ROOT / "evaluators" / "task005_evaluator.yaml",
+        TASK005_BASELINE_SOLVER_PATH,
+        TASK005_CANDIDATE_SOLVER_PATH,
+    ]
+    missing = [str(path.relative_to(REPO_ROOT)) for path in required_paths if not path.exists()]
+    if missing:
+        raise RuntimeError(f"missing required task005 paths: {missing}")
+    latest = latest_nonempty_dir(RUNS_TASK005_DIR, "run_*")
+    run_obj = load_yaml(latest / "run.yaml")
+    if run_obj.get("task_ref") != "task.power.ieee69_restoration_resilience":
+        raise RuntimeError("task005 run has wrong task_ref")
+    metrics = load_json(latest / "metrics.json")
+    if "restored_load_ratio" not in metrics.get("candidate_solution", {}).get("metrics", {}):
+        raise RuntimeError("task005 metrics missing restored_load_ratio")
+
+
+def verify_task005_failure_path() -> None:
+    latest = None
+    for run_dir in sorted(RUNS_TASK005_DIR.glob("run_*"), reverse=True):
+        if not run_dir.is_dir() or not any(run_dir.iterdir()):
+            continue
+        run_obj = load_yaml(run_dir / "run.yaml")
+        if run_obj.get("trigger_reason") == "real_steady-state-mismatch":
+            latest = run_dir
+            break
+    if latest is None:
+        raise RuntimeError("no task005 skill mismatch run found")
+    run_obj = load_yaml(latest / "run.yaml")
+    cognition = load_yaml(latest / "cognition.yaml")
+    if run_obj.get("run_status") != "failed_experiment":
+        raise RuntimeError("task005 mismatch run is not failed_experiment")
+    if cognition.get("cognition_type") != "failure":
+        raise RuntimeError("task005 mismatch run did not produce failure cognition")
+
+
+def verify_task005_cognition_stage() -> None:
+    latest_semantic = latest_nonempty_dir(ANALYSIS_TASK005_DIR, "semantic_*")
+    latest_upgrade = latest_nonempty_dir(ANALYSIS_TASK005_DIR, "upgrade_*")
+    semantic = load_yaml(latest_semantic / "strategy_semantic_comparison.yaml")
+    upgrade = load_yaml(latest_upgrade / "cognition_upgrade.yaml")
+    if semantic.get("task_ref") != "task.power.ieee69_restoration_resilience":
+        raise RuntimeError("task005 semantic comparison has wrong task_ref")
+    dims = semantic.get("semantic_dimensions", {})
+    for key in ["restoration_scope_match", "resilience_awareness", "critical_load_relevance", "performance_status"]:
+        if key not in dims:
+            raise RuntimeError(f"task005 semantic comparison missing {key}")
+    if upgrade.get("task_ref") != "task.power.ieee69_restoration_resilience":
+        raise RuntimeError("task005 cognition upgrade has wrong task_ref")
+
+
+def upgrade_task005_cognition(comparison_dir: Path, semantic_dir: Path) -> Path:
+    comparison = load_yaml(comparison_dir / "strategy_comparison.yaml")
+    semantic = load_yaml(semantic_dir / "strategy_semantic_comparison.yaml")
+    task_ref = comparison["task_ref"]
+    analysis_dir = analysis_dir_from_task_ref(task_ref)
+    problem_name = problem_name_from_task_ref(task_ref)
+    upgrade_serial = f"{len(sorted(analysis_dir.glob('upgrade_*'))) + 1:04d}"
+    upgrade_dir = analysis_dir / f"upgrade_{upgrade_serial}"
+    upgrade_dir.mkdir(parents=True, exist_ok=False)
+    now = utc_now()
+    dims = semantic["semantic_dimensions"]
+    right_status = dims.get("performance_status", {}).get("right")
+    scope_winner = dims.get("restoration_scope_match", {}).get("winner")
+
+    if right_status == "mismatch":
+        decision = "upgrade"
+        summary = "故障恢复任务必须显式面向 fault 后动作与恢复路径，稳态局部结果不能替代恢复策略。"
+        statement = "task005 对照表明，稳态局部结果不能替代事件驱动恢复策略。"
+        continue_investment = "prioritize"
+    else:
+        decision = "retain"
+        summary = "语义正确但恢复性能失败的 candidate 不应与 skill mismatch 混同，应保留为可继续演化的恢复方向。"
+        statement = "task005 对照表明，语义正确但性能失败的恢复策略仍应保留为后续可改进方向。"
+        continue_investment = "continue"
+
+    novelty = {
+        "schema_version": "0.1.0",
+        "object_type": "novelty_assessment",
+        "object_id": f"novelty.power.{problem_name}.{upgrade_serial}",
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "reviewed",
+        "metadata": {"mode": "task005_failure_taxonomy"},
+        "task_ref": task_ref,
+        "assessed_object_ref": semantic.get("right_skill_ref", ""),
+        "supporting_refs": [comparison["object_id"], semantic["object_id"]],
+        "novelty_level": "medium",
+        "research_value_level": "high",
+        "continue_investment": continue_investment,
+        "evidence_strength": "low",
+        "summary": summary,
+        "reasons": [
+            f"restoration_scope_match winner={scope_winner}",
+            f"performance_status right={right_status}",
+        ],
+    }
+    upgraded_cognition = {
+        "schema_version": "0.1.0",
+        "object_type": "cognition",
+        "object_id": f"cognition.power.upgraded_{problem_name}_{upgrade_serial}",
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "active",
+        "metadata": {"mode": "task005_restoration_upgrade"},
+        "cognition_type": "candidate",
+        "statement": statement,
+        "evidence_refs": [comparison["object_id"], semantic["object_id"], novelty["object_id"]],
+        "scope_boundary": {"task": task_ref, "mode": "task005_comparative_upgrade"},
+        "confidence_level": "medium",
+        "derived_from_run_refs": [comparison["left_run_ref"], comparison["right_run_ref"]],
+        "promotion_status": "proposed",
+    }
+    upgraded_path = write_cognition_asset_and_registry(upgraded_cognition, run_id=comparison["left_run_ref"], when=now)
+    cognition_upgrade = {
+        "schema_version": "0.1.0",
+        "object_type": "cognition_upgrade",
+        "object_id": f"cognition_upgrade.power.{problem_name}.{upgrade_serial}",
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "reviewed",
+        "metadata": {"mode": "task005_failure_taxonomy"},
+        "task_ref": task_ref,
+        "source_cognition_ref": comparison["cognition_refs"][0],
+        "semantic_comparison_ref": semantic["object_id"],
+        "novelty_assessment_ref": novelty["object_id"],
+        "upgraded_cognition_ref": upgraded_cognition["object_id"],
+        "evidence_strength": "low",
+        "decision": decision,
+        "rationale": summary,
+        "claim_adjustment": "task005 恢复认知只支持当前 fault 场景、动作集合和单工况条件下的局部恢复判断。",
+    }
+    write_yaml(upgrade_dir / "novelty_assessment.yaml", novelty)
+    write_yaml(upgrade_dir / "cognition_upgrade.yaml", cognition_upgrade)
+    write_yaml(upgrade_dir / "upgraded_cognition.yaml", upgraded_cognition)
+    with (upgrade_dir / "writeback.json").open("w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "novelty_assessment": str((upgrade_dir / "novelty_assessment.yaml").relative_to(REPO_ROOT)),
+                "cognition_upgrade": str((upgrade_dir / "cognition_upgrade.yaml").relative_to(REPO_ROOT)),
+                "upgraded_cognition_asset": str(upgraded_path.relative_to(REPO_ROOT)),
+                "cognition_registry": str(COGNITION_REGISTRY_PATH.relative_to(REPO_ROOT)),
+            },
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
+        f.write("\n")
+    return upgrade_dir
 def verify_task004_pipeline() -> None:
     ensure_valid_schemas()
     required_paths = [
@@ -3339,6 +3883,143 @@ def verify_task004_task_mismatch() -> None:
     check = load_yaml(latest / "task_mismatch_check.yaml")
     if check.get("decision") not in {"execute", "freeze"}:
         raise RuntimeError("task004 task mismatch decision invalid")
+
+
+def build_task005_cognition(
+    *,
+    passed: bool,
+    serial: str,
+    run_id: str,
+    strategy: str,
+    mismatch_type: str | None = None,
+) -> dict[str, Any]:
+    now = utc_now()
+    if mismatch_type == "skill_mismatch":
+        statement = "当前 task005 skill-mismatch probe 表明，稳态结果不能直接替代事件驱动恢复策略。"
+    else:
+        statement = (
+            "当前 task005 真实运行表明，candidate 在当前 fault 场景下改善了恢复结果。"
+            if passed
+            else "当前 task005 真实运行表明，candidate 未改善当前 fault 场景下的恢复结果。"
+        )
+    return {
+        "schema_version": "0.1.0",
+        "object_type": "cognition",
+        "object_id": (
+            f"cognition.power.ieee69_restoration_resilience_runtime_{serial}"
+            if passed and mismatch_type is None
+            else f"cognition.power.ieee69_restoration_resilience_runtime_failure_{serial}"
+        ),
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "active",
+        "metadata": {"strategy": strategy, "mismatch_type": mismatch_type or ""},
+        "cognition_type": "candidate" if passed and mismatch_type is None else "failure",
+        "statement": statement,
+        "evidence_refs": [run_id],
+        "scope_boundary": {
+            "task": "task.power.ieee69_restoration_resilience",
+            "mode": f"real_{strategy}",
+            "fault": "single_line_outage",
+        },
+        "confidence_level": "medium",
+        "derived_from_run_refs": [run_id],
+        "promotion_status": "proposed",
+    }
+
+
+def check_task005_resilience_overclaim(run_dir: Path) -> Path:
+    report = load_yaml(run_dir / "report.yaml")
+    run_obj = load_yaml(run_dir / "run.yaml")
+    serial = utc_now().replace("-", "").replace(":", "").replace("T", "_").replace("Z", "")
+    output_dir = ANALYSIS_TASK005_DIR / f"resilience_overclaim_{serial}"
+    output_dir.mkdir(parents=True, exist_ok=False)
+    now = utc_now()
+    summary_text = " ".join([report.get("summary", ""), report.get("boundary_statement", ""), *report.get("claim_summary", [])])
+    flagged = any(token in summary_text for token in ["系统具有韧性", "普适恢复能力", "任意故障"])
+    result = {
+        "schema_version": "0.1.0",
+        "object_type": "boundary_overclaim_check",
+        "object_id": f"boundary_overclaim.power.ieee69_restoration_resilience.{serial}",
+        "created_at": now,
+        "status": "flagged" if flagged else "controlled",
+        "task_ref": run_obj["task_ref"],
+        "run_ref": run_obj["object_id"],
+        "decision": "downgrade" if flagged else "accept",
+        "rationale": "报告出现超出单故障单工况边界的韧性表述。" if flagged else "报告当前韧性边界表述受控。",
+    }
+    write_yaml(output_dir / "boundary_overclaim_check.yaml", result)
+    return output_dir
+
+
+def check_task005_mismatch(source_dir: Path | None = None) -> Path:
+    source = source_dir or TASK005_DIR
+    required = {
+        "research_brief": source / "research_brief.md",
+        "grid_context": source / "grid_context.yaml",
+        "fault_context": source / "fault_context.yaml",
+        "renewable_context": source / "renewable_context.yaml",
+        "restoration_scope": source / "restoration_scope.yaml",
+        "constraints": source / "constraints.yaml",
+    }
+    missing = [name for name, path in required.items() if not path.exists()]
+    gaps: list[str] = []
+    if not missing:
+        fault = load_yaml(required["fault_context"])
+        scope = load_yaml(required["restoration_scope"])
+        if not fault.get("faulted_branch"):
+            gaps.append("fault_context.faulted_branch")
+        if not scope.get("critical_load_buses"):
+            gaps.append("restoration_scope.critical_load_buses")
+    serial = utc_now().replace("-", "").replace(":", "").replace("T", "_").replace("Z", "")
+    output_dir = ANALYSIS_TASK005_DIR / f"mismatch_{serial}"
+    output_dir.mkdir(parents=True, exist_ok=False)
+    now = utc_now()
+    blocked = bool(missing or gaps)
+    result = {
+        "schema_version": "0.1.0",
+        "object_type": "task_mismatch_check",
+        "object_id": f"task_mismatch.power.ieee69_restoration_resilience.{serial}",
+        "created_at": now,
+        "status": "blocked" if blocked else "ready",
+        "task_ref": "task.power.ieee69_restoration_resilience",
+        "source_dir": str(source.relative_to(REPO_ROOT)) if source.is_relative_to(REPO_ROOT) else str(source),
+        "missing_inputs": missing,
+        "assumption_gaps": gaps,
+        "decision": "freeze" if blocked else "execute",
+        "rationale": "task005 故障恢复定义缺失关键输入，不应进入真实执行。" if blocked else "task005 恢复任务具备最小执行条件。",
+    }
+    write_yaml(output_dir / "task_mismatch_check.yaml", result)
+    note = {
+        "created_at": now,
+        "task_ref": result["task_ref"],
+        "decision": result["decision"],
+        "missing_inputs": missing,
+        "assumption_gaps": gaps,
+        "required_next_inputs": missing + gaps,
+    }
+    write_yaml(output_dir / "task_refinement_note.yaml", note)
+    if blocked:
+        cognition = {
+            "schema_version": "0.1.0",
+            "object_type": "cognition",
+            "object_id": f"cognition.power.ieee69_restoration_resilience_task_mismatch_{serial}",
+            "object_version": "0.1.0",
+            "created_at": now,
+            "updated_at": now,
+            "status": "active",
+            "metadata": {"mismatch_type": "task_mismatch"},
+            "cognition_type": "failure",
+            "statement": "当前 task005 brief 缺失故障恢复定义关键项，应冻结执行并补齐故障与恢复边界。",
+            "evidence_refs": [result["object_id"]],
+            "scope_boundary": {"task": result["task_ref"], "mode": "task_mismatch_check"},
+            "confidence_level": "medium",
+            "promotion_status": "proposed",
+        }
+        write_yaml(output_dir / "cognition.yaml", cognition)
+        write_cognition_asset_and_registry(cognition, run_id=result["object_id"], when=now)
+    return output_dir
 
 
 def upgrade_task003_cognition(
@@ -4153,6 +4834,8 @@ def compare_runs(left_run_id: str, right_run_id: str) -> Path:
         raise ValueError("compare_runs requires both runs to share the same task_ref")
     if left_run["task_ref"] == "task.power.ieee69_hosting_capacity":
         return compare_task004_runs(left_run_id, right_run_id)
+    if left_run["task_ref"] == "task.power.ieee69_restoration_resilience":
+        return compare_task005_runs(left_run_id, right_run_id)
     task_ref = left_run["task_ref"]
     analysis_dir = analysis_dir_from_task_ref(task_ref)
     problem_name = problem_name_from_task_ref(task_ref)
@@ -4327,6 +5010,88 @@ def compare_task004_runs(left_run_id: str, right_run_id: str) -> Path:
             indent=2,
             ensure_ascii=False,
         )
+        f.write("\n")
+    with (compare_dir / "writeback.json").open("w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "comparison_object": str((compare_dir / "strategy_comparison.yaml").relative_to(REPO_ROOT)),
+                "cognition_asset": str(cognition_path.relative_to(REPO_ROOT)),
+                "cognition_registry": str(COGNITION_REGISTRY_PATH.relative_to(REPO_ROOT)),
+            },
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
+        f.write("\n")
+    return compare_dir
+
+
+def compare_task005_runs(left_run_id: str, right_run_id: str) -> Path:
+    left_run, left_metrics_payload, left_report = load_run_payload(left_run_id)
+    right_run, right_metrics_payload, right_report = load_run_payload(right_run_id)
+    task_ref = left_run["task_ref"]
+    analysis_dir = analysis_dir_from_task_ref(task_ref)
+    problem_name = problem_name_from_task_ref(task_ref)
+    analysis_dir.mkdir(parents=True, exist_ok=True)
+    comparison_serial = f"{len(sorted(analysis_dir.glob('compare_*'))) + 1:04d}"
+    compare_dir = analysis_dir / f"compare_{comparison_serial}"
+    compare_dir.mkdir(parents=True, exist_ok=False)
+    now = utc_now()
+    left_strategy = strategy_name_from_run(left_run)
+    right_strategy = strategy_name_from_run(right_run)
+    left_metrics = left_metrics_payload["candidate_solution"]["metrics"]
+    right_metrics = right_metrics_payload["candidate_solution"]["metrics"]
+    directions = {
+        "restored_load_ratio": "higher_is_better",
+        "unserved_critical_load": "lower_is_better",
+        "constraint_violation": "constraint_only",
+        "restoration_action_cost_proxy": "lower_is_better",
+    }
+    metric_comparisons = {
+        metric: compare_metric_pair(left_metrics[metric], right_metrics[metric], direction)
+        for metric, direction in directions.items()
+    }
+    left_score = objective_for_task(task_ref, left_metrics)
+    right_score = objective_for_task(task_ref, right_metrics)
+    winner_label = "left" if left_score < right_score else "right" if right_score < left_score else "tie"
+    winner_run_ref = left_run_id if winner_label == "left" else right_run_id if winner_label == "right" else ""
+    comparison_object = {
+        "schema_version": "0.1.0",
+        "object_type": "strategy_comparison",
+        "object_id": f"comparison.power.{problem_name}.{comparison_serial}",
+        "object_version": "0.1.0",
+        "created_at": now,
+        "updated_at": now,
+        "status": "reviewed",
+        "metadata": {"mode": "task005_restoration_comparison"},
+        "task_ref": task_ref,
+        "left_run_ref": left_run_id,
+        "right_run_ref": right_run_id,
+        "left_strategy": left_strategy,
+        "right_strategy": right_strategy,
+        "metric_comparisons": metric_comparisons,
+        "objective_scores": {"left": left_score, "right": right_score},
+        "winner_run_ref": winner_run_ref,
+        "summary": f"task005 恢复比较完成，{left_strategy} 与 {right_strategy} 的恢复差异已结构化。",
+        "report_refs": [left_report["object_id"], right_report["object_id"]],
+    }
+    cognition = build_comparison_cognition(
+        serial=comparison_serial,
+        task_ref=task_ref,
+        left_run_id=left_run_id,
+        right_run_id=right_run_id,
+        left_strategy=left_strategy,
+        right_strategy=right_strategy,
+        metric_comparisons=metric_comparisons,
+        winner_label=winner_label,
+        winner_run_ref=winner_run_ref,
+    )
+    cognition_path = write_cognition_asset_and_registry(cognition, run_id=winner_run_ref or left_run_id, when=now)
+    comparison_object["cognition_refs"] = [cognition["object_id"]]
+    write_yaml(compare_dir / "strategy_comparison.yaml", comparison_object)
+    write_yaml(compare_dir / "cognition.yaml", cognition)
+    with (compare_dir / "comparison_report.json").open("w", encoding="utf-8") as f:
+        json.dump({"created_at": now, "summary": comparison_object["summary"]}, f, indent=2, ensure_ascii=False)
         f.write("\n")
     with (compare_dir / "writeback.json").open("w", encoding="utf-8") as f:
         json.dump(
@@ -4734,12 +5499,21 @@ def main() -> int:
     )
     task004_real = sub.add_parser("real-run-task004", help="Run a real task004 hosting-capacity cycle")
     task004_real.add_argument("--strategy", choices=["inverter-support", "single-point-mismatch"], default="inverter-support")
+    task004_real.add_argument("--candidate-q-step-mvar", type=float, required=False)
+    task005_real = sub.add_parser("real-run-task005", help="Run a real task005 restoration cycle")
+    task005_real.add_argument(
+        "--strategy",
+        choices=["renewable-restoration", "steady-state-mismatch", "renewable-underperformer"],
+        default="renewable-restoration",
+    )
     task002_analysis = sub.add_parser("analyze-task002-migration", help="Build the minimal task002 analysis chain")
     task002_analysis.add_argument("--run-id", required=False)
     task003_mismatch = sub.add_parser("check-task003-mismatch", help="Check task003 task-mismatch readiness")
     task003_mismatch.add_argument("--source-dir", required=False)
     task004_mismatch = sub.add_parser("check-task004-mismatch", help="Check task004 task-mismatch readiness")
     task004_mismatch.add_argument("--source-dir", required=False)
+    task005_mismatch = sub.add_parser("check-task005-mismatch", help="Check task005 task-mismatch readiness")
+    task005_mismatch.add_argument("--source-dir", required=False)
     compare = sub.add_parser("compare-runs", help="Compare two task001 runs structurally")
     compare.add_argument("--left-run-id", required=True)
     compare.add_argument("--right-run-id", required=True)
@@ -4775,6 +5549,9 @@ def main() -> int:
     task004_upgrade.add_argument("--semantic-dir", required=True)
     task004_upgrade.add_argument("--literature-dir", required=False)
     task004_upgrade.add_argument("--explanation-dir", required=False)
+    task005_upgrade = sub.add_parser("upgrade-task005-cognition", help="Upgrade task005 cognition from comparison artifacts")
+    task005_upgrade.add_argument("--comparison-dir", required=True)
+    task005_upgrade.add_argument("--semantic-dir", required=True)
     sub.add_parser("verify-task001-pipeline", help="Verify the task001 vertical research loop")
     sub.add_parser("verify-task002-pipeline", help="Verify the task002 vertical research loop")
     sub.add_parser("verify-task002-analysis", help="Verify the task002 Phase 5 analysis slice")
@@ -4789,6 +5566,14 @@ def main() -> int:
     sub.add_parser("verify-task004-cognition-stage", help="Verify the task004 cognition-stage artifacts")
     sub.add_parser("verify-task004-task-mismatch", help="Verify the task004 task-mismatch freeze artifacts")
     sub.add_parser("verify-task004-literature-stage", help="Verify the task004 literature-stage artifacts")
+    sub.add_parser("verify-task005-pipeline", help="Verify the task005 restoration vertical loop")
+    sub.add_parser("verify-task005-failure-path", help="Verify the task005 failure lanes")
+    sub.add_parser("verify-task005-cognition-stage", help="Verify the task005 cognition-stage artifacts")
+    sub.add_parser("build-skill-cognition-loop", help="Build the skill-cognition loop artifacts")
+    sub.add_parser("verify-skill-cognition-loop", help="Verify the skill-cognition loop artifacts")
+    real_agentic = sub.add_parser("run-real-agentic-loop", help="Run the real task003 agentic multi-iteration loop")
+    real_agentic.add_argument("--iterations", type=int, default=2)
+    sub.add_parser("verify-real-agentic-loop", help="Verify the real task003 agentic loop artifacts")
 
     args = parser.parse_args()
 
@@ -4818,8 +5603,29 @@ def main() -> int:
         return 0
 
     if args.command == "real-run-task004":
-        run_dir = run_real_task004(args.strategy)
+        run_dir = run_real_task004(args.strategy, candidate_q_step_mvar=args.candidate_q_step_mvar)
         print(f"Task004 real run written to {run_dir}")
+        return 0
+
+    if args.command == "real-run-task005":
+        run_dir = run_real_task005(args.strategy)
+        print(f"Task005 real run written to {run_dir}")
+        return 0
+
+    if args.command == "build-skill-cognition-loop":
+        run_python_script(SKILL_COGNITION_LOOP_BUILDER)
+        return 0
+
+    if args.command == "verify-skill-cognition-loop":
+        run_python_script(SKILL_COGNITION_LOOP_VERIFIER)
+        return 0
+
+    if args.command == "run-real-agentic-loop":
+        run_python_script(REAL_AGENTIC_LOOP_RUNNER, "--iterations", str(args.iterations))
+        return 0
+
+    if args.command == "verify-real-agentic-loop":
+        run_python_script(REAL_AGENTIC_LOOP_VERIFIER)
         return 0
 
     if args.command == "analyze-task002-migration":
@@ -4837,6 +5643,11 @@ def main() -> int:
     if args.command == "check-task004-mismatch":
         output_dir = check_task004_mismatch(Path(args.source_dir) if args.source_dir else None)
         print(f"Task004 mismatch check written to {output_dir}")
+        return 0
+
+    if args.command == "check-task005-mismatch":
+        output_dir = check_task005_mismatch(Path(args.source_dir) if args.source_dir else None)
+        print(f"Task005 mismatch check written to {output_dir}")
         return 0
 
     if args.command == "compare-runs":
@@ -4897,6 +5708,11 @@ def main() -> int:
             Path(args.explanation_dir) if args.explanation_dir else None,
         )
         print(f"Task004 cognition upgrade written to {upgrade_dir}")
+        return 0
+
+    if args.command == "upgrade-task005-cognition":
+        upgrade_dir = upgrade_task005_cognition(Path(args.comparison_dir), Path(args.semantic_dir))
+        print(f"Task005 cognition upgrade written to {upgrade_dir}")
         return 0
 
     if args.command == "verify-task001-pipeline":
@@ -4967,6 +5783,21 @@ def main() -> int:
     if args.command == "verify-task004-literature-stage":
         verify_task004_literature_stage()
         print("Task004 literature-stage verification passed.")
+        return 0
+
+    if args.command == "verify-task005-pipeline":
+        verify_task005_pipeline()
+        print("Task005 pipeline verification passed.")
+        return 0
+
+    if args.command == "verify-task005-failure-path":
+        verify_task005_failure_path()
+        print("Task005 failure-path verification passed.")
+        return 0
+
+    if args.command == "verify-task005-cognition-stage":
+        verify_task005_cognition_stage()
+        print("Task005 cognition-stage verification passed.")
         return 0
 
     return 1

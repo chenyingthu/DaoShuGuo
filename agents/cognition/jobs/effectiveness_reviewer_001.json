@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "effectiveness_reviewer_001",
+  "created_at": "2026-04-22T07:43:48Z",
+  "agent_role": "effectiveness_reviewer",
+  "prompt_ref": "agents/cognition/prompts/effectiveness_reviewer.md",
+  "input_refs": [
+    "effectiveness/task003/validation_plan.yaml",
+    "effectiveness/task003/application_assessment.yaml",
+    "effectiveness/task003/deliverable_package.yaml",
+    "effectiveness/task003/claim_routing.yaml",
+    "effectiveness/task004/validation_plan.yaml",
+    "effectiveness/task004/application_assessment.yaml",
+    "effectiveness/task004/deliverable_package.yaml",
+    "effectiveness/task004/claim_routing.yaml"
+  ],
+  "rule_baseline_refs": [
+    "effectiveness/task003/claim_routing.yaml",
+    "effectiveness/task004/claim_routing.yaml"
+  ],
+  "expected_output_schema": "agents/cognition/job_spec.yaml"
+}

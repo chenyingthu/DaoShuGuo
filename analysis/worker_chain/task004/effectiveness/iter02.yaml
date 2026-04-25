@@ -1,0 +1,21 @@
+schema_version: 0.1.0
+object_type: cognition_event
+object_id: cognition_event.power.ieee69_hosting_capacity.effectiveness_0002
+object_version: 0.1.0
+created_at: '2026-04-24T14:14:17Z'
+updated_at: '2026-04-24T14:14:17Z'
+status: active
+metadata:
+  task_package: task004
+  worker: effectiveness_worker
+task_ref: task.power.ieee69_hosting_capacity
+event_type: performance_failure_detected
+severity: medium
+trigger_summary: This round changed the skill parameter but still did not improve
+  hosting-capacity boundary.
+source_refs:
+- skill_agent_iteration_result.power.ieee69_hosting_capacity.0002
+- run.power.ieee69_hosting_capacity.0010
+evidence_strength: high
+recommended_cognition_action: Decide whether this is still a skill-use issue or already
+  a skill-structure issue.

@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "task004_literature_reviewer_001",
+  "created_at": "2026-04-22T07:43:48Z",
+  "agent_role": "literature_reviewer",
+  "prompt_ref": "agents/cognition/prompts/literature_reviewer.md",
+  "input_refs": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "rule_baseline_refs": [
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "expected_output_schema": "agents/cognition/job_spec.yaml"
+}

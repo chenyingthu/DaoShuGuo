@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: skill_iteration_plan
+object_id: skill_iteration_plan.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: ready
+metadata:
+  task_package: task004
+  loop_source: cognition_to_skill_update
+task_ref: task.power.ieee69_hosting_capacity
+controller_update_ref: cognition_to_skill_update.power.ieee69_hosting_capacity.0001
+target_skill_family: hosting_capacity_boundary_scan
+planned_actions:
+- 扩大承载力扫描包络。
+- 新增多场景 hosting capacity 对照。
+- 保留 smart inverter 支撑路径，但禁止用单点结果直接代表边界。
+planned_validation:
+- 检查新增场景是否改变边界判断。
+- 运行 boundary overclaim gate 验证报告是否仍受控。
+blocked_paths:
+- 不再以 single-point operation 代理 hosting capacity 主线。
+candidate_skill_refs:
+- skill.power.renewable_capacity_optimizer_task004
+- skill.power.single_point_capacity_mismatch_task004
+success_criteria:
+- 下一轮输出明确是条件化边界而非系统固有承载力。
+- 多场景对照被纳入 evaluator/analysis 主轴。
+- boundary overclaim 风险被提前拦截。
+summary: task004 的下一轮技能应围绕边界扫描与场景覆盖做真实扩展。

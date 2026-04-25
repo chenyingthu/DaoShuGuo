@@ -1,0 +1,12 @@
+schema_version: "0.1.0"
+context_type: "renewable_context"
+task_package: "task005"
+sites:
+  - bus: 61
+    p_mw: 0.55
+    island_support_mw: 0.35
+  - bus: 35
+    p_mw: 0.45
+    island_support_mw: 0.0
+notes:
+  - "第一版只让 bus61 的新能源资源参与局部恢复。"

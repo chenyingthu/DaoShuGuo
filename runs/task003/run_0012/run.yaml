@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+object_type: run
+object_id: run.power.ieee69_renewable_reactive_opt.0012
+object_version: 0.1.0
+created_at: '2026-04-22T11:42:17Z'
+updated_at: '2026-04-22T11:42:17Z'
+status: archived
+metadata:
+  mismatch_type: ''
+title: task003 real inverter-support run 0012
+task_ref: task.power.ieee69_renewable_reactive_opt
+evaluator_ref: evaluator.power.ieee69_renewable_reactive_opt.default
+run_status: completed
+started_at: '2026-04-22T11:42:17Z'
+ended_at: '2026-04-22T11:42:17Z'
+attempt_index: 12
+trigger_reason: real_inverter-support
+input_snapshot:
+  task:
+    object_id: task.power.ieee69_renewable_reactive_opt
+    object_version: 0.1.0
+  evaluator:
+    object_id: evaluator.power.ieee69_renewable_reactive_opt.default
+    object_version: 0.1.0
+skill_refs:
+  used:
+  - object_id: skill.power.baseline_solver
+    object_version: 0.1.0
+  produced:
+  - object_id: skill.power.renewable_inverter_reactive_optimizer_task003
+    object_version: 0.1.0
+result_summary:
+  metrics:
+    loss: 125.83126629527341
+    voltage_deviation: 0.017764574874954343
+    constraint_violation: 8
+    reactive_support_effort: 0.6897546897546898
+  baseline_comparison: improved
+  notes: candidate improved renewable reactive objective
+artifact_refs:
+- kind: metrics
+  path: runs/task003/run_0012/metrics.json
+agent_trace_refs:
+- kind: trace
+  object_id: agent_trace.power.ieee69_renewable_reactive_opt.0012

@@ -1,0 +1,8 @@
+{
+  "step": "effectiveness_status_step",
+  "created_at": "2026-04-24T09:14:04Z",
+  "prompt": "Use record_effectiveness_status with task_ref task.power.ieee69_hosting_capacity, readiness_level internal_report_ready, supported_output internal_report_ready, missing_for_next_level 'multi-scenario hosting capacity, actual boundary-triggering envelope, stronger external benchmark'",
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "provider": "baidu-anthropic",
+  "model": "glm-5"
+}

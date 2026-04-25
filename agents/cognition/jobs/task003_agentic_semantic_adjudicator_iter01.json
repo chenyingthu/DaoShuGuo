@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "task003_agentic_semantic_adjudicator_iter01",
+  "workflow_id": "task003_agentic_semantic_workflow_iter01",
+  "workflow_role": "adjudicator",
+  "created_at": "2026-04-22T07:34:03Z",
+  "agent_role": "semantic_adjudicator",
+  "prompt_ref": "agents/cognition/prompts/semantic_adjudicator.md",
+  "input_refs": [
+    "runs/task003/run_0007/run.yaml",
+    "runs/task003/run_0007/metrics.json",
+    "runs/task003/run_0007/report.yaml",
+    "analysis/task003/compare_0001/strategy_comparison.yaml",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml"
+  ],
+  "predecessor_output_refs": [
+    "agents/cognition/workflow_outputs/task003_agentic_semantic_proposer_iter01.json",
+    "agents/cognition/workflow_outputs/task003_agentic_semantic_counter_iter01.json",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml"
+  ],
+  "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+}

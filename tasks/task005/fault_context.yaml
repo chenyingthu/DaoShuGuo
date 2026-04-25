@@ -1,0 +1,19 @@
+schema_version: "0.1.0"
+context_type: "fault_context"
+task_package: "task005"
+fault_type: "single_line_outage"
+faulted_branch:
+  from_bus: 60
+  to_bus: 61
+post_fault_state:
+  open_branch:
+    from_bus: 60
+    to_bus: 61
+isolated_region_hint:
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+notes:
+  - "该故障用于形成一个带新能源节点的下游孤岛恢复问题。"

@@ -1,0 +1,27 @@
+schema_version: 0.1.0
+object_type: skill_agent_iteration_request
+object_id: skill_agent_iteration_request.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:28:54Z'
+updated_at: '2026-04-22T07:28:54Z'
+status: ready
+metadata:
+  task_package: task003
+  execution_mode: real_codex_agent
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_update_ref: cognition_to_skill_update.power.ieee69_renewable_reactive_opt.0001
+iteration_index: 1
+base_skill_ref: skill.power.renewable_inverter_reactive_optimizer_task003
+allowed_change_scope:
+- candidate_inverter_grid search logic
+- coordination between inverter_q and weak-bus shunts
+- selection logic over evaluated candidates
+blocked_paths:
+- pure_weak_shunt_substitution
+- metric_only_search_without renewable awareness
+required_tests:
+- task003 run must remain importable and executable
+- candidate should explore coordination beyond sign-only inverter grid
+output_skill_path: skills/active_dev/renewable_inverter_reactive_optimizer_task003_iter01.py
+summary: Preserve renewable-aware control family.; Add explicit shunt + inverter coordination
+  candidate generation.; Do not regress into weak-shunt-only substitutes.

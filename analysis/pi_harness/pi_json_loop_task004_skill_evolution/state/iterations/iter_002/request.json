@@ -1,0 +1,7 @@
+{
+  "iteration": 2,
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "strategy": "inverter-support",
+  "candidate_q_step_mvar": 0.2,
+  "rationale": "Increase candidate_q_step_mvar from 0.10 to 0.20 and test whether the same skill becomes stronger."
+}

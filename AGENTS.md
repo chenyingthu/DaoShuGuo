@@ -212,3 +212,148 @@
 2. 系统能沉淀技能与认知资产。
 3. 系统能诚实地区分玉、石、木、墨。
 4. 系统能为后继者留下清晰路径，而不是制造更多迷雾。
+
+## 13. LLM Agent 认知层原则
+
+本项目不能把规则、schema、模板、关键词匹配误认为真正的科研认知。
+
+规则系统的职责是：
+
+- 约束输出格式
+- 维护证据链
+- 检查引用完整性
+- 防止过度 claim
+- 记录和验证对象
+
+规则系统不能替代：
+
+- 问题价值判断
+- 方法语义判断
+- 文献解释判断
+- 失败机理判断
+- 成果交付判断
+
+因此，未来涉及“认知”“文献解释”“成效交付判断”的工作，必须显式区分：
+
+1. `deterministic substrate`
+   - schema
+   - verifier
+   - evaluator
+   - artifact validation
+   - index / memory
+2. `LLM agent cognition worker`
+   - task framing
+   - result interpretation
+   - semantic comparison
+   - literature interpretation
+   - cognition critique
+   - effectiveness / delivery review
+
+### 13.1 禁止自欺
+
+不得把以下输出称为“自主认知”：
+
+- 纯规则映射
+- 固定模板总结
+- 关键词匹配结果
+- 没有 LLM 解释过程的 cognition upgrade
+
+这些只能称为：
+
+- 结构化占位
+- 规则基线
+- deterministic baseline
+
+### 13.2 正确认知架构
+
+正确架构应是：
+
+> LLM agent 产生研究判断；确定性系统验证、约束、记录和回链这些判断。
+
+换句话说：
+
+- Agent 是认知工作者
+- schema 是契约
+- evaluator 是成效门
+- verifier 是护栏
+- taste 是表达上限控制器
+
+### 13.3 后续实现要求
+
+凡是新增认知层能力，必须尽量包含：
+
+1. LLM agent 输入上下文
+2. LLM agent 输出对象
+3. evidence grounding
+4. overclaim / hallucination gate
+5. deterministic baseline 对照
+6. 人类可读 review artifact
+
+如果暂时用规则实现，必须标注为 `rule-based baseline`，不得声称已经实现了完整 agent cognition。
+
+## 14. Loop Controller 边界原则
+
+本项目后续所有“技能-成效-认知”循环，必须严格区分：
+
+1. `skill worker`
+2. `effectiveness worker`
+3. `cognition worker`
+4. `loop controller`
+
+### 14.1 controller 禁止下场
+
+`loop controller` 只能负责：
+
+- 调度
+- 路由
+- 状态记录
+- 契约校验
+- 证据绑定
+
+`loop controller` 不得直接充当：
+
+- 技能开发者
+- 成效判断者
+- 认知总结者
+
+不得出现以下伪装闭环：
+
+- controller 直接决定下一轮 skill 怎么改
+- controller 直接写出 cognition diagnosis
+- controller 直接把运行结果解释成“技能提升”或“认知提升”
+
+### 14.2 三类 worker 的职责
+
+`skill worker` 负责：
+
+- 生成 skill change request
+- 产出新的 skill candidate 或参数化 skill variant
+- 明确说明改了什么、为什么改
+
+`effectiveness worker` 负责：
+
+- 运行 evaluator
+- 比较 baseline / candidate
+- 形成效果判断对象
+
+`cognition worker` 负责：
+
+- 基于证据判断这是 skill-use、skill-structure，还是 task/evaluator 问题
+- 形成下一轮建议
+- 显式说明不确定性与边界
+
+### 14.3 没有 worker 对象，不得声称完成闭环
+
+后续若要声称某轮完成了 `技能开发 -> 成效评估 -> 认知提升`，必须至少存在：
+
+- `skill change` 对象
+- `effectiveness assessment` 对象
+- `cognition diagnosis` 对象
+- `loop routing decision` 对象
+
+缺任一项，都只能称为：
+
+- framework debugging experiment
+- rule-based/controller-scripted experiment
+
+不得称为真正的自主循环。

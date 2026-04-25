@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "application_assessment"
+object_id: "application.power.task004"
+created_at: "2026-04-22T00:00:00Z"
+status: "reviewed"
+task_ref: "task.power.ieee69_hosting_capacity"
+applicable_scenarios:
+  - "静态 screening 层的新能源接入边界评估"
+  - "控制策略相关 hosting capacity 概念验证"
+not_applicable_scenarios:
+  - "系统真实极限承载力"
+  - "长期时序承载力"
+  - "工程标准级规划结论"
+application_value: "可作为承载力评估框架原型和边界 claim 控制样例。"
+limitations:
+  - "扫描包络有限"
+  - "单工况"
+  - "screening threshold 非工程最终标准"

@@ -1,0 +1,72 @@
+schema_id: "loop_review.schema"
+schema_version: "0.1.0"
+object_type: "loop_review"
+title: "Loop Review Schema"
+description: "用于表达技能-认知闭环是否真正缩小盲搜空间并改善研究质量。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - event_ref
+  - controller_update_ref
+  - iteration_plan_ref
+  - search_space_reduction
+  - failure_explanation_improvement
+  - evaluator_refinement
+  - claim_tightening
+  - verdict
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["loop_review"]
+  object_id:
+    type: string
+    pattern_hint: "loop_review.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  event_ref:
+    type: string
+  controller_update_ref:
+    type: string
+  iteration_plan_ref:
+    type: string
+  search_space_reduction:
+    type: string
+  failure_explanation_improvement:
+    type: string
+  evaluator_refinement:
+    type: string
+  claim_tightening:
+    type: string
+  verdict:
+    type: enum
+    allowed: ["substantiated", "partial", "not_substantiated"]
+  summary:
+    type: string
+
+validation_rules:
+  - rule_id: "loop-review-verdict-required"
+    description: "必须明确 loop 是否产生实质性收益。"

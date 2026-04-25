@@ -1,0 +1,17 @@
+{
+  "job_id": "task004_literature_reviewer_001",
+  "agent_role": "literature_reviewer",
+  "input_refs": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "interpretation_summary": "dry-run only; no LLM response generated",
+  "evidence_used": [],
+  "agreement_with_rule_baseline": "not_evaluated",
+  "new_insights": [],
+  "overclaim_warnings": [],
+  "missing_evidence": [],
+  "recommended_action": "run_with_llm",
+  "confidence": "low"
+}

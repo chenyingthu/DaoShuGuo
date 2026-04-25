@@ -1,0 +1,17 @@
+{
+  "iteration": 1,
+  "run_ref": "run.power.ieee69_hosting_capacity.0009",
+  "candidate_q_step_mvar": 0.1,
+  "hosting_capacity_improved_vs_baseline": false,
+  "loss_improved_vs_baseline": true,
+  "voltage_margin_improved_vs_baseline": true,
+  "candidate_hosting_capacity_level": 3.0,
+  "candidate_loss_at_boundary": 121.37896983940597,
+  "candidate_voltage_margin": 0.027143627645226154,
+  "baseline_hosting_capacity_level": 3.0,
+  "run_passed": false,
+  "evaluation_summary": "candidate did not improve hosting-capacity boundary",
+  "delta_vs_prior": null,
+  "progress_type": "initial_skill_candidate",
+  "improvement_judgment": "Initial skill candidate established."
+}

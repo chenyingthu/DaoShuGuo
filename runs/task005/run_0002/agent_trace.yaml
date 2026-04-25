@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+object_type: agent_trace
+object_id: agent_trace.power.ieee69_restoration_resilience.0002
+object_version: 0.1.0
+created_at: '2026-04-22T00:09:20Z'
+updated_at: '2026-04-22T00:09:20Z'
+status: active
+metadata:
+  mismatch_type: skill_mismatch
+task_ref: task.power.ieee69_restoration_resilience
+run_ref: run.power.ieee69_restoration_resilience.0002
+agent_role: orchestrator
+trace_summary: 系统完成 task005 单故障恢复结果评估、分级、证据组织和报告写回。
+event_count: 7
+prompt_observation_refs:
+- prompt_observation.power.ieee69_restoration_resilience.0002
+notable_behaviors:
+- 以恢复结果而非稳态最优为核心
+- 显式记录关键负荷未恢复量
+- 继续受 taste_assessment 约束

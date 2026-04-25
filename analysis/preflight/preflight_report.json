@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-04-22T07:43:47Z",
+  "status": "ready",
+  "checked_items": {
+    "paths": [
+      {
+        "name": "schemas",
+        "path": "schemas",
+        "ok": true
+      },
+      {
+        "name": "orchestrator",
+        "path": "orchestrator/main.py",
+        "ok": true
+      },
+      {
+        "name": "task002",
+        "path": "tasks/task002/task.yaml",
+        "ok": true
+      },
+      {
+        "name": "task003",
+        "path": "tasks/task003/task.yaml",
+        "ok": true
+      },
+      {
+        "name": "task004",
+        "path": "tasks/task004/task.yaml",
+        "ok": true
+      }
+    ],
+    "artifacts": [
+      {
+        "name": "task002_analysis",
+        "path": "analysis/task002",
+        "ok": true
+      },
+      {
+        "name": "task003_literature",
+        "path": "analysis/task003/literature_0002/literature_alignment.yaml",
+        "ok": true
+      },
+      {
+        "name": "task004_cognition",
+        "path": "analysis/task004/upgrade_0001/cognition_upgrade.yaml",
+        "ok": true
+      }
+    ]
+  },
+  "blocking_issues": [],
+  "recommended_next_step": "可以进入 light probe 或正式执行。"
+}

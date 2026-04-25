@@ -1,0 +1,28 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.steady_state_restoration_mismatch_task005"
+object_version: "0.1.0"
+created_at: "2026-04-22T00:00:00Z"
+updated_at: "2026-04-22T00:00:00Z"
+status: "draft"
+metadata: {}
+name: "Steady State Restoration Mismatch Task005"
+title: "task005 稳态结果失配探针"
+capability_statement: "故意用稳态结果替代恢复策略，以验证 task005 的 skill mismatch。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_restoration_resilience"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/steady_state_restoration_mismatch_task005.py"
+maturity_level: "candidate"

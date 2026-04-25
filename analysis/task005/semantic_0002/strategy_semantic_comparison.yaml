@@ -1,0 +1,60 @@
+schema_version: 0.1.0
+object_type: strategy_semantic_comparison
+object_id: semantic_comparison.power.ieee69_restoration_resilience.0002
+object_version: 0.1.0
+created_at: '2026-04-22T00:25:12Z'
+updated_at: '2026-04-22T00:25:12Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_restoration_resilience
+left_run_ref: run.power.ieee69_restoration_resilience.0001
+right_run_ref: run.power.ieee69_restoration_resilience.0003
+left_skill_ref: skill.power.renewable_restoration_candidate_task005
+right_skill_ref: skill.power.renewable_underperformer_task005
+semantic_dimensions:
+  problem_alignment:
+    left: high
+    right: high
+    winner: tie
+  research_value:
+    left: high
+    right: medium
+    winner: left
+  control_realism:
+    left: high
+    right: medium
+    winner: left
+  reuse_potential:
+    left: high
+    right: medium
+    winner: left
+  method_family:
+    left: renewable_restoration_support
+    right: renewable_restoration_support
+    winner: tie
+  control_signature:
+    left: restoration_support
+    right: restoration_support
+    winner: tie
+  resilience_awareness:
+    left: high
+    right: high
+    winner: tie
+  restoration_scope_match:
+    left: high
+    right: high
+    winner: tie
+  critical_load_relevance:
+    left: high
+    right: high
+    winner: tie
+  performance_status:
+    left: successful
+    right: failed
+    winner: left
+preferred_for_research_ref: run.power.ieee69_restoration_resilience.0001
+summary: task005 语义比较完成：已显式区分恢复候选与稳态结果失配。
+notes:
+- strategy=renewable_island_support
+- restored_load_ratio=0.681211187067485
+- 语义正确但恢复结果未优于 baseline

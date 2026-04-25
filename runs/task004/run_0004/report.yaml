@@ -1,0 +1,23 @@
+schema_version: 0.1.0
+object_type: report
+object_id: report.power.ieee69_hosting_capacity.memo_0004
+object_version: 0.1.0
+created_at: '2026-04-24T09:05:46Z'
+updated_at: '2026-04-24T09:05:46Z'
+status: reviewed
+metadata: {}
+task_ref: task.power.ieee69_hosting_capacity
+report_type: discussion_memo
+title: task004 real inverter-support report 0004
+summary: task004 candidate 未提高当前扫描包络内静态承载力边界，应作为失败材料归档。
+evidence_bundle_refs:
+- evidence.power.ieee69_hosting_capacity.0004
+taste_assessment_ref: taste.power.ieee69_hosting_capacity.0004
+audience: internal_team
+boundary_statement: 本报告仅对应当前扫描包络内、给定控制策略下的静态承载力边界，不构成系统普适承载力结论。
+failure_summary: candidate did not improve hosting-capacity boundary
+next_steps:
+- 增加 boundary overclaim checker
+- 扩展更高接入包络或多工况
+claim_summary:
+- 只能报告当前扫描包络内 candidate 未提高边界，不得写成系统固有承载力结论。

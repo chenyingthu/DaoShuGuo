@@ -1,0 +1,24 @@
+schema_version: "0.1.0"
+object_type: "validation_plan"
+object_id: "validation.power.task004.validation_plan"
+created_at: "2026-04-22T00:00:00Z"
+status: "reviewed"
+task_ref: "task.power.ieee69_hosting_capacity"
+covered_dimensions:
+  - "baseline coverage"
+  - "candidate coverage"
+  - "failure coverage"
+  - "boundary coverage"
+  - "literature support"
+  - "explanation support"
+missing_dimensions:
+  - "larger scan envelope"
+  - "multi-scenario hosting capacity"
+  - "engineering-standard voltage threshold validation"
+blocking_for:
+  paper_candidate:
+    - "multi-scenario hosting capacity"
+  patent_candidate:
+    - "stronger control strategy novelty"
+  internal_report_ready: []
+summary: "task004 已具备边界研究内部报告条件，但仍不足以支撑论文或专利级成果。"

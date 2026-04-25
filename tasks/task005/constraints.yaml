@@ -1,0 +1,28 @@
+physical:
+  - name: "single_fault_outage"
+    description: "故障后相关线路保持开断"
+  - name: "critical_load_priority"
+    description: "关键负荷优先于普通负荷恢复"
+  - name: "renewable_island_support_limit"
+    description: "新能源局部支撑能力受 island_support_mw 限制"
+engineering:
+  - name: "single_snapshot_only"
+    description: "第一版只覆盖单工况"
+  - name: "minimal_action_set"
+    description: "只允许最小恢复动作集"
+research:
+  - name: "resilience_overclaim_must_be_detected"
+    description: "不能把局部恢复结果写成系统普适韧性"
+solver:
+  task_package: "task005"
+  network_model: "ieee69_restoration"
+  faulted_branch:
+    from_bus: 60
+    to_bus: 61
+  critical_load_buses: [61, 64]
+  renewable_support:
+    - bus: 61
+      island_support_mw: 0.35
+  restoration_action_costs:
+    renewable_island_support: 1.0
+    load_pickup_priority: 0.5

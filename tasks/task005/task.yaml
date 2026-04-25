@@ -1,0 +1,62 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.ieee69_restoration_resilience"
+object_version: "0.1.0"
+created_at: "2026-04-22T00:00:00Z"
+updated_at: "2026-04-22T00:00:00Z"
+status: "active"
+metadata:
+  source_brief: "tasks/task005/research_brief.md"
+title: "新能源接入下的 IEEE69 单故障恢复与韧性重构"
+description: "用于验证故障恢复问题能否进入当前自主科研框架。"
+tags:
+  - "power"
+  - "restoration"
+  - "resilience"
+research_object: "新能源接入下的单故障后负荷恢复与韧性判断"
+problem_statement: "在单故障导致下游负荷隔离后，比较基线和新能源-aware candidate 对恢复负荷比例、关键负荷未恢复量和恢复动作代价的影响。"
+scenario_boundary:
+  grid_model: "ieee69_restoration"
+  fault_type: "single_line_outage"
+  operating_conditions:
+    - "single_representative_snapshot"
+  simulator: "pandapower_or_graph_proxy"
+success_intent:
+  goal: "验证新能源接入恢复任务能否形成结构化恢复结果与边界认知。"
+  non_goal:
+    - "宣称系统普适韧性"
+    - "宣称完整恢复优化已解决"
+baseline_refs:
+  - "baseline.power.ieee69_restoration_resilience.conservative_restoration"
+constraint_summary:
+  physical:
+    - "故障后网络拓扑变化"
+    - "关键负荷恢复"
+    - "新能源支撑边界"
+  engineering:
+    - "单故障单工况"
+    - "只做最小恢复动作集"
+  research:
+    - "必须控制 resilience overclaim"
+    - "必须显式区分 task mismatch / skill mismatch"
+importance_level: "high"
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task005/research_brief.md"
+  - kind: "grid_context"
+    path: "tasks/task005/grid_context.yaml"
+  - kind: "fault_context"
+    path: "tasks/task005/fault_context.yaml"
+  - kind: "renewable_context"
+    path: "tasks/task005/renewable_context.yaml"
+  - kind: "restoration_scope"
+    path: "tasks/task005/restoration_scope.yaml"
+target_metrics:
+  - "restored_load_ratio"
+  - "unserved_critical_load"
+  - "constraint_violation"
+  - "restoration_action_cost_proxy"
+assumptions:
+  - "只在单故障单工况下讨论恢复能力"
+  - "恢复动作集只覆盖新能源支撑与负荷恢复优先级"
+owner_notes: "task005 第一版聚焦事件驱动恢复问题的任务接入与 failure taxonomy。"

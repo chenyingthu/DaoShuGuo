@@ -1,0 +1,67 @@
+{
+  "workflow_id": "task005_result_workflow_001",
+  "jobs": [
+    {
+      "schema_version": "0.1.0",
+      "object_type": "llm_cognition_job",
+      "job_id": "task005_result_proposer_001",
+      "workflow_id": "task005_result_workflow_001",
+      "workflow_role": "proposer",
+      "created_at": "2026-04-22T06:37:59Z",
+      "agent_role": "interpretation_proposer",
+      "prompt_ref": "agents/cognition/prompts/result_interpreter.md",
+      "input_refs": [
+        "runs/task005/run_0004/run.yaml",
+        "runs/task005/run_0004/metrics.json",
+        "runs/task005/run_0004/taste_assessment.yaml",
+        "runs/task005/run_0004/report.yaml",
+        "analysis/task005/semantic_0002/strategy_semantic_comparison.yaml"
+      ],
+      "predecessor_output_refs": [],
+      "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+    },
+    {
+      "schema_version": "0.1.0",
+      "object_type": "llm_cognition_job",
+      "job_id": "task005_result_counter_001",
+      "workflow_id": "task005_result_workflow_001",
+      "workflow_role": "counter",
+      "created_at": "2026-04-22T06:37:59Z",
+      "agent_role": "counter_interpreter",
+      "prompt_ref": "agents/cognition/prompts/semantic_counter.md",
+      "input_refs": [
+        "runs/task005/run_0004/run.yaml",
+        "runs/task005/run_0004/metrics.json",
+        "runs/task005/run_0004/taste_assessment.yaml",
+        "runs/task005/run_0004/report.yaml",
+        "analysis/task005/semantic_0002/strategy_semantic_comparison.yaml"
+      ],
+      "predecessor_output_refs": [
+        "agents/cognition/workflow_outputs/task005_result_proposer_001.json"
+      ],
+      "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+    },
+    {
+      "schema_version": "0.1.0",
+      "object_type": "llm_cognition_job",
+      "job_id": "task005_result_adjudicator_001",
+      "workflow_id": "task005_result_workflow_001",
+      "workflow_role": "adjudicator",
+      "created_at": "2026-04-22T06:37:59Z",
+      "agent_role": "semantic_adjudicator",
+      "prompt_ref": "agents/cognition/prompts/semantic_adjudicator.md",
+      "input_refs": [
+        "runs/task005/run_0004/run.yaml",
+        "runs/task005/run_0004/metrics.json",
+        "runs/task005/run_0004/taste_assessment.yaml",
+        "runs/task005/run_0004/report.yaml",
+        "analysis/task005/semantic_0002/strategy_semantic_comparison.yaml"
+      ],
+      "predecessor_output_refs": [
+        "agents/cognition/workflow_outputs/task005_result_proposer_001.json",
+        "agents/cognition/workflow_outputs/task005_result_counter_001.json"
+      ],
+      "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+    }
+  ]
+}

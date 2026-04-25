@@ -1,0 +1,8 @@
+{
+  "iteration": 2,
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "strategy": "single-point-mismatch",
+  "rationale": "Force a known mismatch lane to confirm that single-point operating-point evidence cannot replace hosting-capacity boundary evidence.",
+  "expected_gain": "Deepen boundary cognition, not improve task performance.",
+  "compare_against": "run.power.ieee69_hosting_capacity.0006"
+}

@@ -1,0 +1,51 @@
+schema_version: "0.1"
+object_type: "task_adapter"
+object_id: "task_adapter.power.fixture_loop"
+object_version: "0.1.0"
+task_ref: "task.power.fixture_loop"
+task_definition_ref: "task.power.fixture_loop"
+baseline_binding:
+  baseline_refs:
+    - "baseline.power.fixture_loop.default"
+  selection_rule: "fixed_default"
+  comparison_scope: "same_task_same_evaluator"
+candidate_binding:
+  candidate_kind: "skill_variant"
+  candidate_locator: "analysis/generic_loop_engine_fixture/candidates/"
+  materialization_rule: "worker_writes_candidate_artifact"
+  artifact_expectations:
+    - "skill_change_result"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.fixture_loop.default"
+  execution_entry:
+    type: "python_function"
+    path: "scripts/generic_loop_engine_fixture_workers.py"
+  input_mapping: {}
+  output_mapping: {}
+search_envelope:
+  modifiable_dimensions:
+    - "candidate_weight"
+  frozen_dimensions:
+    - "task_definition"
+    - "evaluator_logic"
+  budget_constraints:
+    max_iterations: 1
+  termination_hints:
+    - "stop_after_single_reviewable_iteration"
+diagnosis_hook_config:
+  expected_failure_modes:
+    - "bounded_candidate_without_strong_effectiveness"
+  task_specific_blind_spots:
+    - "fixture_scope_is_intentionally_small"
+  adapter_level_checks:
+    - "baseline_and_candidate_use_same_evaluator"
+workspace_binding:
+  input_roots:
+    - "analysis/generic_loop_engine_fixture/"
+  output_roots:
+    - "analysis/generic_loop_engine_fixture/workspaces/"
+  naming_convention: "workspace_name"
+metadata:
+  task_package: "fixture_loop"
+experimental:
+  worker_module: "scripts/generic_loop_engine_fixture_workers.py"

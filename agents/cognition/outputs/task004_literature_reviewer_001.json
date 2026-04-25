@@ -1,0 +1,52 @@
+{
+  "job_id": "task004_literature_reviewer_001",
+  "agent_role": "literature_reviewer",
+  "input_refs": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "interpretation_summary": "The three artifacts are broadly aligned on one narrow claim: for task004, boundary scanning belongs to the hosting-capacity assessment family, while single-point mismatch belongs to operating-point analysis and should not substitute for boundary evaluation. The literature positioning is conservative (`variant`), and the upgrade artifact already narrows the valid claim to static boundary judgment within the current scan envelope and control strategy. This is a defensible literature-aligned refinement, not evidence of a strongly novel method or broadly new theory.",
+  "evidence_used": [
+    "analysis/task004/literature_0002/literature_alignment.yaml",
+    "analysis/task004/explanations_0002/explanation_alignment.yaml",
+    "analysis/task004/upgrade_0002/cognition_upgrade.yaml"
+  ],
+  "agreement_with_rule_baseline": {
+    "status": "qualified_agreement",
+    "summary": "I agree with the baseline upgrade if it is interpreted as a guarded cognition refinement rather than a strong novelty claim.",
+    "details": [
+      "The literature alignment explicitly places the route as `variant`, which correctly limits novelty.",
+      "The explanation alignment supports the category distinction between boundary assessment and single-point operation analysis.",
+      "The upgrade's `claim_adjustment` is appropriately conservative and should remain attached to any downstream reporting."
+    ]
+  },
+  "new_insights": [
+    "The strongest cross-artifact signal is not novelty, but category hygiene: the main contribution is preventing a problem-type mix-up between conditioned boundary assessment and single-point operating evaluation.",
+    "The support quality is uneven: some evidence is direct excerpt support, but some items rely on card-tag fallback or low-strength manual summary, so the apparent count of excerpts should not be read as uniformly strong evidence.",
+    "Current evidence better supports a boundary-of-validity clarification than a new mechanism claim."
+  ],
+  "overclaim_warnings": [
+    "Do not treat keyword or topic overlap with hosting-capacity papers as proof that the local method is method-equivalent to those papers.",
+    "Do not promote `variant` positioning into a claim of substantial methodological novelty.",
+    "Do not use the current artifacts to claim general hosting-capacity conclusions beyond the present scan envelope, control strategy, and static setting.",
+    "Do not interpret the explanation-alignment support count as all-direct, full-text-confirmed literature support; some support is fallback-based or low-strength."
+  ],
+  "missing_evidence": [
+    "Seed literature coverage is still limited to a small set of papers and family-level mapping; this is weak for stronger novelty positioning.",
+    "Full-text or finer-grained semantic matching is missing; the explanation artifact itself notes that full-text semantic matching has not been done.",
+    "Several review-derived explanation points remain `unclear`, which weakens confidence in broader literature-backed interpretation.",
+    "There is no evidence here for transfer to other operating conditions, other control policies, dynamic/time-series settings, or broader system classes."
+  ],
+  "recommended_action": {
+    "decision": "keep_upgrade_but_hold_novelty_low",
+    "next_steps": [
+      "Retain the cognition upgrade as a bounded clarification of problem type and claim boundary.",
+      "Preserve the current claim adjustment verbatim in downstream cognition/report objects.",
+      "Expand literature coverage beyond the current seed set before making any stronger novelty statement.",
+      "Add fuller excerpt/full-text alignment, especially for the review paper and any papers representing alternative hosting-capacity method families.",
+      "If possible, test whether the boundary-vs-single-point distinction still holds under additional control strategies or non-static settings."
+    ]
+  },
+  "confidence": "medium"
+}

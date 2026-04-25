@@ -1,0 +1,33 @@
+schema_id: "experiment_matrix.schema"
+schema_version: "0.1.0"
+object_type: "experiment_matrix"
+title: "Experiment Matrix Schema"
+description: "用于表达实验覆盖矩阵。"
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - created_at
+  - status
+  - task_ref
+  - rows
+  - summary
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["experiment_matrix"]
+  object_id:
+    type: string
+  created_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed"]
+  task_ref:
+    type: string
+  rows:
+    type: array[object]
+  summary:
+    type: string

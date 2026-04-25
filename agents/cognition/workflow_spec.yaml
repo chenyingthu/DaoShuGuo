@@ -1,0 +1,32 @@
+schema_version: "0.1.0"
+object_type: "llm_cognition_workflow_spec"
+roles:
+  - proposer
+  - counter
+  - adjudicator
+required_job_fields:
+  - job_id
+  - workflow_id
+  - workflow_role
+  - agent_role
+  - prompt_ref
+  - input_refs
+  - predecessor_output_refs
+  - expected_output_schema
+required_output_fields:
+  - job_id
+  - agent_role
+  - input_refs
+  - strongest_supported_claim
+  - strongest_unsupported_claim
+  - alternative_interpretation
+  - discriminating_missing_evidence
+  - agreement_with_rule_baseline
+  - new_insights
+  - overclaim_warnings
+  - recommended_action
+  - confidence
+adjudicator_extra_fields:
+  - accepted_interpretation
+  - rejected_interpretation
+  - claim_ceiling_recommendation

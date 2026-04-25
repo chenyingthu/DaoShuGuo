@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "task003_semantic_critic_001",
+  "created_at": "2026-04-22T07:43:48Z",
+  "agent_role": "semantic_critic",
+  "prompt_ref": "agents/cognition/prompts/semantic_critic.md",
+  "input_refs": [
+    "analysis/task003/compare_0001/strategy_comparison.yaml",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml",
+    "runs/task003/run_0001/run.yaml",
+    "runs/task003/run_0003/run.yaml"
+  ],
+  "rule_baseline_refs": [
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml"
+  ],
+  "expected_output_schema": "agents/cognition/job_spec.yaml"
+}

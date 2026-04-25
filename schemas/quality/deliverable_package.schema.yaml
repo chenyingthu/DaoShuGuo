@@ -1,0 +1,46 @@
+schema_id: "deliverable_package.schema"
+schema_version: "0.1.0"
+object_type: "deliverable_package"
+title: "Deliverable Package Schema"
+description: "用于表达成果交付 readiness。"
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - created_at
+  - status
+  - task_ref
+  - readiness_level
+  - supported_outputs
+  - summary
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["deliverable_package"]
+  object_id:
+    type: string
+  created_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed"]
+  task_ref:
+    type: string
+  readiness_level:
+    type: enum
+    allowed: ["internal_report_ready", "patent_candidate", "paper_candidate", "not_ready"]
+  supported_outputs:
+    type: array[string]
+  not_ready_outputs:
+    type: array[string]
+    required: false
+  supporting_refs:
+    type: array[string]
+    required: false
+  missing_for_paper:
+    type: array[string]
+    required: false
+  summary:
+    type: string

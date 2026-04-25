@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+object_type: skill_agent_iteration_result
+object_id: skill_agent_iteration_result.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-24T14:14:17Z'
+updated_at: '2026-04-24T14:14:17Z'
+status: completed
+metadata:
+  task_package: task004
+  executor: pi_parameterized_skill_loop
+task_ref: task.power.ieee69_hosting_capacity
+request_ref: skill_agent_iteration_request.power.ieee69_hosting_capacity.0001
+produced_skill_ref: skill.power.renewable_capacity_optimizer_task004
+code_paths:
+- skills/active_dev/renewable_capacity_optimizer_task004.py
+change_summary:
+- candidate_q_step_mvar set to 0.10
+expected_behavior_change:
+- Increase reactive support effort while keeping the same hosting-capacity scan structure.
+command: python orchestrator/main.py real-run-task004 --strategy inverter-support
+  --candidate-q-step-mvar 0.1
+raw_output_path: analysis/worker_chain/task004/requests/iter01.yaml
+self_reported_risks:
+- This is a parameterized skill variant, not yet a structural redesign.
+run_ref: run.power.ieee69_hosting_capacity.0009

@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+object_type: loop_review
+object_id: loop_review.power.ieee69_restoration_resilience.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: reviewed
+metadata:
+  task_package: task005
+  review_mode: bootstrap_reflection
+task_ref: task.power.ieee69_restoration_resilience
+event_ref: cognition_event.power.ieee69_restoration_resilience.0001
+controller_update_ref: cognition_to_skill_update.power.ieee69_restoration_resilience.0001
+iteration_plan_ref: skill_iteration_plan.power.ieee69_restoration_resilience.0001
+search_space_reduction: 从把稳态代理混入恢复主线的盲试收缩为事件驱动恢复与 fault topology 对照主线。
+failure_explanation_improvement: 任务定义缺失、语义正确但性能失败、claim 受控三类现象被明确拆分。
+evaluator_refinement: 下一轮显式要求 critical_load_relevance 与恢复 admissibility 进入 evaluator。
+claim_tightening: 恢复 claim 被限定在当前 fault 场景、动作集合和单工况条件下。
+verdict: substantiated
+summary: task005 已把 failure taxonomy、task freeze 与恢复认知转成下一轮技能和 evaluator 约束。

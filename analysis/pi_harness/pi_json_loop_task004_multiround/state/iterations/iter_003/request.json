@@ -1,0 +1,8 @@
+{
+  "iteration": 3,
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "strategy": "inverter-support",
+  "rationale": "Return to the bounded inverter-support lane after the mismatch contrast to see whether the system can recover task alignment.",
+  "expected_gain": "Recover semantic alignment while preserving the strengthened claim ceiling.",
+  "compare_against": "run.power.ieee69_hosting_capacity.0007"
+}

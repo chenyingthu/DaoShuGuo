@@ -1,0 +1,18 @@
+created_at: '2026-04-22T00:10:23Z'
+task_ref: task.power.ieee69_restoration_resilience
+decision: freeze
+missing_inputs:
+- research_brief
+- grid_context
+- fault_context
+- renewable_context
+- restoration_scope
+- constraints
+assumption_gaps: []
+required_next_inputs:
+- research_brief
+- grid_context
+- fault_context
+- renewable_context
+- restoration_scope
+- constraints

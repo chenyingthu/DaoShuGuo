@@ -1,0 +1,40 @@
+schema_id: "claim_routing.schema"
+schema_version: "0.1.0"
+object_type: "claim_routing"
+title: "Claim Routing Schema"
+description: "用于表达当前证据应流向哪类成果表达。"
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - created_at
+  - status
+  - task_ref
+  - route
+  - allowed_claims
+  - forbidden_claims
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["claim_routing"]
+  object_id:
+    type: string
+  created_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed"]
+  task_ref:
+    type: string
+  route:
+    type: enum
+    allowed: ["internal_report_ready", "patent_candidate", "paper_candidate", "continue_research", "not_ready"]
+  allowed_claims:
+    type: array[string]
+  forbidden_claims:
+    type: array[string]
+  next_actions:
+    type: array[string]
+    required: false

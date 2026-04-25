@@ -1,0 +1,10 @@
+{
+  "iteration": 2,
+  "task_ref": "task.power.ieee69_renewable_reactive_opt",
+  "strategy": "inverter-underperformer",
+  "rationale": "Run a semantically matched renewable-aware alternative under the same evaluator.",
+  "blocked_paths": [
+    "pure_weak_shunt_substitution"
+  ],
+  "required_test": "Compare against run.power.ieee69_renewable_reactive_opt.0018 as the effective renewable-aware baseline path."
+}

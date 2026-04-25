@@ -1,0 +1,33 @@
+schema_version: 0.1.0
+object_type: cognition
+object_id: cognition.power.strategy_comparison_ieee69_restoration_resilience_0001
+object_version: 0.1.0
+created_at: '2026-04-22T00:25:12Z'
+updated_at: '2026-04-22T00:25:12Z'
+status: active
+metadata: {}
+cognition_type: candidate
+statement: 在当前单工况 IEEE69 single fault restoration 任务中，策略 `real_renewable-restoration`
+  在 evaluator 指标上整体优于 `real_steady-state-mismatch`。
+evidence_refs:
+- run.power.ieee69_restoration_resilience.0001
+- run.power.ieee69_restoration_resilience.0002
+scope_boundary:
+  task: task.power.ieee69_restoration_resilience
+  mode: strategy_comparison
+  left_strategy: real_renewable-restoration
+  right_strategy: real_steady-state-mismatch
+confidence_level: medium
+derived_from_run_refs:
+- run.power.ieee69_restoration_resilience.0001
+- run.power.ieee69_restoration_resilience.0002
+promotion_status: proposed
+uncertainty_notes: '该认知仅基于单工况比较，winner=left，关键比较={''restored_load_ratio'': {''left'':
+  0.681211187067485, ''right'': 0.5891517113856529, ''direction'': ''higher_is_better'',
+  ''winner'': ''left'', ''delta_right_minus_left'': -0.09205947568183204}, ''unserved_critical_load'':
+  {''left'': 1.121, ''right'': 1.471, ''direction'': ''lower_is_better'', ''winner'':
+  ''left'', ''delta_right_minus_left'': 0.3500000000000001}, ''constraint_violation'':
+  {''left'': 0, ''right'': 0, ''direction'': ''constraint_only'', ''winner'': ''tie'',
+  ''delta_right_minus_left'': 0}, ''restoration_action_cost_proxy'': {''left'': 1.5,
+  ''right'': 0.0, ''direction'': ''lower_is_better'', ''winner'': ''right'', ''delta_right_minus_left'':
+  -1.5}}'

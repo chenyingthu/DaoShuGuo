@@ -1,0 +1,64 @@
+schema_id: "skill_agent_iteration_request.schema"
+schema_version: "0.1.0"
+object_type: "skill_agent_iteration_request"
+title: "Skill Agent Iteration Request Schema"
+description: "用于表达某一轮 skill agent 的受约束开发请求。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - iteration_index
+  - base_skill_ref
+  - allowed_change_scope
+  - blocked_paths
+  - required_tests
+  - output_skill_path
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["skill_agent_iteration_request"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  source_update_ref:
+    type: string
+    required: false
+  iteration_index:
+    type: integer
+  base_skill_ref:
+    type: string
+  allowed_change_scope:
+    type: array[string]
+  blocked_paths:
+    type: array[string]
+  required_tests:
+    type: array[string]
+  output_skill_path:
+    type: string
+  summary:
+    type: string
+

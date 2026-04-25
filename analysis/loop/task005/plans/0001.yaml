@@ -1,0 +1,32 @@
+schema_version: 0.1.0
+object_type: skill_iteration_plan
+object_id: skill_iteration_plan.power.ieee69_restoration_resilience.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: ready
+metadata:
+  task_package: task005
+  loop_source: cognition_to_skill_update
+task_ref: task.power.ieee69_restoration_resilience
+controller_update_ref: cognition_to_skill_update.power.ieee69_restoration_resilience.0001
+target_skill_family: event_driven_restoration_with_renewable_support
+planned_actions:
+- 围绕事件驱动恢复建立多 fault topology 对照。
+- 保留 renewable-aware restoration candidate 与 underperformer 路线。
+- 禁止 steady-state restoration mismatch 进入主恢复主线。
+planned_validation:
+- 比较不同 fault topology 下的恢复 admissibility 与 performance。
+- 把 critical_load_relevance 纳入 evaluator 并检查排序变化。
+- 验证任务缺关键输入时是否稳定 freeze。
+blocked_paths:
+- 不以 steady-state 操作结果替代恢复策略评估。
+candidate_skill_refs:
+- skill.power.renewable_restoration_candidate_task005
+- skill.power.renewable_underperformer_task005
+- skill.power.steady_state_restoration_mismatch_task005
+success_criteria:
+- 恢复结果对 fault topology 与关键负荷相关性敏感。
+- 稳态代理路径被排除出主线。
+- 任务定义缺关键输入时不会进入伪执行。
+summary: task005 的下一轮技能应围绕事件驱动恢复语义和多故障对照做受控扩展。

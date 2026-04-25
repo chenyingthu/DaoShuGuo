@@ -1,0 +1,71 @@
+schema_id: "cognition_event.schema"
+schema_version: "0.1.0"
+object_type: "cognition_event"
+title: "Cognition Event Schema"
+description: "用于表达某次技能运行或分析结果触发的认知事件。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - event_type
+  - trigger_summary
+  - source_refs
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["cognition_event"]
+  object_id:
+    type: string
+    pattern_hint: "cognition_event.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  event_type:
+    type: enum
+    allowed:
+      - "metric_semantic_divergence"
+      - "skill_mismatch_detected"
+      - "performance_failure_detected"
+      - "evaluator_blind_spot"
+      - "claim_overreach_detected"
+      - "literature_conflict_detected"
+  severity:
+    type: enum
+    allowed: ["low", "medium", "high"]
+    required: false
+  trigger_summary:
+    type: string
+  source_refs:
+    type: array[string]
+  evidence_strength:
+    type: enum
+    allowed: ["low", "medium", "high"]
+    required: false
+  recommended_cognition_action:
+    type: string
+    required: false
+
+validation_rules:
+  - rule_id: "cognition-event-source-required"
+    description: "必须至少指向一个触发源。"

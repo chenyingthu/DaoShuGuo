@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_hosting_capacity.worker_0003
+object_version: 0.1.0
+created_at: '2026-04-24T14:14:17Z'
+updated_at: '2026-04-24T14:14:17Z'
+status: reviewed
+metadata:
+  task_package: task004
+  loop_source: worker_materialization
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_event.power.ieee69_hosting_capacity.effectiveness_0003
+source_event_ref: cognition_event.power.ieee69_hosting_capacity.effectiveness_0003
+next_iteration_skill_constraints:
+- 不得再把继续加 q_step 当作主线技能升级。
+next_iteration_evaluator_constraints:
+- 仍以 hosting_capacity_level 为首要判据。
+next_iteration_task_refinements:
+- 需要引入非均匀 inverter Q 分配或 bus 子集选择。
+search_priority_updates:
+- 优先探索技能结构变体，而不是继续扩大同幅注入参数。
+required_discriminating_tests:
+- 比较结构变体 skill 与当前参数化 skill 是否真正提高 hosting_capacity_level。
+summary: 连续参数调整后边界仍不变，后续主线应转向技能结构升级。

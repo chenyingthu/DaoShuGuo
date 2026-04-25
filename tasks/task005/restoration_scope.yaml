@@ -1,0 +1,14 @@
+schema_version: "0.1.0"
+context_type: "restoration_scope"
+task_package: "task005"
+critical_load_buses:
+  - 61
+  - 64
+allowed_actions:
+  - "renewable_island_support"
+  - "load_pickup_priority"
+forbidden_actions:
+  - "full network reconfiguration"
+  - "multi-stage stochastic restoration"
+claim_boundary:
+  - "只对应当前 fault 场景下的最小恢复能力"

@@ -1,0 +1,64 @@
+schema_id: "agentic_loop_iteration_review.schema"
+schema_version: "0.1.0"
+object_type: "agentic_loop_iteration_review"
+title: "Agentic Loop Iteration Review Schema"
+description: "用于表达某一轮真实 agentic loop 的进展、停滞和作弊信号。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - iteration_index
+  - skill_iteration_result_ref
+  - cognition_update_ref
+  - actual_progress
+  - stagnation_signals
+  - cheating_signals
+  - verdict
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["agentic_loop_iteration_review"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  iteration_index:
+    type: integer
+  skill_iteration_result_ref:
+    type: string
+  cognition_update_ref:
+    type: string
+  actual_progress:
+    type: array[string]
+  stagnation_signals:
+    type: array[string]
+  cheating_signals:
+    type: array[string]
+  verdict:
+    type: enum
+    allowed: ["real_progress", "stagnation", "cheating_suspected"]
+  summary:
+    type: string

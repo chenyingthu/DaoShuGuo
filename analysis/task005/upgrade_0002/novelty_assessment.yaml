@@ -1,0 +1,22 @@
+schema_version: 0.1.0
+object_type: novelty_assessment
+object_id: novelty.power.ieee69_restoration_resilience.0002
+object_version: 0.1.0
+created_at: '2026-04-22T00:25:29Z'
+updated_at: '2026-04-22T00:25:29Z'
+status: reviewed
+metadata:
+  mode: task005_failure_taxonomy
+task_ref: task.power.ieee69_restoration_resilience
+assessed_object_ref: skill.power.renewable_underperformer_task005
+supporting_refs:
+- comparison.power.ieee69_restoration_resilience.0002
+- semantic_comparison.power.ieee69_restoration_resilience.0002
+novelty_level: medium
+research_value_level: high
+continue_investment: continue
+evidence_strength: low
+summary: 语义正确但恢复性能失败的 candidate 不应与 skill mismatch 混同，应保留为可继续演化的恢复方向。
+reasons:
+- restoration_scope_match winner=tie
+- performance_status right=failed

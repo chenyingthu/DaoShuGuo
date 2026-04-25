@@ -1,0 +1,71 @@
+schema_id: "cognition_to_skill_update.schema"
+schema_version: "0.1.0"
+object_type: "cognition_to_skill_update"
+title: "Cognition To Skill Update Schema"
+description: "用于表达认知层对下一轮技能、评估与任务边界施加的约束。"
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - source_cognition_ref
+  - source_event_ref
+  - next_iteration_skill_constraints
+  - next_iteration_evaluator_constraints
+  - next_iteration_task_refinements
+  - search_priority_updates
+  - required_discriminating_tests
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["cognition_to_skill_update"]
+  object_id:
+    type: string
+    pattern_hint: "cognition_to_skill_update.<domain>.<problem_name>.<serial>"
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+    required: true
+  task_ref:
+    type: string
+  source_cognition_ref:
+    type: string
+  source_event_ref:
+    type: string
+  next_iteration_skill_constraints:
+    type: array[string]
+  next_iteration_evaluator_constraints:
+    type: array[string]
+  next_iteration_task_refinements:
+    type: array[string]
+  search_priority_updates:
+    type: array[string]
+  blocked_skill_families:
+    type: array[string]
+    required: false
+  required_discriminating_tests:
+    type: array[string]
+  summary:
+    type: string
+
+validation_rules:
+  - rule_id: "cognition-to-skill-update-core-required"
+    description: "必须显式约束下一轮 skill、evaluator 与 task。"

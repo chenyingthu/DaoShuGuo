@@ -1,0 +1,114 @@
+{
+  "baseline_solution": {
+    "control_settings": {
+      "strategy": "conservative_restoration"
+    },
+    "metrics": {
+      "restored_load_ratio": 0.5891517113856529,
+      "unserved_critical_load": 1.471,
+      "constraint_violation": 0,
+      "restoration_action_cost_proxy": 0.0,
+      "isolated_buses": [
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "restored_load_mw": 2.23989
+    }
+  },
+  "candidate_solution": {
+    "control_settings": {
+      "strategy": "renewable_underperformer"
+    },
+    "metrics": {
+      "restored_load_ratio": 0.5891517113856529,
+      "unserved_critical_load": 1.471,
+      "constraint_violation": 0,
+      "restoration_action_cost_proxy": 2.0,
+      "isolated_buses": [
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "restored_load_mw": 2.23989
+    }
+  },
+  "evaluation": {
+    "passed": false,
+    "key_metrics_pass": false,
+    "constraints_pass": true,
+    "comparisons": {
+      "restored_load_ratio": {
+        "candidate": 0.5891517113856529,
+        "baseline": 0.5891517113856529,
+        "direction": "higher_is_better",
+        "improved": false,
+        "delta": 0.0
+      },
+      "unserved_critical_load": {
+        "candidate": 1.471,
+        "baseline": 1.471,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": 0.0
+      },
+      "constraint_violation": {
+        "candidate": 0,
+        "baseline": 0,
+        "direction": "constraint_only",
+        "improved": true,
+        "delta": 0
+      },
+      "restoration_action_cost_proxy": {
+        "candidate": 2.0,
+        "baseline": 0.0,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": 2.0
+      }
+    },
+    "summary": "candidate did not improve restoration result",
+    "baseline_solution": {
+      "control_settings": {
+        "strategy": "conservative_restoration"
+      },
+      "metrics": {
+        "restored_load_ratio": 0.5891517113856529,
+        "unserved_critical_load": 1.471,
+        "constraint_violation": 0,
+        "restoration_action_cost_proxy": 0.0,
+        "isolated_buses": [
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "restored_load_mw": 2.23989
+      }
+    },
+    "candidate_solution": {
+      "control_settings": {
+        "strategy": "renewable_underperformer"
+      },
+      "metrics": {
+        "restored_load_ratio": 0.5891517113856529,
+        "unserved_critical_load": 1.471,
+        "constraint_violation": 0,
+        "restoration_action_cost_proxy": 2.0,
+        "isolated_buses": [
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "restored_load_mw": 2.23989
+      }
+    }
+  }
+}

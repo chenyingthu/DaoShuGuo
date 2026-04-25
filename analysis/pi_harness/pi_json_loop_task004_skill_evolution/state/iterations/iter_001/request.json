@@ -1,0 +1,7 @@
+{
+  "iteration": 1,
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "strategy": "inverter-support",
+  "candidate_q_step_mvar": 0.1,
+  "rationale": "Start from the current default inverter-support step to establish the initial skill candidate."
+}

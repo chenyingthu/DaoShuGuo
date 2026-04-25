@@ -1,0 +1,19 @@
+schema_version: 0.1.0
+object_type: taste_assessment
+object_id: taste.power.ieee69_restoration_resilience.0005
+object_version: 0.1.0
+created_at: '2026-04-22T01:21:35Z'
+updated_at: '2026-04-22T01:21:35Z'
+status: reviewed
+metadata:
+  mismatch_type: performance_failure
+task_ref: task.power.ieee69_restoration_resilience
+run_refs:
+- run.power.ieee69_restoration_resilience.0005
+grade: huimo
+grade_reasoning: task005 当前结果只适合作为失败、边界或恢复线索材料。
+claim_ceiling: 只能报告当前 fault 场景下的局部恢复结果，不得写成系统普适韧性结论。
+recommended_report_type: discussion_memo
+evidence_refs:
+- evidence.power.ieee69_restoration_resilience.0005
+review_status: reviewed

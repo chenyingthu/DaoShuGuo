@@ -1,0 +1,30 @@
+{
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "provider": "baidu-anthropic",
+  "model": "glm-5",
+  "round_count": 3,
+  "rounds": [
+    {
+      "iteration": 1,
+      "strategy": "inverter-support",
+      "run_ref": "run.power.ieee69_hosting_capacity.0006",
+      "progress_type": "bounded_baseline_established",
+      "improvement_judgment": "No hosting-capacity improvement yet; this round only establishes the initial bounded sample."
+    },
+    {
+      "iteration": 2,
+      "strategy": "single-point-mismatch",
+      "run_ref": "run.power.ieee69_hosting_capacity.0007",
+      "progress_type": "cognition_deepened",
+      "improvement_judgment": "Task performance did not improve; cognition improved because this round proved a boundary-invalid evidence lane."
+    },
+    {
+      "iteration": 3,
+      "strategy": "inverter-support",
+      "run_ref": "run.power.ieee69_hosting_capacity.0008",
+      "progress_type": "no_skill_improvement",
+      "improvement_judgment": "This round did not improve hosting-capacity boundary relative to the prior candidate."
+    }
+  ],
+  "overall_conclusion": "The loop produced cognition deepening but did not produce hosting-capacity boundary improvement."
+}

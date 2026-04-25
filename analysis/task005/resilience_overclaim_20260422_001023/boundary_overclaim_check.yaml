@@ -1,0 +1,9 @@
+schema_version: 0.1.0
+object_type: boundary_overclaim_check
+object_id: boundary_overclaim.power.ieee69_restoration_resilience.20260422_001023
+created_at: '2026-04-22T00:10:23Z'
+status: controlled
+task_ref: task.power.ieee69_restoration_resilience
+run_ref: run.power.ieee69_restoration_resilience.0001
+decision: accept
+rationale: 报告当前韧性边界表述受控。

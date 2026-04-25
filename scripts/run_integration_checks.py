@@ -81,7 +81,25 @@ def main() -> int:
         ["python", "scripts/validate_schemas.py", "--artifacts", "task004-pipeline"],
         ["python", "scripts/validate_schemas.py", "--artifacts", "task004-cognition-stage"],
         ["python", "scripts/validate_schemas.py", "--artifacts", "task004-literature-stage"],
+        ["python", "scripts/validate_schemas.py", "--artifacts", "task005-pipeline"],
+        ["python", "scripts/validate_schemas.py", "--artifacts", "task005-cognition-stage"],
+        ["python", "scripts/validate_schemas.py", "--artifacts", "effectiveness-delivery-layer"],
+        ["python", "scripts/validate_schemas.py", "--artifacts", "skill-cognition-loop"],
+        ["python", "scripts/validate_schemas.py", "--artifacts", "real-agentic-loop"],
         ["python", "-m", "py_compile", "orchestrator/main.py"],
+        ["python", "scripts/run_preflight_checks.py"],
+        ["python", "scripts/run_light_probe.py"],
+        ["python", "scripts/build_experiment_index.py"],
+        ["python", "scripts/update_diagnosis_memory.py"],
+        ["python", "scripts/verify_effectiveness_layer.py"],
+        ["python", "scripts/build_skill_cognition_loop.py"],
+        ["python", "scripts/verify_skill_cognition_loop.py"],
+        ["python", "scripts/build_llm_cognition_jobs.py"],
+        ["python", "scripts/run_llm_cognition_job.py", "agents/cognition/jobs/task003_semantic_critic_001.json", "--dry-run", "--output-dir", "agents/cognition/dry_run_outputs"],
+        ["python", "scripts/run_llm_cognition_job.py", "agents/cognition/jobs/task004_literature_reviewer_001.json", "--dry-run", "--output-dir", "agents/cognition/dry_run_outputs"],
+        ["python", "scripts/run_llm_cognition_job.py", "agents/cognition/jobs/task005_result_interpreter_001.json", "--dry-run", "--output-dir", "agents/cognition/dry_run_outputs"],
+        ["python", "scripts/run_llm_cognition_job.py", "agents/cognition/jobs/effectiveness_reviewer_001.json", "--dry-run", "--output-dir", "agents/cognition/dry_run_outputs"],
+        ["python", "scripts/verify_llm_cognition_outputs.py", "--output-dir", "agents/cognition/dry_run_outputs"],
         ["python", "orchestrator/main.py", "verify-task001-pipeline"],
         ["python", "orchestrator/main.py", "verify-task002-pipeline"],
         ["python", "orchestrator/main.py", "verify-task002-analysis"],
@@ -96,6 +114,9 @@ def main() -> int:
         ["python", "orchestrator/main.py", "verify-task004-task-mismatch"],
         ["python", "orchestrator/main.py", "verify-task004-cognition-stage"],
         ["python", "orchestrator/main.py", "verify-task004-literature-stage"],
+        ["python", "orchestrator/main.py", "verify-task005-pipeline"],
+        ["python", "orchestrator/main.py", "verify-task005-failure-path"],
+        ["python", "orchestrator/main.py", "verify-task005-cognition-stage"],
     ]
     for command in commands:
         run_command(command)
@@ -126,6 +147,15 @@ def main() -> int:
     assert_exists(REPO_ROOT / "literature/excerpts/capacitor_tlbo_2014-explanation-point-1.yaml")
     assert_exists(high_upgrade.parent / "upgraded_cognition.yaml")
     assert_exists(REPO_ROOT / "analysis/task002")
+    assert_exists(REPO_ROOT / "analysis/preflight/preflight_report.json")
+    assert_exists(REPO_ROOT / "analysis/preflight/light_probe.json")
+    assert_exists(REPO_ROOT / "analysis/experiment_index.json")
+    assert_exists(REPO_ROOT / "memory/diagnosis_memory.jsonl")
+    assert_exists(REPO_ROOT / "analysis/loop/task003/writeback.json")
+    assert_exists(REPO_ROOT / "analysis/loop/task004/writeback.json")
+    assert_exists(REPO_ROOT / "analysis/loop/task005/writeback.json")
+    assert_exists(REPO_ROOT / "agents/cognition/jobs/task003_semantic_critic_001.json")
+    assert_exists(REPO_ROOT / "agents/cognition/outputs/task003_semantic_critic_001.json")
 
     upgraded_ref = load_yaml(high_upgrade)["upgraded_cognition_ref"]
     assert_exists(REPO_ROOT / "cognition/cards" / f"{upgraded_ref.split('.')[-1]}.yaml")
@@ -238,6 +268,44 @@ def main() -> int:
         "explanation_alignment.yaml",
         {"task_ref": "task.power.ieee69_hosting_capacity"},
     )
+    task005_success_run = find_yaml_by_fields(
+        REPO_ROOT / "runs/task005",
+        "run.yaml",
+        {"trigger_reason": "real_renewable-restoration"},
+    )
+    task005_failure_run = find_yaml_by_fields(
+        REPO_ROOT / "runs/task005",
+        "run.yaml",
+        {"trigger_reason": "real_steady-state-mismatch", "run_status": "failed_experiment"},
+    )
+    task005_perf_run = find_yaml_by_fields(
+        REPO_ROOT / "runs/task005",
+        "run.yaml",
+        {"trigger_reason": "real_renewable-underperformer", "run_status": "failed_experiment"},
+    )
+    task005_success_cognition = task005_success_run.parent / "cognition.yaml"
+    task005_failure_cognition = task005_failure_run.parent / "cognition.yaml"
+    task005_perf_cognition = task005_perf_run.parent / "cognition.yaml"
+    task005_overclaim = find_yaml_by_fields(
+        REPO_ROOT / "analysis/task005",
+        "boundary_overclaim_check.yaml",
+        {"task_ref": "task.power.ieee69_restoration_resilience"},
+    )
+    task005_mismatch = find_yaml_by_fields(
+        REPO_ROOT / "analysis/task005",
+        "task_mismatch_check.yaml",
+        {"task_ref": "task.power.ieee69_restoration_resilience"},
+    )
+    task005_semantic = find_yaml_by_fields(
+        REPO_ROOT / "analysis/task005",
+        "strategy_semantic_comparison.yaml",
+        {"task_ref": "task.power.ieee69_restoration_resilience"},
+    )
+    task005_upgrade = find_yaml_by_fields(
+        REPO_ROOT / "analysis/task005",
+        "cognition_upgrade.yaml",
+        {"task_ref": "task.power.ieee69_restoration_resilience"},
+    )
     checks.extend(
         [
             (task002_upgrade, "task_ref", "task.power.ieee69_reactive_opt"),
@@ -266,6 +334,13 @@ def main() -> int:
             (task004_mismatch, "task_ref", "task.power.ieee69_hosting_capacity"),
             (task004_literature, "task_ref", "task.power.ieee69_hosting_capacity"),
             (task004_explanation, "task_ref", "task.power.ieee69_hosting_capacity"),
+            (task005_success_cognition, "scope_boundary.task", "task.power.ieee69_restoration_resilience"),
+            (task005_failure_cognition, "cognition_type", "failure"),
+            (task005_perf_cognition, "cognition_type", "failure"),
+            (task005_overclaim, "task_ref", "task.power.ieee69_restoration_resilience"),
+            (task005_mismatch, "task_ref", "task.power.ieee69_restoration_resilience"),
+            (task005_semantic, "task_ref", "task.power.ieee69_restoration_resilience"),
+            (task005_upgrade, "task_ref", "task.power.ieee69_restoration_resilience"),
         ]
     )
 

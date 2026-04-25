@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_renewable_reactive_opt.0001
+object_version: 0.1.0
+created_at: '2026-04-22T07:43:48Z'
+updated_at: '2026-04-22T07:43:48Z'
+status: reviewed
+metadata:
+  task_package: task003
+  controller_mode: minimum_viable_loop
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_cognition_ref: cognition.power.upgraded_ieee69_renewable_reactive_opt_0006
+source_event_ref: cognition_event.power.ieee69_renewable_reactive_opt.0001
+next_iteration_skill_constraints:
+- 不得因单次性能失败而放弃 inverter_q_support 方法家族。
+- 下一轮候选必须保持新能源感知控制空间，不允许退回 weak-shunt 替代主线。
+next_iteration_evaluator_constraints:
+- 必须显式区分 admissibility 与 efficacy。
+- 性能失败与任务失配必须分离记录。
+next_iteration_task_refinements:
+- 仍限定单代表工况，避免在当前阶段过早扩展到时序波动。
+search_priority_updates:
+- 优先探索 shunt + inverter 协同 candidate。
+- 保留 inverter-only 作为受控对照路径。
+blocked_skill_families:
+- pure_weak_shunt_substitution
+required_discriminating_tests:
+- 补协同 candidate 与 inverter-only candidate 的对照。
+- 验证 evaluator 是否给出 admissibility 与 efficacy 的分离结果。
+summary: task003 的认知层要求下一轮技能在新能源感知方法族内部进化，而不是回到语义更弱的替代路径。

@@ -1,0 +1,7 @@
+{
+  "iteration": 1,
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "strategy": "inverter-support",
+  "rationale": "Establish the bounded inverter-support hosting-capacity baseline candidate under the current scan envelope.",
+  "expected_gain": "Check whether the candidate improves hosting-capacity boundary first, then secondary boundary metrics."
+}

@@ -1,0 +1,20 @@
+schema_version: "0.1.0"
+object_type: "llm_cognition_review"
+review_id: "llm_vs_rule.task005_result_interpreter_001"
+created_at: "2026-04-22T00:00:00Z"
+job_ref: "agents/cognition/jobs/task005_result_interpreter_001.json"
+output_ref: "agents/cognition/outputs/task005_result_interpreter_001.json"
+rule_baseline_refs:
+  - "runs/task005/run_0004/cognition.yaml"
+verdict: "useful_with_guardrails"
+observed_gains:
+  - "LLM explicitly separated local restoration improvement from general resilience."
+  - "LLM identified the restoration_action_cost_proxy tradeoff rather than treating the candidate as uniformly better."
+  - "LLM listed missing evidence needed for stronger resilience claims."
+observed_risks:
+  - "LLM could not fully compare with rule baseline because the baseline content was only partially present in the prompt bundle."
+  - "LLM still requires guardrails to prevent broad resilience claims."
+recommended_next_actions:
+  - "Include full evidence bundle and rule baseline content in future LLM cognition jobs."
+  - "Add repeated fault scenarios before allowing resilience-level claims."
+  - "Use LLM result interpretation as critique layer, not as direct stable cognition."

@@ -1,0 +1,588 @@
+{
+  "generated_at": "2026-04-22T07:43:48Z",
+  "entries": [
+    {
+      "task": "task002",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_reactive_opt.0001",
+      "path": "runs/task002/run_0001/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_weak-shunt_success"
+    },
+    {
+      "task": "task002",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_reactive_opt.0002",
+      "path": "runs/task002/run_0002/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_weak-shunt_success"
+    },
+    {
+      "task": "task002",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_reactive_opt.0003",
+      "path": "runs/task002/run_0003/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_weak-shunt_success"
+    },
+    {
+      "task": "task002",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_reactive_opt.0004",
+      "path": "runs/task002/run_0004/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_weak-shunt_success"
+    },
+    {
+      "task": "task002",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_reactive_opt.0005",
+      "path": "runs/task002/run_0005/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_weak-shunt_success"
+    },
+    {
+      "task": "task002",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_reactive_opt.0006",
+      "path": "runs/task002/run_0006/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_adversarial-failure"
+    },
+    {
+      "task": "task002",
+      "stage": "compare",
+      "object_type": "cognition",
+      "object_id": "cognition.power.strategy_comparison_ieee69_reactive_opt_0001",
+      "path": "analysis/task002/compare_0001/cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task002",
+      "stage": "compare",
+      "object_type": "strategy_comparison",
+      "object_id": "comparison.power.ieee69_reactive_opt.0001",
+      "path": "analysis/task002/compare_0001/strategy_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task002",
+      "stage": "explanations",
+      "object_type": "explanation_alignment",
+      "object_id": "explanation_alignment.power.ieee69_reactive_opt.0001",
+      "path": "analysis/task002/explanations_0001/explanation_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task002",
+      "stage": "literature",
+      "object_type": "literature_alignment",
+      "object_id": "literature_alignment.power.ieee69_reactive_opt.0001",
+      "path": "analysis/task002/literature_0001/literature_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task002",
+      "stage": "semantic",
+      "object_type": "strategy_semantic_comparison",
+      "object_id": "semantic_comparison.power.ieee69_reactive_opt.0001",
+      "path": "analysis/task002/semantic_0001/strategy_semantic_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task002",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_reactive_opt.0001",
+      "path": "analysis/task002/upgrade_0001/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task002",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_reactive_opt.0001",
+      "path": "analysis/task002/upgrade_0001/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task002",
+      "stage": "upgrade",
+      "object_type": "cognition",
+      "object_id": "cognition.power.upgraded_strategy_comparison_ieee69_reactive_opt_0001",
+      "path": "analysis/task002/upgrade_0001/upgraded_cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0001",
+      "path": "runs/task003/run_0001/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0002",
+      "path": "runs/task003/run_0002/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_weak-shunt-mismatch"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0003",
+      "path": "runs/task003/run_0003/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_weak-shunt-mismatch"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0004",
+      "path": "runs/task003/run_0004/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-underperformer"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0005",
+      "path": "runs/task003/run_0005/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0006",
+      "path": "runs/task003/run_0006/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0007",
+      "path": "runs/task003/run_0007/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "compare",
+      "object_type": "cognition",
+      "object_id": "cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0001",
+      "path": "analysis/task003/compare_0001/cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task003",
+      "stage": "compare",
+      "object_type": "strategy_comparison",
+      "object_id": "comparison.power.ieee69_renewable_reactive_opt.0001",
+      "path": "analysis/task003/compare_0001/strategy_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "compare",
+      "object_type": "cognition",
+      "object_id": "cognition.power.strategy_comparison_ieee69_renewable_reactive_opt_0002",
+      "path": "analysis/task003/compare_0002/cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task003",
+      "stage": "compare",
+      "object_type": "strategy_comparison",
+      "object_id": "comparison.power.ieee69_renewable_reactive_opt.0002",
+      "path": "analysis/task003/compare_0002/strategy_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "explanations",
+      "object_type": "explanation_alignment",
+      "object_id": "explanation_alignment.power.ieee69_renewable_reactive_opt.0001",
+      "path": "analysis/task003/explanations_0001/explanation_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "explanations",
+      "object_type": "explanation_alignment",
+      "object_id": "explanation_alignment.power.ieee69_renewable_reactive_opt.0002",
+      "path": "analysis/task003/explanations_0002/explanation_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "literature",
+      "object_type": "literature_alignment",
+      "object_id": "literature_alignment.power.ieee69_renewable_reactive_opt.0001",
+      "path": "analysis/task003/literature_0001/literature_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "literature",
+      "object_type": "literature_alignment",
+      "object_id": "literature_alignment.power.ieee69_renewable_reactive_opt.0002",
+      "path": "analysis/task003/literature_0002/literature_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "mismatch",
+      "object_type": "task_mismatch_check",
+      "object_id": "task_mismatch.power.ieee69_renewable_reactive_opt.20260420_143110",
+      "path": "analysis/task003/mismatch_20260420_143110/task_mismatch_check.yaml",
+      "status": "ready"
+    },
+    {
+      "task": "task003",
+      "stage": "mismatch",
+      "object_type": "cognition",
+      "object_id": "cognition.power.ieee69_renewable_reactive_opt_task_mismatch_20260420_143348",
+      "path": "analysis/task003/mismatch_20260420_143348/cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task003",
+      "stage": "mismatch",
+      "object_type": "task_mismatch_check",
+      "object_id": "task_mismatch.power.ieee69_renewable_reactive_opt.20260420_143348",
+      "path": "analysis/task003/mismatch_20260420_143348/task_mismatch_check.yaml",
+      "status": "blocked"
+    },
+    {
+      "task": "task003",
+      "stage": "semantic",
+      "object_type": "strategy_semantic_comparison",
+      "object_id": "semantic_comparison.power.ieee69_renewable_reactive_opt.0001",
+      "path": "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "semantic",
+      "object_type": "strategy_semantic_comparison",
+      "object_id": "semantic_comparison.power.ieee69_renewable_reactive_opt.0002",
+      "path": "analysis/task003/semantic_0002/strategy_semantic_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_renewable_reactive_opt.0001",
+      "path": "analysis/task003/upgrade_0001/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_renewable_reactive_opt.0001",
+      "path": "analysis/task003/upgrade_0001/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_renewable_reactive_opt.0002",
+      "path": "analysis/task003/upgrade_0002/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_renewable_reactive_opt.0002",
+      "path": "analysis/task003/upgrade_0002/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_renewable_reactive_opt.0003",
+      "path": "analysis/task003/upgrade_0003/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_renewable_reactive_opt.0003",
+      "path": "analysis/task003/upgrade_0003/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition",
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0003",
+      "path": "analysis/task003/upgrade_0003/upgraded_cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_renewable_reactive_opt.0004",
+      "path": "analysis/task003/upgrade_0004/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_renewable_reactive_opt.0004",
+      "path": "analysis/task003/upgrade_0004/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition",
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0004",
+      "path": "analysis/task003/upgrade_0004/upgraded_cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_renewable_reactive_opt.0005",
+      "path": "analysis/task003/upgrade_0005/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_renewable_reactive_opt.0005",
+      "path": "analysis/task003/upgrade_0005/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition",
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0005",
+      "path": "analysis/task003/upgrade_0005/upgraded_cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_renewable_reactive_opt.0006",
+      "path": "analysis/task003/upgrade_0006/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_renewable_reactive_opt.0006",
+      "path": "analysis/task003/upgrade_0006/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task003",
+      "stage": "upgrade",
+      "object_type": "cognition",
+      "object_id": "cognition.power.upgraded_ieee69_renewable_reactive_opt_0006",
+      "path": "analysis/task003/upgrade_0006/upgraded_cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0001",
+      "path": "runs/task004/run_0001/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0002",
+      "path": "runs/task004/run_0002/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_single-point-mismatch"
+    },
+    {
+      "task": "task004",
+      "stage": "boundary",
+      "object_type": "boundary_overclaim_check",
+      "object_id": "boundary_overclaim.power.ieee69_hosting_capacity.20260421_033407",
+      "path": "analysis/task004/boundary_overclaim_20260421_033407/boundary_overclaim_check.yaml",
+      "status": "flagged"
+    },
+    {
+      "task": "task004",
+      "stage": "compare",
+      "object_type": "cognition",
+      "object_id": "cognition.power.strategy_comparison_ieee69_hosting_capacity_0002",
+      "path": "analysis/task004/compare_0002/cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task004",
+      "stage": "compare",
+      "object_type": "strategy_comparison",
+      "object_id": "comparison.power.ieee69_hosting_capacity.0002",
+      "path": "analysis/task004/compare_0002/strategy_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "explanations",
+      "object_type": "explanation_alignment",
+      "object_id": "explanation_alignment.power.ieee69_hosting_capacity.0001",
+      "path": "analysis/task004/explanations_0001/explanation_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "explanations",
+      "object_type": "explanation_alignment",
+      "object_id": "explanation_alignment.power.ieee69_hosting_capacity.0002",
+      "path": "analysis/task004/explanations_0002/explanation_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "literature",
+      "object_type": "literature_alignment",
+      "object_id": "literature_alignment.power.ieee69_hosting_capacity.0001",
+      "path": "analysis/task004/literature_0001/literature_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "literature",
+      "object_type": "literature_alignment",
+      "object_id": "literature_alignment.power.ieee69_hosting_capacity.0002",
+      "path": "analysis/task004/literature_0002/literature_alignment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "mismatch",
+      "object_type": "cognition",
+      "object_id": "cognition.power.ieee69_hosting_capacity_task_mismatch_20260421_035102",
+      "path": "analysis/task004/mismatch_20260421_035102/cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task004",
+      "stage": "mismatch",
+      "object_type": "task_mismatch_check",
+      "object_id": "task_mismatch.power.ieee69_hosting_capacity.20260421_035102",
+      "path": "analysis/task004/mismatch_20260421_035102/task_mismatch_check.yaml",
+      "status": "blocked"
+    },
+    {
+      "task": "task004",
+      "stage": "mismatch",
+      "object_type": "cognition",
+      "object_id": "cognition.power.ieee69_hosting_capacity_task_mismatch_20260421_035228",
+      "path": "analysis/task004/mismatch_20260421_035228/cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task004",
+      "stage": "mismatch",
+      "object_type": "task_mismatch_check",
+      "object_id": "task_mismatch.power.ieee69_hosting_capacity.20260421_035228",
+      "path": "analysis/task004/mismatch_20260421_035228/task_mismatch_check.yaml",
+      "status": "blocked"
+    },
+    {
+      "task": "task004",
+      "stage": "semantic",
+      "object_type": "strategy_semantic_comparison",
+      "object_id": "semantic_comparison.power.ieee69_hosting_capacity.0001",
+      "path": "analysis/task004/semantic_0001/strategy_semantic_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "semantic",
+      "object_type": "strategy_semantic_comparison",
+      "object_id": "semantic_comparison.power.ieee69_hosting_capacity.0002",
+      "path": "analysis/task004/semantic_0002/strategy_semantic_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_hosting_capacity.0001",
+      "path": "analysis/task004/upgrade_0001/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_hosting_capacity.0001",
+      "path": "analysis/task004/upgrade_0001/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "upgrade",
+      "object_type": "cognition",
+      "object_id": "cognition.power.upgraded_ieee69_hosting_capacity_0001",
+      "path": "analysis/task004/upgrade_0001/upgraded_cognition.yaml",
+      "status": "active"
+    },
+    {
+      "task": "task004",
+      "stage": "upgrade",
+      "object_type": "cognition_upgrade",
+      "object_id": "cognition_upgrade.power.ieee69_hosting_capacity.0002",
+      "path": "analysis/task004/upgrade_0002/cognition_upgrade.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "upgrade",
+      "object_type": "novelty_assessment",
+      "object_id": "novelty.power.ieee69_hosting_capacity.0002",
+      "path": "analysis/task004/upgrade_0002/novelty_assessment.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "upgrade",
+      "object_type": "cognition",
+      "object_id": "cognition.power.upgraded_ieee69_hosting_capacity_0002",
+      "path": "analysis/task004/upgrade_0002/upgraded_cognition.yaml",
+      "status": "active"
+    }
+  ]
+}

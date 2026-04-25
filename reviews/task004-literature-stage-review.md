@@ -1,4 +1,4 @@
-## Code Review Round 4 — 2026-04-21
+## Code Review Round 5 — 2026-04-21
 
 **Scope**: task004 继续推进到文献对齐与外部参照认知升级，覆盖 task004 seed papers、literature alignment、explanation alignment、文献参照下的 cognition upgrade 与 literature-stage 验证
 **Build Status**: PASS
@@ -12,7 +12,7 @@
 - task004 已新增文献种子：
   - [task004-seed-papers.yaml](/home/chenying/root-research/DaoShuGuo-v1/literature/task004-seed-papers.yaml)
   - [task004-source-overlays.yaml](/home/chenying/root-research/DaoShuGuo-v1/literature/task004-source-overlays.yaml)
-- task004 已扩展文献方法家族：
+- task004 已显式引入三类方法语义：
   - `hosting_capacity_assessment`
   - `hosting_capacity_controlled`
   - `single_point_operating_evaluation`
@@ -20,11 +20,11 @@
   - `analysis/task004/literature_0002`
 - 已生成 task004 explanation alignment：
   - `analysis/task004/explanations_0002`
-- task004 已在文献参照下重生一版 cognition upgrade：
+- 已生成文献参照下的 task004 cognition upgrade：
   - `analysis/task004/upgrade_0002`
-- 当前至少能得到一条外部参照下的认知：
-  - 单点运行结果不能替代控制策略相关的承载力边界扫描
-  - 并且该认知已得到 `literature_alignment` 与 `explanation_alignment` 支撑
+- 当前 task004 已能在外部参照下稳定说明：
+  - 单点运行结果不能替代边界评估
+  - 边界判断必须绑定控制策略与扫描包络
 - 已新增 `verify-task004-literature-stage`。
 - `task004-literature-stage` artifact validation 已接入 `scripts/validate_schemas.py`。
 - `scripts/run_integration_checks.py` 已纳入 task004 literature-stage。
@@ -41,7 +41,7 @@
 
 ### Remaining Scope
 
-- task004 当前只完成了一条 literature alignment 主线，还没有形成更丰富的多策略、多边界文献对照。
-- 当前 task004 仍基于 curated seed papers，未进入更广的文献研究阶段。
+- task004 当前仍然只覆盖 scanning envelope 内的静态承载力边界。
+- 当前文献层仍是 curated seed papers，不是更广泛的 hosting capacity 文献空间。
 
 ### Verdict: APPROVED

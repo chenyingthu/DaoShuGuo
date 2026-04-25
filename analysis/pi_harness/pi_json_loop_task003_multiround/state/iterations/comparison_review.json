@@ -1,0 +1,14 @@
+{
+  "iteration_1_strategy": "inverter-support",
+  "iteration_1_run_ref": "run.power.ieee69_renewable_reactive_opt.0018",
+  "iteration_2_strategy": "inverter-underperformer",
+  "iteration_2_run_ref": "run.power.ieee69_renewable_reactive_opt.0019",
+  "driver": "Run a semantically matched renewable-aware alternative under the same evaluator.",
+  "constraint_source": {
+    "task_ref": "task.power.ieee69_renewable_reactive_opt",
+    "source_run_ref": "run.power.ieee69_renewable_reactive_opt.0018",
+    "constraint": "Keep renewable-aware control and require a matched comparison before broader claims.",
+    "blocked_path": "pure_weak_shunt_substitution",
+    "required_test": "Compare against a semantically matched renewable-aware variant under the same evaluator."
+  }
+}
