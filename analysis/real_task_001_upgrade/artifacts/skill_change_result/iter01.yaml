@@ -1,0 +1,32 @@
+schema_version: 0.1.0
+object_type: skill_change_result
+object_id: skill_change_result.power.ieee69_hosting_capacity_upgrade.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: completed
+metadata:
+  real_task: real-task-001-upgrade
+  run_ref: run.power.ieee69_hosting_capacity.0029
+  structural_request_ref: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+task_ref: task.power.ieee69_hosting_capacity
+request_ref: skill_change_request.power.ieee69_hosting_capacity_upgrade.0001
+produced_skill_ref: skill.power.voltage_sensitivity_capacity_optimizer_task004
+code_paths:
+- skills/active_dev/voltage_sensitivity_capacity_optimizer_task004.py
+- tasks/task004/runtime_helpers.py
+- evaluators/task004_evaluator.py
+- evaluators/task004_evaluator.yaml
+change_summary:
+- Added non-uniform voltage-sensitivity inverter-Q allocation.
+- Added boundary-trigger and control-effort metrics to evaluator output.
+expected_behavior_change:
+- Improve operational-quality metrics under comparable scan envelope.
+- Do not claim hosting-capacity gain unless primary boundary improves.
+command: python orchestrator/main.py real-run-task004 --strategy voltage-sensitivity
+  --candidate-q-step-mvar 0.35
+raw_output_path: runs/task004/run_0029/metrics.json
+self_reported_risks:
+- Voltage-sensitivity allocation is a minimal heuristic, not OPF.
+- Current scenario still may not trigger a hosting-capacity boundary.
+run_ref: run.power.ieee69_hosting_capacity.0029

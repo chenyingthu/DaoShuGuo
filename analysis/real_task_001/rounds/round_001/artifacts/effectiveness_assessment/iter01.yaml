@@ -1,0 +1,56 @@
+schema_version: 0.1.0
+object_type: effectiveness_assessment
+object_id: effectiveness_assessment.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:35:52Z'
+updated_at: '2026-04-26T03:35:52Z'
+status: completed
+metadata:
+  task_package: task004
+  worker: effectiveness_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+result_ref: skill_change_result.power.ieee69_hosting_capacity.0001
+baseline_ref: baseline.power.ieee69_hosting_capacity.fixed_inverter_q_capacity_scan
+evaluator_ref: evaluator.power.ieee69_hosting_capacity.default
+run_ref: run.power.ieee69_hosting_capacity.0023
+run_passed: false
+metric_summary:
+  baseline:
+    hosting_capacity_level: 3.0
+    violation_trigger_type: feasible
+    loss_at_boundary: 135.1525491499995
+    voltage_margin: 0.025108200251617863
+    constraint_violation: 0
+    reactive_support_effort: 0.0
+    min_vm: 0.9351082002516179
+    max_vm: 1.0134557437571081
+  candidate:
+    hosting_capacity_level: 3.0
+    violation_trigger_type: feasible
+    loss_at_boundary: 121.37896983940597
+    voltage_margin: 0.027143627645226154
+    constraint_violation: 0
+    reactive_support_effort: 0.30000000000000004
+    min_vm: 0.9371436276452262
+    max_vm: 1.0145467767364098
+  delta_vs_baseline:
+    hosting_capacity_level: 0.0
+    loss_at_boundary: -13.773579310593519
+    voltage_margin: 0.002035427393608291
+    reactive_support_effort: 0.30000000000000004
+  delta_vs_prior: null
+  primary_improved: false
+  secondary_improved: true
+comparison_summary: Candidate matched baseline hosting_capacity_level at 3.0 with
+  no constraint violation; it reduced loss_at_boundary by 13.773579310593519 and increased
+  voltage_margin by 0.002035427393608291, but required reactive_support_effort of
+  0.30000000000000004 versus 0.0 baseline.
+judgment_summary: Primary hosting-capacity improvement is not supported because the
+  boundary did not increase. Secondary operational gains are supported only as observed
+  loss reduction and voltage-margin increase in this failed_experiment, bounded by
+  added reactive support effort and without structural-improvement claim.
+recommended_cognition_action: 'Route to cognition_worker for bounded interpretation
+  as a skill_use_problem: examine why inverter-support with q_step 0.1 improves secondary
+  metrics without increasing hosting-capacity boundary, and decide whether this suggests
+  a reusable skill-structure question or only local parameter/use behavior.'

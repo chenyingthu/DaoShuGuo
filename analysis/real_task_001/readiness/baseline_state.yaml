@@ -1,0 +1,16 @@
+schema_version: 0.1.0
+object_type: validation_plan
+object_id: validation.power.real_task_001.baseline_state
+created_at: '2026-04-26T03:35:27Z'
+status: reviewed
+task_ref: task.power.ieee69_hosting_capacity
+covered_dimensions:
+- task package
+- baseline binding
+- evaluator binding
+- existing task004 runs
+missing_dimensions:
+- multi-scenario hosting capacity
+- ablation for cognition causality
+latest_run_dir: runs/task004/run_0022
+summary: real-task-001 baseline state frozen before multi-round execution.

@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+object_type: run
+object_id: run.power.real_task_001.round_0003
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: archived
+metadata:
+  run_intent: real_task_001
+  source_run_ref: run.power.ieee69_hosting_capacity.0025
+task_ref: task.power.ieee69_hosting_capacity
+run_status: completed
+started_at: '2026-04-26T03:37:46Z'
+ended_at: '2026-04-26T03:37:46Z'
+attempt_index: 3
+trigger_reason: real_task_001_round
+input_snapshot:
+  task:
+    object_id: task.power.ieee69_hosting_capacity
+    object_version: 0.1.0
+skill_refs:
+  used:
+  - object_id: skill.power.renewable_capacity_optimizer_task004
+    object_version: 0.1.0
+result_summary:
+  metrics:
+    hosting_capacity_level: 1.4
+    violation_trigger_type: feasible
+    loss_at_boundary: 174.47777167376452
+    voltage_margin: 0.011487907646359541
+    constraint_violation: 0
+    reactive_support_effort: 0.0
+    min_vm: 0.9214879076463596
+    max_vm: 1.0057724146397942
+  notes: candidate did not improve hosting-capacity boundary
+artifact_refs:
+- kind: skill_change_request
+  path: analysis/real_task_001/rounds/round_003/artifacts/skill_change_request/iter03.yaml
+- kind: skill_change_result
+  path: analysis/real_task_001/rounds/round_003/artifacts/skill_change_result/iter03.yaml
+- kind: effectiveness_assessment
+  path: analysis/real_task_001/rounds/round_003/artifacts/effectiveness_assessment/iter03.yaml
+- kind: diagnosis_input
+  path: analysis/real_task_001/rounds/round_003/artifacts/diagnosis_input/iter03.yaml
+- kind: cognition_diagnosis
+  path: analysis/real_task_001/rounds/round_003/artifacts/cognition_diagnosis/iter03.yaml
+- kind: cognition_to_skill_update
+  path: analysis/real_task_001/rounds/round_003/artifacts/cognition_to_skill_update/iter03.yaml
+- kind: loop_routing_decision
+  path: analysis/real_task_001/rounds/round_003/artifacts/loop_routing_decision/iter03.yaml
+- kind: loop_review
+  path: analysis/real_task_001/rounds/round_003/artifacts/loop_review/iter03.yaml
+agent_trace_refs: []

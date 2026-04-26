@@ -1,0 +1,43 @@
+schema_version: 0.1.0
+object_type: experiment_design_recommendation
+object_id: experiment_design_recommendation.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+learning_context_ref: learning_context_pack.power.ieee69_hosting_capacity.reframing_0001
+recommended_matrix:
+- factor: scenario_envelope
+  levels:
+  - original_scan
+  - extended_until_violation
+  purpose: Ensure the boundary is bracketed rather than assumed at scan limit.
+- factor: control_strategy
+  levels:
+  - fixed_q_baseline
+  - uniform_q_support
+  - voltage_sensitivity_q_allocation
+  purpose: Separate usage tuning from structural allocation logic.
+- factor: standard
+  levels:
+  - primary_boundary
+  - secondary_quality
+  - control_effort
+  purpose: Prevent secondary metric overclaim and hidden-cost improvement.
+minimum_zhuoshi_evidence:
+- A boundary-triggering scan exists.
+- A non-uniform allocation candidate is compared with uniform support under comparable
+  effort.
+- Primary/secondary/cost metrics are all reported.
+- Claim remains static and control-strategy-conditioned.
+excluded_shortcuts:
+- q_step-only escalation
+- lowering voltage standards
+- single-point mismatch as boundary evidence
+confidence: medium
+gaps:
+- This is still not a time-series or probabilistic HC design.

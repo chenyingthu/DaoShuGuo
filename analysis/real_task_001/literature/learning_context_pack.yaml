@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+object_type: learning_context_pack
+object_id: learning_context_pack.power.ieee69_hosting_capacity.reframing_0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+learning_need_ref: learning_need.power.ieee69_hosting_capacity.reframing_0001
+source_refs:
+- method_card.power.hosting_capacity_pv_2017
+- method_card.power.smart_inverter_hosting_2020
+- method_card.power.hosting_capacity_method_review_2021
+- method_card.power.smart_inverter_voltvar_2019
+- method_card.power.der_reactive_support_2021
+- method_card.power.single_point_operation_2019
+source_summaries:
+- source_ref: method_card.power.hosting_capacity_pv_2017
+  relevance: Static PV hosting capacity is framed as a boundary under explicit voltage
+    constraints.
+- source_ref: method_card.power.smart_inverter_hosting_2020
+  relevance: Smart inverter control can condition the hosting-capacity boundary and
+    must be stated as part of the claim.
+- source_ref: method_card.power.hosting_capacity_method_review_2021
+  relevance: Hosting-capacity results are not comparable unless scenario, constraints,
+    control assumptions, and boundary definitions are preserved.
+- source_ref: method_card.power.single_point_operation_2019
+  relevance: Operating-point analysis is weaker evidence than boundary evaluation.
+method_insights:
+- Uniform inverter-Q support is a use condition, not a full method family by itself.
+- A structural method attempt should change allocation logic, such as voltage-sensitivity
+  allocation or boundary-neighborhood refinement.
+process_insights:
+- The workflow should first trigger or bracket a boundary before claiming boundary
+  movement.
+- Negative-control and mismatch lanes should remain separate from candidate evidence.
+standard_insights:
+- Primary hosting-capacity claims require boundary-level improvement, not only loss
+  or voltage-margin improvement.
+- Control effort and boundary stability are needed to prevent high-cost pseudo-progress.
+applicability_boundaries:
+- Source pack is curated from existing task004 artifacts and seed literature objects.
+- No full systematic literature review is claimed.
+- Current task remains static single-snapshot hosting capacity.
+confidence: medium
+gaps:
+- No time-series or probabilistic hosting capacity evidence is included.
+- No OPF-grade method is implemented in this pack.
+curator_notes: This pack supports research reframing and structural upgrade design
+  for real-task-001.

@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: taste_assessment
+object_id: taste.power.real_task_001.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: reviewed
+metadata:
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+run_refs:
+- run.power.ieee69_hosting_capacity.0023
+- run.power.ieee69_hosting_capacity.0024
+- run.power.ieee69_hosting_capacity.0025
+grade: diaomu
+grade_reasoning: The result is useful as a carefully bounded internal study, but it
+  lacks primary hosting-capacity improvement and multi-scenario evidence.
+claim_ceiling: Internal technical note about bounded static scan behavior; no paper-level
+  hosting-capacity claim.
+risk_notes:
+- Single snapshot only.
+- Primary boundary metric unchanged.
+- Secondary metrics improved with higher reactive support cost.
+forbidden_claims:
+- Intrinsic hosting capacity improved.
+- General renewable hosting-capacity method discovered.
+recommended_report_type: technical_note
+evidence_refs:
+- evidence.power.real_task_001.0001
+review_status: reviewed

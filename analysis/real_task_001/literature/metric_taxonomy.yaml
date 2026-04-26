@@ -1,0 +1,51 @@
+schema_version: 0.1.0
+object_type: metric_taxonomy
+object_id: metric_taxonomy.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+learning_context_ref: learning_context_pack.power.ieee69_hosting_capacity.reframing_0001
+metric_entries:
+- metric_id: hosting_capacity_level
+  role: primary
+  supports_claims:
+  - hosting-capacity boundary movement
+  unsupported_claims:
+  - loss reduction alone
+- metric_id: boundary_trigger_scale
+  role: primary_support
+  supports_claims:
+  - boundary is actually bracketed
+  unsupported_claims:
+  - paper novelty without method comparison
+- metric_id: loss_at_boundary
+  role: secondary
+  supports_claims:
+  - operational-quality improvement
+  unsupported_claims:
+  - hosting capacity improvement by itself
+- metric_id: control_effort
+  role: cost_gate
+  supports_claims:
+  - improvement is not free or hidden-cost
+  unsupported_claims:
+  - better skill if effort is unbounded
+primary_metric_refs:
+- hosting_capacity_level
+- boundary_trigger_scale
+secondary_metric_refs:
+- loss_at_boundary
+- voltage_margin
+- control_effort
+- scenario_robustness
+claim_boundaries:
+- Secondary metric gains do not support primary hosting-capacity claims.
+- Boundary-trigger evidence is required before claiming boundary movement.
+confidence: medium
+gaps:
+- Thermal constraints and probabilistic robustness are not included.

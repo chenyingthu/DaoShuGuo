@@ -1,0 +1,43 @@
+schema_version: 0.1.0
+object_type: cognition_diagnosis
+object_id: cognition_diagnosis.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:36:10Z'
+updated_at: '2026-04-26T03:36:10Z'
+status: reviewed
+metadata:
+  task_package: task004
+  worker: cognition_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+problem_class: skill_use_problem
+judgment_summary: 'Evidence supports a bounded skill-use diagnosis: inverter-support
+  with q_step 0.1 preserved the baseline hosting_capacity_level at 3.0 but did not
+  improve the primary boundary metric, while reducing loss_at_boundary and increasing
+  voltage_margin at the cost of reactive_support_effort 0.30000000000000004. This
+  is local use behavior, not evidence of skill-structure improvement.'
+evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity.0001
+- skill_change_result.power.ieee69_hosting_capacity.0001
+- effectiveness_assessment.power.ieee69_hosting_capacity.0001
+boundary_notes:
+- Primary boundary claim is not supported because hosting_capacity_level delta is
+  0.0.
+- Secondary gains are limited to observed loss reduction and voltage-margin increase
+  in run.power.ieee69_hosting_capacity.0023.
+- Reactive support effort increased from 0.0 to 0.30000000000000004, so secondary
+  gains are not free improvements.
+- No structural-improvement claim is justified from one failed_experiment with unchanged
+  hosting-capacity boundary.
+uncertainty_notes:
+- It is unclear whether q_step 0.1 is too coarse, too weak, or simply not active at
+  the current hosting-capacity boundary.
+- The result does not distinguish whether the boundary is controlled by voltage, thermal,
+  power-flow convergence, or search-envelope limits beyond the provided feasible trigger.
+- No delta_vs_prior is available, so the result cannot be interpreted as a trend across
+  inverter-support settings.
+- The evidence does not show whether secondary gains persist across nearby penetration
+  levels or alternative reactive-control policies.
+recommended_next_worker: skill_worker
+recommended_action: repair_skill_use
+continue_loop: true

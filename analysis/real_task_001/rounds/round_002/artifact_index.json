@@ -1,0 +1,39 @@
+{
+  "task_ref": "task.power.ieee69_hosting_capacity",
+  "round": 2,
+  "run_ref": "run.power.ieee69_hosting_capacity.0024",
+  "artifacts": {
+    "skill_change_request": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/skill_change_request/iter02.yaml",
+      "object_id": "skill_change_request.power.ieee69_hosting_capacity.0002"
+    },
+    "skill_change_result": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/skill_change_result/iter02.yaml",
+      "object_id": "skill_change_result.power.ieee69_hosting_capacity.0002"
+    },
+    "effectiveness_assessment": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/effectiveness_assessment/iter02.yaml",
+      "object_id": "effectiveness_assessment.power.ieee69_hosting_capacity.0002"
+    },
+    "diagnosis_input": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/diagnosis_input/iter02.yaml",
+      "object_id": "diagnosis_input.power.ieee69_hosting_capacity.0002"
+    },
+    "cognition_diagnosis": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/cognition_diagnosis/iter02.yaml",
+      "object_id": "cognition_diagnosis.power.ieee69_hosting_capacity.0002"
+    },
+    "cognition_to_skill_update": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/cognition_to_skill_update/iter02.yaml",
+      "object_id": "cognition_to_skill_update.power.ieee69_hosting_capacity.0002"
+    },
+    "loop_routing_decision": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/loop_routing_decision/iter02.yaml",
+      "object_id": "loop_routing_decision.power.ieee69_hosting_capacity.0002"
+    },
+    "loop_review": {
+      "path": "analysis/real_task_001/rounds/round_002/artifacts/loop_review/iter02.yaml",
+      "object_id": "loop_review.power.ieee69_hosting_capacity.0002"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+object_type: learning_need
+object_id: learning_need.power.ieee69_hosting_capacity.reframing_0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+source_review_ref: evidence.power.real_task_001.reframing_input
+observation_type: cognition_gap
+skill_dimension_focus:
+- method
+- process
+- standard
+learning_questions:
+- Which hosting-capacity problem framings match task004 and which are out of scope?
+- Which method family moves beyond uniform inverter-Q parameter tuning?
+- Which metrics are needed to separate boundary improvement from operational-quality
+  improvement?
+- What evidence is required before a diaomu result can move toward zhuoshi?
+required_source_types:
+- method_card
+- paper_record
+- paper_excerpt
+exclusion_criteria:
+- Do not treat secondary loss or voltage-margin improvement as hosting-capacity improvement.
+- Do not use single-point operating evidence as boundary evidence.
+success_criteria:
+- Produce problem, method, metric, claim, and experiment maps.
+- Identify at least one structural skill family beyond q_step tuning.
+claim_boundary:
+- Curated task004 source pack can support reframing and low/medium-confidence design,
+  not literature-complete novelty claims.

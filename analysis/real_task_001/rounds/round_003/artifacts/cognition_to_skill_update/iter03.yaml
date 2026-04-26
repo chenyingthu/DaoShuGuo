@@ -1,0 +1,61 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_hosting_capacity.0003
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: reviewed
+metadata:
+  task_package: task004
+  worker: cognition_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_diagnosis.power.ieee69_hosting_capacity.0003
+source_event_ref: effectiveness_assessment.power.ieee69_hosting_capacity.0003
+next_iteration_skill_constraints:
+- Do not treat single-point non-boundary mismatch evidence as sufficient for hosting-capacity
+  boundary improvement.
+- Separate method changes that target boundary expansion from process/standard probes
+  that only test evidence rejection.
+- Any next candidate must state whether it changes method, process, or standard, and
+  whether the intended improvement is structural rather than parameter or boundary-condition
+  tuning.
+- Preserve the distinction between secondary operational optimization and primary
+  hosting-capacity improvement.
+next_iteration_evaluator_constraints:
+- Keep hosting_capacity_level as the primary gate for boundary claims.
+- Report loss_at_boundary, voltage_margin, constraint_violation, and reactive_support_effort
+  only as secondary diagnostics unless primary boundary improves.
+- Continue using negative-control or mismatch lanes as rejection tests, not as success
+  evidence.
+- Flag any claimed secondary gain that occurs without primary boundary movement as
+  internal-report-only evidence.
+next_iteration_task_refinements:
+- Clarify what evidence counts as boundary evidence versus non-boundary mismatch evidence
+  in the task package or diagnosis notes.
+- Record whether the next run is intended as boundary-seeking, secondary-optimization,
+  or discriminating-control evidence.
+- Maintain adapter bindings because provided checks and artifact-chain verification
+  passed.
+search_priority_updates:
+- Lower priority for single-point mismatch process/standard variants as improvement
+  candidates.
+- Increase priority for structural skill changes that can move the feasible hosting-capacity
+  boundary while satisfying voltage constraints.
+- Use negative controls periodically to verify that the claim gate continues to reject
+  non-boundary evidence.
+- Treat prior secondary-gain observations as clues for mechanism analysis, not as
+  proof of boundary improvement.
+required_discriminating_tests:
+- Run a boundary-seeking candidate that explicitly targets hosting_capacity_level
+  improvement under the same evaluator gate.
+- Compare any future secondary-gain candidate against baseline and against this negative
+  control to verify it is not merely non-boundary mismatch behavior.
+- Test whether reactive support or other control mechanisms can improve voltage margin
+  without reducing hosting_capacity_level.
+- Include at least one repeat or neighboring-point check if a future run claims boundary
+  movement, to avoid single-point artifacts.
+summary: 'Round 3 adds bounded negative-control cognition: the mismatch lane should
+  be rejected as non-boundary evidence, the primary/secondary claim separation is
+  reinforced, and the next loop should move from process-standard probing toward structural
+  skill redesign aimed at genuine boundary expansion.'

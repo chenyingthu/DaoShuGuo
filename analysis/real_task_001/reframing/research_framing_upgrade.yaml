@@ -1,0 +1,19 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.ieee69_hosting_capacity.reframing_0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:27Z'
+updated_at: '2026-04-26T06:43:27Z'
+status: reviewed
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_upgrade.power.real_task_001.0001
+decision: upgrade
+rationale: Reframe the task from generic renewable-capacity tuning to static, control-strategy-conditioned
+  hosting-capacity boundary evaluation with explicit baseline, boundary bracket, and
+  control-effort constraints.
+evidence_strength: medium
+claim_adjustment: 'Upgrade the research frame, not the result claim: the current outcome
+  remains diaomu until upgraded evidence passes.'

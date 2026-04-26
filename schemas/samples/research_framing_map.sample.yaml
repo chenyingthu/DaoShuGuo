@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+object_type: "research_framing_map"
+object_id: "research_framing_map.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "ready"
+metadata:
+  source_mode: "sample"
+task_ref: "task.power.ieee33_reactive_opt"
+learning_context_ref: "learning_context_pack.power.ieee33_reactive_opt.0001"
+framing_entries:
+  - framing_id: "static_voltage_control"
+    description: "A static operating-point framing with explicit voltage limits."
+    source_refs:
+      - "method_card.power.reactive_optimization.seed"
+    applicability: "Use only for snapshot-level claims."
+applicability_boundaries:
+  - "Sample object for schema validation."
+confidence: "low"
+gaps:
+  - "Not a task-specific research conclusion."

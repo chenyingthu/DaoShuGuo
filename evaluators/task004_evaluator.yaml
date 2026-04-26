@@ -22,6 +22,15 @@ metric_definitions:
   - metric_id: "voltage_margin"
     direction: "higher_is_better"
     description: "边界点电压裕度"
+  - metric_id: "boundary_trigger_scale"
+    direction: "higher_is_better"
+    description: "首次触发约束或边界确认的接入水平"
+  - metric_id: "first_violation_type"
+    direction: "target_is_best"
+    description: "首次边界触发类型，用于判断扫描是否真正触达边界"
+  - metric_id: "control_effort"
+    direction: "lower_is_better"
+    description: "候选控制策略使用的无功支撑代价"
 baseline_strategy:
   type: "named_baseline"
   refs:
@@ -34,6 +43,7 @@ execution_entry:
 comparison_mode: "baseline_and_constraint"
 stability_checks:
   - "单代表工况静态边界比较"
+  - "记录 boundary trigger 与 control effort，防止次级指标或高代价伪进步"
 blind_spots:
   - "不覆盖时序承载力"
   - "不覆盖经济约束"
@@ -41,3 +51,5 @@ blind_spots:
 evidence_outputs:
   - "boundary_metrics"
   - "violation_trigger"
+  - "boundary_trigger_scale"
+  - "control_effort"

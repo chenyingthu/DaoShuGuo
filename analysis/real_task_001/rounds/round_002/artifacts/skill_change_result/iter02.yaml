@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+object_type: skill_change_result
+object_id: skill_change_result.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-26T03:36:29Z'
+updated_at: '2026-04-26T03:36:29Z'
+status: completed
+metadata:
+  task_package: task004
+  worker: skill_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+request_ref: skill_change_request.power.ieee69_hosting_capacity.0002
+produced_skill_ref: skill.power.renewable_capacity_optimizer_task004
+code_paths:
+- skills/active_dev/renewable_capacity_optimizer_task004.py
+change_summary:
+- 'Apply the allowed inverter-support variant with q_step=0.35 while treating the
+  stricter claim boundary as part of the standard: only an increase in hosting_capacity_level
+  may be described as a hosting-capacity gain; loss reduction or voltage-margin improvement
+  may only be reported as secondary metric changes.'
+expected_behavior_change:
+- The scan should test stronger reactive support than the prior q_step=0.10 run under
+  the same task context.
+- Evaluation reporting should separate primary hosting-capacity movement from secondary
+  metric movement.
+- If hosting_capacity_level remains unchanged, the candidate should not be described
+  as improving hosting capacity even if losses or voltage margins improve.
+- Reactive_support_effort is expected to increase relative to q_step=0.10 and should
+  be treated as a cost or tradeoff signal, not as evidence of capacity gain.
+command: python orchestrator/main.py real-run-task004 --strategy inverter-support
+raw_output_path: analysis/real_task_001/rounds/round_002/raw_worker/skill_worker
+self_reported_risks:
+- A larger q_step may still leave the hosting_capacity_level unchanged, producing
+  only secondary improvements.
+- Stronger reactive support may increase reactive_support_effort without proving reusable
+  skill-structure improvement.
+- Discrete scan resolution may hide smaller boundary shifts, so unchanged hosting_capacity_level
+  is insufficient evidence of no physical effect.
+- This proposal changes the reporting standard and stress level, but does not by itself
+  establish evaluator correctness or controller routing.
+run_ref: run.power.ieee69_hosting_capacity.0024

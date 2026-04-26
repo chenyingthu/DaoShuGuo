@@ -1,0 +1,55 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:36:10Z'
+updated_at: '2026-04-26T03:36:10Z'
+status: reviewed
+metadata:
+  task_package: task004
+  worker: cognition_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_diagnosis.power.ieee69_hosting_capacity.0001
+source_event_ref: effectiveness_assessment.power.ieee69_hosting_capacity.0001
+next_iteration_skill_constraints:
+- Do not claim structural skill improvement unless a later test increases hosting_capacity_level
+  under the same evaluator and comparable cost accounting.
+- Keep inverter-support framed as a candidate use variant unless method, flow, or
+  standard changes are explicitly introduced.
+- Record reactive_support_effort as a cost for any candidate comparison.
+- Avoid changing evaluator thresholds or task adapter bindings in the next skill-use
+  test.
+next_iteration_evaluator_constraints:
+- Maintain hosting_capacity_level as the primary boundary metric.
+- Report secondary metrics separately from the primary pass/fail judgment.
+- Preserve reactive_support_effort in the assessment so loss and voltage-margin gains
+  are cost-bounded.
+- Use the same baseline binding and evaluator binding for comparability.
+next_iteration_task_refinements:
+- Clarify which constraint would bind immediately above hosting_capacity_level 3.0
+  if available from the runtime output.
+- Inspect behavior at levels near the current boundary to determine whether inverter
+  support delays an approaching violation or only improves interior operating quality.
+- Keep the current task adapter unchanged because adapter checks and artifact-chain
+  verification passed.
+search_priority_updates:
+- Prioritize discriminating q_step or reactive-control variants that could affect
+  the first binding boundary rather than only interior loss or voltage margin.
+- Compare q_step 0.1 against at least one lower-effort and one higher-effort setting
+  if within the declared search envelope.
+- Track whether improvements scale with reactive_support_effort or saturate before
+  changing hosting_capacity_level.
+required_discriminating_tests:
+- Run a neighboring inverter-support setting under the same evaluator to test whether
+  hosting_capacity_level can exceed 3.0.
+- Evaluate the candidate at the next attempted hosting-capacity level above 3.0 to
+  identify the binding failure mode.
+- Compare secondary gains per unit reactive_support_effort against baseline and any
+  prior inverter-support variants.
+- If runtime data permits, inspect voltage and constraint margins near the boundary
+  rather than only at the accepted boundary level.
+summary: Round 1 should be recorded as a failed primary improvement with supported
+  secondary operational gains; the cognition update is that q_step 0.1 inverter support
+  currently indicates local skill-use behavior and motivates targeted boundary-discriminating
+  tests, not a structural skill upgrade.

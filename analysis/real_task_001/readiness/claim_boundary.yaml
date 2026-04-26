@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+object_type: claim_routing
+object_id: claim_routing.power.real_task_001.boundary
+created_at: '2026-04-26T03:35:27Z'
+status: reviewed
+task_ref: task.power.ieee69_hosting_capacity
+route: internal_report_ready
+allowed_claims:
+- Only control-strategy-conditioned static hosting-capacity boundary claims are allowed.
+- Secondary loss or voltage-margin gains do not imply hosting-capacity improvement.
+forbidden_claims:
+- Do not claim intrinsic system hosting capacity.
+- Do not claim paper-level generality from a single representative snapshot.
+next_actions:
+- Extend scan envelope.
+- Add boundary-neighborhood checks.
+- Run multi-scenario validation before paper claims.
+summary: Initial claim boundary freezes the overclaim gate for real-task-001.

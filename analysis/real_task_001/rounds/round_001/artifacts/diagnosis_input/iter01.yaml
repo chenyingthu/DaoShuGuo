@@ -1,0 +1,28 @@
+schema_version: 0.1.0
+object_type: diagnosis_input
+object_id: diagnosis_input.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:35:52Z'
+updated_at: '2026-04-26T03:35:52Z'
+status: ready
+metadata:
+  task_package: task004
+  worker: diagnosis_substrate
+task_ref: task.power.ieee69_hosting_capacity
+task_adapter_ref: task_adapter.power.ieee69_hosting_capacity.task004
+required_evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity.0001
+- skill_change_result.power.ieee69_hosting_capacity.0001
+- effectiveness_assessment.power.ieee69_hosting_capacity.0001
+missing_required_evidence: []
+task_adapter_checks:
+  has_baseline_binding: true
+  has_candidate_binding: true
+  has_evaluator_binding: true
+  has_search_envelope: true
+  has_diagnosis_hook_config: true
+adapter_missing_inputs: []
+artifact_chain_verification:
+  status: passed
+  issues: []
+diagnosis_hook_config: {}

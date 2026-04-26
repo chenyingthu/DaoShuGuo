@@ -1,0 +1,59 @@
+schema_version: 0.1.0
+object_type: skill_structure_diagnosis
+object_id: skill_structure_diagnosis.power.ieee69_hosting_capacity.reframing_0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:27Z'
+updated_at: '2026-04-26T06:43:27Z'
+status: reviewed
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+learning_context_ref: learning_context_pack.power.ieee69_hosting_capacity.reframing_0001
+source_review_ref: evidence.power.real_task_001.reframing_input
+diagnosis_class: potential_method_improvement
+method_diagnosis: The main reframing opportunity is to move from uniform inverter-Q
+  support as a use condition to a minimal structural candidate such as voltage-sensitivity-based
+  non-uniform reactive allocation, while keeping the same static hosting-capacity
+  task boundary.
+process_diagnosis: The previous loop did not first bracket a voltage-driven hosting-capacity
+  boundary; future runs should explicitly extend or refine the scan until last-feasible
+  and first-violation points are recorded before any boundary movement claim.
+standard_diagnosis: The standard must separate primary hosting-capacity evidence from
+  secondary operational-quality gains and add a control-effort gate to avoid treating
+  high-cost or unbounded reactive support as skill improvement.
+skill_use_vs_structure_judgment: Observed gains so far are bounded skill-use observations
+  and claim-gate success, not verified structural skill improvement; a structural
+  attempt would require changed allocation logic, comparable baseline evidence, and
+  cost-aware evaluation.
+reusable_principle_candidates:
+- Hosting-capacity claims require boundary-level evidence, not single operating-point
+  or secondary metric evidence.
+- Control-strategy-conditioned hosting capacity must name the control policy and compare
+  it against a fixed baseline under the same evaluator.
+- Uniform control parameter scans should be treated as use-condition tuning unless
+  the method, process, or standard changes structurally.
+- Negative-control or mismatch probes should remain diagnostically useful but separate
+  from candidate-improvement evidence.
+- A candidate improvement is not interpretable unless the boundary is bracketed and
+  control effort is reported.
+unresolved_uncertainty:
+- Whether voltage-sensitivity-based allocation will actually move the hosting-capacity
+  boundary under the current IEEE 69-bus snapshot is untested.
+- Whether the existing scan envelope is sufficient after refinement to expose a stable
+  transition region is unknown.
+- Whether secondary loss or voltage-margin improvements persist under equal control-effort
+  constraints is unknown.
+- Whether the task package contains enough information to compute reliable voltage
+  sensitivity without adding brittle task-specific assumptions is unknown.
+- Thermal, time-series, and probabilistic hosting-capacity dimensions remain outside
+  the current evidence base.
+claim_boundary:
+- Only static single-snapshot, voltage-driven hosting-capacity claims are in scope.
+- Do not claim time-series or probabilistic hosting capacity from this evidence.
+- Do not claim primary hosting-capacity improvement from loss reduction or voltage-margin
+  improvement alone.
+- Do not claim structural skill improvement from increasing q_step or widening the
+  scan envelope alone.
+- Any future positive claim must be control-strategy-conditioned and tied to the named
+  evaluator, baseline, and scan envelope.

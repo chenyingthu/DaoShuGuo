@@ -1,0 +1,23 @@
+schema_version: 0.1.0
+object_type: loop_routing_decision
+object_id: loop_routing_decision.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:06Z'
+updated_at: '2026-04-26T03:37:06Z'
+status: reviewed
+metadata:
+  task_package: task004
+  controller_mode: non_authoring
+task_ref: task.power.ieee69_hosting_capacity
+diagnosis_ref: cognition_diagnosis.power.ieee69_hosting_capacity.0002
+evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity.0002
+- skill_change_result.power.ieee69_hosting_capacity.0002
+- effectiveness_assessment.power.ieee69_hosting_capacity.0002
+- cognition_diagnosis.power.ieee69_hosting_capacity.0002
+selected_next_worker: skill_worker
+selected_action: redesign_skill_structure
+continue_loop: true
+policy_basis:
+- Controller copied routing fields from cognition_diagnosis.
+summary: Controller routes from worker diagnosis without authoring research judgment.

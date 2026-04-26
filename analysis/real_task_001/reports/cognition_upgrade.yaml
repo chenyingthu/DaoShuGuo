@@ -1,0 +1,19 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.real_task_001.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: reviewed
+metadata:
+  runtime: pi:codex-relay:gpt-5.5
+  round_count: 3
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_diagnosis.power.ieee69_hosting_capacity.0003
+decision: upgrade
+evidence_strength: medium
+rationale: The loop did not improve primary hosting capacity, but it upgraded cognition
+  by separating secondary operating-quality gains from boundary claims and validating
+  a mismatch rejection lane.
+claim_adjustment: Keep hosting-capacity claims frozen; allow internal reporting of
+  loss/voltage-margin improvements under current scan envelope.

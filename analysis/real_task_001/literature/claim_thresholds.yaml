@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+object_type: claim_threshold_map
+object_id: claim_threshold_map.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+learning_context_ref: learning_context_pack.power.ieee69_hosting_capacity.reframing_0001
+thresholds:
+- claim_level: diaomu_internal_report
+  required_evidence:
+  - real run
+  - baseline/candidate comparison
+  - claim boundary
+  taste_ceiling: diaomu
+- claim_level: zhuoshi_candidate
+  required_evidence:
+  - boundary-triggering scenario
+  - structural method/process/standard change
+  - same-evaluator baseline comparison
+  - control-effort gate
+  - literature-framed claim boundary
+  taste_ceiling: zhuoshi
+forbidden_claims:
+- Do not claim hosting-capacity improvement from loss or voltage-margin improvements
+  alone.
+- Do not claim structural skill improvement from q_step increase alone.
+- Do not claim time-series or probabilistic hosting capacity from static snapshot
+  evidence.
+confidence: medium
+gaps:
+- No multi-scenario robustness evidence yet.

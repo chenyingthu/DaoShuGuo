@@ -1,0 +1,27 @@
+schema_version: 0.1.0
+object_type: skill_change_request
+object_id: skill_change_request.power.ieee69_hosting_capacity.0003
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:20Z'
+updated_at: '2026-04-26T03:37:20Z'
+status: ready
+metadata:
+  task_package: task004
+  worker: skill_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+iteration_index: 3
+base_skill_ref: skill.power.renewable_capacity_optimizer_task004
+allowed_change_scope:
+- mismatch_negative_control
+blocked_paths:
+- evaluator_logic
+- task_definition
+- claim_boundary_relaxation
+required_tests:
+- Run task004 real evaluator and compare primary plus secondary boundary metrics.
+output_skill_path: runtime_action:mismatch_negative_control
+summary: Prepare a single-point-mismatch negative-control lane that intentionally
+  changes only non-boundary evidence interpretation while keeping the hosting-capacity
+  boundary criterion unchanged, to test whether the evaluator rejects secondary-metric
+  improvements as hosting-capacity gains.

@@ -1,0 +1,40 @@
+{
+  "run_ref": "run.power.ieee69_hosting_capacity.0023",
+  "run_dir": "runs/task004/run_0023",
+  "run_status": "failed_experiment",
+  "strategy": "inverter-support",
+  "action_id": "reproduce_q_step_0_10",
+  "change_dimension": "use",
+  "baseline_metrics": {
+    "hosting_capacity_level": 3.0,
+    "violation_trigger_type": "feasible",
+    "loss_at_boundary": 135.1525491499995,
+    "voltage_margin": 0.025108200251617863,
+    "constraint_violation": 0,
+    "reactive_support_effort": 0.0,
+    "min_vm": 0.9351082002516179,
+    "max_vm": 1.0134557437571081
+  },
+  "candidate_metrics": {
+    "hosting_capacity_level": 3.0,
+    "violation_trigger_type": "feasible",
+    "loss_at_boundary": 121.37896983940597,
+    "voltage_margin": 0.027143627645226154,
+    "constraint_violation": 0,
+    "reactive_support_effort": 0.30000000000000004,
+    "min_vm": 0.9371436276452262,
+    "max_vm": 1.0145467767364098
+  },
+  "evaluation_passed": false,
+  "evaluation_summary": "candidate did not improve hosting-capacity boundary",
+  "delta_vs_baseline": {
+    "hosting_capacity_level": 0.0,
+    "loss_at_boundary": -13.773579310593519,
+    "voltage_margin": 0.002035427393608291,
+    "reactive_support_effort": 0.30000000000000004
+  },
+  "delta_vs_prior": null,
+  "primary_improved": false,
+  "secondary_improved": true,
+  "mismatch_probe": false
+}

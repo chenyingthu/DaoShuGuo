@@ -1,0 +1,25 @@
+schema_version: 0.1.0
+object_type: loop_routing_decision
+object_id: loop_routing_decision.power.ieee69_hosting_capacity_upgrade.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: reviewed
+metadata:
+  real_task: real-task-001-upgrade
+  run_ref: run.power.ieee69_hosting_capacity.0029
+  structural_request_ref: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+task_ref: task.power.ieee69_hosting_capacity
+diagnosis_ref: cognition_diagnosis.power.ieee69_hosting_capacity_upgrade.0001
+evidence_refs:
+- cognition_diagnosis.power.ieee69_hosting_capacity_upgrade.0001
+- effectiveness_assessment.power.ieee69_hosting_capacity_upgrade.0001
+selected_next_worker: skill_worker
+selected_action: redesign_skill_structure
+continue_loop: true
+policy_basis:
+- No primary boundary improvement.
+- No boundary trigger.
+- Operational-quality gains cannot support zhuoshi.
+summary: Continue only after redesigning the skill/scenario structure to expose boundary
+  evidence.

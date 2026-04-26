@@ -1,0 +1,54 @@
+schema_id: "claim_threshold_map.schema"
+schema_version: "0.1.0"
+object_type: "claim_threshold_map"
+title: "Claim Threshold Map Schema"
+description: "Evidence thresholds for claim and taste-grade escalation."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - learning_context_ref
+  - thresholds
+  - forbidden_claims
+  - confidence
+  - gaps
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["claim_threshold_map"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "used", "archived"]
+  metadata:
+    type: object
+  task_ref:
+    type: string
+  learning_context_ref:
+    type: string
+  thresholds:
+    type: array[object]
+  forbidden_claims:
+    type: array[string]
+  confidence:
+    type: enum
+    allowed: ["low", "medium", "high"]
+  gaps:
+    type: array[string]

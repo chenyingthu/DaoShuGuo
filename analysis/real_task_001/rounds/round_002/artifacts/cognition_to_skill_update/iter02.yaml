@@ -1,0 +1,56 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:06Z'
+updated_at: '2026-04-26T03:37:06Z'
+status: reviewed
+metadata:
+  task_package: task004
+  worker: cognition_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_diagnosis.power.ieee69_hosting_capacity.0002
+source_event_ref: effectiveness_assessment.power.ieee69_hosting_capacity.0002
+next_iteration_skill_constraints:
+- Do not treat larger q_step alone as structural improvement unless it changes the
+  boundary-limiting mechanism.
+- Require the skill candidate to explicitly target the binding constraint at or just
+  beyond hosting_capacity_level 3.0, not only improve voltage margin and loss inside
+  the feasible boundary.
+- Record reactive_support_effort as a cost when comparing variants.
+- Distinguish skill-use tuning of q_step from structural changes in support placement,
+  allocation logic, or boundary-search interaction.
+next_iteration_evaluator_constraints:
+- Keep hosting_capacity_level as the primary pass criterion for boundary claims.
+- Report loss_at_boundary and voltage_margin only as secondary metrics unless hosting_capacity_level
+  improves.
+- Include a cost-aware secondary summary that accounts for reactive_support_effort.
+- If possible, expose the first violated constraint or limiting bus/condition beyond
+  level 3.0 to support discriminating diagnosis.
+next_iteration_task_refinements:
+- Refine task evidence around the boundary region near hosting_capacity_level 3.0
+  to identify what blocks the next hosting level.
+- Preserve current baseline and adapter bindings because readiness checks passed.
+- Add boundary-local diagnostics if available, such as voltage minima location, overvoltage/undervoltage
+  trigger, thermal limit, or power-flow nonconvergence reason.
+search_priority_updates:
+- Prioritize structural variants that change reactive support allocation or target
+  buses near the limiting condition rather than simply increasing global q_step.
+- Search around the boundary with finer diagnostics before expanding broad parameter
+  sweeps.
+- Treat secondary-metric improvement as a clue for feasible operating-quality enhancement,
+  not as evidence of hosting-capacity advancement.
+required_discriminating_tests:
+- Run a boundary-local diagnostic at the first level above 3.0 to identify the active
+  violation or feasibility blocker.
+- Compare current inverter-support allocation against an alternative targeting the
+  limiting bus or constraint, using the same evaluator standard.
+- Test whether finer hosting-capacity scan resolution reveals a small boundary movement
+  hidden by discrete level reporting.
+- Run an ablation with comparable reactive_support_effort but different allocation
+  logic to separate q_step magnitude effects from structural targeting effects.
+summary: Round 2 should update cognition as bounded evidence that stronger reactive
+  support improves secondary operating metrics at higher effort but does not improve
+  the primary hosting-capacity boundary; the next step should focus on skill-structure
+  redesign aimed at the actual boundary-limiting mechanism.

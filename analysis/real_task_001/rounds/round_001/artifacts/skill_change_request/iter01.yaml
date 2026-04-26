@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+object_type: skill_change_request
+object_id: skill_change_request.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:35:46Z'
+updated_at: '2026-04-26T03:35:46Z'
+status: ready
+metadata:
+  task_package: task004
+  worker: skill_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+iteration_index: 1
+base_skill_ref: skill.power.renewable_capacity_optimizer_task004
+allowed_change_scope:
+- reproduce_q_step_0_10
+blocked_paths:
+- evaluator_logic
+- task_definition
+- claim_boundary_relaxation
+required_tests:
+- Run task004 real evaluator and compare primary plus secondary boundary metrics.
+output_skill_path: runtime_action:reproduce_q_step_0_10
+summary: Prepare a use-level reproduction of the existing inverter-support boundary
+  scan for task.power.ieee69_hosting_capacity using q_step=0.1, without modifying
+  method, process, or standard and without claiming structural improvement.

@@ -1,0 +1,40 @@
+schema_version: 0.1.0
+object_type: cognition_diagnosis
+object_id: cognition_diagnosis.power.ieee69_hosting_capacity.0003
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: reviewed
+metadata:
+  task_package: task004
+  worker: cognition_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+problem_class: skill_structure_problem
+judgment_summary: 'The round-3 negative-control mismatch lane failed as an experiment
+  for improvement but succeeded as discriminating evidence for the boundary-standard
+  gate: non-boundary mismatch evidence does not support a primary hosting-capacity
+  boundary claim. Candidate hosting_capacity_level dropped from 3.0 to 1.4, loss increased,
+  voltage margin decreased, and no secondary gain remained, so the evidence rejects
+  this process/standard variant rather than supporting skill progress.'
+evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity.0003
+- skill_change_result.power.ieee69_hosting_capacity.0003
+- effectiveness_assessment.power.ieee69_hosting_capacity.0003
+boundary_notes:
+- Primary boundary claims remain controlled by hosting_capacity_level; this run provides
+  no primary improvement evidence.
+- Secondary operational gains, when present in prior runs, must remain separated from
+  hosting-capacity boundary improvement claims.
+- This negative control supports rejecting non-boundary mismatch evidence but does
+  not prove the evaluator is complete or that the skill structure is sufficient.
+uncertainty_notes:
+- Only one mismatch negative-control lane is reported, so the conclusion is bounded
+  to this tested mismatch configuration.
+- The evidence distinguishes this mismatch lane from the prior secondary-gain run,
+  but it does not identify which structural skill component should be changed next.
+- No literature or external operating-standard alignment is included in the provided
+  evidence.
+recommended_next_worker: skill_worker
+recommended_action: redesign_skill_structure
+continue_loop: true

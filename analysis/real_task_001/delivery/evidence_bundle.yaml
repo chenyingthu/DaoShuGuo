@@ -1,0 +1,38 @@
+schema_version: 0.1.0
+object_type: evidence_bundle
+object_id: evidence.power.real_task_001.0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: active
+metadata:
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+evaluator_ref: evaluator.power.ieee69_hosting_capacity.default
+run_refs:
+- run.power.ieee69_hosting_capacity.0023
+- run.power.ieee69_hosting_capacity.0024
+- run.power.ieee69_hosting_capacity.0025
+artifact_refs:
+- kind: round_analysis
+  path: analysis/real_task_001/rounds/round_001/round_analysis.json
+- kind: round_analysis
+  path: analysis/real_task_001/rounds/round_002/round_analysis.json
+- kind: round_analysis
+  path: analysis/real_task_001/rounds/round_003/round_analysis.json
+claim_scope:
+  supported_claims:
+  - bounded static scan observations
+  - secondary operating-quality changes
+skill_refs:
+- skill.power.renewable_capacity_optimizer_task004
+cognition_refs:
+- cognition_diagnosis.power.ieee69_hosting_capacity.0003
+- cognition_upgrade.power.real_task_001.0001
+gaps:
+- No primary hosting-capacity improvement.
+- No multi-scenario validation.
+- No ablation proving cognition causality.
+taste_assessment_ref: taste.power.real_task_001.0001
+report_refs:
+- report.power.real_task_001.technical_note_0001

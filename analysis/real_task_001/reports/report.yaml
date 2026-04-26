@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+object_type: report
+object_id: report.power.real_task_001.technical_note_0001
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: reviewed
+metadata:
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+report_type: technical_note
+title: real-task-001 bounded hosting-capacity loop report
+summary: Three real task004 rounds improved cognition and claim control, but did not
+  improve primary hosting-capacity level.
+evidence_bundle_refs:
+- evidence.power.real_task_001.0001
+taste_assessment_ref: taste.power.real_task_001.0001
+audience: internal_team
+boundary_statement: All findings are bounded to the current IEEE69 single-snapshot
+  scan envelope and control strategy.
+failure_summary: Primary hosting_capacity_level remained unchanged in inverter-support
+  rounds; mismatch probe was correctly rejected as boundary evidence.
+next_steps:
+- Extend scan envelope to force an actual boundary trigger.
+- Add multi-scenario validation.
+- Test a structural control allocation variant.
+claim_summary:
+- Internal technical note about bounded static scan behavior; no paper-level hosting-capacity
+  claim.

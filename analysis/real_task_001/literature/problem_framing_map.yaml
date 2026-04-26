@@ -1,0 +1,46 @@
+schema_version: 0.1.0
+object_type: research_framing_map
+object_id: research_framing_map.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+learning_context_ref: learning_context_pack.power.ieee69_hosting_capacity.reframing_0001
+framing_entries:
+- framing_id: static_hc
+  description: Static hosting capacity under explicit voltage constraints and a fixed
+    snapshot.
+  relation_to_task004: direct_match
+  source_refs:
+  - method_card.power.hosting_capacity_pv_2017
+  claim_boundary: Can support static scan-boundary claims only.
+- framing_id: control_strategy_conditioned_hc
+  description: Hosting capacity conditioned on inverter or Volt/VAR control strategy.
+  relation_to_task004: target_reframe
+  source_refs:
+  - method_card.power.smart_inverter_hosting_2020
+  claim_boundary: Must name the control policy and compare against fixed baseline.
+- framing_id: time_series_or_probabilistic_hc
+  description: Hosting capacity across temporal or uncertainty scenarios.
+  relation_to_task004: out_of_scope_current_round
+  source_refs:
+  - method_card.power.hosting_capacity_method_review_2021
+  claim_boundary: Cannot be claimed from task004 current snapshot evidence.
+- framing_id: opf_search_hc
+  description: Optimization/search-based boundary finding with control variables.
+  relation_to_task004: future_extension
+  source_refs:
+  - method_card.power.hosting_capacity_method_review_2021
+  claim_boundary: Current upgrade may approximate this with simple structural search
+    only.
+applicability_boundaries:
+- single snapshot
+- voltage-driven boundary
+- control-strategy-conditioned claims
+confidence: medium
+gaps:
+- No time-series/probabilistic evidence in current task package.

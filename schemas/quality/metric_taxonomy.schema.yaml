@@ -1,0 +1,60 @@
+schema_id: "metric_taxonomy.schema"
+schema_version: "0.1.0"
+object_type: "metric_taxonomy"
+title: "Metric Taxonomy Schema"
+description: "Metric taxonomy that links evaluator metrics to supportable research claims."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - learning_context_ref
+  - metric_entries
+  - primary_metric_refs
+  - secondary_metric_refs
+  - claim_boundaries
+  - confidence
+  - gaps
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["metric_taxonomy"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "used", "archived"]
+  metadata:
+    type: object
+  task_ref:
+    type: string
+  learning_context_ref:
+    type: string
+  metric_entries:
+    type: array[object]
+  primary_metric_refs:
+    type: array[string]
+  secondary_metric_refs:
+    type: array[string]
+  claim_boundaries:
+    type: array[string]
+  confidence:
+    type: enum
+    allowed: ["low", "medium", "high"]
+  gaps:
+    type: array[string]

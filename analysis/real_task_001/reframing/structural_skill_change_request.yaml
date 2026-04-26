@@ -1,0 +1,65 @@
+schema_version: 0.1.0
+object_type: structural_skill_change_request
+object_id: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:27Z'
+updated_at: '2026-04-26T06:43:27Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+diagnosis_ref: skill_structure_diagnosis.power.ieee69_hosting_capacity.reframing_0001
+target_skill_ref: skill.power.renewable_capacity_optimizer_task004
+change_type: mixed_structural_change
+method_changes:
+- Introduce a voltage_sensitivity_q_allocation candidate as the minimal non-uniform
+  allocation method family.
+- Compare voltage-sensitivity allocation against fixed_q_baseline and uniform_q_support
+  under the same scan envelope and comparable control-effort budget.
+- Represent uniform_q_support as a use-condition baseline rather than a structural
+  method improvement.
+- Require each candidate skill description to specify method, process, and standard
+  dimensions before calling it a skill upgrade.
+- Avoid q_step-only escalation as a claimed skill improvement path.
+process_changes:
+- Run an extended_until_violation scan to ensure the voltage boundary is actually
+  triggered.
+- Use the original_scan as a continuity baseline but do not rely on it for boundary
+  movement claims if no violation is bracketed.
+- Include a boundary-neighborhood scenario around the first detected violation to
+  test stability of the transition.
+- Preserve the current static single-snapshot scope rather than expanding to time-series
+  or probabilistic scenarios in this round.
+- Maintain a separate mismatch_negative_control lane for diagnostic contrast only.
+standard_changes:
+- Add explicit last-feasible and first-violation boundary reporting for every baseline
+  and candidate run.
+- Add boundary-neighborhood refinement so that the transition region is not inferred
+  only from a coarse scan endpoint.
+- Report primary metrics separately from secondary operational-quality metrics.
+- Add a control-effort metric and claim gate, preferably comparing strategies at the
+  same or bounded total reactive support effort.
+- Keep mismatch or negative-control lanes separate from candidate-improvement scoring.
+forbidden_usage_only_shortcuts:
+- q_step-only escalation
+- single-point evidence as boundary evidence
+required_validation:
+- A boundary-triggering scan must exist for baseline and candidate comparison.
+- A structural method, process, or standard change must be explicitly present, not
+  only parameter escalation.
+- The non-uniform allocation candidate must be compared with uniform support under
+  the same evaluator and comparable effort.
+- Primary hosting-capacity, secondary operational-quality, and control-effort metrics
+  must all be reported.
+- The claim must remain static, voltage-driven, and control-strategy-conditioned with
+  literature-framed boundaries.
+claim_boundary:
+- Only static single-snapshot, voltage-driven hosting-capacity claims are in scope.
+- Do not claim time-series or probabilistic hosting capacity from this evidence.
+- Do not claim primary hosting-capacity improvement from loss reduction or voltage-margin
+  improvement alone.
+- Do not claim structural skill improvement from increasing q_step or widening the
+  scan envelope alone.
+- Any future positive claim must be control-strategy-conditioned and tied to the named
+  evaluator, baseline, and scan envelope.

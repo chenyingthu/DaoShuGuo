@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: deliverable_package
+object_id: deliverable.power.real_task_001_upgrade
+created_at: '2026-04-26T06:51:24Z'
+status: reviewed
+task_ref: task.power.ieee69_hosting_capacity
+readiness_level: internal_report_ready
+supported_outputs:
+- technical_note
+- experiment_record
+not_ready_outputs:
+- paper_candidate
+- patent_candidate
+supporting_refs:
+- evidence.power.real_task_001_upgrade.0001
+- taste.power.real_task_001_upgrade.0001
+- loop_review.power.ieee69_hosting_capacity_upgrade.0001
+missing_for_paper:
+- Primary hosting-capacity improvement
+- Boundary-triggering scenario
+- Same-effort ablation
+- External novelty evidence beyond curated seed
+summary: The upgraded loop supports an internal report, not zhuoshi or paper-candidate
+  routing.

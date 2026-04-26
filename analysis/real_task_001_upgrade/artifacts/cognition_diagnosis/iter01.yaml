@@ -1,0 +1,31 @@
+schema_version: 0.1.0
+object_type: cognition_diagnosis
+object_id: cognition_diagnosis.power.ieee69_hosting_capacity_upgrade.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: reviewed
+metadata:
+  real_task: real-task-001-upgrade
+  run_ref: run.power.ieee69_hosting_capacity.0029
+  structural_request_ref: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+task_ref: task.power.ieee69_hosting_capacity
+problem_class: skill_structure_problem
+judgment_summary: Voltage-sensitivity allocation is a real structural attempt, but
+  current evidence still supports only bounded operational-quality improvement, not
+  zhuoshi-grade hosting-capacity advancement.
+evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity_upgrade.0001
+- skill_change_result.power.ieee69_hosting_capacity_upgrade.0001
+- effectiveness_assessment.power.ieee69_hosting_capacity_upgrade.0001
+- diagnosis_input.power.ieee69_hosting_capacity_upgrade.0001
+boundary_notes:
+- hosting_capacity_level delta is zero
+- boundary_triggered is false
+- control_effort increased by 0.35
+uncertainty_notes:
+- Scenario may be too weak to expose boundary differences.
+- Heuristic sensitivity allocation is not yet OPF-grade.
+recommended_next_worker: skill_worker
+recommended_action: redesign_skill_structure
+continue_loop: true

@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+object_type: cognition_diagnosis
+object_id: cognition_diagnosis.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:06Z'
+updated_at: '2026-04-26T03:37:06Z'
+status: reviewed
+metadata:
+  task_package: task004
+  worker: cognition_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+problem_class: skill_structure_problem
+judgment_summary: Stronger inverter reactive support at q_step 0.35 produced supported
+  secondary improvements in loss_at_boundary and voltage_margin, but did not move
+  the primary hosting_capacity_level beyond 3.0; this suggests the current inverter-support
+  skill structure improves operating quality at the existing boundary without yet
+  targeting the binding mechanism that limits hosting capacity.
+evidence_refs:
+- skill_change_request.power.ieee69_hosting_capacity.0002
+- skill_change_result.power.ieee69_hosting_capacity.0002
+- effectiveness_assessment.power.ieee69_hosting_capacity.0002
+boundary_notes:
+- Primary hosting-capacity gain is not supported because hosting_capacity_level delta
+  is 0.0 and evaluation_passed is false.
+- 'Secondary gains are bounded to internal evidence: loss_at_boundary decreased and
+  voltage_margin increased, but these must not be reported as hosting-capacity improvements.'
+- Reactive_support_effort increased to 1.05, so secondary gains carry a higher control-effort
+  cost.
+- Adapter and artifact-chain checks passed; no current evidence points to task_adapter,
+  framework, or evaluator failure.
+uncertainty_notes:
+- The evidence does not identify which constraint or scan resolution prevents boundary
+  movement beyond level 3.0.
+- It is unclear whether hosting capacity is insensitive to this support pattern, limited
+  by discrete scan granularity, or blocked by another binding constraint not addressed
+  by reactive support.
+- Only one stronger q_step variant is shown for this round, so the shape of the response
+  curve beyond q_step 0.35 is not established.
+recommended_next_worker: skill_worker
+recommended_action: redesign_skill_structure
+continue_loop: true

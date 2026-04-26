@@ -46,6 +46,38 @@ def default_inverter_settings(constraint_set: dict[str, Any], q_mvar: float) -> 
     return [{"bus": int(site["bus"]), "q_mvar": float(q_mvar)} for site in renewable_sites_from_constraints(constraint_set)]
 
 
+def voltage_sensitivity_inverter_settings(
+    constraint_set: dict[str, Any],
+    *,
+    total_q_mvar: float,
+    probe_scale: float,
+) -> list[dict[str, float]]:
+    """Allocate inverter Q toward lower-voltage renewable buses under the baseline scan."""
+    sites = renewable_sites_from_constraints(constraint_set)
+    if not sites:
+        return []
+    bus_voltage: dict[int, float] = {}
+    net = load_network(constraint_set, probe_scale)
+    apply_ext_grid_vm_pu(net, 1.0)
+    run_power_flow(net)
+    for site in sites:
+        bus_voltage[int(site["bus"])] = float(net.res_bus.vm_pu.at[int(site["bus"]) - 1])
+    limits = constraint_set.get("voltage_limits", {})
+    vm_min = float(limits.get("min", 0.95))
+    weights = []
+    for site in sites:
+        bus = int(site["bus"])
+        weakness = max(0.001, 1.0 - bus_voltage.get(bus, 1.0), vm_min - bus_voltage.get(bus, vm_min))
+        weights.append((site, weakness))
+    total_weight = sum(weight for _, weight in weights) or float(len(weights))
+    settings = []
+    for site, weight in weights:
+        share = weight / total_weight
+        q_limit = float(site["q_mvar_limit"])
+        settings.append({"bus": int(site["bus"]), "q_mvar": min(q_limit, total_q_mvar * share)})
+    return settings
+
+
 def compute_boundary_metrics(
     net: Any,
     *,
@@ -68,11 +100,15 @@ def compute_boundary_metrics(
         trigger = "feasible"
     return {
         "hosting_capacity_level": scale,
+        "boundary_trigger_scale": scale,
         "violation_trigger_type": trigger,
+        "first_violation_type": trigger if trigger != "feasible" else "none",
         "loss_at_boundary": float(net.res_line.pl_mw.sum() * 1000.0),
         "voltage_margin": float(min(min_vm - vm_min, vm_max - max_vm)),
+        "boundary_stability_margin": float(min(min_vm - vm_min, vm_max - max_vm)),
         "constraint_violation": violation_count,
         "reactive_support_effort": sum(abs(item["q_mvar"]) for item in inverter_settings),
+        "control_effort": sum(abs(item["q_mvar"]) for item in inverter_settings),
         "min_vm": min_vm,
         "max_vm": max_vm,
     }

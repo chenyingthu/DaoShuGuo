@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: loop_review
+object_id: loop_review.power.ieee69_hosting_capacity_upgrade.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: reviewed
+metadata:
+  real_task: real-task-001-upgrade
+  run_ref: run.power.ieee69_hosting_capacity.0029
+  structural_request_ref: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+task_ref: task.power.ieee69_hosting_capacity
+event_ref: skill_change_result.power.ieee69_hosting_capacity_upgrade.0001
+controller_update_ref: cognition_to_skill_update.power.ieee69_hosting_capacity_upgrade.0001
+iteration_plan_ref: plans/real-research-loop-convergence-plan.md
+routing_decision_ref: loop_routing_decision.power.ieee69_hosting_capacity_upgrade.0001
+search_space_reduction: q_step-only escalation remains excluded.
+failure_explanation_improvement: The system now distinguishes structural attempt from
+  verified structural improvement.
+evaluator_refinement: Boundary trigger and control effort are visible in the evidence.
+claim_tightening: The result remains diaomu and internal-report ready.
+verdict: partial
+summary: The upgraded loop is valid as a negative/diagnostic result, not as a paper-grade
+  improvement.

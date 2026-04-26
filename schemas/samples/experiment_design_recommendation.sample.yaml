@@ -1,0 +1,24 @@
+schema_version: "0.1.0"
+object_type: "experiment_design_recommendation"
+object_id: "experiment_design_recommendation.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "ready"
+metadata:
+  source_mode: "sample"
+task_ref: "task.power.ieee33_reactive_opt"
+learning_context_ref: "learning_context_pack.power.ieee33_reactive_opt.0001"
+recommended_matrix:
+  - factor: "control_strategy"
+    levels:
+      - "baseline"
+      - "candidate"
+    purpose: "Separate method effect from evaluator artifact."
+minimum_zhuoshi_evidence:
+  - "At least one structural change validated under a fixed evaluator."
+excluded_shortcuts:
+  - "Do not only widen a parameter grid."
+confidence: "low"
+gaps:
+  - "Sample object only."

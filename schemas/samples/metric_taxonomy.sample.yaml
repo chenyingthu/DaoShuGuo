@@ -1,0 +1,27 @@
+schema_version: "0.1.0"
+object_type: "metric_taxonomy"
+object_id: "metric_taxonomy.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "ready"
+metadata:
+  source_mode: "sample"
+task_ref: "task.power.ieee33_reactive_opt"
+learning_context_ref: "learning_context_pack.power.ieee33_reactive_opt.0001"
+metric_entries:
+  - metric_id: "loss"
+    role: "secondary"
+    supports_claims:
+      - "operational quality"
+    unsupported_claims:
+      - "hosting capacity boundary"
+primary_metric_refs:
+  - "objective"
+secondary_metric_refs:
+  - "loss"
+claim_boundaries:
+  - "Secondary metrics cannot support primary boundary claims."
+confidence: "low"
+gaps:
+  - "Sample object only."

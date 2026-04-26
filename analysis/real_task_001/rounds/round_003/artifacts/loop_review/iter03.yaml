@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: loop_review
+object_id: loop_review.power.ieee69_hosting_capacity.0003
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:46Z'
+updated_at: '2026-04-26T03:37:46Z'
+status: reviewed
+metadata:
+  task_package: task004
+  review_mode: real_task_001
+task_ref: task.power.ieee69_hosting_capacity
+event_ref: effectiveness_assessment.power.ieee69_hosting_capacity.0003
+controller_update_ref: cognition_to_skill_update.power.ieee69_hosting_capacity.0003
+iteration_plan_ref: skill_change_request.power.ieee69_hosting_capacity.0003
+routing_decision_ref: loop_routing_decision.power.ieee69_hosting_capacity.0003
+search_space_reduction: Search is bounded to the declared real-task-001 round action.
+failure_explanation_improvement: The loop separates primary boundary failure from
+  secondary operating-quality gains.
+evaluator_refinement: The evaluator still treats hosting_capacity_level as the primary
+  pass criterion.
+claim_tightening: No round may claim hosting-capacity improvement without primary
+  metric gain.
+verdict: substantiated
+summary: Round completed with real task004 evidence and worker-authored judgment.

@@ -1,0 +1,30 @@
+schema_version: 0.1.0
+object_type: effectiveness_assessment
+object_id: effectiveness_assessment.power.ieee69_hosting_capacity_upgrade.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: completed
+metadata:
+  real_task: real-task-001-upgrade
+  run_ref: run.power.ieee69_hosting_capacity.0029
+  structural_request_ref: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+task_ref: task.power.ieee69_hosting_capacity
+result_ref: skill_change_result.power.ieee69_hosting_capacity_upgrade.0001
+baseline_ref: baseline.power.ieee69_hosting_capacity.fixed_inverter_q_capacity_scan
+evaluator_ref: evaluator.power.ieee69_hosting_capacity.default
+run_ref: run.power.ieee69_hosting_capacity.0029
+run_passed: false
+metric_summary:
+  primary_delta: 0.0
+  loss_delta: -26.463893510266843
+  voltage_margin_delta: 0.004372542949686031
+  boundary_trigger_delta: 0.0
+  control_effort_delta: 0.35
+  boundary_triggered: false
+  claim_support_level: operational_quality_only
+comparison_summary: Primary hosting_capacity_level did not improve; loss and voltage_margin
+  improved; control_effort increased; boundary was not triggered.
+judgment_summary: This is a structural method attempt with operational-quality gains,
+  not verified hosting-capacity improvement.
+recommended_cognition_action: retain_diaomu_and_request_boundary_scenario_or_better_method

@@ -1,0 +1,27 @@
+schema_version: 0.1.0
+object_type: skill_change_request
+object_id: skill_change_request.power.ieee69_hosting_capacity.0002
+object_version: 0.1.0
+created_at: '2026-04-26T03:36:29Z'
+updated_at: '2026-04-26T03:36:29Z'
+status: ready
+metadata:
+  task_package: task004
+  worker: skill_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+iteration_index: 2
+base_skill_ref: skill.power.renewable_capacity_optimizer_task004
+allowed_change_scope:
+- boundary_standard_gate_q_step_0_35
+blocked_paths:
+- evaluator_logic
+- task_definition
+- claim_boundary_relaxation
+required_tests:
+- Run task004 real evaluator and compare primary plus secondary boundary metrics.
+output_skill_path: runtime_action:boundary_standard_gate_q_step_0_35
+summary: 'Apply the allowed inverter-support variant with q_step=0.35 while treating
+  the stricter claim boundary as part of the standard: only an increase in hosting_capacity_level
+  may be described as a hosting-capacity gain; loss reduction or voltage-margin improvement
+  may only be reported as secondary metric changes.'

@@ -1,0 +1,21 @@
+schema_version: "0.1.0"
+object_type: "method_family_map"
+object_id: "method_family_map.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "ready"
+metadata:
+  source_mode: "sample"
+task_ref: "task.power.ieee33_reactive_opt"
+learning_context_ref: "learning_context_pack.power.ieee33_reactive_opt.0001"
+method_families:
+  - family_id: "reactive_support"
+    method_dimension: "method"
+    relation_to_task: "Controls voltage through reactive-power support."
+    minimum_validation: "Compare against a fixed baseline under the same evaluator."
+applicability_boundaries:
+  - "Sample object for schema validation."
+confidence: "low"
+gaps:
+  - "No literature completeness claim."

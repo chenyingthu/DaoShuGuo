@@ -1,0 +1,71 @@
+schema_version: 0.1.0
+object_type: evidence_bundle
+object_id: evidence.power.real_task_001.reframing_input
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: active
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+evaluator_ref: evaluator.power.ieee69_hosting_capacity.default
+run_refs:
+- run.power.ieee69_hosting_capacity.0023
+- run.power.ieee69_hosting_capacity.0024
+- run.power.ieee69_hosting_capacity.0025
+artifact_refs:
+- kind: round_analysis
+  path: analysis/real_task_001/rounds/round_001/round_analysis.json
+- kind: round_analysis
+  path: analysis/real_task_001/rounds/round_002/round_analysis.json
+- kind: round_analysis
+  path: analysis/real_task_001/rounds/round_003/round_analysis.json
+- kind: research_report
+  path: analysis/real_task_001/reports/real_task_research_report.md
+- kind: cognition_upgrade
+  path: analysis/real_task_001/reports/cognition_upgrade.yaml
+- kind: taste_assessment
+  path: analysis/real_task_001/delivery/taste_assessment.yaml
+- kind: delivery_readiness
+  path: analysis/real_task_001/delivery/delivery_readiness.yaml
+claim_scope:
+  supported_claims:
+  - secondary operational-quality improvement was observed in bounded inverter-support
+    scans
+  - primary hosting-capacity boundary improvement was not observed
+  - single-point mismatch evidence cannot replace boundary-scan evidence
+skill_refs:
+- skill.power.renewable_capacity_optimizer_task004
+- skill.power.single_point_capacity_mismatch_task004
+cognition_refs:
+- cognition_upgrade.power.real_task_001.0001
+gaps:
+- No boundary-triggering scan envelope in the first two rounds
+- No non-uniform inverter allocation skill family was tested
+- No explicit control-effort claim gate was included
+taste_assessment_ref: taste.power.real_task_001.0001
+report_refs:
+- report.power.real_task_001.technical_note_0001
+round_summaries:
+- round: 1
+  run_ref: run.power.ieee69_hosting_capacity.0023
+  action_id: reproduce_q_step_0_10
+  primary_delta: 0.0
+  secondary_improved: true
+  mismatch_probe: false
+  analysis_path: analysis/real_task_001/rounds/round_001/round_analysis.json
+- round: 2
+  run_ref: run.power.ieee69_hosting_capacity.0024
+  action_id: boundary_standard_gate_q_step_0_35
+  primary_delta: 0.0
+  secondary_improved: true
+  mismatch_probe: false
+  analysis_path: analysis/real_task_001/rounds/round_002/round_analysis.json
+- round: 3
+  run_ref: run.power.ieee69_hosting_capacity.0025
+  action_id: mismatch_negative_control
+  primary_delta: -1.6
+  secondary_improved: false
+  mismatch_probe: true
+  analysis_path: analysis/real_task_001/rounds/round_003/round_analysis.json

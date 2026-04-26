@@ -1,0 +1,28 @@
+schema_version: 0.1.0
+object_type: report
+object_id: report.power.real_task_001_upgrade.technical_note_0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: reviewed
+metadata:
+  real_task: real-task-001-upgrade
+  source_plan: plans/real-research-loop-convergence-plan.md
+task_ref: task.power.ieee69_hosting_capacity
+report_type: technical_note
+title: real-task-001 Upgrade Report
+summary: Voltage-sensitivity allocation is a genuine structural attempt and improves
+  secondary operational metrics, but it does not improve the primary hosting-capacity
+  boundary under the current scenario.
+evidence_bundle_refs:
+- evidence.power.real_task_001_upgrade.0001
+taste_assessment_ref: taste.power.real_task_001_upgrade.0001
+audience: internal_team
+boundary_statement: This report only supports static, control-strategy-conditioned,
+  current-envelope conclusions.
+failure_summary: No primary boundary gain and no boundary trigger.
+next_steps:
+- Build boundary-triggering scenario before another skill-performance claim.
+- Run same-effort uniform vs sensitivity allocation ablation.
+claim_summary:
+- Internal technical note on structural attempt and bounded operational-quality improvement.

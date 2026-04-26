@@ -1,0 +1,45 @@
+{
+  "run_ref": "run.power.ieee69_hosting_capacity.0025",
+  "run_dir": "runs/task004/run_0025",
+  "run_status": "failed_experiment",
+  "strategy": "single-point-mismatch",
+  "action_id": "mismatch_negative_control",
+  "change_dimension": "process_standard",
+  "baseline_metrics": {
+    "hosting_capacity_level": 3.0,
+    "violation_trigger_type": "feasible",
+    "loss_at_boundary": 135.1525491499995,
+    "voltage_margin": 0.025108200251617863,
+    "constraint_violation": 0,
+    "reactive_support_effort": 0.0,
+    "min_vm": 0.9351082002516179,
+    "max_vm": 1.0134557437571081
+  },
+  "candidate_metrics": {
+    "hosting_capacity_level": 1.4,
+    "violation_trigger_type": "feasible",
+    "loss_at_boundary": 174.47777167376452,
+    "voltage_margin": 0.011487907646359541,
+    "constraint_violation": 0,
+    "reactive_support_effort": 0.0,
+    "min_vm": 0.9214879076463596,
+    "max_vm": 1.0057724146397942
+  },
+  "evaluation_passed": false,
+  "evaluation_summary": "candidate did not improve hosting-capacity boundary",
+  "delta_vs_baseline": {
+    "hosting_capacity_level": -1.6,
+    "loss_at_boundary": 39.325222523765035,
+    "voltage_margin": -0.013620292605258322,
+    "reactive_support_effort": 0.0
+  },
+  "delta_vs_prior": {
+    "hosting_capacity_level": -1.6,
+    "loss_at_boundary": 76.39771384372486,
+    "voltage_margin": -0.02061867527402439,
+    "reactive_support_effort": -1.0499999999999998
+  },
+  "primary_improved": false,
+  "secondary_improved": false,
+  "mismatch_probe": true
+}

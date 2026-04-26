@@ -1,0 +1,32 @@
+schema_version: 0.1.0
+object_type: structural_skill_change_request
+object_id: structural_skill_change_request.power.ieee69_hosting_capacity.scenario_0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:27Z'
+updated_at: '2026-04-26T06:43:27Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+diagnosis_ref: skill_structure_diagnosis.power.ieee69_hosting_capacity.reframing_0001
+target_skill_ref: task.power.ieee69_hosting_capacity
+change_type: process_change
+method_changes: []
+process_changes:
+- Run an extended_until_violation scan to ensure the voltage boundary is actually
+  triggered.
+- Use the original_scan as a continuity baseline but do not rely on it for boundary
+  movement claims if no violation is bracketed.
+- Include a boundary-neighborhood scenario around the first detected violation to
+  test stability of the transition.
+- Preserve the current static single-snapshot scope rather than expanding to time-series
+  or probabilistic scenarios in this round.
+- Maintain a separate mismatch_negative_control lane for diagnostic contrast only.
+standard_changes: []
+forbidden_usage_only_shortcuts:
+- Lowering voltage constraints to manufacture improvement
+required_validation:
+- Run an extended scan envelope and preserve original claim boundary.
+claim_boundary:
+- Scenario stress is a test condition, not a lowered standard.

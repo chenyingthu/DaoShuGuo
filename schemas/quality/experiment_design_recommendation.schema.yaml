@@ -1,0 +1,57 @@
+schema_id: "experiment_design_recommendation.schema"
+schema_version: "0.1.0"
+object_type: "experiment_design_recommendation"
+title: "Experiment Design Recommendation Schema"
+description: "Recommended experiment matrix derived from learning context and current evidence gaps."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - learning_context_ref
+  - recommended_matrix
+  - minimum_zhuoshi_evidence
+  - excluded_shortcuts
+  - confidence
+  - gaps
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["experiment_design_recommendation"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "used", "archived"]
+  metadata:
+    type: object
+  task_ref:
+    type: string
+  learning_context_ref:
+    type: string
+  recommended_matrix:
+    type: array[object]
+  minimum_zhuoshi_evidence:
+    type: array[string]
+  excluded_shortcuts:
+    type: array[string]
+  confidence:
+    type: enum
+    allowed: ["low", "medium", "high"]
+  gaps:
+    type: array[string]

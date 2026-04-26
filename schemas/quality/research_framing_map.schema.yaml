@@ -1,0 +1,54 @@
+schema_id: "research_framing_map.schema"
+schema_version: "0.1.0"
+object_type: "research_framing_map"
+title: "Research Framing Map Schema"
+description: "External problem-framing map produced by a research-framing learning worker."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - learning_context_ref
+  - framing_entries
+  - applicability_boundaries
+  - confidence
+  - gaps
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["research_framing_map"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "used", "archived"]
+  metadata:
+    type: object
+  task_ref:
+    type: string
+  learning_context_ref:
+    type: string
+  framing_entries:
+    type: array[object]
+  applicability_boundaries:
+    type: array[string]
+  confidence:
+    type: enum
+    allowed: ["low", "medium", "high"]
+  gaps:
+    type: array[string]

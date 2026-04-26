@@ -51,6 +51,7 @@ TASK003_UNDERPERFORMER_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "rene
 TASK003_WEAK_SHUNT_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "weak_bus_shunt_optimizer.py"
 TASK004_BASELINE_SOLVER_PATH = REPO_ROOT / "skills" / "validated" / "baseline_solver_task004.py"
 TASK004_CANDIDATE_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "renewable_capacity_optimizer_task004.py"
+TASK004_SENSITIVITY_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "voltage_sensitivity_capacity_optimizer_task004.py"
 TASK004_MISMATCH_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "single_point_capacity_mismatch_task004.py"
 TASK005_BASELINE_SOLVER_PATH = REPO_ROOT / "skills" / "validated" / "baseline_solver_task005.py"
 TASK005_CANDIDATE_SOLVER_PATH = REPO_ROOT / "skills" / "active_dev" / "renewable_restoration_candidate_task005.py"
@@ -3040,6 +3041,10 @@ def run_real_task004(strategy: str, candidate_q_step_mvar: float | None = None) 
         candidate_skill_id = "skill.power.renewable_capacity_optimizer_task004"
         solver_path = TASK004_CANDIDATE_SOLVER_PATH
         mismatch_type = None
+    elif strategy == "voltage-sensitivity":
+        candidate_skill_id = "skill.power.voltage_sensitivity_capacity_optimizer_task004"
+        solver_path = TASK004_SENSITIVITY_SOLVER_PATH
+        mismatch_type = None
     elif strategy == "single-point-mismatch":
         candidate_skill_id = "skill.power.single_point_capacity_mismatch_task004"
         solver_path = TASK004_MISMATCH_SOLVER_PATH
@@ -5498,7 +5503,7 @@ def main() -> int:
         default="inverter-support",
     )
     task004_real = sub.add_parser("real-run-task004", help="Run a real task004 hosting-capacity cycle")
-    task004_real.add_argument("--strategy", choices=["inverter-support", "single-point-mismatch"], default="inverter-support")
+    task004_real.add_argument("--strategy", choices=["inverter-support", "voltage-sensitivity", "single-point-mismatch"], default="inverter-support")
     task004_real.add_argument("--candidate-q-step-mvar", type=float, required=False)
     task005_real = sub.add_parser("real-run-task005", help="Run a real task005 restoration cycle")
     task005_real.add_argument(

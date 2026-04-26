@@ -1,0 +1,19 @@
+schema_version: 0.1.0
+object_type: cognition_upgrade
+object_id: cognition_upgrade.power.real_task_001.gap_summary
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: reviewed
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_upgrade.power.real_task_001.0001
+decision: retain
+rationale: 'real-task-001 established claim discipline but not research-framing agency:
+  the loop blocked overclaim yet did not redesign the hosting-capacity problem, evaluator,
+  or skill family.'
+claim_adjustment: Treat the current state as claim-gate success and research-framing
+  gap, not as skill improvement.
+evidence_strength: medium

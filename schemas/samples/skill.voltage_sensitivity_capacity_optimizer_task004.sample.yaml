@@ -1,0 +1,34 @@
+schema_version: "0.1.0"
+object_type: "skill"
+object_id: "skill.power.voltage_sensitivity_capacity_optimizer_task004"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "draft"
+metadata:
+  structural_change_type: "method_change"
+name: "Voltage Sensitivity Capacity Optimizer Task004"
+title: "task004 电压灵敏度无功分配承载力候选技能"
+capability_statement: "按 baseline 扫描中新能源节点电压薄弱程度分配 inverter 无功支撑，并在同一承载力扫描流程下评估边界。"
+input_contract:
+  required_inputs:
+    - "network_model"
+    - "constraint_set"
+output_contract:
+  outputs:
+    - "reactive_power_settings"
+    - "control_settings"
+    - "boundary_trace"
+    - "first_violation_point"
+    - "solver_status"
+applicability:
+  domain: "power"
+  scenarios:
+    - "ieee69_hosting_capacity"
+  limits:
+    - "仅覆盖静态单代表工况"
+    - "不是 OPF，只是最小结构性分配策略"
+implementation_ref:
+  type: "python_module"
+  path: "skills/active_dev/voltage_sensitivity_capacity_optimizer_task004.py"
+maturity_level: "candidate"

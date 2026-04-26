@@ -1,0 +1,187 @@
+{
+  "baseline_solution": {
+    "control_settings": {
+      "strategy": "fixed_inverter_q_capacity_scan",
+      "inverter_q": [
+        {
+          "bus": 18,
+          "q_mvar": 0.0
+        },
+        {
+          "bus": 35,
+          "q_mvar": 0.0
+        },
+        {
+          "bus": 61,
+          "q_mvar": 0.0
+        }
+      ],
+      "hosting_capacity_level": 3.0
+    },
+    "metrics": {
+      "hosting_capacity_level": 3.0,
+      "boundary_trigger_scale": 3.0,
+      "violation_trigger_type": "feasible",
+      "first_violation_type": "none",
+      "loss_at_boundary": 135.1525491499995,
+      "voltage_margin": 0.025108200251617863,
+      "boundary_stability_margin": 0.025108200251617863,
+      "constraint_violation": 0,
+      "reactive_support_effort": 0.0,
+      "control_effort": 0.0,
+      "min_vm": 0.9351082002516179,
+      "max_vm": 1.0134557437571081
+    }
+  },
+  "candidate_solution": {
+    "control_settings": {
+      "strategy": "voltage_sensitivity_q_allocation_capacity_scan",
+      "inverter_q": [
+        {
+          "bus": 18,
+          "q_mvar": 0.10770470437134859
+        },
+        {
+          "bus": 35,
+          "q_mvar": 0.003033760450346066
+        },
+        {
+          "bus": 61,
+          "q_mvar": 0.2392615351783053
+        }
+      ],
+      "hosting_capacity_level": 3.0,
+      "candidate_total_q_mvar": 0.35,
+      "sensitivity_probe_scale": 1.0
+    },
+    "metrics": {
+      "hosting_capacity_level": 3.0,
+      "boundary_trigger_scale": 3.0,
+      "violation_trigger_type": "feasible",
+      "first_violation_type": "none",
+      "loss_at_boundary": 108.68865563973264,
+      "voltage_margin": 0.029480743201303894,
+      "boundary_stability_margin": 0.029480743201303894,
+      "constraint_violation": 0,
+      "reactive_support_effort": 0.35,
+      "control_effort": 0.35,
+      "min_vm": 0.9394807432013039,
+      "max_vm": 1.01349437232673
+    }
+  },
+  "evaluation": {
+    "passed": false,
+    "key_metrics_pass": false,
+    "constraints_pass": true,
+    "comparisons": {
+      "hosting_capacity_level": {
+        "candidate": 3.0,
+        "baseline": 3.0,
+        "direction": "higher_is_better",
+        "improved": false,
+        "delta": 0.0
+      },
+      "loss_at_boundary": {
+        "candidate": 108.68865563973264,
+        "baseline": 135.1525491499995,
+        "direction": "lower_is_better",
+        "improved": true,
+        "delta": -26.463893510266843
+      },
+      "voltage_margin": {
+        "candidate": 0.029480743201303894,
+        "baseline": 0.025108200251617863,
+        "direction": "higher_is_better",
+        "improved": true,
+        "delta": 0.004372542949686031
+      },
+      "boundary_trigger_scale": {
+        "candidate": 3.0,
+        "baseline": 3.0,
+        "direction": "higher_is_better",
+        "improved": false,
+        "delta": 0.0
+      },
+      "control_effort": {
+        "candidate": 0.35,
+        "baseline": 0.0,
+        "direction": "lower_is_better",
+        "improved": false,
+        "delta": 0.35
+      }
+    },
+    "boundary_triggered": false,
+    "claim_support_level": "operational_quality_only",
+    "summary": "candidate did not improve hosting-capacity boundary",
+    "baseline_solution": {
+      "control_settings": {
+        "strategy": "fixed_inverter_q_capacity_scan",
+        "inverter_q": [
+          {
+            "bus": 18,
+            "q_mvar": 0.0
+          },
+          {
+            "bus": 35,
+            "q_mvar": 0.0
+          },
+          {
+            "bus": 61,
+            "q_mvar": 0.0
+          }
+        ],
+        "hosting_capacity_level": 3.0
+      },
+      "metrics": {
+        "hosting_capacity_level": 3.0,
+        "boundary_trigger_scale": 3.0,
+        "violation_trigger_type": "feasible",
+        "first_violation_type": "none",
+        "loss_at_boundary": 135.1525491499995,
+        "voltage_margin": 0.025108200251617863,
+        "boundary_stability_margin": 0.025108200251617863,
+        "constraint_violation": 0,
+        "reactive_support_effort": 0.0,
+        "control_effort": 0.0,
+        "min_vm": 0.9351082002516179,
+        "max_vm": 1.0134557437571081
+      }
+    },
+    "candidate_solution": {
+      "control_settings": {
+        "strategy": "voltage_sensitivity_q_allocation_capacity_scan",
+        "inverter_q": [
+          {
+            "bus": 18,
+            "q_mvar": 0.10770470437134859
+          },
+          {
+            "bus": 35,
+            "q_mvar": 0.003033760450346066
+          },
+          {
+            "bus": 61,
+            "q_mvar": 0.2392615351783053
+          }
+        ],
+        "hosting_capacity_level": 3.0,
+        "candidate_total_q_mvar": 0.35,
+        "sensitivity_probe_scale": 1.0
+      },
+      "metrics": {
+        "hosting_capacity_level": 3.0,
+        "boundary_trigger_scale": 3.0,
+        "violation_trigger_type": "feasible",
+        "first_violation_type": "none",
+        "loss_at_boundary": 108.68865563973264,
+        "voltage_margin": 0.029480743201303894,
+        "boundary_stability_margin": 0.029480743201303894,
+        "constraint_violation": 0,
+        "reactive_support_effort": 0.35,
+        "control_effort": 0.35,
+        "min_vm": 0.9394807432013039,
+        "max_vm": 1.01349437232673
+      }
+    }
+  }
+}

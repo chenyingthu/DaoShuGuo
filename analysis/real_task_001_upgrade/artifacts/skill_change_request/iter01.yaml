@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+object_type: skill_change_request
+object_id: skill_change_request.power.ieee69_hosting_capacity_upgrade.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: ready
+metadata:
+  real_task: real-task-001-upgrade
+  run_ref: run.power.ieee69_hosting_capacity.0029
+  structural_request_ref: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+task_ref: task.power.ieee69_hosting_capacity
+iteration_index: 1
+base_skill_ref: skill.power.renewable_capacity_optimizer_task004
+allowed_change_scope:
+- method_change
+- standard_change
+blocked_paths:
+- q_step-only escalation
+- single-point mismatch evidence
+required_tests:
+- task004 voltage-sensitivity real run
+- primary/secondary/control-effort comparison
+output_skill_path: skills/active_dev/voltage_sensitivity_capacity_optimizer_task004.py
+summary: Implement voltage-sensitivity non-uniform inverter-Q allocation and upgraded
+  evaluator metrics.

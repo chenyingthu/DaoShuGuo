@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+object_type: method_family_map
+object_id: method_family_map.power.ieee69_hosting_capacity.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:43:05Z'
+updated_at: '2026-04-26T06:43:05Z'
+status: ready
+metadata:
+  real_task: real-task-001
+  protocol: research-framing-learning-worker
+task_ref: task.power.ieee69_hosting_capacity
+learning_context_ref: learning_context_pack.power.ieee69_hosting_capacity.reframing_0001
+method_families:
+- family_id: scale_scan
+  skill_dimension: process
+  relation_to_task004: existing baseline process
+  minimum_validation: Report last feasible and first violation points.
+- family_id: uniform_q_support
+  skill_dimension: use_condition
+  relation_to_task004: existing candidate
+  minimum_validation: Must not be called structural unless allocation logic or standard
+    changes.
+- family_id: voltage_sensitivity_q_allocation
+  skill_dimension: method
+  relation_to_task004: recommended minimal structural candidate
+  minimum_validation: Compare with uniform support at same total effort and same scan
+    envelope.
+- family_id: boundary_neighborhood_refinement
+  skill_dimension: process
+  relation_to_task004: recommended evaluator/process upgrade
+  minimum_validation: Record first violation, boundary margin, and stability near
+    transition.
+- family_id: control_effort_limited_search
+  skill_dimension: standard
+  relation_to_task004: future extension
+  minimum_validation: Add effort budget and compare within fixed budget.
+applicability_boundaries:
+- No complex OPF is implemented in this phase.
+confidence: medium
+gaps:
+- Sensitivity allocation still needs upgraded effectiveness evidence.

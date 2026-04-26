@@ -1,0 +1,21 @@
+schema_version: "0.1.0"
+object_type: "claim_threshold_map"
+object_id: "claim_threshold_map.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "ready"
+metadata:
+  source_mode: "sample"
+task_ref: "task.power.ieee33_reactive_opt"
+learning_context_ref: "learning_context_pack.power.ieee33_reactive_opt.0001"
+thresholds:
+  - claim_level: "internal_note"
+    required_evidence:
+      - "baseline/candidate comparison"
+    taste_ceiling: "diaomu"
+forbidden_claims:
+  - "Do not claim structural skill improvement without validation."
+confidence: "low"
+gaps:
+  - "Sample object only."

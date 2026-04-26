@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+object_type: cognition_to_skill_update
+object_id: cognition_to_skill_update.power.ieee69_hosting_capacity_upgrade.0001
+object_version: 0.1.0
+created_at: '2026-04-26T06:51:24Z'
+updated_at: '2026-04-26T06:51:24Z'
+status: reviewed
+metadata:
+  real_task: real-task-001-upgrade
+  run_ref: run.power.ieee69_hosting_capacity.0029
+  structural_request_ref: structural_skill_change_request.power.ieee69_hosting_capacity.reframing_0001
+task_ref: task.power.ieee69_hosting_capacity
+source_cognition_ref: cognition_diagnosis.power.ieee69_hosting_capacity_upgrade.0001
+source_event_ref: effectiveness_assessment.power.ieee69_hosting_capacity_upgrade.0001
+next_iteration_skill_constraints:
+- Keep non-uniform allocation but compare under equal effort against uniform support.
+- Do not increase q_step without an effort budget.
+next_iteration_evaluator_constraints:
+- Require first violation or explicit proof that no voltage boundary exists in envelope.
+- Keep primary boundary metric separate from secondary operational quality.
+next_iteration_task_refinements:
+- Create a boundary-triggering stress scenario or pause primary HC claim.
+search_priority_updates:
+- Prioritize scenario/evaluator bracketing over more parameter tuning.
+required_discriminating_tests:
+- same-effort uniform vs sensitivity allocation
+- extended envelope with first violation recording
+summary: The next useful loop should repair scenario boundary evidence before another
+  skill-performance claim.

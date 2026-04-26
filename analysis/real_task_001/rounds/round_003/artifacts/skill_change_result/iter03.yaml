@@ -1,0 +1,38 @@
+schema_version: 0.1.0
+object_type: skill_change_result
+object_id: skill_change_result.power.ieee69_hosting_capacity.0003
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:20Z'
+updated_at: '2026-04-26T03:37:20Z'
+status: completed
+metadata:
+  task_package: task004
+  worker: skill_worker
+  runtime: pi:codex-relay:gpt-5.5
+task_ref: task.power.ieee69_hosting_capacity
+request_ref: skill_change_request.power.ieee69_hosting_capacity.0003
+produced_skill_ref: skill.power.renewable_capacity_optimizer_task004
+code_paths:
+- skills/active_dev/renewable_capacity_optimizer_task004.py
+change_summary:
+- Prepare a single-point-mismatch negative-control lane that intentionally changes
+  only non-boundary evidence interpretation while keeping the hosting-capacity boundary
+  criterion unchanged, to test whether the evaluator rejects secondary-metric improvements
+  as hosting-capacity gains.
+expected_behavior_change:
+- The candidate may show improved secondary metrics such as loss_at_boundary or voltage_margin,
+  but hosting_capacity_level should remain unchanged relative to baseline.
+- The evaluation should fail or be marked non-improving when the primary boundary
+  metric does not improve.
+- Any apparent benefit from non-boundary evidence should be classified as insufficient
+  for a hosting-capacity gain under the stated claim boundary.
+command: python orchestrator/main.py real-run-task004 --strategy single-point-mismatch
+raw_output_path: analysis/real_task_001/rounds/round_003/raw_worker/skill_worker
+self_reported_risks:
+- If the mismatch lane accidentally changes runtime behavior rather than only the
+  evidence standard, the negative control may become confounded.
+- If evaluator logs do not explicitly expose primary-versus-secondary metric handling,
+  rejection of non-boundary evidence may be hard to verify.
+- This action can test gate behavior but cannot by itself demonstrate skill structure
+  improvement or hosting-capacity improvement.
+run_ref: run.power.ieee69_hosting_capacity.0025
