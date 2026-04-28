@@ -1,0 +1,41 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.ieee33_reactive_opt.task001"
+object_version: "0.1.0"
+created_at: "2026-04-27T12:00:00Z"
+updated_at: "2026-04-27T12:00:00Z"
+status: "active"
+metadata:
+  protocol: "generic-task-onboarding"
+task_id: "task001"
+task_ref: "task.power.ieee33_reactive_opt"
+task_package_path: "tasks/task001"
+baseline_ref: "baseline.power.ieee33_reactive_opt.default"
+baseline_path: "tasks/task001/baseline.yaml"
+evaluator_ref: "evaluator.power.ieee33_reactive_opt.default"
+evaluator_path: "evaluators/task001_evaluator.yaml"
+runtime_entry:
+  type: "python_script"
+  path: "tasks/task001/runtime_helpers.py"
+metrics_mapping:
+  primary:
+    - "loss"
+    - "voltage_deviation"
+  secondary:
+    - "reactive_support_effort"
+candidate_skill_refs:
+  - "skill.power.reactive_optimizer_task001"
+fallback_skill_refs:
+  - "skill.power.baseline_solver"
+claim_gates:
+  - name: "research_review_gate"
+    status: "ready"
+    required: true
+known_task_risks:
+  - "optimization result may not be stably reproducible"
+  - "evaluator may not distinguish local from real improvement"
+supported_downstream_stages:
+  - "run"
+  - "review"
+  - "structural_learning"
+  - "portfolio"

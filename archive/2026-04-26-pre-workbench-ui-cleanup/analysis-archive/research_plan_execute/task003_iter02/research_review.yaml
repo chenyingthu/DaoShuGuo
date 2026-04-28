@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+object_type: research_review
+object_id: research_review.power.ieee69_renewable_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-25T09:59:09Z'
+updated_at: '2026-04-25T09:59:09Z'
+status: reviewed
+metadata:
+  protocol: research-plan-execute
+  task_package: task003
+  gate: phase3_mvp
+batch_ref: research_batch.power.ieee69_renewable_reactive_opt.0002
+reviewed_artifact_refs:
+- research_batch.power.ieee69_renewable_reactive_opt.0002
+- agent_context_pack.power.ieee69_renewable_reactive_opt.review_worker.0002
+- skill_agent_iteration_result.power.ieee69_renewable_reactive_opt.0002
+- run.power.ieee69_renewable_reactive_opt.0021
+- agentic_cognition_to_skill_update.power.ieee69_renewable_reactive_opt.0002
+- agentic_loop_iteration_review.power.ieee69_renewable_reactive_opt.0002
+verdict: approved_with_ablation_required
+evidence_summary:
+- 'loss: 139.67066814649814 -> 88.5302433764974'
+- 'voltage_deviation: 0.018566134568860092 -> 0.014854212583448316'
+- 'constraint_violation: 8 -> 5'
+- 'raw skill-agent transcript exists: agents/skill/results/task003_iter02.raw.txt'
+claim_boundary:
+- 'Allowed: skill performance improved under the current task003 evaluator and single
+  representative condition.'
+- 'Classified: current improvement is skill-use improvement, not verified skill-structure
+  improvement.'
+- 'Blocked: cognition caused skill improvement until an ablation_result exists.'
+- 'Blocked: method/process/standard improved until the review identifies a structural
+  change beyond search-envelope expansion.'
+- 'Blocked: general renewable reactive optimization superiority beyond task003 single-condition
+  evidence.'
+required_repairs: []
+required_ablations:
+- Compare cognition-guided request against a metric-only or deterministic request
+  under the same evaluator and fixed search budget.
+approval_allowed: true
+summary: Review gate approves continued execution only with ablation-required causality
+  freeze.

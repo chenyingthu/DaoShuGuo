@@ -1,0 +1,65 @@
+schema_id: "mentor_brief.schema"
+schema_version: "0.1.0"
+object_type: "mentor_brief"
+title: "Mentor Brief Schema"
+description: "Researcher-readable brief that explains a stage without requiring raw artifact inspection."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - iteration
+  - headline
+  - one_minute_summary
+  - what_changed
+  - what_it_means
+  - what_is_not_proven
+  - human_questions_to_consider
+  - recommended_human_action
+  - drilldown_refs
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["mentor_brief"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["active", "degraded", "ungrounded_draft", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  iteration:
+    type: integer
+  headline:
+    type: string
+  one_minute_summary:
+    type: string
+  what_changed:
+    type: array[object]
+  what_it_means:
+    type: array[string]
+  what_is_not_proven:
+    type: array[string]
+  human_questions_to_consider:
+    type: array[string]
+  recommended_human_action:
+    type: string
+  drilldown_refs:
+    type: array[string]

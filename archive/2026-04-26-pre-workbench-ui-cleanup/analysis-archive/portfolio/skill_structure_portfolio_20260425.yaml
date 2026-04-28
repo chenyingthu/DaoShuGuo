@@ -1,0 +1,86 @@
+schema_version: 0.1.0
+object_type: research_portfolio_assessment
+object_id: portfolio_assessment.power.skill_structure.20260425
+object_version: 0.1.0
+created_at: '2026-04-25T12:28:16Z'
+updated_at: '2026-04-25T12:28:16Z'
+status: reviewed
+metadata:
+  protocol: cross-task-skill-structure
+  assessor: deterministic_mvp
+assessed_task_refs:
+- task.power.ieee69_renewable_reactive_opt
+- task.power.ieee69_hosting_capacity
+- task.power.ieee69_restoration_resilience
+portfolio_question: Which tasks should receive further structural skill work, and
+  which should pause or redirect?
+task_assessments:
+- task_ref: task.power.ieee69_renewable_reactive_opt
+  topic: renewable reactive optimization
+  evidence_refs:
+  - skill_structure_assessment.power.ieee69_renewable_reactive_opt.0002
+  skill_use_signal: strong
+  structural_signal: structural_attempt_ready
+  recommendation: continue_with_fixed_budget_ablation
+  rationale: task003 has real metric improvement and a structural request, but skill-use
+    evidence is still stronger than method/process/standard evidence.
+  risk: local search-envelope tuning trap
+  next_test: Compare structural request with metric-only tuning under fixed evaluator
+    and fixed search budget.
+- task_ref: task.power.ieee69_hosting_capacity
+  topic: hosting capacity boundary
+  evidence_refs:
+  - analysis.power.ieee69_hosting_capacity.skill_diagnosis_20260424T135610Z
+  - boundary_overclaim.power.ieee69_hosting_capacity.20260421_033407
+  skill_use_signal: strong_secondary_metric_signal
+  structural_signal: suspected_but_unverified
+  recommendation: redirect_to_structural_method_or_pause_parameter_tuning
+  rationale: secondary metrics improve as Q increases, but the primary hosting_capacity_level
+    remains unchanged; further parameter tuning risks local trap.
+  risk: boundary overclaim and primary-metric stagnation
+  next_test: Stop q_step escalation; test non-uniform inverter allocation or bus-subset
+    control against fixed-q baseline.
+- task_ref: task.power.ieee69_restoration_resilience
+  topic: restoration resilience
+  evidence_refs:
+  - task_mismatch.power.ieee69_restoration_resilience.20260422_001023
+  - boundary_overclaim.power.ieee69_restoration_resilience.20260422_001023
+  skill_use_signal: moderate
+  structural_signal: standard_gap_dominant
+  recommendation: continue_as_standard_or_evaluator_work_before_skill_structure
+  rationale: task005 has restoration benefit, but cost and resilience-claim semantics
+    dominate; structural skill work is premature until standard/evaluator quality
+    improves. The candidate improves restoration while increasing action cost, so
+    evaluation standards need explicit tradeoff treatment.
+  risk: resilience overclaim and cost-benefit ambiguity
+  next_test: Build a cost-benefit standard and resilience claim gate before another
+    skill-structure loop.
+cross_task_findings:
+- task003 is the best immediate ablation target, but only for fixed-budget structural
+  validation.
+- task004 should not continue q_step tuning; it needs a structural method hypothesis
+  for hosting-capacity boundary movement.
+- task005 should prioritize standard/evaluator work because cost-benefit and resilience-claim
+  semantics dominate current uncertainty.
+- A research loop should stop or redirect when primary metrics stagnate or when evaluation
+  semantics are weaker than skill implementation.
+recommended_allocation:
+- 40% task003 fixed-budget structural-vs-metric-only ablation.
+- 35% task004 structural method design for non-uniform/bus-aware hosting-capacity
+  control.
+- 25% task005 standard/evaluator redesign for cost-benefit resilience claims.
+stop_or_pause_recommendations:
+- Pause task003 raw search-grid expansion until ablation is defined.
+- Stop task004 q_step-only escalation because primary hosting-capacity boundary did
+  not move.
+- Pause task005 skill-structure claim work until restoration cost-benefit standard
+  is explicit.
+next_tests:
+- 'task003: fixed-budget ablation comparing structural request with metric-only tuning.'
+- 'task004: non-uniform inverter-Q allocation or bus-subset strategy under unchanged
+  evaluator.'
+- 'task005: evaluator standard revision that separates restoration benefit, action
+  cost, and resilience claim boundary.'
+summary: 'The portfolio view prevents local-trap behavior: task003 remains useful
+  for ablation, task004 should redirect from parameter tuning to structural method
+  design, and task005 should focus on standards before further skill evolution.'

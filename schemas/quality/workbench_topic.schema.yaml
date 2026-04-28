@@ -1,0 +1,65 @@
+schema_id: "workbench_topic.schema"
+schema_version: "0.1.0"
+object_type: "workbench_topic"
+title: "Workbench Topic Schema"
+description: "Researcher-facing aggregate state for one collaborative research topic."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - task_id
+  - title
+  - current_stage
+  - claim_ceiling
+  - taste_grade
+  - blocking_issue
+  - recommended_action
+  - evidence_refs
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["workbench_topic"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["ready", "degraded", "blocked", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  task_id:
+    type: string
+  title:
+    type: string
+  current_stage:
+    type: string
+  claim_ceiling:
+    type: string
+  taste_grade:
+    type: string
+  blocking_issue:
+    type: string
+  recommended_action:
+    type: string
+  evidence_refs:
+    type: array[string]
+  summary:
+    type: string

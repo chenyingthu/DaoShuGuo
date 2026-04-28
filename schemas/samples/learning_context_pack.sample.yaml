@@ -1,0 +1,28 @@
+schema_version: "0.1.0"
+object_type: "learning_context_pack"
+object_id: "learning_context_pack.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T10:01:00Z"
+updated_at: "2026-04-25T10:01:00Z"
+status: "ready"
+metadata:
+  protocol: "structural-learning-worker"
+  source_mode: "curated_seed"
+learning_need_ref: "learning_need.power.ieee33_reactive_opt.0001"
+source_refs:
+  - "method_card.power.reactive_optimization.seed"
+source_summaries:
+  - source_ref: "method_card.power.reactive_optimization.seed"
+    relevance: "Seed method card for separating local tuning from method structure."
+method_insights:
+  - "A structural method claim needs an explicit control-policy principle, not only a larger search grid."
+process_insights:
+  - "The workflow should separate candidate generation, evaluation, and claim review."
+standard_insights:
+  - "A richer standard should include cost, robustness, and boundary checks."
+applicability_boundaries:
+  - "Curated seed only; not a literature-complete review."
+confidence: "medium"
+gaps:
+  - "Needs real literature retrieval before high-confidence structural claims."
+curator_notes: "This sample illustrates the object contract, not a validated domain conclusion."

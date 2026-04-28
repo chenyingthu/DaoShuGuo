@@ -1,0 +1,50 @@
+schema_id: "repair_result.schema"
+schema_version: "0.1.0"
+object_type: "repair_result"
+title: "Repair Result Schema"
+description: "Result of a bounded repair request."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - repair_request_ref
+  - changed_artifact_refs
+  - verification_refs
+  - repair_summary
+  - remaining_risks
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["repair_result"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["completed", "failed", "archived"]
+  metadata:
+    type: object
+  repair_request_ref:
+    type: string
+  changed_artifact_refs:
+    type: array[string]
+  verification_refs:
+    type: array[string]
+  repair_summary:
+    type: string
+  remaining_risks:
+    type: array[string]

@@ -1,0 +1,56 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task008_bad_candidate"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:15:00Z"
+updated_at: "2026-04-25T16:15:00Z"
+status: "active"
+metadata:
+  protocol: "generic-full-loop-validation"
+  task_package: "task008_bad_candidate"
+task_id: "task008_bad_candidate"
+task_ref: "task.power.task008_bad_candidate"
+task_package_path: "tasks/task008_bad_candidate"
+baseline_ref: "baseline.power.task008_bad_candidate.default"
+baseline_path: "tasks/task008_bad_candidate/baseline.yaml"
+evaluator_ref: "evaluator.power.task008_bad_candidate.default"
+evaluator_path: "evaluators/task008_bad_candidate_evaluator.yaml"
+runtime_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+metrics_mapping:
+  primary: ["validation_score"]
+  secondary: ["constraint_violation"]
+candidate_skill_refs: ["skill.power.baseline_solver"]
+fallback_skill_refs: ["skill.power.baseline_solver"]
+claim_gates:
+  - name: "effectiveness_veto_gate"
+    status: "ready"
+    required: true
+known_task_risks: ["Candidate degradation is intentional."]
+supported_downstream_stages: ["run", "review", "structural_learning"]
+baseline_binding:
+  baseline_refs: ["baseline.power.task008_bad_candidate.default"]
+candidate_binding:
+  candidate_kind: "skill_variant"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.task008_bad_candidate.default"
+experimental:
+  worker_module: "scripts/generic_full_loop_validation_workers.py"
+  validation_scenario:
+    produced_skill_id: "skill.power.task008_bad_candidate_candidate"
+    synthetic_run_id: "run.power.task008_bad_candidate.validation_0001"
+    run_passed: false
+    metric_summary:
+      baseline_score: 0.80
+      candidate_score: 0.55
+      delta: -0.25
+      constraint_violation: 1
+    comparison_summary: "Candidate degrades validation_score and introduces a constraint violation."
+    effectiveness_judgment: "Effectiveness veto: candidate must not be treated as progress."
+    recommended_cognition_action: "Explain failure and route to repair or stop."
+    problem_class: "skill_structure_problem"
+    cognition_judgment: "The degraded candidate reveals a skill-structure weakness, not an upgrade."
+    recommended_action: "repair_skill"
+    continue_loop: false
+    next_worker: "skill_worker"

@@ -1,0 +1,229 @@
+
+[94m======================================================================[0m
+[94mHarness Integration Tests[0m
+[94m======================================================================[0m
+
+Repository: /home/chenying/root-research/DaoShuGuo-v1
+Started at: 2026-04-28T09:55:51.623389
+
+[94m======================================================================[0m
+[94mTest Setup[0m
+[94m======================================================================[0m
+
+[ValidationAgent] Loaded schema: work_brief
+[ValidationAgent] Loaded schema: skill_implementation
+[ValidationAgent] Loaded schema: assessment_packet
+[ValidationAgent] Loaded schema: execution_record
+[ValidationAgent] Loaded 5 phase requirements
+[92m✓ Validation Agent initialized[0m
+  Loaded 4 schemas
+  Loaded 5 phase requirements
+
+[94m======================================================================[0m
+[94mTest 1: Schema Loading[0m
+[94m======================================================================[0m
+
+[92m✓ Schema loaded: work_brief[0m
+[92m✓ Schema loaded: execution_record[0m
+[92m✓ Schema loaded: assessment_packet[0m
+[92m✓ Schema loaded: skill_implementation[0m
+
+[94m======================================================================[0m
+[94mTest 2: Phase Requirements Loading[0m
+[94m======================================================================[0m
+
+[92m✓ Phase loaded: skill_change_request (5 required fields)[0m
+    - hypothesis.statement
+    - hypothesis.rationale
+    - hypothesis.testable_prediction
+[92m✓ Phase loaded: skill_execution (9 required fields)[0m
+    - execution.status
+    - execution.timestamp
+    - execution.inputs
+[92m✓ Phase loaded: effectiveness_assessment (8 required fields)[0m
+    - interpretation.summary
+    - interpretation.supports_hypothesis
+    - interpretation.support_evidence
+[92m✓ Phase loaded: cognition_diagnosis (4 required fields)[0m
+    - current_cognition_state
+    - identified_constraints
+    - blocked_paths
+
+[94m======================================================================[0m
+[94mTest 3: Valid Output Validation[0m
+[94m======================================================================[0m
+
+  Valid: False
+  Missing fields: []
+  Shallow fields: ['execution.status']
+  Errors: ['Content too shallow: String length 9 < 10']
+  Warnings: ["Vague words detected: ['completed']"]
+  Content length: 2057
+[91m✗ Valid output failed validation[0m
+
+[94m======================================================================[0m
+[94mTest 4: Invalid Output Detection[0m
+[94m======================================================================[0m
+
+  Valid: False
+  Missing fields: ['execution.status', 'execution.timestamp', 'execution.inputs', 'execution.outputs']
+  Shallow fields: ['skill_implementation.code.structure', 'results.primary_metrics', 'failure_capsule.known_limitations', 'next_actions.immediate']
+  Errors: ['Content too shallow: Empty list', 'Content too shallow: Empty dict', 'Content too shallow: Empty list', 'Content too shallow: Empty list', 'Content length 384 < minimum required 1000']
+[92m✓ Invalid output correctly detected[0m
+    Missing fields: 4
+    Shallow fields: 4
+
+[94m======================================================================[0m
+[94mTest 5: File-based Validation[0m
+[94m======================================================================[0m
+
+  File: /tmp/tmp29h1chm9.yaml
+  Valid: False
+  Content length: 875
+[92m✓ File-based validation completed[0m
+
+[94m======================================================================[0m
+[94mTest 6: Vague Words Detection[0m
+[94m======================================================================[0m
+
+[92m✓ Detected vague words in: 'The result is ok' -> ['ok'][0m
+[92m✓ Detected vague words in: 'Completed successfully' -> ['completed'][0m
+[92m✓ Detected vague words in: 'Some improvements made' -> ['some'][0m
+[92m✓ Clean text: 'Network losses decreased by 11.6%'[0m
+
+[94m======================================================================[0m
+[94mTest 7: Content Depth Check[0m
+[94m======================================================================[0m
+
+[92m✓ Correctly identified: too short[0m
+[92m✓ Correctly identified: long enough[0m
+[92m✓ Correctly identified: empty list[0m
+[92m✓ Correctly identified: non-empty list[0m
+[92m✓ Correctly identified: empty dict[0m
+
+[94m======================================================================[0m
+[94mTest 8: Quality Score Calculation[0m
+[94m======================================================================[0m
+
+[92m✓ perfect: score=100.0 (expected 90-120)[0m
+[92m✓ one missing: score=100.0 (expected 80-100)[0m
+[92m✓ multiple issues: score=80.0 (expected 60-80)[0m
+[92m✓ many missing: score=45.0 (expected 30-50)[0m
+
+[94m======================================================================[0m
+[94mTest 9: Harness Engine Import[0m
+[94m======================================================================[0m
+
+[92m✓ Successfully imported GenericLoopEngineWithHarness[0m
+  PhaseConfig class available
+[92m✓ Method available: _load_phase_configs[0m
+[92m✓ Method available: _prepare_prompt_with_requirements[0m
+[92m✓ Method available: _call_worker_with_validation[0m
+[92m✓ Method available: _create_failure_capsule[0m
+
+[94m======================================================================[0m
+[94mTest 10: End-to-End Flow[0m
+[94m======================================================================[0m
+
+[92m✓ Created test output file: /tmp/harness_test_0bcx0b8f/execution_record.yaml[0m
+
+======================================================================
+Research Quality Verification
+Run Directory: /tmp/harness_test_0bcx0b8f
+======================================================================
+
+[ValidationAgent] Loaded schema: work_brief
+[ValidationAgent] Loaded schema: skill_implementation
+[ValidationAgent] Loaded schema: assessment_packet
+[ValidationAgent] Loaded schema: execution_record
+[ValidationAgent] Loaded 5 phase requirements
+Found 1 phase output files:
+  - execution_record: execution_record.yaml
+
+----------------------------------------------------------------------
+Checking phase: execution_record
+File: /tmp/harness_test_0bcx0b8f/execution_record.yaml
+----------------------------------------------------------------------
+  Score: 61.3/100
+  Status: failed
+  Missing fields: 0
+  Shallow fields: 1
+  Errors: 2
+  Warnings: 1
+  Content length: 829 chars
+
+  Feedback preview:
+    ======================================================================
+    Phase 'skill_execution' 输出验证报告
+    ======================================================================
+    
+    ❌ 验证失败
+    
+    内容长度: 829 字符 (要求: 1000+)
+    
+    ⚠️  内容过于简略 (1 个):
+       - execution.status
+[92m✓ Quality verification completed[0m
+  Overall score: 61.3
+  Phases checked: 1
+  Phases passed: 0
+
+Report preview:
+# Research Quality Report
+
+**Run Directory:** `/tmp/harness_test_0bcx0b8f`
+**Overall Score:** 61.3/100
+**Status:** FAILED
+
+## Summary
+
+- Phases checked: 1
+- Phases passed: 0
+- Phases failed: 1
+- Total missing fields: 0
+- Total shallow fields: 1
+- Total warnings: 1
+
+## Phase Results
+
+### execution_record ❌
+
+- **File:** `execution_record.yaml`
+- **Score:** 61.3/100
+- **Missing fields:** 0
+- **Shallow fields:** 1
+- **Errors:** 2
+- **Warnings:** 1
+
+## Recommendations
+
+1. 所有基本字段已满足，建议进一步丰富内容和细节
+
+[92m✓ End-to-end flow completed successfully[0m
+
+[94m======================================================================[0m
+[94mTest Teardown[0m
+[94m======================================================================[0m
+
+  Cleaning up temporary files...
+
+[94m======================================================================[0m
+[94mTest Summary[0m
+[94m======================================================================[0m
+
+Total tests: 10
+[92mPassed: 9[0m
+[91mFailed: 1[0m
+
+[92m✓[0m Schema Loading
+[92m✓[0m Phase Requirements Loading
+[91m✗[0m Valid Output Validation
+[92m✓[0m Invalid Output Detection
+[92m✓[0m File-based Validation
+[92m✓[0m Vague Words Detection
+[92m✓[0m Content Depth Check
+[92m✓[0m Quality Score Calculation
+[92m✓[0m Harness Engine Import
+[92m✓[0m End-to-End Flow
+
+[91m1 test(s) failed[0m

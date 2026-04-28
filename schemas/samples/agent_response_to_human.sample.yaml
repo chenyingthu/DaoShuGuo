@@ -1,0 +1,20 @@
+schema_version: "0.1.0"
+object_type: "agent_response_to_human"
+object_id: "agent_response_to_human.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "active"
+metadata:
+  sample: true
+topic_id: "sample"
+task_id: "task.sample"
+human_object_ref: "human_review.sample"
+response_type: "accepted"
+rationale: "The requested evidence constraint is compatible with the claim gate."
+changed_routing_constraints:
+  - "routing_constraint.sample"
+next_actions:
+  - "Compile routing constraints."
+evidence_refs:
+  - "human_review.sample"

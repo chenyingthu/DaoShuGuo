@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.task008_bad_candidate"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata:
+  validation_role: "bad_candidate"
+title: "Task008 bad candidate validation"
+description: "Blind task where candidate degradation must be detected and blocked from cognition upgrade."
+tags: ["power", "validation", "bad_candidate"]
+research_object: "Effectiveness gate behavior for a degraded candidate."
+problem_statement: "Candidate metrics are intentionally worse than baseline."
+scenario_boundary:
+  grid_model: "validation_bad_candidate"
+  simulator: "validation_fixture"
+success_intent:
+  goal: "Effectiveness veto prevents false progress."
+  non_goal: ["Improve performance."]
+baseline_refs: ["baseline.power.task008_bad_candidate.default"]
+constraint_summary:
+  physical: ["constraint violation must be visible"]
+  engineering: ["validation fixture runtime"]
+  research: ["bad results must not be upgraded"]
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task008_bad_candidate/research_brief.md"
+target_metrics: ["validation_score", "constraint_violation"]
+risk_hypotheses: ["Framework may package degradation as progress."]
+assumptions: ["Candidate degradation is intentional."]

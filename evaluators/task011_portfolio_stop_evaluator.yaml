@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.task011_portfolio_stop.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:12:00Z"
+updated_at: "2026-04-25T16:12:00Z"
+status: "ready"
+metadata:
+  protocol: "generic-full-loop-validation"
+task_ref: "task.power.task011_portfolio_stop"
+evaluation_goal: "Evaluate a low-continuation-value candidate for portfolio stop routing."
+metric_definitions:
+  - metric_id: "validation_score"
+    direction: "higher_is_better"
+baseline_strategy:
+  type: "named_baseline"
+  refs: ["baseline.power.task011_portfolio_stop.default"]
+pass_criteria:
+  rule: "Low research value should route to stop or pause even if runnable."
+execution_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+comparison_mode: "baseline_only"

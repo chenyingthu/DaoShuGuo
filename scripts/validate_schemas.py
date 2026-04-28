@@ -83,6 +83,24 @@ OBJECT_TYPE_TO_PREFIX = {
     "task_readiness_report": "task_readiness",
     "full_loop_validation_report": "full_loop_validation",
     "backend_comparison_report": "backend_comparison",
+    "workbench_topic": "workbench_topic",
+    "workbench_timeline_event": "workbench_timeline_event",
+    "human_review": "human_review",
+    "research_decision": "research_decision",
+    "direction_override": "direction_override",
+    "expert_annotation": "expert_annotation",
+    "claim_approval": "claim_approval",
+    "iteration_steering": "iteration_steering",
+    "routing_constraint": "routing_constraint",
+    "agent_response_to_human": "agent_response_to_human",
+    "agent_explanation_card": "agent_explanation_card",
+    "human_attention_item": "human_attention_item",
+    "researcher_lens": "researcher_lens",
+    "mentor_brief": "mentor_brief",
+    "iteration_digest": "iteration_digest",
+    "decision_brief": "decision_brief",
+    "failure_brief": "failure_brief",
+    "claim_brief": "claim_brief",
 }
 
 PREFIX_TO_OBJECT_TYPE = {v: k for k, v in OBJECT_TYPE_TO_PREFIX.items()}
@@ -628,6 +646,7 @@ ARTIFACT_SETS = {
         "target_globs": [
             "analysis/real_task_001_upgrade/delivery/*.yaml",
             "analysis/real_task_001_upgrade/reports/report.yaml",
+            "analysis/real_task_001_upgrade/skill_worker_iter02/*.yaml",
         ],
         "support_globs": [
             "schemas/samples/*.yaml",
@@ -636,7 +655,9 @@ ARTIFACT_SETS = {
             "evaluators/task004_evaluator.yaml",
             "analysis/real_task_001/**/*.yaml",
             "analysis/real_task_001_upgrade/artifacts/**/*.yaml",
+            "analysis/real_task_001_upgrade/skill_worker_iter02/*.yaml",
             "analysis/real_task_001_upgrade/reports/upgrade_*.yaml",
+            "workbench_data/**/*.yaml",
             "literature/**/*.yaml",
             "skills/**/*.yaml",
             "runs/task004/run_*/run.yaml",
@@ -645,7 +666,26 @@ ARTIFACT_SETS = {
             "runs/task004/run_*/taste_assessment.yaml",
             "runs/task004/run_*/report.yaml",
         ],
-    }
+    },
+    "workbench": {
+        "target_globs": [
+            "workbench_data/**/*.yaml",
+        ],
+        "support_globs": [
+            "schemas/samples/*.yaml",
+            "tasks/task*/**/*.yaml",
+            "adapters/*.yaml",
+            "evaluators/*.yaml",
+            "runs/task*/run_*/*.yaml",
+            "analysis/real_task_001_upgrade/delivery/*.yaml",
+            "analysis/real_task_001_upgrade/reports/upgrade_*.yaml",
+            "analysis/real_task_001/literature/*.yaml",
+            "analysis/real_task_001/reframing/*.yaml",
+            "analysis/real_task_001/delivery/*.yaml",
+            "analysis/real_task_001/reports/*.yaml",
+            "cognition/**/*.yaml",
+        ],
+    },
 }
 
 

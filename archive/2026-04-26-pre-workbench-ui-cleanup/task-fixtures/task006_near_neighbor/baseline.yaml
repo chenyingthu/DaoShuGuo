@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.task006_near_neighbor.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.task006_near_neighbor"
+baseline_kind: "validation_fixture"
+method_summary: "Fixed validation baseline for task006 near-neighbor full-loop testing."
+artifact_ref:
+  kind: "validation_fixture"
+  path: "tasks/task006_near_neighbor/baseline.yaml"
+applicability:
+  domain: "power"
+  scenarios: ["task006_near_neighbor"]
+limitations: ["Not a domain solver."]

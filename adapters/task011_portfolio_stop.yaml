@@ -1,0 +1,53 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task011_portfolio_stop"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:15:00Z"
+updated_at: "2026-04-25T16:15:00Z"
+status: "active"
+metadata:
+  protocol: "generic-full-loop-validation"
+  task_package: "task011_portfolio_stop"
+task_id: "task011_portfolio_stop"
+task_ref: "task.power.task011_portfolio_stop"
+task_package_path: "tasks/task011_portfolio_stop"
+baseline_ref: "baseline.power.task011_portfolio_stop.default"
+baseline_path: "tasks/task011_portfolio_stop/baseline.yaml"
+evaluator_ref: "evaluator.power.task011_portfolio_stop.default"
+evaluator_path: "evaluators/task011_portfolio_stop_evaluator.yaml"
+runtime_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+metrics_mapping:
+  primary: ["validation_score"]
+candidate_skill_refs: ["skill.power.baseline_solver"]
+fallback_skill_refs: ["skill.power.baseline_solver"]
+claim_gates:
+  - name: "portfolio_stop_gate"
+    status: "ready"
+    required: true
+known_task_risks: ["Mechanical continuation would be low value."]
+supported_downstream_stages: ["run", "review", "portfolio"]
+baseline_binding:
+  baseline_refs: ["baseline.power.task011_portfolio_stop.default"]
+candidate_binding:
+  candidate_kind: "skill_variant"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.task011_portfolio_stop.default"
+experimental:
+  worker_module: "scripts/generic_full_loop_validation_workers.py"
+  validation_scenario:
+    produced_skill_id: "skill.power.task011_portfolio_stop_candidate"
+    synthetic_run_id: "run.power.task011_portfolio_stop.validation_0001"
+    metric_summary:
+      validation_score: 0.51
+      continuation_value: "low"
+    comparison_summary: "Runnable task, but expected research value is low."
+    effectiveness_judgment: "No strong reason to continue local iteration."
+    recommended_cognition_action: "Route to portfolio stop or pause."
+    problem_class: "research_value_problem"
+    cognition_judgment: "The correct next decision is to stop local looping and reallocate effort."
+    recommended_action: "pause_or_stop"
+    continue_loop: false
+    next_worker: "portfolio_worker"
+    search_priority_updates: ["Do not spend more local iterations without new evidence."]

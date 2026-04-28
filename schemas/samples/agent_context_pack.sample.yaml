@@ -1,0 +1,44 @@
+schema_version: "0.1.0"
+object_type: "agent_context_pack"
+object_id: "agent_context_pack.power.ieee33_reactive_opt.skill_worker.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:00:00Z"
+updated_at: "2026-04-25T08:00:00Z"
+status: "ready"
+metadata:
+  protocol: "research-plan-execute"
+batch_ref: "research_batch.power.ieee33_reactive_opt.0001"
+worker_role: "skill_worker"
+runtime_binding_ref: "worker_runtime_binding.power.ieee33_reactive_opt.skill_worker.0001"
+mission: "Produce a bounded candidate skill change request without weakening evidence gates."
+role_boundary:
+  - "Do not judge final research value."
+  - "Do not relax evaluator requirements."
+task_refs:
+  - "task.power.ieee33_reactive_opt"
+prior_artifact_refs:
+  - "run.power.ieee33_reactive_opt.0001"
+allowed_changes:
+  - "candidate skill request only"
+blocked_paths:
+  - "controller-written cognition"
+evaluator_refs:
+  - "evaluator.power.ieee33_reactive_opt.default"
+baseline_refs:
+  - "baseline.power.ieee33_reactive_opt.default"
+review_history_refs:
+  - "loop_review.power.ieee33_reactive_opt.0001"
+current_hypothesis: "A bounded skill worker can propose the next candidate without making causality claims."
+required_output_schema_ref: "schema.skill_agent_iteration_request"
+stop_conditions:
+  - "missing evaluator reference"
+  - "attempt to weaken baseline comparison"
+token_budget: 12000
+context_budget: 24000
+artifact_provenance_digest: "sha256:sample"
+redaction_policy: "Do not include secrets or provider tokens."
+expected_failure_modes:
+  - "overclaiming"
+  - "missing evidence refs"
+previous_repair_attempt_refs: []
+rendered_prompt_path: "analysis/research_plan_execute/sample/prompts/skill_worker.prompt.md"

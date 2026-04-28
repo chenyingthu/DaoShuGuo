@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "skill_structure_diagnosis"
+object_id: "skill_structure_diagnosis.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T10:02:00Z"
+updated_at: "2026-04-25T10:02:00Z"
+status: "reviewed"
+metadata:
+  protocol: "structural-learning-worker"
+task_ref: "task.power.ieee33_reactive_opt"
+learning_context_ref: "learning_context_pack.power.ieee33_reactive_opt.0001"
+source_review_ref: "research_review.power.ieee33_reactive_opt.0001"
+diagnosis_class: "skill_use_improvement_only"
+method_diagnosis: "The current evidence does not identify a reusable method principle."
+process_diagnosis: "The current process still mixes search expansion with method improvement."
+standard_diagnosis: "The evaluator needs robustness and cost checks before structural claims."
+skill_use_vs_structure_judgment: "Observed improvement remains skill-use improvement until validated method/process/standard changes exist."
+reusable_principle_candidates:
+  - "Separate search-envelope expansion from control-policy design."
+unresolved_uncertainty:
+  - "No ablation yet separates method effect from tuning effect."
+claim_boundary:
+  - "Do not claim structural skill improvement."

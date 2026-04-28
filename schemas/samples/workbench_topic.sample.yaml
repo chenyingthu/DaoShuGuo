@@ -1,0 +1,19 @@
+schema_version: "0.1.0"
+object_type: "workbench_topic"
+object_id: "workbench_topic.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "degraded"
+metadata:
+  sample: true
+topic_id: "sample"
+task_id: "task.sample"
+title: "Sample collaborative research topic"
+current_stage: "cognition"
+claim_ceiling: "technical_note"
+taste_grade: "diaomu"
+blocking_issue: "sample topic lacks real evidence"
+recommended_action: "attach real artifacts before execution"
+evidence_refs: []
+summary: "Sample workbench topic object."

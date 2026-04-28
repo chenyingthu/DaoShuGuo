@@ -1,0 +1,62 @@
+schema_id: "full_loop_validation_report.schema"
+schema_version: "0.1.0"
+object_type: "full_loop_validation_report"
+title: "Full Loop Validation Report Schema"
+description: "Cross-task validation report for generic skill-effectiveness-cognition loops."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - proof_level
+  - validated_task_refs
+  - blocked_task_refs
+  - backend_refs
+  - validation_results
+  - framework_gaps
+  - task_gaps
+  - not_proven
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["full_loop_validation_report"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "blocked", "archived"]
+  metadata:
+    type: object
+  proof_level:
+    type: string
+  validated_task_refs:
+    type: array[string]
+  blocked_task_refs:
+    type: array[string]
+  backend_refs:
+    type: array[string]
+  validation_results:
+    type: array[object]
+  framework_gaps:
+    type: array[string]
+  task_gaps:
+    type: array[string]
+  not_proven:
+    type: array[string]
+  summary:
+    type: string

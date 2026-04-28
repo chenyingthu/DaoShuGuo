@@ -1,0 +1,20 @@
+schema_version: "0.1.0"
+object_type: "iteration_digest"
+object_id: "iteration_digest.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "degraded"
+metadata:
+  sample: true
+topic_id: "sample"
+compared_iterations:
+  - "round_001"
+  - "round_002"
+substantive_changes:
+  - "Sample changed communication structure only."
+non_changes:
+  - "No scientific metric changed."
+evidence_refs:
+  - "workbench_topic.sample"
+summary: "Sample iteration digest."

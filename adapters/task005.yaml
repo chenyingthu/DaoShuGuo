@@ -1,0 +1,41 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.ieee69_restoration_resilience.task005"
+object_version: "0.1.0"
+created_at: "2026-04-25T11:05:00Z"
+updated_at: "2026-04-25T11:05:00Z"
+status: "active"
+metadata:
+  protocol: "generic-task-onboarding"
+task_id: "task005"
+task_ref: "task.power.ieee69_restoration_resilience"
+task_package_path: "tasks/task005"
+baseline_ref: "baseline.power.ieee69_restoration_resilience.conservative_restoration"
+baseline_path: "tasks/task005/baseline.yaml"
+evaluator_ref: "evaluator.power.ieee69_restoration_resilience.default"
+evaluator_path: "evaluators/task005_evaluator.yaml"
+runtime_entry:
+  type: "python_script"
+  path: "evaluators/task005_evaluator.py"
+metrics_mapping:
+  primary:
+    - "restored_load_ratio"
+    - "unserved_critical_load"
+  secondary:
+    - "constraint_violation"
+    - "restoration_action_cost_proxy"
+candidate_skill_refs:
+  - "skill.power.renewable_restoration_candidate_task005"
+fallback_skill_refs:
+  - "skill.power.baseline_solver"
+claim_gates:
+  - name: "resilience_claim_gate"
+    status: "needs_standard_repair"
+    required: true
+known_task_risks:
+  - "cost-benefit ambiguity"
+  - "resilience overclaim"
+supported_downstream_stages:
+  - "framing"
+  - "evaluator_repair"
+  - "portfolio"

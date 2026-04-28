@@ -1,0 +1,61 @@
+schema_version: 0.1.0
+object_type: agent_context_pack
+object_id: agent_context_pack.power.ieee69_renewable_reactive_opt.cognition_worker.0002
+object_version: 0.1.0
+created_at: '2026-04-25T09:31:09Z'
+updated_at: '2026-04-25T09:31:09Z'
+status: ready
+metadata:
+  protocol: research-plan-execute
+  task_package: task003
+  source_iteration: 2
+batch_ref: research_batch.power.ieee69_renewable_reactive_opt.0002
+worker_role: cognition_worker
+runtime_binding_ref: worker_runtime_binding.power.ieee69_renewable_reactive_opt.cognition_worker.0002
+mission: Interpret evidence, uncertainty, and next constraints without rewriting skill
+  logic.
+role_boundary:
+- Do not write skill code.
+- Do not invent evidence beyond referenced artifacts.
+- Separate facts, interpretation, constraints, and uncertainty.
+task_refs:
+- task.power.ieee69_renewable_reactive_opt
+prior_artifact_refs:
+- skill_agent_iteration_request.power.ieee69_renewable_reactive_opt.0002
+- skill_agent_iteration_result.power.ieee69_renewable_reactive_opt.0002
+- agentic_cognition_to_skill_update.power.ieee69_renewable_reactive_opt.0002
+- agentic_loop_iteration_review.power.ieee69_renewable_reactive_opt.0002
+- run.power.ieee69_renewable_reactive_opt.0021
+allowed_changes:
+- cognition diagnosis
+- cognition-to-skill update
+- uncertainty note
+blocked_paths:
+- skills/active_dev/**
+- evaluators/**
+- tasks/**
+evaluator_refs:
+- evaluator.power.ieee69_renewable_reactive_opt.default
+baseline_refs:
+- baseline.power.ieee69_renewable_reactive_opt.fixed_inverter_q
+review_history_refs:
+- agentic_loop_iteration_review.power.ieee69_renewable_reactive_opt.0002
+current_hypothesis: The evidence may justify next constraints, but not causality claims
+  without ablation.
+required_output_schema_ref: schema.agentic_cognition_to_skill_update
+stop_conditions:
+- missing required artifact reference
+- attempt to relax evaluator or baseline
+- attempt to claim cognition causality without ablation
+token_budget: 16000
+context_budget: 32000
+artifact_provenance_digest: sha256:a03a13282b3acf4b03a8ecc20a615b4521ec38181966e7579ea13dbdf9894667
+redaction_policy: Never include provider tokens, local secrets, or ~/.claude and ~/.pi
+  auth material.
+expected_failure_modes:
+- controller overreach
+- overclaiming from metric-only evidence
+- schema enum drift
+- missing raw transcript provenance
+previous_repair_attempt_refs: []
+rendered_prompt_path: analysis/research_plan_execute/task003_iter02/prompts/cognition_worker.prompt.md

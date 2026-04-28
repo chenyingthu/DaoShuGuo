@@ -1,0 +1,63 @@
+schema_id: "research_review.schema"
+schema_version: "0.1.0"
+object_type: "research_review"
+title: "Research Review Schema"
+description: "Hard review gate output for a research-plan-execute batch."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - batch_ref
+  - reviewed_artifact_refs
+  - verdict
+  - evidence_summary
+  - claim_boundary
+  - required_repairs
+  - required_ablations
+  - approval_allowed
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["research_review"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+  batch_ref:
+    type: string
+  reviewed_artifact_refs:
+    type: array[string]
+  verdict:
+    type: enum
+    allowed: ["approved", "real_progress", "needs_fix", "stagnation", "cheating_suspected", "insufficient_evidence", "pause_for_human_review", "approved_with_ablation_required"]
+  evidence_summary:
+    type: array[string]
+  claim_boundary:
+    type: array[string]
+  required_repairs:
+    type: array[string]
+  required_ablations:
+    type: array[string]
+  approval_allowed:
+    type: boolean
+  summary:
+    type: string

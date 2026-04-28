@@ -1,0 +1,60 @@
+schema_version: 0.1.0
+object_type: agent_context_pack
+object_id: agent_context_pack.power.ieee69_renewable_reactive_opt.effectiveness_worker.0002
+object_version: 0.1.0
+created_at: '2026-04-25T09:31:09Z'
+updated_at: '2026-04-25T09:31:09Z'
+status: ready
+metadata:
+  protocol: research-plan-execute
+  task_package: task003
+  source_iteration: 2
+batch_ref: research_batch.power.ieee69_renewable_reactive_opt.0002
+worker_role: effectiveness_worker
+runtime_binding_ref: worker_runtime_binding.power.ieee69_renewable_reactive_opt.effectiveness_worker.0002
+mission: Assess baseline and candidate evidence without changing skills or task definitions.
+role_boundary:
+- Do not modify candidate skill code.
+- Do not convert metric improvement into cognition causality.
+- Do not weaken evaluator or baseline requirements.
+task_refs:
+- task.power.ieee69_renewable_reactive_opt
+prior_artifact_refs:
+- skill_agent_iteration_request.power.ieee69_renewable_reactive_opt.0002
+- skill_agent_iteration_result.power.ieee69_renewable_reactive_opt.0002
+- agentic_cognition_to_skill_update.power.ieee69_renewable_reactive_opt.0002
+- agentic_loop_iteration_review.power.ieee69_renewable_reactive_opt.0002
+- run.power.ieee69_renewable_reactive_opt.0021
+allowed_changes:
+- evaluation run artifact
+- metrics comparison artifact
+- metric boundary note
+blocked_paths:
+- skills/active_dev/**
+- tasks/**
+- cognition/**
+evaluator_refs:
+- evaluator.power.ieee69_renewable_reactive_opt.default
+baseline_refs:
+- baseline.power.ieee69_renewable_reactive_opt.fixed_inverter_q
+review_history_refs:
+- agentic_loop_iteration_review.power.ieee69_renewable_reactive_opt.0002
+current_hypothesis: Current evidence reports loss 139.67066814649814 -> 88.5302433764974
+  and constraint_violation 8 -> 5.
+required_output_schema_ref: schema.run
+stop_conditions:
+- missing required artifact reference
+- attempt to relax evaluator or baseline
+- attempt to claim cognition causality without ablation
+token_budget: 16000
+context_budget: 32000
+artifact_provenance_digest: sha256:4317e0bf11e44d0cc9eeee8b2b39cb4c6da47ceed3ae9010b8947f8a18fb1066
+redaction_policy: Never include provider tokens, local secrets, or ~/.claude and ~/.pi
+  auth material.
+expected_failure_modes:
+- controller overreach
+- overclaiming from metric-only evidence
+- schema enum drift
+- missing raw transcript provenance
+previous_repair_attempt_refs: []
+rendered_prompt_path: analysis/research_plan_execute/task003_iter02/prompts/effectiveness_worker.prompt.md

@@ -1,0 +1,45 @@
+schema_id: "execution_ledger.schema"
+schema_version: "0.1.0"
+object_type: "execution_ledger"
+title: "Execution Ledger Schema"
+description: "Resume-safe state ledger for a research-plan-execute batch."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - batch_ref
+  - current_state
+  - events
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["execution_ledger"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["running", "completed", "blocked", "archived"]
+  metadata:
+    type: object
+  batch_ref:
+    type: string
+  current_state:
+    type: enum
+    allowed: ["started", "context_created", "worker_completed", "validation_passed", "validation_failed", "review_completed", "repair_requested", "approved", "stopped"]
+  events:
+    type: array[object]

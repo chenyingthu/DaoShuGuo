@@ -1,0 +1,19 @@
+schema_version: "0.1.0"
+object_type: "repair_request"
+object_id: "repair_request.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:04:00Z"
+updated_at: "2026-04-25T08:04:00Z"
+status: "ready"
+metadata:
+  protocol: "research-plan-execute"
+batch_ref: "research_batch.power.ieee33_reactive_opt.0001"
+source_review_ref: "research_review.power.ieee33_reactive_opt.0001"
+repair_type: "repair_context_pack"
+attempt_index: 1
+max_auto_attempts: 2
+issue_summary: "The context pack must include review history before worker execution."
+required_actions:
+  - "Add explicit review_history_refs."
+blocked_fixes:
+  - "Do not delete review gate requirements."

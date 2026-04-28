@@ -1,0 +1,17 @@
+schema_version: "0.1.0"
+object_type: work_brief
+phase: skill_change_request
+sequence: 1
+hypothesis:
+  statement: "A deterministic fixture candidate can expose whether the harness enforces research-record completeness before persistence."
+  rationale: "The fixture uses the real phase sequence while keeping behavior stable enough for repeatable A/B quality comparison."
+  testable_prediction: "Harness-enabled records will reach >= 80 quality score and 100% required-field coverage."
+method:
+  name: HarnessFixtureABMethod
+  description: "HarnessFixtureABMethod runs task007_fixture with and without validation, then compares required-field coverage, shallow-field counts, and average quality score."
+  algorithm:
+    type: HarnessFixtureABMethod
+    steps:
+      - "Run the no-harness baseline worker chain."
+      - "Run the harness worker chain with validation feedback enabled."
+      - "Score both outputs with the same validation agent."

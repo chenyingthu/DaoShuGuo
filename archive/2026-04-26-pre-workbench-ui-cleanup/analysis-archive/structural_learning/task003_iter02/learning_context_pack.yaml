@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+object_type: learning_context_pack
+object_id: learning_context_pack.power.ieee69_renewable_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-25T12:28:16Z'
+updated_at: '2026-04-25T12:28:16Z'
+status: ready
+metadata:
+  protocol: structural-learning-worker
+  task_package: task003
+  source_mode: local_repository_sources
+learning_need_ref: learning_need.power.ieee69_renewable_reactive_opt.0002
+source_refs:
+- method_card.power.capacitor_nsga_2022
+- method_card.power.capacitor_tlbo_2014
+- method_card.power.coordinated_vvc_der_2020
+source_summaries:
+- source_ref: method_card.power.capacitor_nsga_2022
+  relevance: Used to force separation between search-space expansion and method/process/standard
+    improvement.
+method_insights:
+- The task003 iter02 gain is currently explained by broader inverter-Q search; a structural
+  method change needs an explicit control-policy principle.
+- A method-level candidate should explain how inverter reactive support is selected,
+  not only enumerate more Q points.
+process_insights:
+- Candidate generation, evaluation, ablation, and claim review should be separate
+  steps with separate artifacts.
+- The loop should create a structural request only after learning material is reviewed.
+standard_insights:
+- Structural claims require fixed-budget comparison against metric-only tuning.
+- Evaluation should include cost, robustness, and single-condition boundary checks
+  before claiming generality.
+applicability_boundaries:
+- This MVP context is curated seed learning, not a complete literature survey.
+- Insights apply to task003 single-representative-condition evidence only.
+confidence: medium
+gaps:
+- Needs real external literature retrieval before high-confidence method claims.
+- Needs ablation separating cognition-guided structure from metric-only tuning.
+curator_notes: Learning worker output is intentionally conservative and does not decide
+  the cognition conclusion.

@@ -1,0 +1,403 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Work Brief",
+  "description": "研究工作简报，记录假设、方法和执行",
+  "required": ["schema_version", "object_type", "phase", "hypothesis", "method"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "object_type": {
+      "type": "string",
+      "const": "work_brief"
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["skill_change_request", "skill_execution", "effectiveness_assessment", "cognition_diagnosis"]
+    },
+    "sequence": {
+      "type": "integer",
+      "description": "Phase 执行序号"
+    },
+    "hypothesis": {
+      "type": "object",
+      "required": ["statement", "testable_prediction"],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "minLength": 50,
+          "description": "研究假设陈述，必须明确且可检验"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 30,
+          "description": "假设的理论依据"
+        },
+        "testable_prediction": {
+          "type": "string",
+          "minLength": 20,
+          "description": "可量化的预测，包含具体数值指标"
+        }
+      }
+    },
+    "method": {
+      "type": "object",
+      "required": ["description", "algorithm"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "方法名称"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 100,
+          "description": "方法详细描述，至少100字符"
+        },
+        "algorithm": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "算法类型"
+            },
+            "steps": {
+              "type": "array",
+              "items": {"type": "string"},
+              "minItems": 1,
+              "description": "算法步骤"
+            }
+          }
+        },
+        "code_location": {
+          "type": "string",
+          "description": "代码文件位置"
+        },
+        "baseline_comparison": {
+          "type": "string",
+          "description": "基线对比说明"
+        }
+      }
+    },
+    "skill_implementation": {
+      "$ref": "#/definitions/skill_implementation"
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in_progress", "completed", "failed"]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_seconds": {
+          "type": "number"
+        },
+        "inputs": {
+          "type": "object"
+        },
+        "outputs": {
+          "type": "object",
+          "properties": {
+            "raw_result_path": {"type": "string"},
+            "metrics_path": {"type": "string"},
+            "log_path": {"type": "string"}
+          }
+        }
+      }
+    },
+    "results": {
+      "$ref": "#/definitions/results"
+    },
+    "interpretation": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 50
+        },
+        "supports_hypothesis": {
+          "type": "string",
+          "enum": ["fully", "partially", "not_supported", "inconclusive"]
+        },
+        "support_evidence": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "contradicts_hypothesis": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "unexpected_findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "finding": {"type": "string"},
+              "possible_reason": {"type": "string"},
+              "follow_up": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "failure_capsule": {
+      "$ref": "#/definitions/failure_capsule"
+    },
+    "next_actions": {
+      "$ref": "#/definitions/next_actions"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "path"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["simulation_output", "code_snapshot", "baseline_comparison", "log_file"]
+          },
+          "path": {"type": "string"},
+          "checksum": {"type": "string"},
+          "git_commit": {"type": "string"},
+          "lines": {"type": "string"}
+        }
+      }
+    }
+  },
+  "definitions": {
+    "skill_implementation": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "skill_name": {"type": "string"},
+            "skill_version": {"type": "string"},
+            "skill_family": {"type": "string"},
+            "author": {"type": "string"},
+            "created_at": {"type": "string", "format": "date-time"}
+          }
+        },
+        "code": {
+          "type": "object",
+          "properties": {
+            "main_file": {"type": "string"},
+            "git_commit": {"type": "string"},
+            "lines_range": {"type": "string"},
+            "structure": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["function", "purpose", "algorithm"],
+                "properties": {
+                  "function": {"type": "string"},
+                  "lines": {"type": "string"},
+                  "purpose": {"type": "string", "minLength": 20},
+                  "algorithm": {"type": "string"},
+                  "complexity": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "design_decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["decision", "alternatives_considered", "trade_offs"],
+            "properties": {
+              "decision": {"type": "string"},
+              "context": {"type": "string"},
+              "alternatives_considered": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "trade_offs": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "validated": {"type": "boolean"},
+              "validation_evidence": {"type": "string"}
+            }
+          }
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "value": {},
+              "rationale": {"type": "string"},
+              "tuned": {"type": "boolean"},
+              "tuning_history": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "attempt": {"type": "integer"},
+                    "value": {},
+                    "result": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "evolution": {
+          "type": "object",
+          "properties": {
+            "previous_version": {"type": "string"},
+            "changes_from_previous": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "lessons_learned": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        },
+        "quality_metrics": {
+          "type": "object",
+          "properties": {
+            "test_coverage_percent": {"type": "number"},
+            "lint_score": {"type": "number"},
+            "cyclomatic_complexity": {
+              "type": "object",
+              "properties": {
+                "overall": {"type": "integer"},
+                "max_per_function": {"type": "integer"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "results": {
+      "type": "object",
+      "required": ["primary_metrics"],
+      "properties": {
+        "primary_metrics": {
+          "type": "object",
+          "minProperties": 2,
+          "additionalProperties": {
+            "type": "object",
+            "required": ["value", "unit"],
+            "properties": {
+              "value": {"type": "number"},
+              "unit": {"type": "string"},
+              "context": {"type": "string"},
+              "is_significant": {"type": "boolean"},
+              "threshold_used": {"type": "number"}
+            }
+          }
+        },
+        "secondary_metrics": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "value": {"type": "number"},
+              "unit": {"type": "string"},
+              "note": {"type": "string"}
+            }
+          }
+        },
+        "constraint_violations": {
+          "type": "object",
+          "properties": {
+            "before": {"type": "integer"},
+            "after": {"type": "integer"},
+            "details": {"type": "string"}
+          }
+        }
+      }
+    },
+    "failure_capsule": {
+      "type": "object",
+      "required": ["known_limitations"],
+      "properties": {
+        "known_limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["limitation", "impact", "severity"],
+            "properties": {
+              "limitation": {"type": "string", "minLength": 20},
+              "impact": {"type": "string"},
+              "severity": {"enum": ["low", "medium", "high", "critical"]}
+            }
+          }
+        },
+        "local_failures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "failure": {"type": "string"},
+              "cause_hypothesis": {"type": "string"},
+              "mitigation_attempted": {"type": "string"},
+              "mitigation_result": {"type": "string"}
+            }
+          }
+        },
+        "generalizability_gaps": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "next_actions": {
+      "type": "object",
+      "required": ["immediate"],
+      "properties": {
+        "immediate": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["action", "rationale"],
+            "properties": {
+              "action": {"type": "string", "minLength": 10},
+              "rationale": {"type": "string"},
+              "expected_output": {"type": "string"},
+              "constraint": {"type": "string"}
+            }
+          }
+        },
+        "short_term": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {"type": "string"},
+              "rationale": {"type": "string"},
+              "paper_ref": {"type": "string"},
+              "scenarios": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        },
+        "blocked_pending": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {"type": "string"},
+              "blocked_by": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

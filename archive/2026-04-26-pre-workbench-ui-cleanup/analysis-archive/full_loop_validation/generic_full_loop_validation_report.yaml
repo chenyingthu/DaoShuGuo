@@ -1,0 +1,114 @@
+schema_version: 0.1.0
+object_type: full_loop_validation_report
+object_id: full_loop_validation.power.generic_full_loop.current
+object_version: 0.1.0
+created_at: '2026-04-26T02:39:43Z'
+updated_at: '2026-04-26T02:39:43Z'
+status: reviewed
+metadata:
+  protocol: generic-full-loop-validation
+proof_level: level_3_cross_task_agentic_full_loop
+validated_task_refs:
+- task.power.task006_near_neighbor
+- task.power.task008_bad_candidate
+- task.power.task009_evaluator_gap
+- task.power.task010_literature_required
+- task.power.task011_portfolio_stop
+blocked_task_refs:
+- task.power.task007_missing_runtime
+backend_refs:
+- deterministic
+- pi_gpt55
+validation_results:
+- task_id: task006_near_neighbor
+  task_ref: task.power.task006_near_neighbor
+  backend: deterministic
+  workspace: analysis/full_loop_validation/runs/deterministic/power.task006_near_neighbor/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task007_missing_runtime
+  task_ref: task.power.task007_missing_runtime
+  backend: deterministic
+  workspace: null
+  verdict: blocked_ok
+  issues: []
+  readiness_status: blocked_missing_runtime
+- task_id: task008_bad_candidate
+  task_ref: task.power.task008_bad_candidate
+  backend: deterministic
+  workspace: analysis/full_loop_validation/runs/deterministic/power.task008_bad_candidate/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task009_evaluator_gap
+  task_ref: task.power.task009_evaluator_gap
+  backend: deterministic
+  workspace: analysis/full_loop_validation/runs/deterministic/power.task009_evaluator_gap/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task010_literature_required
+  task_ref: task.power.task010_literature_required
+  backend: deterministic
+  workspace: analysis/full_loop_validation/runs/deterministic/power.task010_literature_required/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task011_portfolio_stop
+  task_ref: task.power.task011_portfolio_stop
+  backend: deterministic
+  workspace: analysis/full_loop_validation/runs/deterministic/power.task011_portfolio_stop/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task006_near_neighbor
+  task_ref: task.power.task006_near_neighbor
+  backend: pi_gpt55
+  workspace: analysis/full_loop_validation/runs/pi_gpt55/power.task006_near_neighbor/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task008_bad_candidate
+  task_ref: task.power.task008_bad_candidate
+  backend: pi_gpt55
+  workspace: analysis/full_loop_validation/runs/pi_gpt55/power.task008_bad_candidate/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task009_evaluator_gap
+  task_ref: task.power.task009_evaluator_gap
+  backend: pi_gpt55
+  workspace: analysis/full_loop_validation/runs/pi_gpt55/power.task009_evaluator_gap/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task007_missing_runtime
+  task_ref: task.power.task007_missing_runtime
+  backend: pi_gpt55
+  workspace: null
+  verdict: blocked_ok
+  issues: []
+  readiness_status: blocked_missing_runtime
+- task_id: task010_literature_required
+  task_ref: task.power.task010_literature_required
+  backend: pi_gpt55
+  workspace: analysis/full_loop_validation/runs/pi_gpt55/power.task010_literature_required/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+- task_id: task011_portfolio_stop
+  task_ref: task.power.task011_portfolio_stop
+  backend: pi_gpt55
+  workspace: analysis/full_loop_validation/runs/pi_gpt55/power.task011_portfolio_stop/iter_0001
+  verdict: passed
+  issues: []
+  required_objects_present: true
+framework_gaps: []
+task_gaps: []
+not_proven:
+- Level 4 backend-robust agentic full loop is not proven unless both Codex/OMX and
+  Pi full loops pass.
+- Level 5 research-quality autonomous cognition is not proven by fixture-level validation
+  runs.
+summary: Generic full-loop validation checked 12 task/backend outcomes.

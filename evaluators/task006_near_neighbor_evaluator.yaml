@@ -1,0 +1,25 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.task006_near_neighbor.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:12:00Z"
+updated_at: "2026-04-25T16:12:00Z"
+status: "ready"
+metadata:
+  protocol: "generic-full-loop-validation"
+task_ref: "task.power.task006_near_neighbor"
+evaluation_goal: "Evaluate the near-neighbor validation candidate against a fixed baseline."
+metric_definitions:
+  - metric_id: "validation_score"
+    direction: "higher_is_better"
+  - metric_id: "constraint_violation"
+    direction: "constraint_only"
+baseline_strategy:
+  type: "named_baseline"
+  refs: ["baseline.power.task006_near_neighbor.default"]
+pass_criteria:
+  rule: "Candidate score must improve without new constraint violation."
+execution_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+comparison_mode: "baseline_and_constraint"

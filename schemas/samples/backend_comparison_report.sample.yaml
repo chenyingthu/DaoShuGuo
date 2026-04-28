@@ -1,0 +1,26 @@
+schema_version: "0.1.0"
+object_type: "backend_comparison_report"
+object_id: "backend_comparison.power.sample"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:00:00Z"
+updated_at: "2026-04-25T16:00:00Z"
+status: "reviewed"
+metadata:
+  protocol: "generic-full-loop-validation"
+compared_backends:
+  - "deterministic"
+  - "pi_gpt55"
+compared_task_refs:
+  - "task.power.ieee33_reactive_opt"
+backend_results:
+  - backend: "deterministic"
+    verdict: "passed"
+  - backend: "pi_gpt55"
+    verdict: "smoke_passed"
+harness_findings:
+  - "Backend comparison must separate deterministic validity from agentic autonomy."
+recommended_backend_policy:
+  - "Use deterministic runs as schema baseline only."
+not_proven:
+  - "Research-quality cognition is not proven by this sample."
+summary: "Sample backend comparison report."

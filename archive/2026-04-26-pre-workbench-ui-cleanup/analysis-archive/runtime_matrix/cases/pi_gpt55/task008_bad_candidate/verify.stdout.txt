@@ -1,0 +1,9 @@
+{
+  "task_id": "task008_bad_candidate",
+  "task_ref": "task.power.task008_bad_candidate",
+  "backend": "pi_gpt55",
+  "workspace": "analysis/full_loop_validation/runs/pi_gpt55/power.task008_bad_candidate/iter_0001",
+  "verdict": "passed",
+  "issues": [],
+  "required_objects_present": true
+}

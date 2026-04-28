@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: assessment_packet
+phase: effectiveness_assessment
+sequence: 3
+task_ref: task.power.task007_fixture
+run_ref: run.power.fixture_loop.verify_0001
+interpretation:
+  summary: "The deterministic fixture supports harness record-quality validation but does not support broad research-effectiveness claims."
+  supports_hypothesis: partially
+  support_evidence:
+    - "candidate_score=0.40 is greater than baseline_score=0.30 under the fixture evaluator."
+failure_capsule:
+  known_limitations:
+    - limitation: "The fixture does not execute a full external runtime evaluator."
+      impact: "Claims must remain limited to harness behavior and record quality."
+      severity: medium
+  local_failures:
+    - failure: "No full feeder benchmark was executed."
+      mitigation: "Add a second adapter after fixture stability is verified."
+next_actions:
+  immediate:
+    - action: "Generate the E2E comparison report."
+      rationale: "The report records measurable harness value."
+  short_term:
+    - action: "Run a non-fixture adapter."
+      rationale: "A second task checks generality."
+review_checklist:
+  hypothesis_clear: true
+  method_reproducible: true
+  results_quantified: true
+  limitations_acknowledged: true

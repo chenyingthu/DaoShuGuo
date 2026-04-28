@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+object_type: "direction_override"
+object_id: "direction_override.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "active"
+metadata:
+  sample: true
+topic_id: "sample"
+task_id: "task.sample"
+created_by: "expert"
+source: "cli"
+target_refs: []
+evidence_refs: []
+source_routing_ref: "routing_constraint.sample"
+override_action: "prioritize boundary-triggering scenario design"
+why_agent_route_is_insufficient: "The current route optimizes locally without proving boundary movement."
+new_constraints:
+  - "Design a boundary-triggering scenario before claiming improvement."
+must_not_do:
+  - "Do not continue parameter tuning as if it were structural skill improvement."

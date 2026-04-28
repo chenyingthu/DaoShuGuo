@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.task009_evaluator_gap.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:12:00Z"
+updated_at: "2026-04-25T16:12:00Z"
+status: "ready"
+metadata:
+  protocol: "generic-full-loop-validation"
+task_ref: "task.power.task009_evaluator_gap"
+evaluation_goal: "Expose that partial metrics cannot support the intended claim."
+metric_definitions:
+  - metric_id: "partial_score"
+    direction: "higher_is_better"
+baseline_strategy:
+  type: "named_baseline"
+  refs: ["baseline.power.task009_evaluator_gap.default"]
+pass_criteria:
+  rule: "Effectiveness may run, but cognition must route to evaluator repair."
+execution_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+comparison_mode: "baseline_only"

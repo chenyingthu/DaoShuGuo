@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.task007_fixture.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T13:45:00Z"
+updated_at: "2026-04-25T13:45:00Z"
+status: "draft"
+metadata:
+  protocol: "generic-task-onboarding"
+  fixture: true
+task_ref: "task.power.task007_fixture"
+evaluation_goal: "Fixture evaluator contract used to test generic onboarding blocked routing."
+metric_definitions:
+  - metric_id: "placeholder_value"
+    direction: "higher_is_better"
+    description: "Placeholder metric; no executable evaluator is intentionally provided."
+baseline_strategy:
+  type: "named_baseline"
+  refs:
+    - "baseline.power.task007_fixture.placeholder"
+pass_criteria:
+  rule: "Not executable; readiness must block before runtime."
+execution_entry:
+  type: "python_script"
+  path: "evaluators/task007_fixture_evaluator.py"
+comparison_mode: "baseline_only"
+stability_checks: []
+blind_spots:
+  - "No runtime implementation by design."
+evidence_outputs:
+  - "task_readiness_report"

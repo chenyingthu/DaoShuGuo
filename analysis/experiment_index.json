@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T07:43:48Z",
+  "generated_at": "2026-04-25T02:43:02Z",
   "entries": [
     {
       "task": "task002",
@@ -181,6 +181,114 @@
       "path": "runs/task003/run_0007/run.yaml",
       "status": "completed",
       "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0008",
+      "path": "runs/task003/run_0008/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0009",
+      "path": "runs/task003/run_0009/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0010",
+      "path": "runs/task003/run_0010/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0011",
+      "path": "runs/task003/run_0011/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0012",
+      "path": "runs/task003/run_0012/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0013",
+      "path": "runs/task003/run_0013/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0014",
+      "path": "runs/task003/run_0014/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0015",
+      "path": "runs/task003/run_0015/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0016",
+      "path": "runs/task003/run_0016/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0017",
+      "path": "runs/task003/run_0017/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0018",
+      "path": "runs/task003/run_0018/run.yaml",
+      "status": "completed",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task003",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_renewable_reactive_opt.0019",
+      "path": "runs/task003/run_0019/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-underperformer"
     },
     {
       "task": "task003",
@@ -434,6 +542,87 @@
     },
     {
       "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0003",
+      "path": "runs/task004/run_0003/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0004",
+      "path": "runs/task004/run_0004/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0005",
+      "path": "runs/task004/run_0005/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0006",
+      "path": "runs/task004/run_0006/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0007",
+      "path": "runs/task004/run_0007/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_single-point-mismatch"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0008",
+      "path": "runs/task004/run_0008/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0009",
+      "path": "runs/task004/run_0009/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0010",
+      "path": "runs/task004/run_0010/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
+      "stage": "run",
+      "object_type": "run",
+      "object_id": "run.power.ieee69_hosting_capacity.0011",
+      "path": "runs/task004/run_0011/run.yaml",
+      "status": "failed_experiment",
+      "trigger_reason": "real_inverter-support"
+    },
+    {
+      "task": "task004",
       "stage": "boundary",
       "object_type": "boundary_overclaim_check",
       "object_id": "boundary_overclaim.power.ieee69_hosting_capacity.20260421_033407",
@@ -534,6 +723,14 @@
       "object_type": "strategy_semantic_comparison",
       "object_id": "semantic_comparison.power.ieee69_hosting_capacity.0002",
       "path": "analysis/task004/semantic_0002/strategy_semantic_comparison.yaml",
+      "status": "reviewed"
+    },
+    {
+      "task": "task004",
+      "stage": "skill",
+      "object_type": "analysis_note",
+      "object_id": "analysis.power.ieee69_hosting_capacity.skill_diagnosis_20260424T135610Z",
+      "path": "analysis/task004/skill_diagnosis_0001/skill_use_structure_diagnosis.yaml",
       "status": "reviewed"
     },
     {

@@ -1,0 +1,53 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task006_near_neighbor"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:15:00Z"
+updated_at: "2026-04-25T16:15:00Z"
+status: "active"
+metadata:
+  protocol: "generic-full-loop-validation"
+  task_package: "task006_near_neighbor"
+task_id: "task006_near_neighbor"
+task_ref: "task.power.task006_near_neighbor"
+task_package_path: "tasks/task006_near_neighbor"
+baseline_ref: "baseline.power.task006_near_neighbor.default"
+baseline_path: "tasks/task006_near_neighbor/baseline.yaml"
+evaluator_ref: "evaluator.power.task006_near_neighbor.default"
+evaluator_path: "evaluators/task006_near_neighbor_evaluator.yaml"
+runtime_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+metrics_mapping:
+  primary: ["validation_score"]
+  secondary: ["constraint_violation"]
+candidate_skill_refs: ["skill.power.baseline_solver"]
+fallback_skill_refs: ["skill.power.baseline_solver"]
+claim_gates:
+  - name: "generic_full_loop_gate"
+    status: "ready"
+    required: true
+known_task_risks: ["Near-neighbor validation does not prove research novelty."]
+supported_downstream_stages: ["run", "review", "structural_learning", "portfolio"]
+baseline_binding:
+  baseline_refs: ["baseline.power.task006_near_neighbor.default"]
+candidate_binding:
+  candidate_kind: "skill_variant"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.task006_near_neighbor.default"
+experimental:
+  worker_module: "scripts/generic_full_loop_validation_workers.py"
+  validation_scenario:
+    produced_skill_id: "skill.power.task006_near_neighbor_candidate"
+    synthetic_run_id: "run.power.task006_near_neighbor.validation_0001"
+    metric_summary:
+      baseline_score: 0.72
+      candidate_score: 0.78
+      delta: 0.06
+    comparison_summary: "Candidate improves validation_score without new constraint violation."
+    effectiveness_judgment: "Bounded near-neighbor improvement is present but not a research claim."
+    problem_class: "skill_use_problem"
+    cognition_judgment: "The improvement supports one controlled continuation, not a structural claim."
+    recommended_action: "continue_skill_evolution"
+    continue_loop: true
+    next_worker: "skill_worker"

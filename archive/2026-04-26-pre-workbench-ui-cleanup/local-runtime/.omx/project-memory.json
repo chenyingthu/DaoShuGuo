@@ -1,0 +1,17 @@
+{
+  "notes": [
+    {
+      "category": "architecture",
+      "content": "2026-04-25: 新增 structural learning worker 思路。学习/文献 worker 不负责最终认知判断，而负责把 cognition worker 提出的 learning_need 转为可审计 learning_context_pack；cognition worker 再基于资料形成 skill_structure_diagnosis 与 structural_skill_change_request。核心原则：多轮 loop 必须从 skill-use improvement 收敛到 method/process/standard 层面的 skill-structure improvement，否则只能标记为 local_skill_use_optimization。",
+      "timestamp": "2026-04-25T12:03:33.766Z"
+    }
+  ],
+  "directives": [
+    {
+      "directive": "Do not continue building task-specific replay scripts as if they were the framework. Any future autonomous research framework work must prove generic task onboarding: a new task package such as task007/task008 must be checkable and routable through common contracts without writing task-specific framework code. If a capability only works for task003_iter02, label it as a replay fixture, not as framework readiness.",
+      "priority": "high",
+      "context": "Generic task onboarding and anti-local-trap framework principle",
+      "timestamp": "2026-04-25T13:24:17.912Z"
+    }
+  ]
+}

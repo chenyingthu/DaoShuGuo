@@ -1,0 +1,67 @@
+schema_id: "worker_runtime_binding.schema"
+schema_version: "0.1.0"
+object_type: "worker_runtime_binding"
+title: "Worker Runtime Binding Schema"
+description: "Runtime, model, permission, timeout, and transcript binding for a worker call."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - batch_ref
+  - worker_role
+  - runtime_kind
+  - provider
+  - model
+  - tool_permission_profile
+  - session_reuse_policy
+  - timeout_seconds
+  - retry_policy
+  - raw_transcript_path
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["worker_runtime_binding"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "used", "archived"]
+  metadata:
+    type: object
+  batch_ref:
+    type: string
+  worker_role:
+    type: enum
+    allowed: ["skill_worker", "effectiveness_worker", "cognition_worker", "delivery_worker", "review_worker", "repair_worker"]
+  runtime_kind:
+    type: enum
+    allowed: ["codex_cli", "pi_coding_agent", "mock_fixture"]
+  provider:
+    type: string
+  model:
+    type: string
+  tool_permission_profile:
+    type: string
+  session_reuse_policy:
+    type: string
+  timeout_seconds:
+    type: integer
+  retry_policy:
+    type: object
+  raw_transcript_path:
+    type: string

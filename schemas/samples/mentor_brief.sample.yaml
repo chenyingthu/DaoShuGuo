@@ -1,0 +1,25 @@
+schema_version: "0.1.0"
+object_type: "mentor_brief"
+object_id: "mentor_brief.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "degraded"
+metadata:
+  sample: true
+topic_id: "sample"
+iteration: 1
+headline: "Sample topic is not ready for claim upgrade."
+one_minute_summary: "This is a sample brief showing the required communication structure."
+what_changed:
+  - change_type: "claim"
+    summary: "Claim remains bounded."
+    evidence_refs: []
+what_it_means:
+  - "The system must provide readable summaries before UI work."
+what_is_not_proven:
+  - "No scientific result is proven by this sample."
+human_questions_to_consider:
+  - "Is the evidence sufficient for any claim?"
+recommended_human_action: "Request real artifacts."
+drilldown_refs: []

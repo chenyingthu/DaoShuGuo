@@ -5178,6 +5178,80 @@ def solver_for_strategy(strategy: str, mode: str) -> tuple[str, Path]:
     raise ValueError(f"unsupported strategy: {strategy}")
 
 
+def run_real_generic(task_id: str, adapter_path: Path, strategy: str, args) -> Path:
+    """Generic task runner using adapter and generic loop engine (Phase 1)."""
+    from datetime import datetime, timezone
+
+    # Load adapter
+    adapter = load_yaml(adapter_path)
+
+    # Determine strategy options from adapter or use defaults
+    known_strategies = adapter.get("known_strategies", ["default"])
+    if strategy not in known_strategies and known_strategies != ["default"]:
+        print(f"Warning: strategy '{strategy}' not in adapter known_strategies, using 'default'", file=sys.stderr)
+        strategy = "default"
+
+    # Setup workspace for this task
+    runs_dir = REPO_ROOT / "runs" / task_id
+    runs_dir.mkdir(parents=True, exist_ok=True)
+    serial = next_run_serial_for_dir(runs_dir)
+    run_dir = runs_dir / f"run_{serial}"
+    run_dir.mkdir(parents=True, exist_ok=False)
+
+    # Try to use generic loop engine if available
+    generic_engine_path = REPO_ROOT / "scripts" / "run_generic_loop_engine.py"
+    if generic_engine_path.exists():
+        # Call generic loop engine
+        cmd = [
+            "python3", str(generic_engine_path),
+            "--task-adapter", str(adapter_path),
+            "--workspace-root", str(run_dir),
+            "--run-intent", strategy,
+            "--backend", "deterministic",
+        ]
+        result = subprocess.run(cmd, cwd=REPO_ROOT, text=True, capture_output=True)
+        if result.returncode == 0:
+            print(f"Generic loop engine completed for {task_id}")
+            return run_dir
+        else:
+            print(f"Generic loop engine failed: {result.stderr}", file=sys.stderr)
+            # Fall through to legacy implementation
+
+    # Fallback: delegate to legacy task-specific implementation
+    print(f"Falling back to legacy implementation for {task_id}")
+    if task_id == "task002":
+        return run_real_task002(strategy)
+    elif task_id == "task003":
+        return run_real_task003(strategy)
+    elif task_id == "task004":
+        return run_real_task004(strategy, getattr(args, 'candidate_q_step_mvar', None))
+    elif task_id == "task005":
+        return run_real_task005(strategy)
+    elif task_id == "task007_fixture":
+        # For fixture, just write a placeholder run
+        now = utc_now()
+        run_object = {
+            "schema_version": "0.1.0",
+            "object_type": "run",
+            "object_id": f"run.fixture.task007.{serial}",
+            "object_version": "0.1.0",
+            "created_at": now,
+            "updated_at": now,
+            "status": "archived",
+            "title": f"task007_fixture placeholder run {serial}",
+            "task_ref": adapter["task_ref"],
+            "run_status": "blocked_fixture",
+            "started_at": now,
+            "ended_at": now,
+            "attempt_index": serial,
+            "trigger_reason": f"fixture_strategy_{strategy}",
+        }
+        write_yaml(run_dir / "run.yaml", run_object)
+        return run_dir
+    else:
+        raise RuntimeError(f"Unknown task_id: {task_id}")
+
+
 def run_real(mode: str, strategy: str) -> Path:
     ensure_valid_schemas()
     evaluator_module = load_evaluator_module()
@@ -5491,9 +5565,11 @@ def main() -> int:
     sub.add_parser("validate", help="Validate schema samples")
     demo = sub.add_parser("demo-run", help="Run a demo task001 orchestration cycle")
     demo.add_argument("--mode", choices=["success", "failure"], default="success")
-    real = sub.add_parser("real-run", help="Run a real pandapower-backed task001 cycle")
+    real = sub.add_parser("real-run", help="Run a real pandapower-backed task cycle (generic or task001)")
     real.add_argument("--mode", choices=["success", "failure"], default="success")
-    real.add_argument("--strategy", choices=["ext-grid", "weak-shunt"], default="ext-grid")
+    real.add_argument("--strategy", default="ext-grid")
+    real.add_argument("--task", choices=["task001", "task002", "task003", "task004", "task005", "task007_fixture"], required=False, help="Task ID (omit for legacy task001 behavior)")
+    real.add_argument("--candidate-q-step-mvar", type=float, required=False, help="Override candidate reactive support step (task004 only)")
     task002_real = sub.add_parser("real-run-task002", help="Run a real pandapower-backed task002 cycle")
     task002_real.add_argument("--strategy", choices=["weak-shunt", "adversarial-failure"], default="weak-shunt")
     task003_real = sub.add_parser("real-run-task003", help="Run a real task003 renewable reactive cycle")
@@ -5593,8 +5669,19 @@ def main() -> int:
         return 0
 
     if args.command == "real-run":
-        run_dir = run_real(args.mode, args.strategy)
-        print(f"Real run written to {run_dir}")
+        # Unified task routing (Phase 1: generic framework)
+        if args.task and args.task != "task001":
+            # Generic adapter-driven execution
+            adapter_path = REPO_ROOT / "adapters" / f"{args.task}.yaml"
+            if not adapter_path.exists():
+                print(f"Error: No adapter found for task {args.task}", file=sys.stderr)
+                return 1
+            run_dir = run_real_generic(args.task, adapter_path, args.strategy, args)
+            print(f"{args.task.upper()} real run (generic) written to {run_dir}")
+        else:
+            # Legacy task001 behavior
+            run_dir = run_real(args.mode, args.strategy)
+            print(f"Real run written to {run_dir}")
         return 0
 
     if args.command == "real-run-task002":

@@ -1,0 +1,77 @@
+schema_id: "task_adapter.schema"
+schema_version: "0.1.0"
+object_type: "task_adapter"
+title: "Task Adapter Schema"
+description: "Data-only adapter binding a task package to generic onboarding."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_id
+  - task_ref
+  - task_package_path
+  - baseline_ref
+  - baseline_path
+  - evaluator_ref
+  - evaluator_path
+  - runtime_entry
+  - metrics_mapping
+  - candidate_skill_refs
+  - fallback_skill_refs
+  - claim_gates
+  - known_task_risks
+  - supported_downstream_stages
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["task_adapter"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "archived"]
+  metadata:
+    type: object
+  task_id:
+    type: string
+  task_ref:
+    type: string
+  task_package_path:
+    type: string
+  baseline_ref:
+    type: string
+  baseline_path:
+    type: string
+  evaluator_ref:
+    type: string
+  evaluator_path:
+    type: string
+  runtime_entry:
+    type: object
+  metrics_mapping:
+    type: object
+  candidate_skill_refs:
+    type: array[string]
+  fallback_skill_refs:
+    type: array[string]
+  claim_gates:
+    type: array[object]
+  known_task_risks:
+    type: array[string]
+  supported_downstream_stages:
+    type: array[string]

@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+object_type: task_readiness_report
+object_id: task_readiness.task004
+object_version: 0.1.0
+created_at: '2026-04-26T03:37:58Z'
+updated_at: '2026-04-26T03:37:58Z'
+status: ready
+metadata:
+  protocol: generic-task-onboarding
+task_id: task004
+adapter_ref: task_adapter.power.ieee69_hosting_capacity.task004
+task_ref: task.power.ieee69_hosting_capacity
+readiness_status: ready_to_run
+recommended_route: run_research_pipeline
+missing_items: []
+available_items:
+- adapters/task004.yaml
+- evaluators/task004_evaluator.py
+- evaluators/task004_evaluator.yaml
+- skill.power.baseline_solver
+- skill.power.renewable_capacity_optimizer_task004
+- tasks/task004/baseline.yaml
+- tasks/task004/control_scope.yaml
+- tasks/task004/grid_context.yaml
+- tasks/task004/hosting_capacity_scope.yaml
+- tasks/task004/renewable_context.yaml
+- tasks/task004/research_brief.md
+- tasks/task004/task.yaml
+blocked_stages: []
+supported_stages:
+- run
+- review
+- portfolio
+evidence_refs:
+- task.power.ieee69_hosting_capacity
+- task_adapter.power.ieee69_hosting_capacity.task004
+next_actions:
+- Run generic research pipeline.
+summary: 'task004 onboarding status: ready_to_run; route: run_research_pipeline'

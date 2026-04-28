@@ -1,0 +1,60 @@
+schema_id: "agent_response_to_human.schema"
+schema_version: "0.1.0"
+object_type: "agent_response_to_human"
+title: "Agent Response To Human Schema"
+description: "Agent acknowledgement or evidence-grounded response to a human intervention."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - task_id
+  - human_object_ref
+  - response_type
+  - rationale
+  - changed_routing_constraints
+  - next_actions
+  - evidence_refs
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["agent_response_to_human"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "superseded", "resolved", "rejected"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  task_id:
+    type: string
+  human_object_ref:
+    type: string
+  response_type:
+    type: enum
+    allowed: ["accepted", "partially_accepted", "rejected", "needs_more_evidence"]
+  rationale:
+    type: string
+  changed_routing_constraints:
+    type: array[string]
+  next_actions:
+    type: array[string]
+  evidence_refs:
+    type: array[string]

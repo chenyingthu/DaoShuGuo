@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.task010_literature_required"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata:
+  validation_role: "literature_required"
+title: "Task010 literature-required cognition validation"
+description: "Blind task where cognition must request external evidence before strong claims."
+tags: ["power", "validation", "literature"]
+research_object: "External evidence requirement for cognition upgrade."
+problem_statement: "The task can run but requires literature alignment before any strong claim."
+scenario_boundary:
+  grid_model: "validation_literature_required"
+  simulator: "validation_fixture"
+success_intent:
+  goal: "Produce learning need and evidence-gated cognition."
+  non_goal: ["Claim novelty without literature."]
+baseline_refs: ["baseline.power.task010_literature_required.default"]
+constraint_summary:
+  physical: ["domain evidence required"]
+  engineering: ["validation fixture runtime"]
+  research: ["literature alignment required"]
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task010_literature_required/research_brief.md"
+target_metrics: ["validation_score"]
+risk_hypotheses: ["Cognition may overclaim without external evidence."]
+assumptions: ["Literature evidence is required before upgrade."]

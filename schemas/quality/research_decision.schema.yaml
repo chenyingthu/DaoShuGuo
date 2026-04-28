@@ -1,0 +1,73 @@
+schema_id: "research_decision.schema"
+schema_version: "0.1.0"
+object_type: "research_decision"
+title: "Research Decision Schema"
+description: "Human decision on a research direction or branch."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - task_id
+  - created_by
+  - source
+  - target_refs
+  - evidence_refs
+  - decision_scope
+  - selected_option
+  - rejected_options
+  - decision_drivers
+  - human_rationale
+  - agent_recommendation_ref
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["research_decision"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "superseded", "resolved", "rejected"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  task_id:
+    type: string
+  created_by:
+    type: string
+  source:
+    type: enum
+    allowed: ["ui", "cli", "api", "agent_suggestion"]
+  target_refs:
+    type: array[string]
+  evidence_refs:
+    type: array[string]
+  decision_scope:
+    type: enum
+    allowed: ["task", "literature", "skill", "evaluator", "cognition", "delivery"]
+  selected_option:
+    type: string
+  rejected_options:
+    type: array[object]
+  decision_drivers:
+    type: array[string]
+  human_rationale:
+    type: string
+  agent_recommendation_ref:
+    type: string

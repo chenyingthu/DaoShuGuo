@@ -1,0 +1,21 @@
+schema_version: "0.1.0"
+object_type: "researcher_lens"
+object_id: "researcher_lens.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "degraded"
+metadata:
+  sample: true
+topic_id: "sample"
+executive_layer:
+  summary: "Sample lens."
+research_layer:
+  summary: "No real research evidence."
+audit_layer:
+  refs:
+    - "workbench_topic.sample"
+human_attention_refs:
+  - "human_attention_item.sample"
+explanation_card_refs:
+  - "agent_explanation_card.sample"

@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "research_batch"
+object_id: "research_batch.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:00:00Z"
+updated_at: "2026-04-25T08:00:00Z"
+status: "ready"
+metadata:
+  protocol: "research-plan-execute"
+plan_ref: "plan.research_plan_execute.sample"
+batch_index: 1
+task_ref: "task.power.ieee33_reactive_opt"
+batch_goal: "Reconstruct a bounded research execution batch with explicit worker context."
+worker_sequence:
+  - "skill_worker"
+  - "effectiveness_worker"
+  - "cognition_worker"
+  - "review_worker"
+required_outputs:
+  - "agent_context_pack"
+  - "execution_ledger"
+  - "research_review"
+review_gate_required: true

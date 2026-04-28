@@ -1,0 +1,53 @@
+schema_id: "researcher_lens.schema"
+schema_version: "0.1.0"
+object_type: "researcher_lens"
+title: "Researcher Lens Schema"
+description: "Layered researcher-facing view over topic evidence."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - executive_layer
+  - research_layer
+  - audit_layer
+  - human_attention_refs
+  - explanation_card_refs
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["researcher_lens"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["ready", "degraded", "blocked", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  executive_layer:
+    type: object
+  research_layer:
+    type: object
+  audit_layer:
+    type: object
+  human_attention_refs:
+    type: array[string]
+  explanation_card_refs:
+    type: array[string]

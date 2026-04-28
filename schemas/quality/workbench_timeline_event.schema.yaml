@@ -1,0 +1,56 @@
+schema_id: "workbench_timeline_event.schema"
+schema_version: "0.1.0"
+object_type: "workbench_timeline_event"
+title: "Workbench Timeline Event Schema"
+description: "A researcher-facing event in a topic timeline."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - event_time
+  - stage
+  - event_type
+  - headline
+  - summary
+  - source_refs
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["workbench_timeline_event"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["active", "superseded", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  event_time:
+    type: datetime
+  stage:
+    type: string
+  event_type:
+    type: string
+  headline:
+    type: string
+  summary:
+    type: string
+  source_refs:
+    type: array[string]

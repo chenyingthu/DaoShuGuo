@@ -1,0 +1,289 @@
+schema_version: 0.1.0
+object_type: agent_runtime_matrix_report
+object_id: agent_runtime_matrix.full_loop.current
+created_at: '2026-04-26T02:30:57Z'
+updated_at: '2026-04-26T02:34:55Z'
+tasks:
+- task006_near_neighbor
+- task008_bad_candidate
+- task009_evaluator_gap
+- task010_literature_required
+- task011_portfolio_stop
+runtimes:
+- pi_gpt55
+- pi_baidu_glm5
+- pi_baidu_kimi_k25
+- pi_baidu_minimax_m25
+summary:
+  by_runtime:
+    pi_gpt55:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+    pi_baidu_glm5:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+    pi_baidu_kimi_k25:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+    pi_baidu_minimax_m25:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+  by_task:
+    task009_evaluator_gap:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task006_near_neighbor:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task008_bad_candidate:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task011_portfolio_stop:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task010_literature_required:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+  passed: 20
+  failed: 0
+  blocked: 0
+  total: 20
+results:
+- task_id: task006_near_neighbor
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 23.191
+  verify_returncode: 0
+  verify_duration_sec: 0.062
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 18.798
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 18.359
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 17.874
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 16.67
+  verify_returncode: 0
+  verify_duration_sec: 0.062
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task011_portfolio_stop
+- task_id: task006_near_neighbor
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 16.921
+  verify_returncode: 0
+  verify_duration_sec: 0.063
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 18.967
+  verify_returncode: 0
+  verify_duration_sec: 0.063
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 16.907
+  verify_returncode: 0
+  verify_duration_sec: 0.062
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 16.796
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 15.584
+  verify_returncode: 0
+  verify_duration_sec: 0.063
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task011_portfolio_stop
+- task_id: task006_near_neighbor
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 57.269
+  verify_returncode: 0
+  verify_duration_sec: 0.065
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 117.476
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 58.848
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 83.974
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 85.535
+  verify_returncode: 0
+  verify_duration_sec: 0.064
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task011_portfolio_stop
+- task_id: task006_near_neighbor
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 17.483
+  verify_returncode: 0
+  verify_duration_sec: 0.062
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 17.86
+  verify_returncode: 0
+  verify_duration_sec: 0.063
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 15.206
+  verify_returncode: 0
+  verify_duration_sec: 0.065
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 23.667
+  verify_returncode: 0
+  verify_duration_sec: 0.065
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  issues: []
+  run_returncode: 0
+  run_duration_sec: 18.284
+  verify_returncode: 0
+  verify_duration_sec: 0.062
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task011_portfolio_stop

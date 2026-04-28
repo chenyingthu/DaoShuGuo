@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "task_id": "task006_near_neighbor",
+      "backend": "deterministic",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task007_missing_runtime",
+      "backend": "deterministic",
+      "expected": "blocked"
+    },
+    {
+      "task_id": "task008_bad_candidate",
+      "backend": "deterministic",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task009_evaluator_gap",
+      "backend": "deterministic",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task010_literature_required",
+      "backend": "deterministic",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task011_portfolio_stop",
+      "backend": "deterministic",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task006_near_neighbor",
+      "backend": "pi_gpt55",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task008_bad_candidate",
+      "backend": "pi_gpt55",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task009_evaluator_gap",
+      "backend": "pi_gpt55",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task007_missing_runtime",
+      "backend": "pi_gpt55",
+      "expected": "blocked"
+    },
+    {
+      "task_id": "task010_literature_required",
+      "backend": "pi_gpt55",
+      "expected": "full_loop"
+    },
+    {
+      "task_id": "task011_portfolio_stop",
+      "backend": "pi_gpt55",
+      "expected": "full_loop"
+    }
+  ]
+}

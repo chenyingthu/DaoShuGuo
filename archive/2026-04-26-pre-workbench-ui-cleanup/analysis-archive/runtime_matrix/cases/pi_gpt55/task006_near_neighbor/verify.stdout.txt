@@ -1,0 +1,9 @@
+{
+  "task_id": "task006_near_neighbor",
+  "task_ref": "task.power.task006_near_neighbor",
+  "backend": "pi_gpt55",
+  "workspace": "analysis/full_loop_validation/runs/pi_gpt55/power.task006_near_neighbor/iter_0001",
+  "verdict": "passed",
+  "issues": [],
+  "required_objects_present": true
+}

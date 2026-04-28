@@ -1,0 +1,41 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.ieee69_hosting_capacity.task004"
+object_version: "0.1.0"
+created_at: "2026-04-25T11:05:00Z"
+updated_at: "2026-04-25T11:05:00Z"
+status: "active"
+metadata:
+  protocol: "generic-task-onboarding"
+task_id: "task004"
+task_ref: "task.power.ieee69_hosting_capacity"
+task_package_path: "tasks/task004"
+baseline_ref: "baseline.power.ieee69_hosting_capacity.fixed_inverter_q_capacity_scan"
+baseline_path: "tasks/task004/baseline.yaml"
+evaluator_ref: "evaluator.power.ieee69_hosting_capacity.default"
+evaluator_path: "evaluators/task004_evaluator.yaml"
+runtime_entry:
+  type: "python_script"
+  path: "evaluators/task004_evaluator.py"
+metrics_mapping:
+  primary:
+    - "hosting_capacity_level"
+  secondary:
+    - "loss_at_boundary"
+    - "voltage_margin"
+    - "violation_trigger_type"
+candidate_skill_refs:
+  - "skill.power.renewable_capacity_optimizer_task004"
+fallback_skill_refs:
+  - "skill.power.baseline_solver"
+claim_gates:
+  - name: "boundary_overclaim_gate"
+    status: "ready"
+    required: true
+known_task_risks:
+  - "boundary overclaim"
+  - "secondary metrics may improve while hosting capacity is unchanged"
+supported_downstream_stages:
+  - "run"
+  - "review"
+  - "portfolio"

@@ -1,0 +1,11 @@
+schema_version: "0.1.0"
+object_type: work_brief
+phase: skill_change_request
+hypothesis:
+  statement: "Fixture harness is good"
+  rationale: "maybe useful"
+  testable_prediction: "better"
+method:
+  description: "Use an algorithm"
+  algorithm:
+    type: generic

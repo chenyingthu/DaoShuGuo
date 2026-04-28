@@ -1,0 +1,9 @@
+{
+  "task_id": "task009_evaluator_gap",
+  "task_ref": "task.power.task009_evaluator_gap",
+  "backend": "pi_gpt55",
+  "workspace": "analysis/full_loop_validation/runs/pi_gpt55/power.task009_evaluator_gap/iter_0001",
+  "verdict": "passed",
+  "issues": [],
+  "required_objects_present": true
+}

@@ -1,0 +1,372 @@
+# Phase Requirements Configuration
+# 定义每个 Phase 的强制输出要求
+# 参考: plans/GENERIC_LOOP_ENGINE_HARNESS_IMPLEMENTATION_PLAN.md
+
+schema_version: "0.1.0"
+description: "Generic Loop Engine Phase 强制输出要求配置"
+
+phases:
+  # ============================================================================
+  # Phase: skill_change_request
+  # 描述: 生成技能变更请求，定义要做什么和为什么
+  # ============================================================================
+  skill_change_request:
+    description: "生成技能变更请求，明确研究假设和方法"
+    agent_type: "skill_coder"
+
+    required_outputs:
+      - name: "work_brief"
+        schema: "schemas/work_brief.schema.json"
+        file_name: "work_brief.yaml"
+        description: "工作简报，包含假设和方法"
+
+    # 强制必须包含的字段路径
+    must_include:
+      - "hypothesis.statement"
+      - "hypothesis.rationale"
+      - "hypothesis.testable_prediction"
+      - "method.description"
+      - "method.algorithm.type"
+
+    # 内容最小长度要求（字符数）
+    min_content_length: 500
+
+    # 字段深度要求
+    field_requirements:
+      hypothesis.statement:
+        min_length: 50
+        check_vague_words: true
+        vague_words: ["some", "certain", "maybe", "might", "could"]
+
+      hypothesis.testable_prediction:
+        must_contain_quantifiable: true
+        quantifiable_patterns:
+          - ">"
+          - "<"
+          - "%"
+          - "percent"
+          - "times"
+
+      method.description:
+        min_length: 100
+        must_contain_algorithm_name: true
+
+    # 验证配置
+    validation:
+      enabled: true
+      strict: false  # 非严格模式，允许警告但继续
+      max_retries: 3
+
+    # 失败处理
+    on_validation_failure:
+      action: "retry_with_feedback"  # retry_with_feedback | continue_with_warning | stop
+      record_partial: true
+
+  # ============================================================================
+  # Phase: skill_execution
+  # 描述: 执行技能代码，记录执行细节和结果
+  # ============================================================================
+  skill_execution:
+    description: "执行技能代码，记录执行过程、技能实现细节和量化结果"
+    agent_type: "skill_executor"
+
+    required_outputs:
+      - name: "execution_record"
+        schema: "schemas/execution_record.schema.json"
+        file_name: "execution_record.yaml"
+        description: "执行记录，包含输入输出和技能实现"
+
+    must_include:
+      - "execution.status"
+      - "execution.timestamp"
+      - "execution.inputs"
+      - "execution.outputs"
+      - "skill_implementation.code.main_file"
+      - "skill_implementation.code.structure"
+      - "results.primary_metrics"
+      - "failure_capsule.known_limitations"
+      - "next_actions.immediate"
+
+    min_content_length: 1000
+
+    field_requirements:
+      skill_implementation.code.structure:
+        min_items: 1
+        each_item_must_have:
+          - "function"
+          - "purpose"
+          - "algorithm"
+
+      skill_implementation.code.structure.*.purpose:
+        min_length: 20
+
+      results.primary_metrics:
+        min_properties: 2
+        each_property_must_have:
+          - "value"
+          - "unit"
+
+      failure_capsule.known_limitations:
+        min_items: 1
+        each_item_must_have:
+          - "limitation"
+          - "impact"
+          - "severity"
+
+      failure_capsule.known_limitations.*.limitation:
+        min_length: 20
+        check_vague_words: true
+
+      next_actions.immediate:
+        min_items: 1
+        each_item_must_have:
+          - "action"
+          - "rationale"
+
+      next_actions.immediate.*.action:
+        min_length: 10
+
+    validation:
+      enabled: true
+      strict: true  # 严格模式，验证失败必须重试
+      max_retries: 3
+
+    on_validation_failure:
+      action: "retry_with_feedback"
+      record_partial: true
+      create_failure_capsule_on_max_retries: true
+
+  # ============================================================================
+  # Phase: effectiveness_assessment
+  # 描述: 评估效果，解释结果、记录局限性和规划下一步
+  # ============================================================================
+  effectiveness_assessment:
+    description: "评估效果，提供结果解释和下一步行动规划"
+    agent_type: "evaluator"
+
+    required_outputs:
+      - name: "assessment_packet"
+        schema: "schemas/assessment_packet.schema.json"
+        file_name: "assessment_packet.yaml"
+        description: "评估报告，包含结果解释和行动计划"
+
+    must_include:
+      - "interpretation.summary"
+      - "interpretation.supports_hypothesis"
+      - "interpretation.support_evidence"
+      - "failure_capsule.known_limitations"
+      - "failure_capsule.local_failures"
+      - "next_actions.immediate"
+      - "next_actions.short_term"
+      - "review_checklist"
+
+    min_content_length: 800
+
+    field_requirements:
+      interpretation.summary:
+        min_length: 50
+        must_contain_conclusion: true
+
+      interpretation.support_evidence:
+        min_items: 1
+
+      failure_capsule.local_failures:
+        min_items: 1  # 即使没有失败也要记录"未发现明显失败"
+
+      next_actions.immediate:
+        min_items: 1
+
+      next_actions.short_term:
+        min_items: 1
+
+      review_checklist:
+        required_fields:
+          - "hypothesis_clear"
+          - "method_reproducible"
+          - "results_quantified"
+          - "limitations_acknowledged"
+
+    validation:
+      enabled: true
+      strict: true
+      max_retries: 3
+
+    on_validation_failure:
+      action: "retry_with_feedback"
+      record_partial: true
+
+  # ============================================================================
+  # Phase: cognition_diagnosis
+  # 描述: 认知诊断，分析认知约束和下一步认知方向
+  # ============================================================================
+  cognition_diagnosis:
+    description: "认知诊断，分析当前认知状态和下一步约束"
+    agent_type: "cognition_agent"
+
+    required_outputs:
+      - name: "cognition_diagnosis"
+        schema: "schemas/cognition_diagnosis.schema.json"
+        file_name: "cognition_diagnosis.yaml"
+        description: "认知诊断报告"
+
+    must_include:
+      - "current_cognition_state"
+      - "identified_constraints"
+      - "blocked_paths"
+      - "next_cognition_direction"
+
+    min_content_length: 600
+
+    validation:
+      enabled: true
+      strict: false
+      max_retries: 2
+
+    on_validation_failure:
+      action: "continue_with_warning"
+      record_partial: true
+
+  # ============================================================================
+  # Phase: skill_coding
+  # 描述: 技能编码，实现技能代码
+  # ============================================================================
+  skill_coding:
+    description: "编写技能代码，实现算法逻辑"
+    agent_type: "skill_coder"
+
+    required_outputs:
+      - name: "skill_code"
+        file_name: "candidate_solver.py"
+        description: "技能代码文件"
+      - name: "implementation_notes"
+        schema: "schemas/skill_implementation.schema.json"
+        file_name: "implementation_notes.yaml"
+        description: "实现说明"
+
+    must_include:
+      - "skill_name"
+      - "code.main_file"
+      - "code.structure"
+      - "design_decisions"
+      - "quality_metrics"
+
+    min_content_length: 800
+
+    validation:
+      enabled: true
+      strict: true
+      max_retries: 3
+      additional_validations:
+        - type: "code_syntax"
+          language: "python"
+        - type: "file_exists"
+          path: "{workspace}/candidate_solver.py"
+
+    on_validation_failure:
+      action: "retry_with_feedback"
+      record_partial: true
+
+# ============================================================================
+# 全局验证配置
+# ============================================================================
+global_validation:
+  # 禁用词检查
+  vague_words:
+    - "done"
+    - "completed"
+    - "finished"
+    - "ok"
+    - "good"
+    - "some"
+    - "certain"
+    - "etc"
+    - "..."
+
+  # 内容质量检查
+  content_quality:
+    check_repetition: true
+    repetition_threshold: 0.3  # 重复内容比例阈值
+    check_shallow_content: true
+    shallow_indicators:
+      - "status: completed"
+      - "done"
+      - "finished"
+      - "ok"
+
+  # 数值检查
+  numeric_validation:
+    require_units: true
+    require_context: true
+
+# ============================================================================
+# 重试策略配置
+# ============================================================================
+retry_policy:
+  max_retries_per_phase: 3
+  backoff_strategy: "linear"  # linear | exponential
+  backoff_delay_seconds: 2
+
+  # 渐进式要求降低策略
+  progressive_relaxation:
+    enabled: true
+    relax_after_attempt: 2
+    relaxation_rules:
+      - field: "skill_implementation.design_decisions"
+        min_items: 1  # 第一次要求2个，第二次降到1个
+      - field: "failure_capsule.local_failures"
+        min_items: 0  # 允许为空
+
+# ============================================================================
+# 失败胶囊配置
+# ============================================================================
+failure_capsule:
+  auto_generate: true
+  required_fields:
+    - "phase"
+    - "status"
+    - "failure_reason"
+    - "validation_errors"
+    - "next_actions"
+
+  template: |
+    schema_version: "0.1.0"
+    object_type: "phase_failure_capsule"
+    phase: {phase}
+    status: "failed_validation"
+    failure_reason: "{failure_reason}"
+    validation_errors:
+      {errors}
+    partial_output:
+      {partial}
+    next_actions:
+      immediate:
+        - action: "Review validation feedback and fix missing fields"
+          rationale: "Required fields must be present for quality assurance"
+        - action: "Consider simplifying approach or breaking into smaller phases"
+          rationale: "Current requirements may exceed agent capabilities"
+
+# ============================================================================
+# 输出文件命名规范
+# ============================================================================
+naming_conventions:
+  work_brief: "{phase}_{sequence:04d}_work_brief.yaml"
+  execution_record: "{phase}_{sequence:04d}_execution_record.yaml"
+  assessment_packet: "{phase}_{sequence:04d}_assessment_packet.yaml"
+  failure_capsule: "{phase}_{sequence:04d}_failure_capsule.yaml"
+
+# ============================================================================
+# 向后兼容配置
+# ============================================================================
+backward_compatibility:
+  # 允许旧的简单输出格式（带警告）
+  allow_legacy_format: false
+
+  # 自动转换旧格式
+  auto_convert: false
+
+  # 迁移配置
+  migration:
+    enabled: true
+    legacy_fields_map:
+      "status": "execution.status"
+      "result": "results.primary_metrics"

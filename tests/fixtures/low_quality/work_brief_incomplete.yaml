@@ -1,0 +1,9 @@
+schema_version: "0.1.0"
+object_type: work_brief
+phase: skill_change_request
+hypothesis:
+  statement: "A deterministic harness fixture can expose missing record fields during test execution."
+  testable_prediction: "Quality score improves by > 50%"
+method:
+  algorithm:
+    type: HarnessFixtureABMethod

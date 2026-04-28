@@ -1,0 +1,37 @@
+schema_version: 0.1.0
+object_type: skill_structure_diagnosis
+object_id: skill_structure_diagnosis.power.ieee69_renewable_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-25T12:28:16Z'
+updated_at: '2026-04-25T12:28:16Z'
+status: reviewed
+metadata:
+  protocol: structural-learning-worker
+  task_package: task003
+  source_review_verdict: approved_with_ablation_required
+task_ref: task.power.ieee69_renewable_reactive_opt
+learning_context_ref: learning_context_pack.power.ieee69_renewable_reactive_opt.0002
+source_review_ref: research_review.power.ieee69_renewable_reactive_opt.0002
+diagnosis_class: skill_use_improvement_only
+method_diagnosis: The current task003 improvement comes from broader inverter-Q search,
+  not a verified reusable control-policy method.
+process_diagnosis: The previous loop still allowed candidate search and claim formation
+  to be too close; ablation must become a separate process step.
+standard_diagnosis: The current evaluator proves metric improvement under one condition
+  but not structural superiority, robustness, or cost-quality balance.
+skill_use_vs_structure_judgment: This is useful skill-use evidence that should guide
+  a structural attempt, but it is not verified skill-structure improvement.
+reusable_principle_candidates:
+- Separate control-policy principle design from search-envelope expansion.
+- Require fixed-budget ablation before attributing improvement to cognition-guided
+  structure.
+- Treat method, process, and standard changes as separate skill dimensions.
+unresolved_uncertainty:
+- No metric-only tuning baseline exists under the same budget.
+- No multi-condition robustness evidence exists.
+- No external literature-backed control-policy principle has been validated yet.
+claim_boundary:
+- Do not claim structural skill improvement.
+- Do not claim cognition caused skill improvement.
+- May claim the learning layer identified structural questions for the next skill
+  attempt.

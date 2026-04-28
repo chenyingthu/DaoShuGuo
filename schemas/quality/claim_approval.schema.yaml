@@ -1,0 +1,74 @@
+schema_id: "claim_approval.schema"
+schema_version: "0.1.0"
+object_type: "claim_approval"
+title: "Claim Approval Schema"
+description: "Expert authorization or rejection of deliverable claims."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - task_id
+  - created_by
+  - source
+  - target_refs
+  - evidence_refs
+  - deliverable_ref
+  - approved_claims
+  - rejected_claims
+  - required_qualifiers
+  - max_report_type
+  - approval_status
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["claim_approval"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "superseded", "resolved", "rejected"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  task_id:
+    type: string
+  created_by:
+    type: string
+  source:
+    type: enum
+    allowed: ["ui", "cli", "api", "agent_suggestion"]
+  target_refs:
+    type: array[string]
+  evidence_refs:
+    type: array[string]
+  deliverable_ref:
+    type: string
+  approved_claims:
+    type: array[string]
+  rejected_claims:
+    type: array[string]
+  required_qualifiers:
+    type: array[string]
+  max_report_type:
+    type: enum
+    allowed: ["technical_note", "paper_draft", "patent_candidate"]
+  approval_status:
+    type: enum
+    allowed: ["approved", "rejected", "conditional"]

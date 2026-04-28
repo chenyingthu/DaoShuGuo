@@ -1,0 +1,25 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.task008_bad_candidate.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:12:00Z"
+updated_at: "2026-04-25T16:12:00Z"
+status: "ready"
+metadata:
+  protocol: "generic-full-loop-validation"
+task_ref: "task.power.task008_bad_candidate"
+evaluation_goal: "Detect candidate degradation and prevent false cognition upgrade."
+metric_definitions:
+  - metric_id: "validation_score"
+    direction: "higher_is_better"
+  - metric_id: "constraint_violation"
+    direction: "constraint_only"
+baseline_strategy:
+  type: "named_baseline"
+  refs: ["baseline.power.task008_bad_candidate.default"]
+pass_criteria:
+  rule: "Candidate degradation must fail effectiveness."
+execution_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+comparison_mode: "baseline_and_constraint"

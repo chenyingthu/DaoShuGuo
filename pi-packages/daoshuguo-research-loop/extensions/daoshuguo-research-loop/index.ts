@@ -57,7 +57,8 @@ function appendMarkdown(cwd: string, text: string): void {
 }
 
 function parseTaskRunPath(stdout: string): string | null {
-  const match = stdout.match(/Task00[34] real run written to (.+)$/m);
+  // Support generic task pattern: "TASKXXX real run written to ..." or "TASKXXX real run (generic) written to ..."
+  const match = stdout.match(/TASK\w+ real run(?: \(generic\))? written to (.+)$/m);
   return match ? match[1].trim() : null;
 }
 
@@ -293,8 +294,8 @@ export default function daoshuguoResearchLoop(pi: ExtensionAPI) {
 
   pi.registerTool({
     name: "run_task003_trial",
-    label: "Run Task003 Trial",
-    description: "Execute the existing DaoShuGuo task003 runner and record the result.",
+    label: "[DEPRECATED] Run Task003 Trial",
+    description: "DEPRECATED: Use run_task_trial instead. Execute the existing DaoShuGuo task003 runner and record the result.",
     promptSnippet: "Run the existing DaoShuGuo task003 real trial bridge.",
     promptGuidelines: [
       "Use run_task003_trial to execute the bounded task003 real trial before recording skill or cognition artifacts.",
@@ -366,8 +367,8 @@ export default function daoshuguoResearchLoop(pi: ExtensionAPI) {
 
   pi.registerTool({
     name: "run_task004_trial",
-    label: "Run Task004 Trial",
-    description: "Execute the existing DaoShuGuo task004 runner and record the result.",
+    label: "[DEPRECATED] Run Task004 Trial",
+    description: "DEPRECATED: Use run_task_trial instead. Execute the existing DaoShuGuo task004 runner and record the result.",
     promptSnippet: "Run the existing DaoShuGuo task004 hosting-capacity trial bridge.",
     promptGuidelines: [
       "Use run_task004_trial to execute a bounded task004 real trial before recording boundary or effectiveness artifacts.",
@@ -435,6 +436,104 @@ export default function daoshuguoResearchLoop(pi: ExtensionAPI) {
         details: {
           strategy,
           candidate_q_step_mvar: params.candidate_q_step_mvar,
+          repo_root: repoRoot,
+          exitCode: result.exitCode,
+          runDir,
+          runRef,
+          reportRef,
+          stdout: result.stdout,
+          stderr: result.stderr,
+        },
+      };
+    },
+  });
+
+  pi.registerTool({
+    name: "run_task_trial",
+    label: "Run Task Trial",
+    description: "Execute a DaoShuGuo task trial using the generic loop engine.",
+    promptSnippet: "Run a DaoShuGuo task trial with task_id and strategy.",
+    promptGuidelines: [
+      "Use run_task_trial to execute any DaoShuGuo task (task003, task004, task005, etc.) via the unified CLI.",
+      "Preferred over deprecated run_task003_trial and run_task004_trial.",
+    ],
+    parameters: Type.Object({
+      task_id: Type.String({ description: "Task ID (e.g., task003, task004, task005, task007_fixture)" }),
+      task_ref: Type.Optional(Type.String({ description: "Task reference (e.g., task.power.ieee69_renewable_reactive_opt)" })),
+      strategy: Type.Optional(Type.String({ description: "Strategy name", default: "default" })),
+      repo_root: Type.Optional(Type.String({ description: "DaoShuGuo repo root; defaults to current cwd." })),
+      candidate_params: Type.Optional(Type.Object({}, { description: "Optional candidate parameters for the task." })),
+    }),
+    async execute(_toolCallId, params, _signal, _onUpdate, ctx) {
+      const repoRoot = params.repo_root || ctx.cwd;
+      const taskId = params.task_id;
+      const strategy = params.strategy || "default";
+      const taskRef = params.task_ref || `task.power.${taskId}`;
+
+      // Build optional candidate params
+      let candidateArgs = "";
+      if (params.candidate_params && typeof params.candidate_params === "object") {
+        for (const [key, value] of Object.entries(params.candidate_params)) {
+          if (typeof value === "number") {
+            candidateArgs += ` --candidate-${key.replace(/_/g, "-")} ${value}`;
+          } else if (typeof value === "string") {
+            candidateArgs += ` --candidate-${key.replace(/_/g, "-")} ${value}`;
+          }
+        }
+      }
+
+      const cmd = `python3 orchestrator/main.py real-run --task ${taskId} --strategy ${strategy}${candidateArgs}`;
+      const result = await runCommand(cmd, repoRoot);
+      const runDir = result.exitCode === 0 ? parseTaskRunPath(result.stdout) : null;
+      const runRef = runDir ? parseRunRefFromRunYaml(runDir) : null;
+      const reportRef = runDir ? parseReportRefFromReportYaml(runDir) : null;
+
+      appendJsonl(ctx.cwd, {
+        timestamp: now(),
+        event: "task_trial",
+        task_ref: taskRef,
+        data: {
+          task_id: taskId,
+          strategy,
+          candidate_params: params.candidate_params,
+          exitCode: result.exitCode,
+          runDir,
+          runRef,
+          reportRef,
+          stdout: result.stdout.trim(),
+          stderr: result.stderr.trim(),
+        },
+      });
+
+      if (runDir && runRef) {
+        appendMarkdown(
+          ctx.cwd,
+          [
+            "",
+            `### Task Trial: ${taskId}`,
+            `- strategy: ${strategy}`,
+            `- run_dir: ${runDir}`,
+            `- run_ref: ${runRef}`,
+            ...(reportRef ? [`- report_ref: ${reportRef}`] : []),
+            "",
+          ].join("\n"),
+        );
+      }
+
+      return {
+        content: [
+          {
+            type: "text",
+            text:
+              result.exitCode === 0
+                ? `Task trial completed: ${result.stdout.trim()}`
+                : `Task trial failed with exit code ${result.exitCode}`,
+          },
+        ],
+        details: {
+          task_id: taskId,
+          strategy,
+          candidate_params: params.candidate_params,
           repo_root: repoRoot,
           exitCode: result.exitCode,
           runDir,

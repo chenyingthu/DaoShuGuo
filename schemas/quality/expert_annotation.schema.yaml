@@ -1,0 +1,71 @@
+schema_id: "expert_annotation.schema"
+schema_version: "0.1.0"
+object_type: "expert_annotation"
+title: "Expert Annotation Schema"
+description: "Expert note attached to a research artifact."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - task_id
+  - created_by
+  - source
+  - target_refs
+  - evidence_refs
+  - target_ref
+  - annotation_type
+  - content
+  - severity
+  - action_required
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["expert_annotation"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "superseded", "resolved", "rejected"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  task_id:
+    type: string
+  created_by:
+    type: string
+  source:
+    type: enum
+    allowed: ["ui", "cli", "api", "agent_suggestion"]
+  target_refs:
+    type: array[string]
+  evidence_refs:
+    type: array[string]
+  target_ref:
+    type: string
+  annotation_type:
+    type: enum
+    allowed: ["clarification", "warning", "insight", "boundary", "taste_note"]
+  content:
+    type: string
+  severity:
+    type: enum
+    allowed: ["low", "medium", "high"]
+  action_required:
+    type: boolean

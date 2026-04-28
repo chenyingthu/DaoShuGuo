@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Assessment Packet",
+  "description": "效果评估报告，包含结果解释、局限性和下一步",
+  "required": ["schema_version", "object_type", "phase", "interpretation", "failure_capsule", "next_actions"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "object_type": {
+      "type": "string",
+      "const": "assessment_packet"
+    },
+    "phase": {
+      "type": "string",
+      "const": "effectiveness_assessment"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "task_ref": {
+      "type": "string"
+    },
+    "run_ref": {
+      "type": "string"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["summary", "supports_hypothesis"],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 50,
+          "description": "结果总结，至少50字符"
+        },
+        "supports_hypothesis": {
+          "type": "string",
+          "enum": ["fully", "partially", "not_supported", "inconclusive"],
+          "description": "是否支持假设"
+        },
+        "support_evidence": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "支持假设的证据"
+        },
+        "contradicts_hypothesis": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "反驳假设的证据"
+        },
+        "unexpected_findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["finding"],
+            "properties": {
+              "finding": {"type": "string"},
+              "possible_reason": {"type": "string"},
+              "follow_up": {"type": "string"}
+            }
+          }
+        },
+        "data_quality_assessment": {
+          "type": "object",
+          "properties": {
+            "completeness": {"type": "string", "enum": ["full", "partial", "insufficient"]},
+            "reliability": {"type": "string", "enum": ["high", "medium", "low"]},
+            "limitations": {"type": "string"}
+          }
+        }
+      }
+    },
+    "failure_capsule": {
+      "$ref": "work_brief.schema.json#/definitions/failure_capsule"
+    },
+    "next_actions": {
+      "$ref": "work_brief.schema.json#/definitions/next_actions"
+    },
+    "review_checklist": {
+      "type": "object",
+      "properties": {
+        "hypothesis_clear": {"type": "boolean"},
+        "method_reproducible": {"type": "boolean"},
+        "data_available": {"type": "boolean"},
+        "results_quantified": {"type": "boolean"},
+        "limitations_acknowledged": {"type": "boolean"},
+        "next_actions_concrete": {"type": "boolean"},
+        "reviewer_notes": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "effectiveness_rating": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["proof_of_concept", "working_prototype", "validated_solution", "production_ready"]
+        },
+        "readiness_percent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "gaps_to_next_level": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

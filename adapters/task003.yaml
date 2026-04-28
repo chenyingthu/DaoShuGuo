@@ -1,0 +1,45 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.ieee69_renewable_reactive_opt.task003"
+object_version: "0.1.0"
+created_at: "2026-04-25T11:05:00Z"
+updated_at: "2026-04-25T11:05:00Z"
+status: "active"
+metadata:
+  protocol: "generic-task-onboarding"
+task_id: "task003"
+task_ref: "task.power.ieee69_renewable_reactive_opt"
+task_package_path: "tasks/task003"
+baseline_ref: "baseline.power.ieee69_renewable_reactive_opt.fixed_inverter_q"
+baseline_path: "tasks/task003/baseline.yaml"
+evaluator_ref: "evaluator.power.ieee69_renewable_reactive_opt.default"
+evaluator_path: "evaluators/task003_evaluator.yaml"
+runtime_entry:
+  type: "python_script"
+  path: "evaluators/task003_evaluator.py"
+metrics_mapping:
+  primary:
+    - "loss"
+    - "voltage_deviation"
+    - "constraint_violation"
+  secondary:
+    - "reactive_support_effort"
+candidate_skill_refs:
+  - "skill.power.renewable_inverter_reactive_optimizer_task003"
+fallback_skill_refs:
+  - "skill.power.baseline_solver"
+claim_gates:
+  - name: "research_review_gate"
+    status: "ready"
+    required: true
+  - name: "skill_structure_assessment"
+    status: "ready"
+    required: true
+known_task_risks:
+  - "single representative condition"
+  - "search-envelope tuning can mimic skill improvement"
+supported_downstream_stages:
+  - "run"
+  - "review"
+  - "structural_learning"
+  - "portfolio"

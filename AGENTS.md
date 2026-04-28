@@ -152,6 +152,29 @@
 - 成功技能必须注册
 - 失败技能必须记录
 
+技能不是单一算法文件，而是三类要素的统一：
+
+1. 方法：能够加工信息和数据的函数、算法或具体逻辑实现。
+2. 流程：多个方法和数据处理逻辑的组织方式，包括分支、并行、条件和循环。
+3. 标准：衡量工作质量的方法，包括性能指标、指标计算和综合评价。
+
+设计或实现一个技能时，必须说明其方法、流程和标准。缺少任一要素，只能称为候选方法片段或使用策略，不能称为完整技能。
+
+技能提升必须区分两类：
+
+1. 技能使用改善：通过改变边界条件、参数、搜索空间、调用方式或资源投入，使评价结果变好。
+2. 技能结构提升：方法更准确、高效、可扩展、可泛化、可解释；流程更清晰、简洁、可复用；标准更丰富、可度量、可确定并具备比较优势。
+
+第一类改善可以是有效观察，但不能直接称为真正的技能提升。后续 Agent 必须把第一类改善作为线索，追问它是否揭示了第二类结构性提升的可能。
+
+不得把以下情况包装成技能结构提升：
+
+- 只扩大搜索空间导致指标变好。
+- 只调边界条件或参数导致指标变好。
+- 以更高代价换取局部指标改善而未记录代价。
+- 降低评价标准或改变 evaluator 后宣称技能变强。
+- 只适配单个 task 的特殊条件而没有抽象出可复用方法、流程或标准。
+
 ### 8.3 认知工作
 
 认知工作必须满足：
@@ -329,18 +352,22 @@
 - 生成 skill change request
 - 产出新的 skill candidate 或参数化 skill variant
 - 明确说明改了什么、为什么改
+- 明确本轮改动属于方法、流程、标准中的哪一类
+- 明确本轮改动是技能使用改善，还是尝试形成技能结构提升
 
 `effectiveness worker` 负责：
 
 - 运行 evaluator
 - 比较 baseline / candidate
 - 形成效果判断对象
+- 记录性能改善是否来自边界条件、参数、搜索空间、代价投入或评价标准变化
 
 `cognition worker` 负责：
 
 - 基于证据判断这是 skill-use、skill-structure，还是 task/evaluator 问题
 - 形成下一轮建议
 - 显式说明不确定性与边界
+- 把技能使用改善转化为关于方法、流程、标准的结构性问题，而不是停留在调参建议
 
 ### 14.3 没有 worker 对象，不得声称完成闭环
 
@@ -357,3 +384,74 @@
 - rule-based/controller-scripted experiment
 
 不得称为真正的自主循环。
+
+### 14.4 循环必须收敛到结构性技能提升
+
+`技能开发 -> 成效评估 -> 认知提升 -> 技能开发` 循环的目标不是反复寻找更好的 task-specific 参数，而是逐步逼近更高质量的技能结构。
+
+每一轮 loop review 必须追问：
+
+1. 本轮改善是技能使用改善，还是技能结构提升。
+2. 若只是技能使用改善，它暴露了哪类方法、流程或标准问题。
+3. 下一轮是否能把这个观察转化为更可复用的方法、流程或标准。
+4. 是否存在更高代价、更低标准或更窄边界换来的伪进步。
+
+如果多轮循环只能产生第一类改善，不能沉淀第二类结构性提升，则该循环应被标记为 `local_skill_use_optimization`，不得宣称已经形成可靠自主科研能力。
+
+## 15. 通用任务接入原则
+
+本项目不得把 task-specific replay 脚本伪装成通用自主科研框架。
+
+后续任何框架能力都必须接受以下检验：
+
+> 如果突然给出 `task007` 或 `task008`，系统是否能在不修改框架代码的情况下读取 task package、检查契约完整性、判断 readiness，并给出可执行或不可执行的明确路由？
+
+如果答案是否，则该能力只能称为：
+
+- task-specific fixture
+- replay experiment
+- framework debugging artifact
+
+不得称为：
+
+- generic autonomous research framework
+- reusable research loop
+- task-agnostic agent workflow
+
+### 15.1 新 task 接入必须走统一入口
+
+新任务必须通过统一 onboarding/readiness 层进入系统，而不是新增一套专用脚本。
+
+统一入口至少要检查：
+
+1. task package 是否完整
+2. baseline 是否存在
+3. evaluator 是否存在且可绑定
+4. runtime entry 是否存在
+5. candidate skill 或 fallback skill 是否存在
+6. metrics mapping 是否明确
+7. claim gate 是否可用
+8. structural-learning / portfolio 是否可路由
+
+### 15.2 允许 task-specific adapter，但必须薄
+
+允许每个 task 声明自己的 adapter 配置，但 adapter 只能描述：
+
+- task/baseline/evaluator/runtime 绑定
+- metrics mapping
+- allowed candidate skill families
+- known task risks
+- claim boundary
+
+adapter 不得重写 loop engine、review gate、learning chain 或 portfolio 逻辑。
+
+### 15.3 验收标准
+
+若要声称框架具备通用 task onboarding 能力，必须至少证明：
+
+1. `task003`、`task004`、`task005` 可通过同一 onboarding 命令生成 readiness report。
+2. 一个新的 `task007_fixture` 在不新增框架代码的情况下被识别和诊断。
+3. 缺失字段会产生明确 blocked report，而不是运行时崩溃。
+4. readiness report 能给出下一步路由：run / repair_task_package / repair_evaluator / repair_adapter / framing_only / pause。
+
+没有通过这些验收，不得继续把局部 task replay 结果包装为框架成熟。

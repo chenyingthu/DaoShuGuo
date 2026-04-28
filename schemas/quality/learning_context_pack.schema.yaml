@@ -1,0 +1,66 @@
+schema_id: "learning_context_pack.schema"
+schema_version: "0.1.0"
+object_type: "learning_context_pack"
+title: "Learning Context Pack Schema"
+description: "Curated learning material produced by a learning worker."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - learning_need_ref
+  - source_refs
+  - source_summaries
+  - method_insights
+  - process_insights
+  - standard_insights
+  - applicability_boundaries
+  - confidence
+  - gaps
+  - curator_notes
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["learning_context_pack"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "used", "archived"]
+  metadata:
+    type: object
+  learning_need_ref:
+    type: string
+  source_refs:
+    type: array[string]
+  source_summaries:
+    type: array[object]
+  method_insights:
+    type: array[string]
+  process_insights:
+    type: array[string]
+  standard_insights:
+    type: array[string]
+  applicability_boundaries:
+    type: array[string]
+  confidence:
+    type: enum
+    allowed: ["low", "medium", "high"]
+  gaps:
+    type: array[string]
+  curator_notes:
+    type: string

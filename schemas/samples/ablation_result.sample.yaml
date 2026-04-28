@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "ablation_result"
+object_id: "ablation_result.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:08:00Z"
+updated_at: "2026-04-25T08:08:00Z"
+status: "inconclusive"
+metadata:
+  protocol: "research-plan-execute"
+ablation_plan_ref: "ablation_plan.power.ieee33_reactive_opt.0001"
+variant_result_refs:
+  - "run.power.ieee33_reactive_opt.0001"
+comparison_summary: "Only one variant is available in the sample, so causality is not established."
+causal_claim_supported: false
+remaining_confounders:
+  - "missing metric-only variant"
+  - "single operating condition"
+summary: "The sample result preserves the causality boundary."

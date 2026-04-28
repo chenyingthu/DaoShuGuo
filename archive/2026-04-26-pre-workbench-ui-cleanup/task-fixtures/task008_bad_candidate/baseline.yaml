@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.task008_bad_candidate.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.task008_bad_candidate"
+baseline_kind: "validation_fixture"
+method_summary: "Baseline for bad-candidate effectiveness gate validation."
+artifact_ref:
+  kind: "validation_fixture"
+  path: "tasks/task008_bad_candidate/baseline.yaml"
+applicability:
+  domain: "power"
+  scenarios: ["task008_bad_candidate"]
+limitations: ["Not a domain solver."]

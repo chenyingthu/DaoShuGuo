@@ -1,6 +1,6 @@
 # Experiment Index
 
-- generated_at: 2026-04-22T07:43:48Z
+- generated_at: 2026-04-25T02:43:02Z
 
 | task | stage | object_type | status | path |
 | --- | --- | --- | --- | --- |
@@ -25,6 +25,18 @@
 | task003 | run | run | completed | runs/task003/run_0005/run.yaml |
 | task003 | run | run | completed | runs/task003/run_0006/run.yaml |
 | task003 | run | run | completed | runs/task003/run_0007/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0008/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0009/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0010/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0011/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0012/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0013/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0014/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0015/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0016/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0017/run.yaml |
+| task003 | run | run | completed | runs/task003/run_0018/run.yaml |
+| task003 | run | run | failed_experiment | runs/task003/run_0019/run.yaml |
 | task003 | compare | cognition | active | analysis/task003/compare_0001/cognition.yaml |
 | task003 | compare | strategy_comparison | reviewed | analysis/task003/compare_0001/strategy_comparison.yaml |
 | task003 | compare | cognition | active | analysis/task003/compare_0002/cognition.yaml |
@@ -56,6 +68,15 @@
 | task003 | upgrade | cognition | active | analysis/task003/upgrade_0006/upgraded_cognition.yaml |
 | task004 | run | run | failed_experiment | runs/task004/run_0001/run.yaml |
 | task004 | run | run | failed_experiment | runs/task004/run_0002/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0003/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0004/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0005/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0006/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0007/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0008/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0009/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0010/run.yaml |
+| task004 | run | run | failed_experiment | runs/task004/run_0011/run.yaml |
 | task004 | boundary | boundary_overclaim_check | flagged | analysis/task004/boundary_overclaim_20260421_033407/boundary_overclaim_check.yaml |
 | task004 | compare | cognition | active | analysis/task004/compare_0002/cognition.yaml |
 | task004 | compare | strategy_comparison | reviewed | analysis/task004/compare_0002/strategy_comparison.yaml |
@@ -69,6 +90,7 @@
 | task004 | mismatch | task_mismatch_check | blocked | analysis/task004/mismatch_20260421_035228/task_mismatch_check.yaml |
 | task004 | semantic | strategy_semantic_comparison | reviewed | analysis/task004/semantic_0001/strategy_semantic_comparison.yaml |
 | task004 | semantic | strategy_semantic_comparison | reviewed | analysis/task004/semantic_0002/strategy_semantic_comparison.yaml |
+| task004 | skill | analysis_note | reviewed | analysis/task004/skill_diagnosis_0001/skill_use_structure_diagnosis.yaml |
 | task004 | upgrade | cognition_upgrade | reviewed | analysis/task004/upgrade_0001/cognition_upgrade.yaml |
 | task004 | upgrade | novelty_assessment | reviewed | analysis/task004/upgrade_0001/novelty_assessment.yaml |
 | task004 | upgrade | cognition | active | analysis/task004/upgrade_0001/upgraded_cognition.yaml |

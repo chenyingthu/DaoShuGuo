@@ -1,0 +1,41 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.ieee69_reactive_opt_migration.task002"
+object_version: "0.1.0"
+created_at: "2026-04-27T12:00:00Z"
+updated_at: "2026-04-27T12:00:00Z"
+status: "active"
+metadata:
+  protocol: "generic-task-onboarding"
+task_id: "task002"
+task_ref: "task.power.ieee69_reactive_opt"
+task_package_path: "tasks/task002"
+baseline_ref: "baseline.power.ieee69_reactive_opt_migration.default"
+baseline_path: "tasks/task002/baseline.yaml"
+evaluator_ref: "evaluator.power.ieee69_reactive_opt_migration.default"
+evaluator_path: "evaluators/task002_evaluator.yaml"
+runtime_entry:
+  type: "python_script"
+  path: "tasks/task002/runtime_helpers.py"
+metrics_mapping:
+  primary:
+    - "loss"
+    - "voltage_deviation"
+  secondary:
+    - "migration_consistency"
+candidate_skill_refs:
+  - "skill.power.reactive_optimizer_task002"
+fallback_skill_refs:
+  - "skill.power.baseline_solver"
+claim_gates:
+  - name: "research_review_gate"
+    status: "ready"
+    required: true
+known_task_risks:
+  - "task001 weak-shunt approach may depend on IEEE33 structure"
+  - "evaluator may only form failure cognition after migration"
+supported_downstream_stages:
+  - "run"
+  - "review"
+  - "structural_learning"
+  - "portfolio"

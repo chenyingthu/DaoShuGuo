@@ -1,0 +1,26 @@
+schema_version: "0.1.0"
+object_type: "agent_explanation_card"
+object_id: "agent_explanation_card.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "active"
+metadata:
+  sample: true
+topic_id: "sample"
+stage: "delivery"
+recommendation: "Keep claim ceiling low."
+short_answer: "The sample lacks real evaluator evidence."
+evidence_used:
+  - "workbench_topic.sample"
+alternatives_considered:
+  - option: "upgrade claim"
+    rejected_reason: "No evaluator evidence."
+risk:
+  - "Overclaim."
+uncertainty:
+  - "No real task evidence."
+human_decision_needed: true
+suggested_human_actions:
+  - "Request evidence."
+generated_by_worker_ref: "workbench_topic.sample"

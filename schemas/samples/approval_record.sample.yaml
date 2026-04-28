@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "approval_record"
+object_id: "approval_record.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:06:00Z"
+updated_at: "2026-04-25T08:06:00Z"
+status: "bounded"
+metadata:
+  protocol: "research-plan-execute"
+batch_ref: "research_batch.power.ieee33_reactive_opt.0001"
+source_review_ref: "research_review.power.ieee33_reactive_opt.0001"
+approval_type: "bounded_next_iteration"
+approved_next_state: "context_pack_repair_only"
+evidence_refs:
+  - "research_review.power.ieee33_reactive_opt.0001"
+frozen_claims:
+  - "cognition caused skill improvement"
+summary: "Only bounded next iteration is allowed because ablation evidence is missing."

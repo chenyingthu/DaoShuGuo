@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+object_type: "worker_runtime_binding"
+object_id: "worker_runtime_binding.power.ieee33_reactive_opt.skill_worker.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:00:00Z"
+updated_at: "2026-04-25T08:00:00Z"
+status: "ready"
+metadata:
+  protocol: "research-plan-execute"
+batch_ref: "research_batch.power.ieee33_reactive_opt.0001"
+worker_role: "skill_worker"
+runtime_kind: "codex_cli"
+provider: "openai"
+model: "gpt-5.4"
+tool_permission_profile: "workspace-write"
+session_reuse_policy: "reuse_within_batch_only"
+timeout_seconds: 1800
+retry_policy:
+  max_attempts: 1
+  retry_on:
+    - "runtime_timeout"
+raw_transcript_path: "analysis/research_plan_execute/sample/raw/skill_worker.raw.txt"

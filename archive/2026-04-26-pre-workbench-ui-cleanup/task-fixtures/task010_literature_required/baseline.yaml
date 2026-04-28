@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.task010_literature_required.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.task010_literature_required"
+baseline_kind: "validation_fixture"
+method_summary: "Baseline for literature-required cognition validation."
+artifact_ref:
+  kind: "validation_fixture"
+  path: "tasks/task010_literature_required/baseline.yaml"
+applicability:
+  domain: "power"
+  scenarios: ["task010_literature_required"]
+limitations: ["Requires external evidence for cognition upgrade."]

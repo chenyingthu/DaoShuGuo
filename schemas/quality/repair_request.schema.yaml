@@ -1,0 +1,60 @@
+schema_id: "repair_request.schema"
+schema_version: "0.1.0"
+object_type: "repair_request"
+title: "Repair Request Schema"
+description: "A bounded repair request produced by a review gate."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - batch_ref
+  - source_review_ref
+  - repair_type
+  - attempt_index
+  - max_auto_attempts
+  - issue_summary
+  - required_actions
+  - blocked_fixes
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["repair_request"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "completed", "human_review_required", "archived"]
+  metadata:
+    type: object
+  batch_ref:
+    type: string
+  source_review_ref:
+    type: string
+  repair_type:
+    type: enum
+    allowed: ["repair_skill", "repair_evaluator", "repair_adapter", "repair_cognition_prompt", "repair_context_pack", "repair_schema", "repair_runtime_binding", "human_review"]
+  attempt_index:
+    type: integer
+  max_auto_attempts:
+    type: integer
+  issue_summary:
+    type: string
+  required_actions:
+    type: array[string]
+  blocked_fixes:
+    type: array[string]

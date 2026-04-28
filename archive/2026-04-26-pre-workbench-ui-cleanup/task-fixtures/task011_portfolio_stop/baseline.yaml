@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.task011_portfolio_stop.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.task011_portfolio_stop"
+baseline_kind: "validation_fixture"
+method_summary: "Baseline for portfolio-stop validation."
+artifact_ref:
+  kind: "validation_fixture"
+  path: "tasks/task011_portfolio_stop/baseline.yaml"
+applicability:
+  domain: "power"
+  scenarios: ["task011_portfolio_stop"]
+limitations: ["Designed to test stop/pause routing."]

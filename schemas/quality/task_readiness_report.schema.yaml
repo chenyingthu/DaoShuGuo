@@ -1,0 +1,73 @@
+schema_id: "task_readiness_report.schema"
+schema_version: "0.1.0"
+object_type: "task_readiness_report"
+title: "Task Readiness Report Schema"
+description: "Generic onboarding result for a task package."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_id
+  - adapter_ref
+  - task_ref
+  - readiness_status
+  - recommended_route
+  - missing_items
+  - available_items
+  - blocked_stages
+  - supported_stages
+  - evidence_refs
+  - next_actions
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["task_readiness_report"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["ready", "blocked", "framing_only", "archived"]
+  metadata:
+    type: object
+  task_id:
+    type: string
+  adapter_ref:
+    type: string
+  task_ref:
+    type: string
+  readiness_status:
+    type: enum
+    allowed: ["ready_to_run", "ready_for_framing_only", "blocked_missing_task_contract", "blocked_missing_baseline", "blocked_missing_evaluator", "blocked_missing_runtime", "blocked_missing_skill", "blocked_missing_metrics_mapping", "blocked_missing_claim_gate", "blocked_missing_adapter", "pause_for_human_review"]
+  recommended_route:
+    type: enum
+    allowed: ["run_research_pipeline", "repair_task_package", "repair_adapter", "repair_evaluator", "repair_skill_binding", "framing_only", "pause_for_human_review"]
+  missing_items:
+    type: array[string]
+  available_items:
+    type: array[string]
+  blocked_stages:
+    type: array[string]
+  supported_stages:
+    type: array[string]
+  evidence_refs:
+    type: array[string]
+  next_actions:
+    type: array[string]
+  summary:
+    type: string

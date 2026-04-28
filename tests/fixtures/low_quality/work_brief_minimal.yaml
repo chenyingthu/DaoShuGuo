@@ -1,0 +1,7 @@
+schema_version: "0.1.0"
+object_type: work_brief
+phase: skill_change_request
+hypothesis:
+  statement: "ok"
+method:
+  description: "done"

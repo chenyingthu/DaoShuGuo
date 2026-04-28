@@ -1,0 +1,59 @@
+schema_id: "decision_brief.schema"
+schema_version: "0.1.0"
+object_type: "decision_brief"
+title: "Decision Brief Schema"
+description: "Researcher-facing decision support for one intervention point."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - decision_question
+  - options
+  - recommended_option
+  - risks
+  - evidence_refs
+  - writable_actions
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["decision_brief"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["active", "degraded", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  decision_question:
+    type: string
+  options:
+    type: array[object]
+  recommended_option:
+    type: string
+  risks:
+    type: array[string]
+  evidence_refs:
+    type: array[string]
+  writable_actions:
+    type: array[string]
+  summary:
+    type: string

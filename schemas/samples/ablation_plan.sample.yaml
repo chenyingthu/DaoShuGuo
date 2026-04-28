@@ -1,0 +1,26 @@
+schema_version: "0.1.0"
+object_type: "ablation_plan"
+object_id: "ablation_plan.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:07:00Z"
+updated_at: "2026-04-25T08:07:00Z"
+status: "ready"
+metadata:
+  protocol: "research-plan-execute"
+task_ref: "task.power.ieee33_reactive_opt"
+source_review_ref: "research_review.power.ieee33_reactive_opt.0001"
+hypothesis: "Cognition-guided constraints improve candidate quality beyond a metric-only request."
+controlled_variables:
+  - "same evaluator"
+  - "same search budget"
+variants:
+  - "cognition_guided_request"
+  - "metric_only_request"
+required_metrics:
+  - "loss"
+  - "voltage_deviation"
+  - "constraint_violation"
+claim_allowed_if_passed:
+  - "cognition-guided request outperformed the metric-only baseline under this evaluator"
+claim_blocked_until_passed:
+  - "cognition caused skill improvement"

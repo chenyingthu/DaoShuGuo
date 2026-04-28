@@ -1,0 +1,56 @@
+schema_id: "failure_brief.schema"
+schema_version: "0.1.0"
+object_type: "failure_brief"
+title: "Failure Brief Schema"
+description: "Readable explanation of failure, negative evidence, or non-improvement."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - failure_type
+  - what_failed
+  - what_it_exposes
+  - whether_to_continue
+  - evidence_refs
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["failure_brief"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["active", "degraded", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  failure_type:
+    type: string
+  what_failed:
+    type: string
+  what_it_exposes:
+    type: array[string]
+  whether_to_continue:
+    type: string
+  evidence_refs:
+    type: array[string]
+  summary:
+    type: string

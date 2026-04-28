@@ -1,0 +1,59 @@
+schema_id: "research_portfolio_assessment.schema"
+schema_version: "0.1.0"
+object_type: "research_portfolio_assessment"
+title: "Research Portfolio Assessment Schema"
+description: "Cross-task assessment for deciding whether to continue, pause, or redirect skill-structure work."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - assessed_task_refs
+  - portfolio_question
+  - task_assessments
+  - cross_task_findings
+  - recommended_allocation
+  - stop_or_pause_recommendations
+  - next_tests
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["research_portfolio_assessment"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+  assessed_task_refs:
+    type: array[string]
+  portfolio_question:
+    type: string
+  task_assessments:
+    type: array[object]
+  cross_task_findings:
+    type: array[string]
+  recommended_allocation:
+    type: array[string]
+  stop_or_pause_recommendations:
+    type: array[string]
+  next_tests:
+    type: array[string]
+  summary:
+    type: string

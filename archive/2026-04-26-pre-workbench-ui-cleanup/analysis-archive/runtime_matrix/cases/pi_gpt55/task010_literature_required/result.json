@@ -1,0 +1,13 @@
+{
+  "task_id": "task010_literature_required",
+  "runtime_id": "pi_gpt55",
+  "runtime_profile": "pi:codex-relay:gpt-5.5",
+  "status": "passed",
+  "failure_class": null,
+  "issues": [],
+  "run_returncode": 0,
+  "run_duration_sec": 23.667,
+  "verify_returncode": 0,
+  "verify_duration_sec": 0.065,
+  "case_dir": "analysis/runtime_matrix/cases/pi_gpt55/task010_literature_required"
+}

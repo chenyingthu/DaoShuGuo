@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.task006_near_neighbor"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata:
+  validation_role: "blind_near_neighbor"
+title: "Task006 near-neighbor reactive optimization validation"
+description: "Blind near-neighbor task for testing generic full-loop transfer without framework code changes."
+tags: ["power", "validation", "near_neighbor"]
+research_object: "Reactive optimization under a shifted representative load envelope."
+problem_statement: "Test whether a bounded candidate can be evaluated against a fixed reactive optimization baseline."
+scenario_boundary:
+  grid_model: "ieee69_validation_variant"
+  simulator: "validation_fixture"
+success_intent:
+  goal: "Complete a full generic loop without task-specific framework code."
+  non_goal: ["Claim a new optimization method."]
+baseline_refs: ["baseline.power.task006_near_neighbor.default"]
+constraint_summary:
+  physical: ["voltage bounds"]
+  engineering: ["validation fixture runtime"]
+  research: ["preserve baseline comparison"]
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task006_near_neighbor/research_brief.md"
+target_metrics: ["validation_score", "constraint_violation"]
+risk_hypotheses: ["Near-neighbor task may only prove harness transfer."]
+assumptions: ["Validation runtime is intentionally lightweight."]

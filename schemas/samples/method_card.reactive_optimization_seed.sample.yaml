@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "method_card"
+object_id: "method_card.power.reactive_optimization.seed"
+object_version: "0.1.0"
+created_at: "2026-04-25T10:00:00Z"
+updated_at: "2026-04-25T10:00:00Z"
+status: "reviewed"
+metadata:
+  source_mode: "curated_seed"
+paper_ref: "paper.power.reactive_optimization_seed"
+method_family: "reactive_optimization_structural_learning_seed"
+method_summary: "Seed card for separating local parameter/search tuning from reusable method, process, and standard changes."
+control_signature: "reactive_power_control_policy_vs_search_grid"
+optimization_style: "conceptual_seed"
+excerpt_refs: []
+notes:
+  - "This is not external literature evidence."
+  - "It exists to make learning-context sample references auditable."

@@ -1,0 +1,11 @@
+Modified exactly one candidate skill file:
+
+skills/active_dev/renewable_inverter_reactive_optimizer_task003_iter02.py
+
+Summary:
+Expanded the renewable-aware inverter-Q search beyond the fixed 0.1 Mvar setting, kept weak-bus shunt coordination, and added explicit solver output metadata for run_0007-equivalent comparison, best inverter-only alternative, Q-search evidence, and constraint_violation interpretation.
+
+Verification:
+Import check passed.
+py_compile passed.
+Real solve on task003 constraints returned loss 88.53, voltage_deviation 0.01485, constraint_violation 5, improving over run_0007-equivalent constraint_violation 8. Evaluated 409 candidates total.

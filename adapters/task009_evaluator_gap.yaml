@@ -1,0 +1,52 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task009_evaluator_gap"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:15:00Z"
+updated_at: "2026-04-25T16:15:00Z"
+status: "active"
+metadata:
+  protocol: "generic-full-loop-validation"
+  task_package: "task009_evaluator_gap"
+task_id: "task009_evaluator_gap"
+task_ref: "task.power.task009_evaluator_gap"
+task_package_path: "tasks/task009_evaluator_gap"
+baseline_ref: "baseline.power.task009_evaluator_gap.default"
+baseline_path: "tasks/task009_evaluator_gap/baseline.yaml"
+evaluator_ref: "evaluator.power.task009_evaluator_gap.default"
+evaluator_path: "evaluators/task009_evaluator_gap_evaluator.yaml"
+runtime_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+metrics_mapping:
+  primary: ["partial_score"]
+candidate_skill_refs: ["skill.power.baseline_solver"]
+fallback_skill_refs: ["skill.power.baseline_solver"]
+claim_gates:
+  - name: "evaluator_gap_gate"
+    status: "ready"
+    required: true
+known_task_risks: ["Metric set cannot support intended claim."]
+supported_downstream_stages: ["run", "review", "evaluator_repair"]
+baseline_binding:
+  baseline_refs: ["baseline.power.task009_evaluator_gap.default"]
+candidate_binding:
+  candidate_kind: "skill_variant"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.task009_evaluator_gap.default"
+experimental:
+  worker_module: "scripts/generic_full_loop_validation_workers.py"
+  validation_scenario:
+    produced_skill_id: "skill.power.task009_evaluator_gap_candidate"
+    synthetic_run_id: "run.power.task009_evaluator_gap.validation_0001"
+    metric_summary:
+      partial_score: 0.66
+      missing_metrics: ["boundary_robustness", "cost_proxy"]
+    comparison_summary: "Partial metric changed, but the evaluator lacks claim-critical dimensions."
+    effectiveness_judgment: "Evaluator gap: available metrics cannot support the intended claim."
+    recommended_cognition_action: "Route to evaluator repair before skill evolution."
+    problem_class: "evaluator_problem"
+    cognition_judgment: "The limiting factor is evaluator adequacy, not skill performance."
+    recommended_action: "repair_evaluator"
+    continue_loop: false
+    next_worker: "effectiveness_worker"

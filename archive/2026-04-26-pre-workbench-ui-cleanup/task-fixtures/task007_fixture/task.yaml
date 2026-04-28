@@ -1,0 +1,42 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.task007_fixture"
+object_version: "0.1.0"
+created_at: "2026-04-25T11:10:00Z"
+updated_at: "2026-04-25T11:10:00Z"
+status: "draft"
+metadata:
+  source_brief: "tasks/task007_fixture/research_brief.md"
+title: "Task007 fixture for generic onboarding"
+description: "Intentionally incomplete task package used to prove generic onboarding can diagnose new tasks without task-specific framework code."
+tags:
+  - "fixture"
+  - "onboarding"
+research_object: "Generic onboarding fixture"
+problem_statement: "Check whether a new task package can be diagnosed before evaluator and metrics are complete."
+scenario_boundary:
+  grid_model: "fixture_grid"
+  operating_conditions:
+    - "fixture_only"
+  simulator: "none"
+success_intent:
+  goal: "Produce a blocked readiness report without crashing."
+  non_goal:
+    - "Run a real evaluator"
+baseline_refs:
+  - "baseline.power.task007_fixture.placeholder"
+constraint_summary:
+  physical: []
+  engineering:
+    - "No evaluator is intentionally provided."
+  research:
+    - "Readiness must block with explicit missing items."
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task007_fixture/research_brief.md"
+target_metrics: []
+risk_hypotheses:
+  - "Framework may incorrectly require task-specific code."
+assumptions:
+  - "Fixture is not a scientific task."
+owner_notes: "Used only for onboarding-readiness tests."

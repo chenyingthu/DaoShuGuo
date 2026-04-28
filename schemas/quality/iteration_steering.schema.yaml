@@ -1,0 +1,82 @@
+schema_id: "iteration_steering.schema"
+schema_version: "0.1.0"
+object_type: "iteration_steering"
+title: "Iteration Steering Schema"
+description: "Expert steering instruction for a next research-loop iteration."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - task_id
+  - created_by
+  - source
+  - target_refs
+  - evidence_refs
+  - source_loop_ref
+  - target_next_iteration
+  - steering_goal
+  - priority
+  - preferred_actions
+  - forbidden_actions
+  - required_evidence
+  - stop_condition
+  - human_rationale
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["iteration_steering"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "active", "superseded", "resolved", "rejected"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  task_id:
+    type: string
+  created_by:
+    type: string
+  source:
+    type: enum
+    allowed: ["ui", "cli", "api", "agent_suggestion"]
+  target_refs:
+    type: array[string]
+  evidence_refs:
+    type: array[string]
+  source_loop_ref:
+    type: string
+  target_next_iteration:
+    type: integer
+  steering_goal:
+    type: string
+  priority:
+    type: enum
+    allowed: ["low", "medium", "high", "blocking"]
+  preferred_actions:
+    type: array[string]
+  forbidden_actions:
+    type: array[string]
+  required_evidence:
+    type: array[string]
+  stop_condition:
+    type: string
+  human_rationale:
+    type: string

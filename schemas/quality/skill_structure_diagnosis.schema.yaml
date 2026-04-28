@@ -1,0 +1,69 @@
+schema_id: "skill_structure_diagnosis.schema"
+schema_version: "0.1.0"
+object_type: "skill_structure_diagnosis"
+title: "Skill Structure Diagnosis Schema"
+description: "Cognition-worker diagnosis of skill-use versus skill-structure improvement."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - learning_context_ref
+  - source_review_ref
+  - diagnosis_class
+  - method_diagnosis
+  - process_diagnosis
+  - standard_diagnosis
+  - skill_use_vs_structure_judgment
+  - reusable_principle_candidates
+  - unresolved_uncertainty
+  - claim_boundary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["skill_structure_diagnosis"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+  task_ref:
+    type: string
+  learning_context_ref:
+    type: string
+  source_review_ref:
+    type: string
+  diagnosis_class:
+    type: enum
+    allowed: ["skill_use_improvement_only", "potential_method_improvement", "potential_process_improvement", "potential_standard_improvement", "verified_structural_improvement", "insufficient_learning_evidence"]
+  method_diagnosis:
+    type: string
+  process_diagnosis:
+    type: string
+  standard_diagnosis:
+    type: string
+  skill_use_vs_structure_judgment:
+    type: string
+  reusable_principle_candidates:
+    type: array[string]
+  unresolved_uncertainty:
+    type: array[string]
+  claim_boundary:
+    type: array[string]

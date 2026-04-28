@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.task011_portfolio_stop"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata:
+  validation_role: "portfolio_stop"
+title: "Task011 portfolio stop validation"
+description: "Blind task where portfolio judgment should stop local looping."
+tags: ["power", "validation", "portfolio"]
+research_object: "Avoidance of local research traps."
+problem_statement: "The loop can run once, but continuation value is low."
+scenario_boundary:
+  grid_model: "validation_portfolio_stop"
+  simulator: "validation_fixture"
+success_intent:
+  goal: "Route to stop or pause after evidence review."
+  non_goal: ["Continue mechanical iterations."]
+baseline_refs: ["baseline.power.task011_portfolio_stop.default"]
+constraint_summary:
+  physical: ["low continuation value"]
+  engineering: ["validation fixture runtime"]
+  research: ["portfolio stop should be respected"]
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task011_portfolio_stop/research_brief.md"
+target_metrics: ["validation_score"]
+risk_hypotheses: ["Framework may keep iterating locally despite weak value."]
+assumptions: ["Stop/pause is the correct research decision."]

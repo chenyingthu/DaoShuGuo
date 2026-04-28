@@ -1,0 +1,13 @@
+{
+  "task_id": "task010_literature_required",
+  "runtime_id": "pi_baidu_minimax_m25",
+  "runtime_profile": "pi:baidu-anthropic:minimax-m2.5",
+  "status": "passed",
+  "failure_class": null,
+  "issues": [],
+  "run_returncode": 0,
+  "run_duration_sec": 83.974,
+  "verify_returncode": 0,
+  "verify_duration_sec": 0.064,
+  "case_dir": "analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task010_literature_required"
+}

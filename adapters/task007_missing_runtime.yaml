@@ -1,0 +1,30 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task007_missing_runtime"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:15:00Z"
+updated_at: "2026-04-25T16:15:00Z"
+status: "active"
+metadata:
+  protocol: "generic-full-loop-validation"
+  task_package: "task007_missing_runtime"
+task_id: "task007_missing_runtime"
+task_ref: "task.power.task007_missing_runtime"
+task_package_path: "tasks/task007_missing_runtime"
+baseline_ref: "baseline.power.task007_missing_runtime.default"
+baseline_path: "tasks/task007_missing_runtime/baseline.yaml"
+evaluator_ref: "evaluator.power.task007_missing_runtime.default"
+evaluator_path: "evaluators/task007_missing_runtime_evaluator.yaml"
+runtime_entry:
+  type: "python_script"
+  path: "evaluators/task007_missing_runtime_evaluator.py"
+metrics_mapping:
+  primary: ["placeholder"]
+candidate_skill_refs: ["skill.power.baseline_solver"]
+fallback_skill_refs: ["skill.power.baseline_solver"]
+claim_gates:
+  - name: "blocked_runtime_gate"
+    status: "ready"
+    required: true
+known_task_risks: ["Runtime is intentionally absent."]
+supported_downstream_stages: ["framing"]

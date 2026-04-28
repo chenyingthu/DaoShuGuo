@@ -1,0 +1,20 @@
+schema_version: "0.1.0"
+object_type: "routing_constraint"
+object_id: "routing_constraint.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "active"
+metadata:
+  sample: true
+topic_id: "sample"
+task_id: "task.sample"
+source_human_object_ref: "human_review.sample"
+applies_to_stage: "loop"
+constraint_type: "require_evidence"
+content: "Next loop must cite evidence before making claims."
+priority: "medium"
+active: true
+expires_after_iteration: 1
+conflicts_with: []
+resolution_status: "none"

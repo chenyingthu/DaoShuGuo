@@ -1,0 +1,56 @@
+schema_id: "research_batch.schema"
+schema_version: "0.1.0"
+object_type: "research_batch"
+title: "Research Batch Schema"
+description: "A bounded execution unit inside research-plan-execute."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - plan_ref
+  - batch_index
+  - task_ref
+  - batch_goal
+  - worker_sequence
+  - required_outputs
+  - review_gate_required
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["research_batch"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "running", "reviewed", "approved", "blocked", "archived"]
+  metadata:
+    type: object
+  plan_ref:
+    type: string
+  batch_index:
+    type: integer
+  task_ref:
+    type: string
+  batch_goal:
+    type: string
+  worker_sequence:
+    type: array[string]
+  required_outputs:
+    type: array[string]
+  review_gate_required:
+    type: boolean

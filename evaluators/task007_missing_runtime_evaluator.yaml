@@ -1,0 +1,23 @@
+schema_version: "0.1.0"
+object_type: "evaluator"
+object_id: "evaluator.power.task007_missing_runtime.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:12:00Z"
+updated_at: "2026-04-25T16:12:00Z"
+status: "draft"
+metadata:
+  protocol: "generic-full-loop-validation"
+task_ref: "task.power.task007_missing_runtime"
+evaluation_goal: "Intentionally incomplete evaluator contract for blocked routing."
+metric_definitions:
+  - metric_id: "placeholder"
+    direction: "higher_is_better"
+baseline_strategy:
+  type: "named_baseline"
+  refs: ["baseline.power.task007_missing_runtime.default"]
+pass_criteria:
+  rule: "Not executable; readiness must block."
+execution_entry:
+  type: "python_script"
+  path: "evaluators/task007_missing_runtime_evaluator.py"
+comparison_mode: "baseline_only"

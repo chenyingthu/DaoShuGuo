@@ -1,0 +1,102 @@
+schema_id: "agent_context_pack.schema"
+schema_version: "0.1.0"
+object_type: "agent_context_pack"
+title: "Agent Context Pack Schema"
+description: "Persisted context package used to render an agent prompt."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - batch_ref
+  - worker_role
+  - runtime_binding_ref
+  - mission
+  - role_boundary
+  - task_refs
+  - prior_artifact_refs
+  - allowed_changes
+  - blocked_paths
+  - evaluator_refs
+  - baseline_refs
+  - review_history_refs
+  - current_hypothesis
+  - required_output_schema_ref
+  - stop_conditions
+  - token_budget
+  - context_budget
+  - artifact_provenance_digest
+  - redaction_policy
+  - expected_failure_modes
+  - previous_repair_attempt_refs
+  - rendered_prompt_path
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["agent_context_pack"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "ready", "used", "archived"]
+  metadata:
+    type: object
+  batch_ref:
+    type: string
+  worker_role:
+    type: enum
+    allowed: ["skill_worker", "effectiveness_worker", "cognition_worker", "delivery_worker", "review_worker", "repair_worker"]
+  runtime_binding_ref:
+    type: string
+  mission:
+    type: string
+  role_boundary:
+    type: array[string]
+  task_refs:
+    type: array[string]
+  prior_artifact_refs:
+    type: array[string]
+  allowed_changes:
+    type: array[string]
+  blocked_paths:
+    type: array[string]
+  evaluator_refs:
+    type: array[string]
+  baseline_refs:
+    type: array[string]
+  review_history_refs:
+    type: array[string]
+  current_hypothesis:
+    type: string
+  required_output_schema_ref:
+    type: string
+  stop_conditions:
+    type: array[string]
+  token_budget:
+    type: integer
+  context_budget:
+    type: integer
+  artifact_provenance_digest:
+    type: string
+  redaction_policy:
+    type: string
+  expected_failure_modes:
+    type: array[string]
+  previous_repair_attempt_refs:
+    type: array[string]
+  rendered_prompt_path:
+    type: string

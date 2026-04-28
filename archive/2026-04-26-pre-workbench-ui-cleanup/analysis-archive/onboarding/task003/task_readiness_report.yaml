@@ -1,0 +1,39 @@
+schema_version: 0.1.0
+object_type: task_readiness_report
+object_id: task_readiness.task003
+object_version: 0.1.0
+created_at: '2026-04-25T16:47:34Z'
+updated_at: '2026-04-25T16:47:34Z'
+status: ready
+metadata:
+  protocol: generic-task-onboarding
+task_id: task003
+adapter_ref: task_adapter.power.ieee69_renewable_reactive_opt.task003
+task_ref: task.power.ieee69_renewable_reactive_opt
+readiness_status: ready_to_run
+recommended_route: run_research_pipeline
+missing_items: []
+available_items:
+- adapters/task003.yaml
+- evaluators/task003_evaluator.py
+- evaluators/task003_evaluator.yaml
+- skill.power.baseline_solver
+- skill.power.renewable_inverter_reactive_optimizer_task003
+- tasks/task003/baseline.yaml
+- tasks/task003/control_scope.yaml
+- tasks/task003/grid_context.yaml
+- tasks/task003/renewable_context.yaml
+- tasks/task003/research_brief.md
+- tasks/task003/task.yaml
+blocked_stages: []
+supported_stages:
+- run
+- review
+- structural_learning
+- portfolio
+evidence_refs:
+- task.power.ieee69_renewable_reactive_opt
+- task_adapter.power.ieee69_renewable_reactive_opt.task003
+next_actions:
+- Run generic research pipeline.
+summary: 'task003 onboarding status: ready_to_run; route: run_research_pipeline'

@@ -1,0 +1,68 @@
+schema_id: "agent_explanation_card.schema"
+schema_version: "0.1.0"
+object_type: "agent_explanation_card"
+title: "Agent Explanation Card Schema"
+description: "Researcher-facing explanation of an agent recommendation."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - stage
+  - recommendation
+  - short_answer
+  - evidence_used
+  - alternatives_considered
+  - risk
+  - uncertainty
+  - human_decision_needed
+  - suggested_human_actions
+  - generated_by_worker_ref
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["agent_explanation_card"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["active", "ungrounded_draft", "superseded", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  stage:
+    type: string
+  recommendation:
+    type: string
+  short_answer:
+    type: string
+  evidence_used:
+    type: array[string]
+  alternatives_considered:
+    type: array[object]
+  risk:
+    type: array[string]
+  uncertainty:
+    type: array[string]
+  human_decision_needed:
+    type: boolean
+  suggested_human_actions:
+    type: array[string]
+  generated_by_worker_ref:
+    type: string

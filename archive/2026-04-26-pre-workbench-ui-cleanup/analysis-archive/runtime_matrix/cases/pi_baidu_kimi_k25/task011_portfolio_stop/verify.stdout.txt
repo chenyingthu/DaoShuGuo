@@ -1,0 +1,9 @@
+{
+  "task_id": "task011_portfolio_stop",
+  "task_ref": "task.power.task011_portfolio_stop",
+  "backend": "pi_baidu_kimi_k25",
+  "workspace": "analysis/full_loop_validation/runs/pi_baidu_kimi_k25/power.task011_portfolio_stop/iter_0001",
+  "verdict": "passed",
+  "issues": [],
+  "required_objects_present": true
+}

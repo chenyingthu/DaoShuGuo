@@ -1,0 +1,82 @@
+schema_id: "skill_structure_assessment.schema"
+schema_version: "0.1.0"
+object_type: "skill_structure_assessment"
+title: "Skill Structure Assessment Schema"
+description: "Evaluation result for method/process/standard structural improvement claims."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - task_ref
+  - source_review_ref
+  - diagnosis_ref
+  - change_request_ref
+  - target_skill_ref
+  - method_score
+  - process_score
+  - standard_score
+  - skill_use_score
+  - evidence_refs
+  - structural_verdict
+  - improvement_class
+  - blocked_claims
+  - required_next_evidence
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["skill_structure_assessment"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "archived"]
+  metadata:
+    type: object
+  task_ref:
+    type: string
+  source_review_ref:
+    type: string
+  diagnosis_ref:
+    type: string
+  change_request_ref:
+    type: string
+  target_skill_ref:
+    type: string
+  method_score:
+    type: integer
+  process_score:
+    type: integer
+  standard_score:
+    type: integer
+  skill_use_score:
+    type: integer
+  evidence_refs:
+    type: array[string]
+  structural_verdict:
+    type: enum
+    allowed: ["verified_structural_improvement", "structural_attempt_ready", "skill_use_improvement_only", "insufficient_evidence", "rejected_overclaim"]
+  improvement_class:
+    type: enum
+    allowed: ["skill_use", "method", "process", "standard", "mixed_structural", "none"]
+  blocked_claims:
+    type: array[string]
+  required_next_evidence:
+    type: array[string]
+  summary:
+    type: string

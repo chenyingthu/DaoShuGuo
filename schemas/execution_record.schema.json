@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Execution Record",
+  "description": "技能执行记录，包含执行细节和结果",
+  "required": ["schema_version", "object_type", "phase", "execution", "results"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "object_type": {
+      "type": "string",
+      "const": "execution_record"
+    },
+    "phase": {
+      "type": "string",
+      "const": "skill_execution"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "task_ref": {
+      "type": "string"
+    },
+    "skill_ref": {
+      "type": "string"
+    },
+    "execution": {
+      "type": "object",
+      "required": ["status", "timestamp", "inputs", "outputs"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["completed", "failed", "partial", "blocked"]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "exit_code": {
+          "type": "integer"
+        },
+        "inputs": {
+          "type": "object",
+          "required": ["grid_model", "simulator"],
+          "properties": {
+            "grid_model": {"type": "string"},
+            "base_load_mw": {"type": "number"},
+            "compensation_nodes": {
+              "type": "array",
+              "items": {"type": "integer"}
+            },
+            "compensation_mvar_per_node": {"type": "number"},
+            "simulator": {"type": "string"},
+            "simulator_version": {"type": "string"},
+            "additionalProperties": true
+          }
+        },
+        "outputs": {
+          "type": "object",
+          "properties": {
+            "raw_result_path": {"type": "string"},
+            "metrics_path": {"type": "string"},
+            "log_path": {"type": "string"},
+            "artifacts_dir": {"type": "string"}
+          }
+        },
+        "logs": {
+          "type": "object",
+          "properties": {
+            "stdout": {"type": "string"},
+            "stderr": {"type": "string"},
+            "error_message": {"type": "string"}
+          }
+        }
+      }
+    },
+    "skill_implementation": {
+      "$ref": "work_brief.schema.json#/definitions/skill_implementation"
+    },
+    "results": {
+      "$ref": "work_brief.schema.json#/definitions/results"
+    },
+    "failure_capsule": {
+      "$ref": "work_brief.schema.json#/definitions/failure_capsule"
+    },
+    "next_actions": {
+      "$ref": "work_brief.schema.json#/definitions/next_actions"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "path"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["simulation_output", "code_snapshot", "baseline_comparison", "log_file"]
+          },
+          "path": {"type": "string"},
+          "checksum": {"type": "string"},
+          "git_commit": {"type": "string"}
+        }
+      }
+    }
+  }
+}

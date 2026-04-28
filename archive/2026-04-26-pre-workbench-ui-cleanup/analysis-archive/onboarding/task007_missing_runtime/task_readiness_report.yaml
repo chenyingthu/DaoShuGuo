@@ -1,0 +1,35 @@
+schema_version: 0.1.0
+object_type: task_readiness_report
+object_id: task_readiness.task007_missing_runtime
+object_version: 0.1.0
+created_at: '2026-04-25T16:08:36Z'
+updated_at: '2026-04-25T16:08:36Z'
+status: blocked
+metadata:
+  protocol: generic-task-onboarding
+task_id: task007_missing_runtime
+adapter_ref: task_adapter.power.task007_missing_runtime
+task_ref: task.power.task007_missing_runtime
+readiness_status: blocked_missing_runtime
+recommended_route: repair_adapter
+missing_items:
+- evaluators/task007_missing_runtime_evaluator.py
+available_items:
+- adapters/task007_missing_runtime.yaml
+- evaluators/task007_missing_runtime_evaluator.yaml
+- tasks/task007_missing_runtime/baseline.yaml
+- tasks/task007_missing_runtime/research_brief.md
+- tasks/task007_missing_runtime/task.yaml
+blocked_stages:
+- run
+- review
+- structural_learning
+supported_stages:
+- framing
+evidence_refs:
+- task.power.task007_missing_runtime
+- task_adapter.power.task007_missing_runtime
+next_actions:
+- Add runnable runtime entry in adapter.
+summary: 'task007_missing_runtime onboarding status: blocked_missing_runtime; route:
+  repair_adapter'

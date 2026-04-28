@@ -1,0 +1,21 @@
+schema_version: "0.1.0"
+object_type: "human_attention_item"
+object_id: "human_attention_item.sample"
+object_version: "0.1.0"
+created_at: "2026-04-26T00:00:00Z"
+updated_at: "2026-04-26T00:00:00Z"
+status: "open"
+metadata:
+  sample: true
+topic_id: "sample"
+severity: "medium"
+stage: "delivery"
+question: "Can the sample support a claim?"
+why_human_needed: "Claim approval requires expert judgment."
+agent_recommendation: "Do not approve scientific claims."
+evidence_refs:
+  - "workbench_topic.sample"
+allowed_actions:
+  - "approve"
+  - "reject"
+writeback_object_type: "claim_approval"

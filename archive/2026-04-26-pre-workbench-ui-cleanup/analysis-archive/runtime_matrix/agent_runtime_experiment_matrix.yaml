@@ -1,0 +1,220 @@
+schema_version: 0.1.0
+object_type: experiment_matrix
+object_id: experiment_matrix.agent_runtime_full_loop.current
+created_at: '2026-04-26T02:30:57Z'
+updated_at: '2026-04-26T02:34:55Z'
+status: reviewed
+task_ref: task.power.task006_near_neighbor
+metadata:
+  matrix_type: agent_runtime_full_loop
+  source_report: analysis/runtime_matrix/agent_runtime_matrix_report.yaml
+  entrypoint: scripts/run_agent_runtime_matrix.py
+  runner_entry: scripts/run_generic_loop_engine.py
+  runtime_registry: configs/agent_runtimes/registry.yaml
+  task_family_note: virtual fixture suite; rows carry concrete task ids and task refs
+  task_family_id: generic_fixture_suite
+rows:
+- task_id: task006_near_neighbor
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  run_duration_sec: 23.191
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  run_duration_sec: 18.798
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  run_duration_sec: 18.359
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  run_duration_sec: 17.874
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_baidu_glm5
+  runtime_profile: pi:baidu-anthropic:glm-5
+  status: passed
+  failure_class: null
+  run_duration_sec: 16.67
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_glm5/task011_portfolio_stop
+- task_id: task006_near_neighbor
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 16.921
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 18.967
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 16.907
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 16.796
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_baidu_kimi_k25
+  runtime_profile: pi:baidu-anthropic:kimi-k2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 15.584
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_kimi_k25/task011_portfolio_stop
+- task_id: task006_near_neighbor
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 57.269
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 117.476
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 58.848
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 83.974
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_baidu_minimax_m25
+  runtime_profile: pi:baidu-anthropic:minimax-m2.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 85.535
+  case_dir: analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task011_portfolio_stop
+- task_id: task006_near_neighbor
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 17.483
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task006_near_neighbor
+- task_id: task008_bad_candidate
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 17.86
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task008_bad_candidate
+- task_id: task009_evaluator_gap
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 15.206
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task009_evaluator_gap
+- task_id: task010_literature_required
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 23.667
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task010_literature_required
+- task_id: task011_portfolio_stop
+  runtime_id: pi_gpt55
+  runtime_profile: pi:codex-relay:gpt-5.5
+  status: passed
+  failure_class: null
+  run_duration_sec: 18.284
+  case_dir: analysis/runtime_matrix/cases/pi_gpt55/task011_portfolio_stop
+summary: 20/20 task-runtime full-loop cases passed across 5 tasks and 4 Pi runtimes.
+coverage_summary:
+  by_runtime:
+    pi_gpt55:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+    pi_baidu_glm5:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+    pi_baidu_kimi_k25:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+    pi_baidu_minimax_m25:
+      passed: 5
+      failed: 0
+      blocked: 0
+      total: 5
+  by_task:
+    task009_evaluator_gap:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task006_near_neighbor:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task008_bad_candidate:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task011_portfolio_stop:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+    task010_literature_required:
+      passed: 4
+      failed: 0
+      blocked: 0
+      total: 4
+  passed: 20
+  failed: 0
+  blocked: 0
+  total: 20
+interpretation:
+- The generic task onboarding and full-loop entrypoint work across the tested fixture
+  task family without task-specific framework code.
+- The tested Pi runtimes share the same DaoShuGuo worker contract; provider/model
+  differences remain Pi-managed profiles, not DaoShuGuo API adapters.
+- This proves fixture-level backend/model robustness for Pi profiles, not Level 5
+  research-quality autonomous cognition.
+not_proven:
+- Codex/OMX framework-callable runtime remains blocked in the registry.
+- Real scientific novelty and deliverable quality remain outside this fixture-level
+  matrix.

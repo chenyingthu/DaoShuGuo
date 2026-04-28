@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.task009_evaluator_gap"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata:
+  validation_role: "evaluator_gap"
+title: "Task009 evaluator gap validation"
+description: "Blind task where metrics are insufficient for the intended claim."
+tags: ["power", "validation", "evaluator_gap"]
+research_object: "Evaluator adequacy for research claims."
+problem_statement: "The task can run, but its metrics cannot support the intended claim."
+scenario_boundary:
+  grid_model: "validation_evaluator_gap"
+  simulator: "validation_fixture"
+success_intent:
+  goal: "Route to evaluator or standard repair."
+  non_goal: ["Claim validated skill improvement."]
+baseline_refs: ["baseline.power.task009_evaluator_gap.default"]
+constraint_summary:
+  physical: ["claim metrics incomplete"]
+  engineering: ["validation fixture runtime"]
+  research: ["evaluator weakness must be explicit"]
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task009_evaluator_gap/research_brief.md"
+target_metrics: ["partial_score"]
+risk_hypotheses: ["Framework may ignore evaluator insufficiency."]
+assumptions: ["Metrics are intentionally incomplete."]

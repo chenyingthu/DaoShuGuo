@@ -1,0 +1,13 @@
+{
+  "task_id": "task009_evaluator_gap",
+  "runtime_id": "pi_baidu_glm5",
+  "runtime_profile": "pi:baidu-anthropic:glm-5",
+  "status": "passed",
+  "failure_class": null,
+  "issues": [],
+  "run_returncode": 0,
+  "run_duration_sec": 18.359,
+  "verify_returncode": 0,
+  "verify_duration_sec": 0.064,
+  "case_dir": "analysis/runtime_matrix/cases/pi_baidu_glm5/task009_evaluator_gap"
+}

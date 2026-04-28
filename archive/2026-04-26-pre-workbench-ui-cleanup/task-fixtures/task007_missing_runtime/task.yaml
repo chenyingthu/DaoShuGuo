@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+object_type: "task"
+object_id: "task.power.task007_missing_runtime"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata:
+  validation_role: "blocked_missing_runtime"
+title: "Task007 missing runtime validation"
+description: "Blind blocked task for testing readiness routing."
+tags: ["power", "validation", "blocked"]
+research_object: "Incomplete validation task package."
+problem_statement: "The task intentionally lacks executable runtime support."
+scenario_boundary:
+  grid_model: "missing_runtime_fixture"
+  simulator: "none"
+success_intent:
+  goal: "Be blocked by generic onboarding."
+  non_goal: ["Enter full loop."]
+baseline_refs: ["baseline.power.task007_missing_runtime.default"]
+constraint_summary:
+  physical: []
+  engineering: ["runtime intentionally absent"]
+  research: ["blocked outcome must be first class"]
+input_artifacts:
+  - kind: "research_brief"
+    path: "tasks/task007_missing_runtime/research_brief.md"
+target_metrics: ["placeholder"]
+risk_hypotheses: ["Framework may incorrectly enter loop despite blocked readiness."]
+assumptions: ["Blocked routing is the expected success condition."]

@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+object_type: worker_runtime_binding
+object_id: worker_runtime_binding.power.ieee69_renewable_reactive_opt.review_worker.0002
+object_version: 0.1.0
+created_at: '2026-04-25T09:31:09Z'
+updated_at: '2026-04-25T09:31:09Z'
+status: ready
+metadata:
+  protocol: research-plan-execute
+  task_package: task003
+batch_ref: research_batch.power.ieee69_renewable_reactive_opt.0002
+worker_role: review_worker
+runtime_kind: codex_cli
+provider: openai
+model: gpt-5.4
+tool_permission_profile: workspace-write
+session_reuse_policy: reuse_within_batch_only
+timeout_seconds: 1800
+retry_policy:
+  max_attempts: 1
+  retry_on:
+  - runtime_timeout
+  - provider_error
+raw_transcript_path: analysis/research_plan_execute/task003_iter02/raw/review_worker.raw.txt

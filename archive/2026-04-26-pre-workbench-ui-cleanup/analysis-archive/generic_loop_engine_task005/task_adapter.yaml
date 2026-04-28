@@ -1,0 +1,64 @@
+schema_version: "0.1"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task005_restoration_resilience"
+object_version: "0.1.0"
+task_ref: "task.power.ieee69_restoration_resilience"
+task_definition_ref: "task.power.ieee69_restoration_resilience"
+baseline_binding:
+  baseline_refs:
+    - "baseline.power.ieee69_restoration_resilience.conservative_restoration"
+  selection_rule: "fixed_default"
+  comparison_scope: "same_fault_same_evaluator"
+candidate_binding:
+  candidate_kind: "skill_variant"
+  candidate_locator: "skills/active_dev/renewable_underperformer_task005.py"
+  materialization_rule: "existing_task005_performance_failure_candidate"
+  artifact_expectations:
+    - "skill_change_result"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.ieee69_restoration_resilience.default"
+  execution_entry:
+    type: "archived_run"
+    path: "runs/task005/run_0003"
+  input_mapping: {}
+  output_mapping:
+    metrics: "runs/task005/run_0003/metrics.json"
+search_envelope:
+  modifiable_dimensions:
+    - "renewable_restoration_policy"
+    - "critical_load_priority"
+  frozen_dimensions:
+    - "task_definition"
+    - "fault_context"
+    - "evaluator_logic"
+  budget_constraints:
+    max_iterations: 1
+  termination_hints:
+    - "single_adapter_smoke_iteration"
+diagnosis_hook_config:
+  expected_failure_modes:
+    - "semantic_candidate_performance_failure"
+    - "restoration_action_cost_without_load_recovery_gain"
+  task_specific_blind_spots:
+    - "event-driven restoration semantics cannot be replaced by steady-state operation success"
+    - "equal restored load with higher action cost is not an effectiveness gain"
+  adapter_level_checks:
+    - "baseline_and_candidate_use_same_fault_context"
+    - "run_ref must come from the task005 restoration lane"
+workspace_binding:
+  input_roots:
+    - "tasks/task005/"
+    - "runs/task005/run_0003/"
+    - "analysis/task005/upgrade_0002/"
+  output_roots:
+    - "analysis/generic_loop_engine_task005/workspaces/"
+  naming_convention: "run_task005_adapter_<serial>"
+metadata:
+  task_package: "task005"
+experimental:
+  worker_module: "scripts/generic_loop_engine_task005_workers.py"
+  run_root: "runs/task005/run_0003"
+  cognition_ref: "analysis/task005/upgrade_0002/upgraded_cognition.yaml"
+  iteration_index: 1
+  previous_skill_ref: "skill.power.renewable_underperformer_task005"
+  require_loop_review: true

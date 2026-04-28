@@ -1,0 +1,53 @@
+schema_id: "iteration_digest.schema"
+schema_version: "0.1.0"
+object_type: "iteration_digest"
+title: "Iteration Digest Schema"
+description: "Readable summary of substantive changes across research-loop iterations."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - topic_id
+  - compared_iterations
+  - substantive_changes
+  - non_changes
+  - evidence_refs
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["iteration_digest"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["active", "degraded", "archived"]
+  metadata:
+    type: object
+  topic_id:
+    type: string
+  compared_iterations:
+    type: array[string]
+  substantive_changes:
+    type: array[string]
+  non_changes:
+    type: array[string]
+  evidence_refs:
+    type: array[string]
+  summary:
+    type: string

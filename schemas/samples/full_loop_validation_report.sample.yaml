@@ -1,0 +1,24 @@
+schema_version: "0.1.0"
+object_type: "full_loop_validation_report"
+object_id: "full_loop_validation.power.sample"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:00:00Z"
+updated_at: "2026-04-25T16:00:00Z"
+status: "reviewed"
+metadata:
+  protocol: "generic-full-loop-validation"
+proof_level: "level_1_deterministic_full_loop"
+validated_task_refs:
+  - "task.power.ieee33_reactive_opt"
+blocked_task_refs: []
+backend_refs:
+  - "backend.deterministic"
+validation_results:
+  - task_ref: "task.power.ieee33_reactive_opt"
+    backend: "deterministic"
+    verdict: "passed"
+framework_gaps: []
+task_gaps: []
+not_proven:
+  - "Agentic autonomy is not proven by this sample."
+summary: "Sample full-loop validation report."

@@ -1,0 +1,44 @@
+schema_version: "0.1.0"
+object_type: execution_record
+phase: skill_execution
+sequence: 2
+task_ref: task.power.task007_fixture
+skill_ref: skill.power.fixture_loop_candidate
+execution:
+  status: completed
+  timestamp: "2026-04-28T00:00:00Z"
+  duration_seconds: 1.0
+  exit_code: 0
+  inputs:
+    grid_model: task007_fixture
+    base_load_mw: 1.0
+    compensation_nodes: [7]
+    compensation_mvar_per_node: 0.1
+    simulator: deterministic_fixture
+  outputs:
+    raw_result_path: analysis/generic_loop_engine_fixture/candidates/fixture_candidate.yaml
+    metrics_path: analysis/generic_loop_engine_fixture/candidates/fixture_metrics.yaml
+skill_implementation:
+  code:
+    main_file: scripts/generic_loop_engine_fixture_workers.py
+    structure:
+      - function: skill_execution_worker
+        purpose: "Return a deterministic candidate execution record for harness E2E validation."
+        algorithm: Deterministic Fixture Candidate
+results:
+  primary_metrics:
+    candidate_score:
+      value: 0.4
+      unit: score
+    baseline_score:
+      value: 0.3
+      unit: score
+failure_capsule:
+  known_limitations:
+    - limitation: "The fixture does not prove behavior on full IEEE feeders."
+      impact: "Evidence remains limited to harness regression."
+      severity: medium
+next_actions:
+  immediate:
+    - action: "Compare against no-harness baseline."
+      rationale: "A/B scoring proves whether validation improves record quality."

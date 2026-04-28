@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "object_type": "llm_cognition_job",
+  "job_id": "task003_agentic_semantic_counter_iter02",
+  "workflow_id": "task003_agentic_semantic_workflow_iter02",
+  "workflow_role": "counter",
+  "created_at": "2026-04-25T02:50:37Z",
+  "agent_role": "semantic_counter",
+  "prompt_ref": "agents/cognition/prompts/semantic_counter.md",
+  "input_refs": [
+    "runs/task003/run_0021/run.yaml",
+    "runs/task003/run_0021/metrics.json",
+    "runs/task003/run_0021/report.yaml",
+    "analysis/task003/compare_0001/strategy_comparison.yaml",
+    "analysis/task003/semantic_0001/strategy_semantic_comparison.yaml"
+  ],
+  "predecessor_output_refs": [
+    "agents/cognition/workflow_outputs/task003_agentic_semantic_proposer_iter02.json"
+  ],
+  "expected_output_schema": "agents/cognition/workflow_spec.yaml"
+}

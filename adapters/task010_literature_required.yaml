@@ -1,0 +1,55 @@
+schema_version: "0.1.0"
+object_type: "task_adapter"
+object_id: "task_adapter.power.task010_literature_required"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:15:00Z"
+updated_at: "2026-04-25T16:15:00Z"
+status: "active"
+metadata:
+  protocol: "generic-full-loop-validation"
+  task_package: "task010_literature_required"
+task_id: "task010_literature_required"
+task_ref: "task.power.task010_literature_required"
+task_package_path: "tasks/task010_literature_required"
+baseline_ref: "baseline.power.task010_literature_required.default"
+baseline_path: "tasks/task010_literature_required/baseline.yaml"
+evaluator_ref: "evaluator.power.task010_literature_required.default"
+evaluator_path: "evaluators/task010_literature_required_evaluator.yaml"
+runtime_entry:
+  type: "python_function"
+  path: "scripts/generic_full_loop_validation_workers.py"
+metrics_mapping:
+  primary: ["validation_score"]
+candidate_skill_refs: ["skill.power.baseline_solver"]
+fallback_skill_refs: ["skill.power.baseline_solver"]
+claim_gates:
+  - name: "literature_required_gate"
+    status: "ready"
+    required: true
+known_task_risks: ["Novelty cannot be claimed without external evidence."]
+supported_downstream_stages: ["run", "review", "literature_alignment"]
+baseline_binding:
+  baseline_refs: ["baseline.power.task010_literature_required.default"]
+candidate_binding:
+  candidate_kind: "skill_variant"
+evaluator_binding:
+  evaluator_ref: "evaluator.power.task010_literature_required.default"
+experimental:
+  worker_module: "scripts/generic_full_loop_validation_workers.py"
+  validation_scenario:
+    produced_skill_id: "skill.power.task010_literature_required_candidate"
+    synthetic_run_id: "run.power.task010_literature_required.validation_0001"
+    metric_summary:
+      validation_score: 0.74
+      evidence_level: "internal_only"
+    comparison_summary: "Internal evidence exists but literature alignment is missing."
+    effectiveness_judgment: "Effectiveness evidence is insufficient for external novelty claims."
+    recommended_cognition_action: "Create a learning need and literature alignment request."
+    problem_class: "evidence_insufficiency"
+    cognition_judgment: "Cognition must request external literature before claim upgrade."
+    recommended_action: "request_literature_alignment"
+    continue_loop: false
+    next_worker: "literature_worker"
+    next_iteration_task_refinements: ["Attach external literature evidence before claim escalation."]
+    search_priority_updates: ["Prioritize literature alignment over more local tuning."]
+    required_discriminating_tests: ["Compare internal result against at least one external method family."]

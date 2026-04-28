@@ -1,0 +1,56 @@
+schema_id: "backend_comparison_report.schema"
+schema_version: "0.1.0"
+object_type: "backend_comparison_report"
+title: "Backend Comparison Report Schema"
+description: "Comparison report for deterministic, Codex/OMX, and Pi-agent loop backends."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - compared_backends
+  - compared_task_refs
+  - backend_results
+  - harness_findings
+  - recommended_backend_policy
+  - not_proven
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["backend_comparison_report"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["draft", "reviewed", "blocked", "archived"]
+  metadata:
+    type: object
+  compared_backends:
+    type: array[string]
+  compared_task_refs:
+    type: array[string]
+  backend_results:
+    type: array[object]
+  harness_findings:
+    type: array[string]
+  recommended_backend_policy:
+    type: array[string]
+  not_proven:
+    type: array[string]
+  summary:
+    type: string

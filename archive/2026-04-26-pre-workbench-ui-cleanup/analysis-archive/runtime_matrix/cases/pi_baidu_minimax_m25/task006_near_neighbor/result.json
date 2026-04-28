@@ -1,0 +1,13 @@
+{
+  "task_id": "task006_near_neighbor",
+  "runtime_id": "pi_baidu_minimax_m25",
+  "runtime_profile": "pi:baidu-anthropic:minimax-m2.5",
+  "status": "passed",
+  "failure_class": null,
+  "issues": [],
+  "run_returncode": 0,
+  "run_duration_sec": 57.269,
+  "verify_returncode": 0,
+  "verify_duration_sec": 0.065,
+  "case_dir": "analysis/runtime_matrix/cases/pi_baidu_minimax_m25/task006_near_neighbor"
+}

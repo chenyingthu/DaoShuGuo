@@ -1,0 +1,53 @@
+schema_id: "ablation_result.schema"
+schema_version: "0.1.0"
+object_type: "ablation_result"
+title: "Ablation Result Schema"
+description: "Result of an ablation plan."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - ablation_plan_ref
+  - variant_result_refs
+  - comparison_summary
+  - causal_claim_supported
+  - remaining_confounders
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["ablation_result"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["completed", "inconclusive", "failed", "archived"]
+  metadata:
+    type: object
+  ablation_plan_ref:
+    type: string
+  variant_result_refs:
+    type: array[string]
+  comparison_summary:
+    type: string
+  causal_claim_supported:
+    type: boolean
+  remaining_confounders:
+    type: array[string]
+  summary:
+    type: string

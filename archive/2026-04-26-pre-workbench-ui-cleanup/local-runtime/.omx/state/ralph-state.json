@@ -1,0 +1,23 @@
+{
+  "active": false,
+  "current_phase": "complete",
+  "completed_at": "2026-04-20T04:15:00Z",
+  "task_description": "Evidence-stratified cognition control completed and committed.",
+  "verification": [
+    "python orchestrator/main.py verify-task001-pipeline",
+    "python scripts/validate_schemas.py",
+    "python scripts/validate_schemas.py --artifacts literature-alignment-plan",
+    "python -m py_compile orchestrator/main.py"
+  ],
+  "latest_upgrade": "analysis/task001/upgrade_0014",
+  "latest_explanation_alignment": "analysis/task001/explanations_0010",
+  "iteration": 3,
+  "max_iterations": 10,
+  "started_at": "2026-04-20T04:04:58Z",
+  "context_snapshot_path": ".omx/context/ralph-evidence-stratified-cognition-20260420T040458Z.md",
+  "prd_path": ".omx/plans/prd-evidence-stratified-cognition.md",
+  "test_spec_path": ".omx/plans/test-spec-evidence-stratified-cognition.md",
+  "last_turn_at": "2026-04-20T04:16:41.992Z",
+  "architect_verdict": "APPROVED",
+  "commit": "14ab59c"
+}

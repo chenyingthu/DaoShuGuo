@@ -1,0 +1,57 @@
+schema_id: "approval_record.schema"
+schema_version: "0.1.0"
+object_type: "approval_record"
+title: "Approval Record Schema"
+description: "Evidence-backed approval or bounded approval for a research batch."
+
+required_fields:
+  - schema_version
+  - object_type
+  - object_id
+  - object_version
+  - created_at
+  - updated_at
+  - status
+  - metadata
+  - batch_ref
+  - source_review_ref
+  - approval_type
+  - approved_next_state
+  - evidence_refs
+  - frozen_claims
+  - summary
+
+field_specs:
+  schema_version:
+    type: string
+  object_type:
+    type: enum
+    allowed: ["approval_record"]
+  object_id:
+    type: string
+  object_version:
+    type: string
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+  status:
+    type: enum
+    allowed: ["approved", "bounded", "archived"]
+  metadata:
+    type: object
+  batch_ref:
+    type: string
+  source_review_ref:
+    type: string
+  approval_type:
+    type: enum
+    allowed: ["approved", "bounded_next_iteration", "approved_with_ablation_required"]
+  approved_next_state:
+    type: string
+  evidence_refs:
+    type: array[string]
+  frozen_claims:
+    type: array[string]
+  summary:
+    type: string

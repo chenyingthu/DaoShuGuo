@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+object_type: "baseline"
+object_id: "baseline.power.task007_missing_runtime.default"
+object_version: "0.1.0"
+created_at: "2026-04-25T16:10:00Z"
+updated_at: "2026-04-25T16:10:00Z"
+status: "active"
+metadata: {}
+task_ref: "task.power.task007_missing_runtime"
+baseline_kind: "placeholder"
+method_summary: "Placeholder baseline for blocked readiness validation."
+artifact_ref:
+  kind: "placeholder"
+  path: "tasks/task007_missing_runtime/baseline.yaml"
+applicability:
+  domain: "power"
+  scenarios: ["task007_missing_runtime"]
+limitations: ["No executable evaluator runtime is provided."]

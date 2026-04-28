@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+object_type: "research_review"
+object_id: "research_review.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:03:00Z"
+updated_at: "2026-04-25T08:03:00Z"
+status: "reviewed"
+metadata:
+  protocol: "research-plan-execute"
+batch_ref: "research_batch.power.ieee33_reactive_opt.0001"
+reviewed_artifact_refs:
+  - "agent_context_pack.power.ieee33_reactive_opt.skill_worker.0001"
+verdict: "real_progress"
+evidence_summary:
+  - "Context pack records worker boundary and evidence references."
+claim_boundary:
+  - "This approves context construction only, not cognition causality."
+required_repairs: []
+required_ablations:
+  - "Compare cognition-guided request with metric-only request before causal claims."
+approval_allowed: false
+summary: "The batch has real protocol progress but causality claims remain frozen."

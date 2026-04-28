@@ -1,0 +1,26 @@
+schema_version: 0.1.0
+object_type: research_batch
+object_id: research_batch.power.ieee69_renewable_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-25T09:31:09Z'
+updated_at: '2026-04-25T09:31:09Z'
+status: ready
+metadata:
+  protocol: research-plan-execute
+  task_package: task003
+  source_case: task003_iter02
+plan_ref: plan.research_plan_execute_protocol
+batch_index: 2
+task_ref: task.power.ieee69_renewable_reactive_opt
+batch_goal: Reconstruct task003 iter02 into auditable worker context packs.
+worker_sequence:
+- skill_worker
+- effectiveness_worker
+- cognition_worker
+- review_worker
+required_outputs:
+- worker_runtime_binding
+- agent_context_pack
+- rendered_prompt
+- execution_ledger
+review_gate_required: true

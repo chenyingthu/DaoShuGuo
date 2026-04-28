@@ -1,0 +1,34 @@
+schema_version: 0.1.0
+object_type: task_readiness_report
+object_id: task_readiness.task009_evaluator_gap
+object_version: 0.1.0
+created_at: '2026-04-25T16:08:36Z'
+updated_at: '2026-04-25T16:08:36Z'
+status: ready
+metadata:
+  protocol: generic-task-onboarding
+task_id: task009_evaluator_gap
+adapter_ref: task_adapter.power.task009_evaluator_gap
+task_ref: task.power.task009_evaluator_gap
+readiness_status: ready_to_run
+recommended_route: run_research_pipeline
+missing_items: []
+available_items:
+- adapters/task009_evaluator_gap.yaml
+- evaluators/task009_evaluator_gap_evaluator.yaml
+- scripts/generic_full_loop_validation_workers.py
+- skill.power.baseline_solver
+- tasks/task009_evaluator_gap/baseline.yaml
+- tasks/task009_evaluator_gap/research_brief.md
+- tasks/task009_evaluator_gap/task.yaml
+blocked_stages: []
+supported_stages:
+- run
+- review
+- evaluator_repair
+evidence_refs:
+- task.power.task009_evaluator_gap
+- task_adapter.power.task009_evaluator_gap
+next_actions:
+- Run generic research pipeline.
+summary: 'task009_evaluator_gap onboarding status: ready_to_run; route: run_research_pipeline'

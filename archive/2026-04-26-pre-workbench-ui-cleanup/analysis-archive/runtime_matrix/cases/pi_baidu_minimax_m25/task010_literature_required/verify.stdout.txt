@@ -1,0 +1,9 @@
+{
+  "task_id": "task010_literature_required",
+  "task_ref": "task.power.task010_literature_required",
+  "backend": "pi_baidu_minimax_m25",
+  "workspace": "analysis/full_loop_validation/runs/pi_baidu_minimax_m25/power.task010_literature_required/iter_0001",
+  "verdict": "passed",
+  "issues": [],
+  "required_objects_present": true
+}

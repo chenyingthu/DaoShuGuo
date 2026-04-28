@@ -1,0 +1,35 @@
+schema_version: 0.1.0
+object_type: task_readiness_report
+object_id: task_readiness.task006_near_neighbor
+object_version: 0.1.0
+created_at: '2026-04-25T16:08:36Z'
+updated_at: '2026-04-25T16:08:36Z'
+status: ready
+metadata:
+  protocol: generic-task-onboarding
+task_id: task006_near_neighbor
+adapter_ref: task_adapter.power.task006_near_neighbor
+task_ref: task.power.task006_near_neighbor
+readiness_status: ready_to_run
+recommended_route: run_research_pipeline
+missing_items: []
+available_items:
+- adapters/task006_near_neighbor.yaml
+- evaluators/task006_near_neighbor_evaluator.yaml
+- scripts/generic_full_loop_validation_workers.py
+- skill.power.baseline_solver
+- tasks/task006_near_neighbor/baseline.yaml
+- tasks/task006_near_neighbor/research_brief.md
+- tasks/task006_near_neighbor/task.yaml
+blocked_stages: []
+supported_stages:
+- run
+- review
+- structural_learning
+- portfolio
+evidence_refs:
+- task.power.task006_near_neighbor
+- task_adapter.power.task006_near_neighbor
+next_actions:
+- Run generic research pipeline.
+summary: 'task006_near_neighbor onboarding status: ready_to_run; route: run_research_pipeline'

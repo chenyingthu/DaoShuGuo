@@ -1,0 +1,37 @@
+schema_version: 0.1.0
+object_type: structural_skill_change_request
+object_id: structural_skill_change_request.power.ieee69_renewable_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-25T12:28:16Z'
+updated_at: '2026-04-25T12:28:16Z'
+status: ready
+metadata:
+  protocol: structural-learning-worker
+  task_package: task003
+task_ref: task.power.ieee69_renewable_reactive_opt
+diagnosis_ref: skill_structure_diagnosis.power.ieee69_renewable_reactive_opt.0002
+target_skill_ref: skill.power.renewable_inverter_reactive_optimizer_task003_iter02
+change_type: mixed_structural_change
+method_changes:
+- Introduce an explicit inverter-Q control-policy principle that justifies candidate
+  selection beyond grid expansion.
+- Separate renewable inverter capability handling from candidate enumeration.
+process_changes:
+- Produce separate artifacts for candidate generation, fixed-budget evaluation, and
+  claim review.
+- Run metric-only tuning baseline before review gate can upgrade skill-structure claims.
+standard_changes:
+- Add fixed-budget ablation and cost/robustness boundary checks.
+- Record whether gains come from method principle, process control, standard change,
+  or usage tuning.
+forbidden_usage_only_shortcuts:
+- Do not only add more Q grid points.
+- Do not increase search budget without a matched baseline.
+- Do not relax constraint_violation or reactive_support_effort interpretation.
+required_validation:
+- Compare structural request against metric-only tuning under the same evaluator and
+  fixed search budget.
+- Report method/process/standard deltas separately.
+- Keep causality and structural-improvement claims frozen until ablation passes.
+claim_boundary:
+- This request authorizes a structural attempt, not a verified structural improvement.

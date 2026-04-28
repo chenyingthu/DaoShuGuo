@@ -1,0 +1,25 @@
+schema_version: "0.1.0"
+object_type: "research_portfolio_assessment"
+object_id: "portfolio_assessment.power.skill_structure.sample"
+object_version: "0.1.0"
+created_at: "2026-04-25T10:45:00Z"
+updated_at: "2026-04-25T10:45:00Z"
+status: "reviewed"
+metadata:
+  protocol: "cross-task-skill-structure"
+assessed_task_refs:
+  - "task.power.ieee33_reactive_opt"
+portfolio_question: "Which tasks deserve further structural skill work?"
+task_assessments:
+  - task_ref: "task.power.ieee33_reactive_opt"
+    recommendation: "continue_with_ablation"
+    rationale: "Sample shows how a task-level portfolio decision is represented."
+cross_task_findings:
+  - "Do not continue a local task loop without structural opportunity evidence."
+recommended_allocation:
+  - "Allocate work to tasks with structural potential and clear validation path."
+stop_or_pause_recommendations:
+  - "Pause tasks that only support usage tuning."
+next_tests:
+  - "Run fixed-budget ablation."
+summary: "Sample portfolio assessment object."

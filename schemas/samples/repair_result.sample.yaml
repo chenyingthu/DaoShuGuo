@@ -1,0 +1,17 @@
+schema_version: "0.1.0"
+object_type: "repair_result"
+object_id: "repair_result.power.ieee33_reactive_opt.0001"
+object_version: "0.1.0"
+created_at: "2026-04-25T08:05:00Z"
+updated_at: "2026-04-25T08:05:00Z"
+status: "completed"
+metadata:
+  protocol: "research-plan-execute"
+repair_request_ref: "repair_request.power.ieee33_reactive_opt.0001"
+changed_artifact_refs:
+  - "agent_context_pack.power.ieee33_reactive_opt.skill_worker.0001"
+verification_refs:
+  - "execution_ledger.power.ieee33_reactive_opt.0001"
+repair_summary: "Added review history reference to the context pack."
+remaining_risks:
+  - "Worker output still requires independent review gate."

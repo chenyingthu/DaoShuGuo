@@ -1,0 +1,40 @@
+schema_version: 0.1.0
+object_type: learning_need
+object_id: learning_need.power.ieee69_renewable_reactive_opt.0002
+object_version: 0.1.0
+created_at: '2026-04-25T12:28:16Z'
+updated_at: '2026-04-25T12:28:16Z'
+status: ready
+metadata:
+  protocol: structural-learning-worker
+  task_package: task003
+  source_verdict: approved_with_ablation_required
+task_ref: task.power.ieee69_renewable_reactive_opt
+source_review_ref: research_review.power.ieee69_renewable_reactive_opt.0002
+observation_type: skill_use_improvement
+skill_dimension_focus:
+- method
+- process
+- standard
+learning_questions:
+- What method principle could explain the observed inverter-Q improvement beyond search-envelope
+  expansion?
+- What process should separate candidate generation, evaluation, and claim review?
+- What standard is needed to distinguish structural skill improvement from skill-use
+  tuning?
+required_source_types:
+- method_card
+- paper_record
+- code_reference
+exclusion_criteria:
+- Do not use sources without applicability boundary.
+- Do not use metric-only gains as method principles.
+- Do not lower evaluator criteria to create progress.
+success_criteria:
+- Identify at least one candidate method principle.
+- Identify at least one process improvement target.
+- Identify at least one standard/evaluator improvement target.
+claim_boundary:
+- This learning need does not prove structural skill improvement.
+- The strongest current claim remains skill-use improvement under task003 single-condition
+  evidence.
