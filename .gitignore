@@ -25,7 +25,9 @@ __pycache__/
 # Node.js
 # ============================================================================
 node_modules/
+node_modules
 pi-packages/**/node_modules/
+pi-packages/**/node_modules
 *.log
 npm-debug.log*
 
